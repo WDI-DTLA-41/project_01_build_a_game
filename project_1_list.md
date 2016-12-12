@@ -5,12 +5,12 @@
 | Margie    |         |
 | Mimi   |          |    
 | Kris    |       |
-| Dakotah    |        |    
+| Dakotah    |  [Dakotah's Repo](https://github.com/walkerdakotah/project_01_build_a_game)      |    
 | Justin  |   |
 | Michelle | [Michelle's Repo](https://github.com/miblee/project_01_build_a_game)   |   
 | Bao      |  |
 | Ritwick     | [Ritwik's Repo](https://github.com/ritz1337/project_01_build_a_game)  |              
-| Tim      |    |        
+| Tim      | [Tim's Repo](https://github.com/crimclark/project_01_build_a_game)   |        
 | Qian  |    |
 | Brad    |  [Brad's Repo](https://github.com/bkmorgan3/project_01_build_a_game)       |
 | Abi     |          |    
