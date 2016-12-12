@@ -14,8 +14,8 @@
 | Qian  | [Qian's Repo](https://github.com/Hesai69/project_01_build_a_game)   |
 | Brad    |  [Brad's Repo](https://github.com/bkmorgan3/project_01_build_a_game)       |
 | Abi     |          |    
-| James    |  [Lacey's Repo](https://github.com/lacerbeams/project_01_build_a_game)     |
-| Lacey    |        |    
+| James    |       |
+| Lacey    | [Lacey's Repo](https://github.com/lacerbeams/project_01_build_a_game)       |    
 | Roney    | [Roney's Repo](https://github.com/ronyarmas/project_01_build_a_game)   |
 | Jake | [Jake's Repo](https://github.com/jmiller-io/project_01_build_a_game)    |   
 | Kora     | [Kora's Repo](https://github.com/trashdaemon/project_01_build_a_game) |
