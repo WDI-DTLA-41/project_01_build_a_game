@@ -8,6 +8,6 @@ bars.forEach.call(document.querySelectorAll('.bar'), function(e){
 
 board.addEventListener('click', function(e){
   if (e.target.classList.contains('h') || e.target.classList.contains('v')){
-    e.target.classList.toggle('clicked-bar');
+    e.target.classList.add('clicked-bar');
   }
 });
