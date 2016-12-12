@@ -59,11 +59,12 @@
 | TA-Student | Time | 
 |:-------------: | :-------------: |
 | Adam- Kora | 2:00pm -2:20pm | 
-| Adam-Bao | 2:30pm -2:50pm |
+| Adam-Bao | 2:20pm -2:40pm |
 | Adam-Rony | 3:00pm -3:20pm | 
-| Adam-Ritwick | 3:30pm -3:50pm |
-| Adam-Justin | 4:00pm-4:20pm  |
-| Adam-Dakotah | 4:3pm -4:50pm |
+| Adam-Ritwick | 3:20pm -3:40pm |
+| Adam-Justin | 3:40pm-4:00pm  |
+| Adam-Dakotah | 4:00pm -4:20pm |
+| Adam-Kris | 4:20pm -4:40pm |
 ---
 
 ### **Thursday (12/15)**
