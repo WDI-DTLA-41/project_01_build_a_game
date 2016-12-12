@@ -1,0 +1,13 @@
+body {
+  background: silver;
+}
+.slot {
+  background: white;
+  height: 150px;
+  width: 100px;
+  display: inline-block;
+  border-radius: 10px;
+}
+.bet {
+  display: inline-block;
+}
