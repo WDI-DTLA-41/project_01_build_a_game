@@ -2,7 +2,7 @@
 
 | Monday (12/12)         | Tuesday (12/13)         | Wednesday (12/14)                 | Thursday (12/15)         | Friday (12/16) | Saturday (12/17) | Sunday (12/18) | Monday (12/19) |
 | :-------------: |:-------------:   | :-------------:     | :-------------:   | :-------------: | :-------------: | :-------------: |  :-------------: |
-| PROJECT KICKOFF- Working on prompts,  Wireframing, Pseudocoding | START CODING- one-on-one check-ins(10 minutes/each student)     | INSTRUCTOR-STUDENT PAIRING - See Schedule Below | INSTRUCTOR-STUDENT PAIRING - See Schedule Below | GUT CHECK- one-on-ones(10 minutes/each student), see student progress, and Squad presentations  |  KEEP WORKING ON THE PROJECT | KEEP WORKING | STUDENT PRESENTATIONS
+| PROJECT KICKOFF- Working on prompts,  Wireframing, Pseudocoding | START CODING, Morning: one-on-one check-ins(10 minutes/each student), Afternoon: TA-student pairing     | INSTRUCTOR-STUDENT PAIRING - See Schedule Below, ), Afternoon: TA-student pairing  | INSTRUCTOR-STUDENT PAIRING - See Schedule Below, ), Afternoon: TA-student pairing  | GUT CHECK- one-on-ones(10 minutes/each student), see student progress, and Squad presentations  |  KEEP WORKING ON THE PROJECT | KEEP WORKING | STUDENT PRESENTATIONS
 
 ---
 
