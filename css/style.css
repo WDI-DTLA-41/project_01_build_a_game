@@ -1,0 +1,70 @@
+h1 {
+  display: inline-block;
+  font-family: 'Trade Winds', cursive;
+
+}
+
+button {
+  display: inline-block;
+  position: absolute;
+  left: 300px;
+  top: 50px;
+  font-family: 'Trade Winds', cursive;
+  height: 50px;
+  width: 150px;
+}
+
+button:hover {
+  background: red;
+}
+
+div {
+  position: absolute;
+}
+
+.head {
+  left: 190px;
+  top: 117px;
+}
+
+.body {
+  left: 190px;
+  top: 150px;
+}
+
+.leftarm {
+  left: 175px;
+  top: 160px;
+}
+
+.rightarm {
+  left: 222px;
+  top: 156px;
+}
+
+.leftleg {
+  left: 190px;
+  top: 205px;
+}
+
+.rightleg {
+  left: 212px;
+  top:205px;
+}
+
+.letters {
+  font-size: 40px;
+  left: 400px;
+  top: 270px;
+}
+
+.guessed {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  border: 2px solid black;
+  left: 550px;
+  top: 50px;
+  font-family: 'Trade Winds', cursive;
+  text-align: center;
+}
