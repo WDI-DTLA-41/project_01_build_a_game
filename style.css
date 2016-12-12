@@ -2,7 +2,7 @@
   display: inline-block;
   width: 420px;
   height: 420px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   background-image: url(assets/dots-n-boxes-grid.png);
 }
 .square {
