@@ -20,5 +20,5 @@
 | Jake |    |   
 | Kora     |  |
 | An     |   |              
-| Andrew      |    |        
+| Andrew      |  [Andrew's Repo](https://github.com/amaidah/project_01_build_a_game)  |        
 | Barrett  |    |
