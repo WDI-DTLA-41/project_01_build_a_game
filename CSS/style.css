@@ -1,0 +1,44 @@
+body {
+  background-color: teal;
+}
+
+#game-container {
+  background-color: black;
+  height: 250px;
+  width: 250px;
+ /* border-radius: 125px;*/
+}
+
+.colorbtn {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  position: relative;
+  left: 75px;
+  top: 75px;
+}
+
+#row-1 {
+  float:left;
+}
+
+#row-2 {
+  float:left;
+}
+
+
+#green {
+  background-color: green;
+}
+
+#red {
+  background-color: red;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#blue {
+  background-color: blue;
+}
