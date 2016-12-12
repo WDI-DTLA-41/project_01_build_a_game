@@ -56,7 +56,7 @@
 
 # **TA-Student Pairing**
 ## **Wednesday (12/14)**            
-| TA-Student | Time | Instructor-Student | Time |  
+| TA-Student | Time | 
 |:-------------: | :-------------: |
 | Adam- Kora | 2:00pm -2:20pm | 
 | Adam-Bao | 2:30pm -2:50pm |
@@ -88,7 +88,7 @@
 
 # **TA-Student Pairing**
 ## **Thursday (12/15)**            
-| TA-Student | Time | Instructor-Student | Time |  
+| TA-Student | Time |
 |:-------------: | :-------------: |
 | Adam-Tim | 2:00pm -2:20pm | 
 | Adam-Jake | 2:20pm -2:40pm |  
