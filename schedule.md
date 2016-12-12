@@ -21,6 +21,17 @@
 | Boshika-Qian | 12:00pm -12:10pm | Phil-Brad | 12:00pm -12:10pm |
 | Boshika-Mimi | 12:10pm -12:20pm | Phil-James | 12:10pm -12:20pm |
  
+ # **TA-Student Pairing**
+## **Tuesday (12/13)**            
+| TA-Student | Time | Instructor-Student | Time |  
+|:-------------: | :-------------: |
+| Adam-Margie | 2:00pm -2:20pm | 
+| Adam-Brad | 2:30pm -2:50pm |
+| Adam-Mimi | 3:00pm -3:20pm |
+| Adam-Abi | 3:30pm -3:50pm  |
+| Adam-Michelle | 4:00pm -4:20pm |
+| Adam-An | 4:30pm -4:50pm | 
+
 ---
 
 # **INSTRUCTOR-STUDENT PAIRING SCHEDULE**
@@ -43,6 +54,16 @@
 | Michelle | 11:30am -11:50am |
 | An | 12:00pm -12:20pm |
 
+# **TA-Student Pairing**
+## **Wednesday (12/14)**            
+| TA-Student | Time | Instructor-Student | Time |  
+|:-------------: | :-------------: |
+| Adam- Kora | 2:00pm -2:20pm | 
+| Adam-Bao | 2:30pm -2:50pm |
+| Adam-Rony | 3:00pm -3:20pm | 
+| Adam-Ritwick | 3:30pm -3:50pm |
+| Adam-Justin | 4:00pm-4:20pm  |
+| Adam-Dakotah | 4:3pm -4:50pm |
 ---
 
 ### **Thursday (12/15)**
@@ -65,7 +86,17 @@
 | Qian | 11:30am -11:50am |
 | Mimi | 12:00pm -12:20pm |
 
-
+# **TA-Student Pairing**
+## **Thursday (12/15)**            
+| TA-Student | Time | Instructor-Student | Time |  
+|:-------------: | :-------------: |
+| Adam-Tim | 2:00pm -2:20pm | 
+| Adam-Jake | 2:20pm -2:40pm |  
+| Adam-Andrew | 2:40pm -3:00pm |
+| Adam-Lacey | 3:00pm- 3:20pm | 
+| Adam-Barrett | 3:20pm -3:40pm |
+| Adam-Qian | 3:40pm -4:00pm
+| Adam-James | 4:00pm -4:20pm |
 ---
 
 # **Instructor-Student Gut check**
