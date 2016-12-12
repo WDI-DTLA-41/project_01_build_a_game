@@ -114,6 +114,7 @@ From 2:00pm-5:00pm
 | Andrew | 12:30pm -12:35pm |
 | James | 12:40pm -12:45pm |
 | Barrett | 12:50pm -12:55pm |
+| Kora | 1:00pm -1:05pm |
 
 
 
