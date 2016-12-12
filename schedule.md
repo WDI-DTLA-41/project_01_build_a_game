@@ -21,9 +21,9 @@
 | Boshika-Qian | 12:00pm -12:10pm | Phil-Brad | 12:00pm -12:10pm |
 | Boshika-Mimi | 12:10pm -12:20pm | Phil-James | 12:10pm -12:20pm |
  
- # **TA-Student Pairing**
+# **TA-Student Pairing**
 ## **Tuesday (12/13)**            
-| TA-Student | Time | Instructor-Student | Time |  
+| TA-Student | Time | 
 |:-------------: | :-------------: |
 | Adam-Margie | 2:00pm -2:20pm | 
 | Adam-Brad | 2:30pm -2:50pm |
