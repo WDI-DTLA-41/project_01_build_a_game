@@ -9,7 +9,7 @@
 | Justin  |   |
 | Michelle | [Michelle's Repo](https://github.com/miblee/project_01_build_a_game)   |   
 | Bao      |  |
-| Ritwick     |   |              
+| Ritwick     | [Ritwik's Repo](https://github.com/ritz1337/project_01_build_a_game)  |              
 | Tim      |    |        
 | Qian  |    |
 | Brad    |  [Brad's Repo](https://github.com/bkmorgan3/project_01_build_a_game)       |
