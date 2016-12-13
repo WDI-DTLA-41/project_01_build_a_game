@@ -1,13 +1,25 @@
 body {
   background: silver;
+  font-family: Arial, sans-serif;
 }
 .slot {
-  background: white;
   height: 150px;
   width: 100px;
   display: inline-block;
   border-radius: 10px;
 }
-.bet {
+.empty {
+  background: white;
+}
+/*.bet {
   display: inline-block;
+}*/
+.red {
+  background: pink;
+}
+.blue {
+  background: turquoise;
+}
+.yellow {
+  background: gold;
 }
