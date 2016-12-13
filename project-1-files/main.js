@@ -9,11 +9,7 @@ var one = document.querySelector(".one");
 var two = document.querySelector(".two");
 var three = document.querySelector(".three");
 
-// vars for setting/removing each card class
-// .classList.remove("empty");
-// .classList.add("red");
-// .classList.add("blue");
-// .classList.add("yellow");
+var spin = document.querySelector(".spin");
 
 // vars for each card class / array item
 // var red = document.classList.contains("red");
@@ -23,33 +19,40 @@ var three = document.querySelector(".three");
 // ARRAY: Store class colors here
 var colors = ["red", "blue", "yellow"];
 
-// RANDOMLY SELECTS A CLASS COLOR
-var selectColor = function() {
-  colors[Math.floor(Math.random() * colors.length)];
-}
-console.log(selectColor());
-// var selected = selectColor.value;
-
-
-// LOOPING THROUGH THE SLOTS
-var emptySlot = document.getElementsByClassName("empty");
-for (var i=0; i < emptySlot.length; i++) {
-  console.log(emptySlot[i].classList);
-  emptySlot[i].classList = selectColor();
-
-}
-
 
 
 // =============================================
 //    "SPINNING" THE REEL
 // =============================================
 
+var handleSpin = function(event) {
+// SELECT TH
+var emptySlot = document.getElementsByClassName("empty");
+// FOR EACH SLOT, LOOP THROUGH ARRAY OF "CARDS"
+  for (var i=0; i < emptySlot.length; i++) {
+    // RANDOMLY SELECTS A CLASS COLOR
+    var selectColor = function() {
+    // RETURN THE COLOR VALUE
+    return colors[Math.floor(Math.random() * colors.length)];
+    }
+    // STORE RANDOMLY SELECTED VALUE INTO VARIABLE
+    var selected = selectColor();
+    console.log(selected);
+    // SET THE VARIABLE VALUE AS A CLASS
+    emptySlot[i].classList.add(selected);
+    console.log(emptySlot[i].classList);
+  }
+};
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**
+spin.addEventListener("click", handleSpin);
 
 
-// FOR EACH SLOT, LOOP THROUGH ARRAY OF "CARDS"
+
+
+
+
+
 
 
 
