@@ -1,0 +1,12 @@
+div {
+  display: inline-block;
+}
+
+.card-stack {
+  height: 200px;
+  width: 150px;
+  background-color: red;
+  margin: 20px;
+  display: auto, 0;
+}
+
