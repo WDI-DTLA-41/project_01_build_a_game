@@ -1,5 +1,7 @@
 tr{
   display:inline-block;
+  margin: 10px;
+  background: black;
 }
 
 table{
@@ -27,5 +29,6 @@ td {
   width: 75px;
   height: 75px;
   display: block;
+  border-radius: 70px;
 }
 

@@ -1,10 +1,11 @@
 // query selector
-var tr = document.querySelectorAll('tr');
 var td = document.querySelectorAll('td');
 var color1 = 'color1';
 var color2 = 'color2';
 var colorHolder = color1;
 var button = document.querySelector('button');
+
+
 
 
 // add class on click
@@ -38,19 +39,14 @@ td.forEach(function(element){
 
 
 
+  ////////////////////////////////////////////////////// HOW DO I RETURN AN ARRAY TR?
 
-// create array for td
-tr.forEach(function(element){
-  console.log(element);
-  ////////////////////////////////////////////////////// HOW DO I RETURN AN ARRAY?
-
-});
-
+var column = document.querySelector('.c1');
+for (var i = 0; i < column.lenth; i++) {
+   console.log(i);
+}
 
 
-// if (document.querySelector('.color1')) {
-//   return true;
-// } else ()
 
 
 
