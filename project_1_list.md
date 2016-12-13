@@ -21,4 +21,4 @@
 | Kora     | Connect 4 | Kora's Repo](https://github.com/trashdaemon/project_01_build_a_game) |
 | An     | Slot Wars| [An's Repo](https://github.com/secretagentan/project_01_build_a_game) |              
 | Andrew      | Blackjack | [Andrew's Repo](https://github.com/amaidah/project_01_build_a_game)  |        
-| Barrett  |  | [Barrett's Repo](https://github.com/yeahbq/project_01_build_a_game)   |
+| Barrett  | Connect 4 | [Barrett's Repo](https://github.com/yeahbq/project_01_build_a_game)   |
