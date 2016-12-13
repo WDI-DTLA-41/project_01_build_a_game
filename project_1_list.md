@@ -5,8 +5,8 @@
 | Margie    |   war      | |
 | Mimi   | BlackJack | [Mimi's Repo](https://github.com/mimischirm/project_01_build_a_game)        |    
 | Kris    | Simon | [Kris's Repo](https://github.com/Krystneto/project_01_build_a_game)      |
-| Dakotah    |  [Dakotah's Repo](https://github.com/walkerdakotah/project_01_build_a_game)      |    
-| Justin  | [Justin's Repo](https://github.com/blizm87/project_01_build_a_game)  |
+| Dakotah    | war | [Dakotah's Repo](https://github.com/walkerdakotah/project_01_build_a_game)      |    
+| Justin  | connect 4 | [Justin's Repo](https://github.com/blizm87/project_01_build_a_game)  |
 | Michelle | Simon | [Michelle's Repo](https://github.com/miblee/project_01_build_a_game)   |   
 | Bao      | war |[Bao's Repo](https://github.com/baokhoavu/project_01_build_a_game) |
 | Ritwick     | Blackjack | [Ritwik's Repo](https://github.com/ritz1337/project_01_build_a_game)  |              
