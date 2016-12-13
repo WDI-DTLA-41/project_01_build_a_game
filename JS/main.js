@@ -14,7 +14,7 @@ var timerId2 = null;
 var timerId3 = null;
 var timerId4 = null;
 var counterVal = parseInt(counter.textContent);
-var squenceArr = [];
+var sequenceArr = [];
 
 
 
@@ -29,25 +29,29 @@ var randomGen = function() {
 
 // test function for all color changes
 var fourColorFlash = function () {
-  greenBtn.style.backgroundColor = 'white';
-  timerId1 = setTimeout(function() {
-  greenBtn.style.backgroundColor = 'green';
-  },250);
-
-  redBtn.style.backgroundColor = 'white';
-  timerId2 = setTimeout(function() {
-  redBtn.style.backgroundColor = 'red';
-  },250);
-
-  yellowBtn.style.backgroundColor = 'white';
-  timerId3 = setTimeout(function() {
-  yellowBtn.style.backgroundColor = 'yellow';
-  },250);
-
-  blueBtn.style.backgroundColor = 'white';
-  timerId4 = setTimeout(function() {
-  blueBtn.style.backgroundColor = 'blue';
-  },250);
+  sequence = randomGen();
+  if (sequence === 1) {
+    greenBtn.style.backgroundColor = 'white';
+    timerId1 = setTimeout(function() {
+    greenBtn.style.backgroundColor = 'green';
+    },250);
+  } else if (sequence === 2) {
+    redBtn.style.backgroundColor = 'white';
+    timerId2 = setTimeout(function() {
+    redBtn.style.backgroundColor = 'red';
+    },250);
+  } else if (sequence === 3) {
+    yellowBtn.style.backgroundColor = 'white';
+    timerId3 = setTimeout(function() {
+    yellowBtn.style.backgroundColor = 'yellow';
+    },250);
+  } else {
+    blueBtn.style.backgroundColor = 'white';
+    timerId4 = setTimeout(function() {
+    blueBtn.style.backgroundColor = 'blue';
+    },250);
+  }
+  sequenceArr.push(sequence);
 };
 
 // adds to the counter for each function loop
