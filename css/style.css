@@ -18,6 +18,19 @@ button:hover {
   background: red;
 }
 
+.submit {
+  top: 100px;
+  width: 100px;
+  height: 20px;
+  left: 400px;
+}
+
+input {
+  position: absolute;
+  top: 100px;
+  left: 250px;
+}
+
 div {
   position: absolute;
 }
@@ -25,37 +38,37 @@ div {
 .head {
   left: 190px;
   top: 137px;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .body {
   left: 190px;
   top: 170px;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .leftarm {
   left: 175px;
   top: 180px;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .rightarm {
   left: 222px;
   top: 176px;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .leftleg {
   left: 190px;
   top: 225px;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .rightleg {
   left: 212px;
   top:225px;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .letters {
