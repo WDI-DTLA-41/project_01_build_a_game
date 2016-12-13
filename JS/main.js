@@ -15,7 +15,7 @@ var timerId3 = null;
 var timerId4 = null;
 var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
-
+var userInput = [];
 
 
 
@@ -52,7 +52,9 @@ var fourColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
+  btnContainer.addEventListener('click', handleUserInput);
 };
+
 
 // adds to the counter for each function loop
 var addCounter = function() {
@@ -60,29 +62,59 @@ var addCounter = function() {
   counter.textContent = counterVal;
 };
 
+
 // resets the Counter back to 0
 var resetCounter = function() {
   counter.textContent = 0;
-}
+};
+
+
 // gameOver function when userInput is incorrect
 var gameOver = function() {
   // playing gameOver audio file
   resetCounter();
 };
 
+
 // handle start game
 var handleStartGame = function() {
   addCounter();
-  console.log(Math.floor);
   timerId0 = setTimeout(fourColorFlash,1000);
 };
 
+
+var handleUserInput = function(event) {
+  console.log(event.target.dataset.number);
+  var userInputInt = (event.target.dataset.number);
+  console.log(userInputInt);
+  if (userInputInt === greenBtn.dataset.number) {
+    return userInput.push(1);
+  } else if (userInputInt === redBtn.dataset.number) {
+    return userInput.push(2);
+  } else if (userInputInt === yellowBtn.dataset.number) {
+    return userInput.push(3);
+  } else {
+    return userInput.push(4);
+  }
+
+
+
+
+
+
+  // if (userInput === sequenceArr) {
+  //   return fourColorFlash();
+  // } else {
+  //   gameOver();
+  //   return console.log("You lose!");
+  // }
+}
 
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
 
 // add EventListener for userInputs
-// btnContainer.addEventListener('click', );
+btnContainer.addEventListener('click', handleUserInput);
 
 
 
