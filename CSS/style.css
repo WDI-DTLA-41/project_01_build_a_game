@@ -23,6 +23,7 @@ body {
   right: 50px;
   bottom: 50px;
 }
+
 #col-1 {
   float:left;
 }
@@ -76,9 +77,17 @@ body {
   background-color:;
 }
 
+#counter {
+  height:20px;
+  width: 40px;
+  background-color: gray;
+  color: red;
+  display:left;
+}
 
-
-
+#start {
+  background-color: red;
+}
 
 
 
