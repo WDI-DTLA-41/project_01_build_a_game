@@ -16,24 +16,35 @@ var timerId4 = null;
 var counterVal = parseInt(counter.textContent);
 var squenceArr = [];
 
+
+
+
+
+
+// random number generator bet
+var randomGen = function() {
+  return Math.ceil(Math.random()*4);
+}
+
+
 // test function for all color changes
 var fourColorFlash = function () {
-  greenBtn.style.backgroundColor = 'red';
+  greenBtn.style.backgroundColor = 'white';
   timerId1 = setTimeout(function() {
   greenBtn.style.backgroundColor = 'green';
   },250);
 
-  redBtn.style.backgroundColor = 'blue';
+  redBtn.style.backgroundColor = 'white';
   timerId2 = setTimeout(function() {
   redBtn.style.backgroundColor = 'red';
   },250);
 
-  yellowBtn.style.backgroundColor = 'green';
+  yellowBtn.style.backgroundColor = 'white';
   timerId3 = setTimeout(function() {
   yellowBtn.style.backgroundColor = 'yellow';
   },250);
 
-  blueBtn.style.backgroundColor = 'yellow';
+  blueBtn.style.backgroundColor = 'white';
   timerId4 = setTimeout(function() {
   blueBtn.style.backgroundColor = 'blue';
   },250);
@@ -45,6 +56,7 @@ var addCounter = function() {
   counter.textContent = counterVal;
 };
 
+// resets the Counter back to 0
 var resetCounter = function() {
   counter.textContent = 0;
 }
@@ -57,6 +69,7 @@ var gameOver = function() {
 // handle start game
 var handleStartGame = function() {
   addCounter();
+  console.log(Math.floor);
   timerId0 = setTimeout(fourColorFlash,1000);
 };
 
