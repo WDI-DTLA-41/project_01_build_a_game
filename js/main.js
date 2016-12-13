@@ -17,6 +17,9 @@ var submit = document.querySelector('.submit');
 var j = 0;
 var underscores = [];
 var placeholders;
+var guessed = [];
+var guessedBox = document.querySelector('.guessed')
+var resetButton = document.querySelector('.reset');
 
 
 function getLetter(){
@@ -53,6 +56,8 @@ function getWord(evt) {
     return;
   } else {
     console.log('no');
+    guessed.push(letter);
+    guessedBox.innerHTML = 'Guessed:<br>' + guessed;
     skeleton[j].style.visibility = "visible";
     j = j + 1;
     return;
@@ -60,6 +65,16 @@ function getWord(evt) {
 }
 }
 
+function reset(evt) {
+  guessedBox.innerHTML = 'Guessed:';
+  placeholders.textContent = '';
+  for (k = 0; k < skeleton.length; k++){
+    skeleton[k].style.visibility = "hidden";
+  }
+  playWord = null;
+}
+
 
 button.addEventListener('click', getWord);
 submit.addEventListener('click', getLetter);
+resetButton.addEventListener('click', reset)
