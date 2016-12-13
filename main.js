@@ -26,10 +26,14 @@ var handleSpin = function(event) {
   three.setAttribute("id", "spin-three");
 
   // DETECT AND SELECT EACH "SLOT" DIV IN DOCUMENT
-  var emptySlot = document.getElementsByTagName("div");
+    var slots = document.getElementsByTagName("div");
+
+    var oneVal;
+    var twoVal;
+    var threeVal;
 
   // FOR EACH SLOT, LOOP THROUGH ARRAY OF "COLORS"
-  for (var i=0; i < emptySlot.length; i++) {
+    for (var i=0; i < slots.length; i++) {
 
     // RANDOMLY SELECTS A COLOR FROM ARRAY
     var selectColor = function() {
@@ -37,24 +41,53 @@ var handleSpin = function(event) {
     // RETURNS THE COLOR VALUE
     return colors[Math.floor(Math.random() * colors.length)];
     }
+
     // STORES COLOR VALUE INTO VARIABLE
     var selected = selectColor();
-    console.log(selected);
+    // console.log(selected);
 
     // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
-    emptySlot[i].classList.add(selected);
-    console.log(emptySlot[i].classList);
-  }
+    slots[i].classList.add(selected);
+    console.log(slots[i].classList);
 
-  var compareSlots = function() {
-    if ((one.classList == two.classList) && (one.classList == three.classList) && (two.classList == three.classList)) {
-      console.log("winner!");
-    } else {
-      console.log("you lose :(");
+    // grab the classes of each slot and store into variables as values
+    var oneVal = slots[0].classList.value;
+    var twoVal = slots[1].classList.value;
+    var threeVal = slots[2].classList.value;
+    console.log(oneVal);
+    console.log(twoVal);
+    console.log(threeVal);
+
+    var compareSlots = function() {
+      // compare the values for 3-way match
+      if (oneVal == twoVal && oneVal == threeVal && twoVal == threeVal) {
+        console.log("winner!");
+      } else {
+        console.log("you lose :(");
+      }
     }
-  }
 
+  // var resetSlots = function() {
+  //   if (slots[i].classList.contains("red")) {
+  //     slots[i].classList.remove("red");
+  //   }
+  //   if (slots[i].classList.contains("blue")) {
+  //     slots[i].classList.remove("blue");
+  //   }
+  //   if (slots[i].classList.contains("yellow")) {
+  //     slots[i].classList.remove("yellow");
+  //   }
+  //   if (slots[i].classList.contains("purple")) {
+  //     slots[i].classList.remove("purple");
+  //   }
+  //   if (slots[i].classList.contains("green")) {
+  //     slots[i].classList.remove("green");
+  //   }
+  //   console.log(slots[i].classList);
+  // }
   compareSlots();
+
+  }
 
 };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
