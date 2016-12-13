@@ -7,7 +7,7 @@ var yellowBtn = document.querySelector('#yellow');
 var blueBtn = document.querySelector('#blue');
 var startBtn = document.querySelector('#start');
 var counter = document.querySelector('#counter');
-
+var timerID = null;
 
 
 
@@ -29,9 +29,12 @@ var counter = document.querySelector('#counter');
 
 
 // handle start game
-var handleStartGame = function(){
-  greenBtn.style.removeProperty('background-color');
-  greenBtn.classList.toggle('flash-green');
+var handleStartGame = function()  {
+  greenBtn.style.backgroundColor = 'red';
+  timerId = setTimeout(function() {
+  greenBtn.style.backgroundColor = 'green';
+  },250);
+  // greenBtn.classList.toggle('flash-green');
 };
 
 
