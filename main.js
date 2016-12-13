@@ -19,22 +19,46 @@ function shuffleArray(array) {
 
 // function to compare cards
 function compareCards() {
+
     if (cardPlayed1 > cardPlayed2) {
-          console.log('Player 1 wins card!');
+          //logic here to add card back
+          // remove cards from players' hands
+          var removedCard1 = cardsSplitHalf1.shift();
+          var removedCard2 = cardsSplitHalf2.shift();
+          // add to bottom of winner's pile
+          cardsSplitHalf1.push(removedCard1,removedCard2);
+          // helper to visualize
+          console.log(cardsSplitHalf1);
+          console.log(cardsSplitHalf2);
+          return 'Winner is Player 1';
+
+
         }
         else if (cardPlayed1 < cardPlayed2) {
-          console.log('Player 2 wins card!');
+          //logic here to add card back
+                    // remove cards from players' hands
+          var removedCard1 = cardsSplitHalf1.shift();
+          var removedCard2 = cardsSplitHalf2.shift();
+          // add to bottom of winner's pile
+          cardsSplitHalf2.push(removedCard1,removedCard2);
+          // helper to visualize
+          console.log(cardsSplitHalf1);
+          console.log(cardsSplitHalf2);
+          return 'Winner is Player 2';
         }
-        // else {
-        //   console.log('War!');
-        // }
+        else {
+          // 1- loop back to compareCards until different vals
+          // 2- cards get added to winner card deck on back end
+          // compareCards();
+          // // remove cards from players' hands
+          // var removedCard1 = cardsSplitHalf1.shift();
+          // var removedCard2 = cardsSplitHalf2.shift();
+          // // add to bottom of winner's pile
+          // cardsSplitHalf1.push(removedCard1,removedCard2);
+
+          return 'War!';
+        }
   }
-
-
-
-
-
-
 
 
 
@@ -58,12 +82,27 @@ shuffleArray(deckOfCards);
 var cardsSplitHalf1 = deckOfCards.slice(0,25);
 var cardsSplitHalf2 = deckOfCards.slice(26,51);
 
+
 // assign cards to player 1 and 2?
 var cardPlayed1 = cardsSplitHalf1[0];
 var cardPlayed2 = cardsSplitHalf2[0];
+
 var player1Pile;
 var Player2Pile;
 compareCards();
+
+// subtract one card from deck (loser of card draw)
+
+// add two cards to deck (winner of card drawer)
+
+
+// subtract 10 cards from deck (loser of war)
+
+
+// add 6 cards to deck (winner of War)
+
+
+
 
 
 
