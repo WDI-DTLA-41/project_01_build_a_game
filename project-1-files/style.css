@@ -2,7 +2,7 @@ body {
   background: silver;
   font-family: Arial, sans-serif;
 }
-.slot {
+div {
   height: 150px;
   width: 100px;
   display: inline-block;
@@ -22,4 +22,58 @@ body {
 }
 .yellow {
   background: gold;
+}
+.purple {
+  background: thistle;
+}
+.green {
+  background: palegreen;
+}
+.spin {
+  display: block;
+}
+
+/* "REEL SPIN" ANIMATION*/
+#one {
+  position: relative;
+  -webkit-animation-name: reel-spin;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 3;
+  animation-name: reel-spin;
+  animation-duration: .5s;
+  animation-iteration-count: 3s;
+}
+#two {
+  position: relative;
+  -webkit-animation-name: reel-spin;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 6;
+  animation-name: reel-spin;
+  animation-duration: .5s;
+  animation-iteration-count: 3s;
+}
+#three {
+  position: relative;
+  -webkit-animation-name: reel-spin;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 12;
+  animation-name: reel-spin;
+  animation-duration: .5s;
+  animation-iteration-count: 3s;
+}
+@-webkit-keyframes reel-spin {
+  0%   {background-color:pink;}
+  20%  {background-color:gold;}
+  40%  {background-color:palegreen;}
+  60%  {background-color:turquoise;}
+  80%  {background-color:thistle;}
+  100% {background-color:pink;}
+}
+@keyframes reel-spin {
+  0%   {background-color:pink;}
+  20%  {background-color:gold;}
+  40%  {background-color:palegreen;}
+  60%  {background-color:turquoise;}
+  80%  {background-color:thistle;}
+  100% {background-color:pink;}
 }
