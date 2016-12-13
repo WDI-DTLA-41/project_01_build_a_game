@@ -7,19 +7,42 @@ var yellowBtn = document.querySelector('#yellow');
 var blueBtn = document.querySelector('#blue');
 var startBtn = document.querySelector('#start');
 var counter = document.querySelector('#counter');
-var timerID = null;
+var timerId1 = null;
+var timerId2 = null;
+var timerId3 = null;
+var timerId4 = null;
+var counterVal = parseInt(counter.textContent);
 
 
 
 
 
 
+var fourColorFlash = function () {
+  greenBtn.style.backgroundColor = 'red';
+  timerId1 = setTimeout(function() {
+  greenBtn.style.backgroundColor = 'green';
+  },250);
 
+  redBtn.style.backgroundColor = 'blue';
+  timerId2 = setTimeout(function() {
+  redBtn.style.backgroundColor = 'red';
+  },250);
 
+  yellowBtn.style.backgroundColor = 'green';
+  timerId3 = setTimeout(function() {
+  yellowBtn.style.backgroundColor = 'yellow';
+  },250);
 
+  blueBtn.style.backgroundColor = 'yellow';
+  timerId4 = setTimeout(function() {
+  blueBtn.style.backgroundColor = 'blue';
+  },250);
+};
 
-
-
+var addCounter = function() {
+  console.log(counterVal);
+}
 
 
 
@@ -30,10 +53,13 @@ var timerID = null;
 
 // handle start game
 var handleStartGame = function()  {
-  greenBtn.style.backgroundColor = 'red';
-  timerId = setTimeout(function() {
-  greenBtn.style.backgroundColor = 'green';
-  },250);
+  addCounter();
+  fourColorFlash();
+
+  // greenBtn.style.backgroundColor = 'red';
+  // timerId = setTimeout(function() {
+  // greenBtn.style.backgroundColor = 'green';
+  // },250);
   // greenBtn.classList.toggle('flash-green');
 };
 
