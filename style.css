@@ -4,9 +4,21 @@ div {
   padding: 10px;
 }
 
+.gamePiece {
+  float:left;
+}
+
+.records {
+  float:right;
+}
+
 #red {
-  background: red;
+  background: #ff723f;
   border-radius: 100% 0 0 0;
+}
+
+#red:active {
+  background: red;
 }
 
 #green {
@@ -14,12 +26,24 @@ div {
   border-radius: 0 100% 0 0;
 }
 
+#green:active {
+  background: #19ff00;
+}
+
 #blue {
   background: blue;
   border-radius: 0 0 0 100%;
 }
 
+#blue:active {
+  background:#0099ff;
+}
+
 #yellow {
-  background: yellow;
+  background: #e8e82e;
   border-radius: 0 0 100% 0;
+}
+
+#yellow:active {
+  background: yellow;
 }
