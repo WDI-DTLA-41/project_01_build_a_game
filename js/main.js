@@ -15,6 +15,8 @@ var playWord;
 var letter;
 var submit = document.querySelector('.submit');
 var j = 0;
+var underscores = [];
+
 
 function getLetter(){
   letter = document.querySelector('input').value;
@@ -24,6 +26,7 @@ function getLetter(){
 }
 
 function getWord(evt) {
+  underscores = [];
   var number = Math.random();
   if (number >= .6){
     playWord = word1;
@@ -31,6 +34,9 @@ function getWord(evt) {
     playWord = word2;
   } else if (number < .3){
     playWord = word3;
+  }
+  for (h = 0; h < playWord.length; h++){
+    underscores.push('_');
   }
 }
  function gameLogic(){
