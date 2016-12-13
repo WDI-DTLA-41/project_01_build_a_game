@@ -17,11 +17,10 @@ board.addEventListener('click', function(e){
   }
 });
 
-board.addEventListener('click', function(){
-  if ( (bars[0].classList.contains('clicked-bar') && bars[3].classList.contains('clicked-bar') && bars[4].classList.contains('clicked-bar')) ||
-        (bars[4].classList.contains('clicked-bar') && bars[0].classList.contains('clicked-bar') && bars[7].classList.contains('clicked-bar')) ||
-        (bars[7].classList.contains('clicked-bar') && bars[4].classList.contains('clicked-bar') && bars[3].classList.contains('clicked-bar')) ||
-        (bars[3].classList.contains('clicked-bar') && bars[7].classList.contains('clicked-bar') && bars[0].classList.contains('clicked-bar')) ){
-    boxes[0].classList.add('player1');
+board.addEventListener('click', function(e){
+  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
+        bars[0].classList.contains('clicked-bar') && bars[2].classList.contains('clicked-bar') &&
+        bars[3].classList.contains('clicked-bar') && bars[5].classList.contains('clicked-bar') ) {
+          boxes[0].classList.add('player1');
   }
 })
