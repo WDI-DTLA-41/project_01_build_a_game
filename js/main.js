@@ -38,6 +38,8 @@ function getWord(evt) {
   for (h = 0; h < playWord.length; h++){
     underscores.push('_');
   }
+  var placeholders = document.querySelector('.placeholders');
+  placeholders.textContent = underscores.join(' ');
 }
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
