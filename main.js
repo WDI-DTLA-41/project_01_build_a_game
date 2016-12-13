@@ -9,8 +9,10 @@ var one = document.querySelector("#one");
 var two = document.querySelector("#two");
 var three = document.querySelector("#three");
 
-// var for SPIN button
+// var for buttons
+var tryBtn = document.querySelector(".try");
 var spin = document.querySelector(".spin");
+var reset = document.querySelector(".reset");
 
 // ARRAY: Store class colors here
 var colors = ["red", "blue", "yellow", "purple", "green"];
@@ -19,21 +21,34 @@ var colors = ["red", "blue", "yellow", "purple", "green"];
 //    "SPINNING" THE REEL
 // =============================================
 
-var handleSpin = function(event) {
-  // APPLIES SPIN CSS TO EACH SLOT
+var removeClasses = function(event) {
+  one.classList = "";
+  two.classList = "";
+  three.classList = "";
+
+  // one.removeAttribute("id", "spin-one");
+  // two.removeAttribute("id", "spin-two");
+  // three.removeAttribute("id", "spin-three");
+
+  handleSpin();
+
+}
+
+var handleSpin = function() {
+
+  // ADDS CSS ANIMATION ID TO EACH SLOT
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
 
-  // DETECT AND SELECT EACH "SLOT" DIV IN DOCUMENT
-    var slots = document.getElementsByTagName("div");
-
-    var oneVal;
-    var twoVal;
-    var threeVal;
+  // DETECT EACH "SLOT" DIV IN DOCUMENT
+  var slots = document.getElementsByTagName("div");
+  var oneVal;
+  var twoVal;
+  var threeVal;
 
   // FOR EACH SLOT, LOOP THROUGH ARRAY OF "COLORS"
-    for (var i=0; i < slots.length; i++) {
+  for (var i=0; i < slots.length; i++) {
 
     // RANDOMLY SELECTS A COLOR FROM ARRAY
     var selectColor = function() {
@@ -57,66 +72,75 @@ var handleSpin = function(event) {
     console.log(oneVal);
     console.log(twoVal);
     console.log(threeVal);
-
-    var compareSlots = function() {
-      // compare the values for 3-way match
-      if (oneVal == twoVal && oneVal == threeVal && twoVal == threeVal) {
-        console.log("winner!");
-      } else {
-        console.log("you lose :(");
-      }
-    }
-
-  // var resetSlots = function() {
-  //   if (slots[i].classList.contains("red")) {
-  //     slots[i].classList.remove("red");
-  //   }
-  //   if (slots[i].classList.contains("blue")) {
-  //     slots[i].classList.remove("blue");
-  //   }
-  //   if (slots[i].classList.contains("yellow")) {
-  //     slots[i].classList.remove("yellow");
-  //   }
-  //   if (slots[i].classList.contains("purple")) {
-  //     slots[i].classList.remove("purple");
-  //   }
-  //   if (slots[i].classList.contains("green")) {
-  //     slots[i].classList.remove("green");
-  //   }
-  //   console.log(slots[i].classList);
-  // }
-  compareSlots();
-
   }
-
-};
-// WHEN PLAYER PUSHES BUTTON TO SPIN
-  // **EVENT LISTENER ON BUTTON**
-spin.addEventListener("click", handleSpin);
-
 
 // =============================================
 //    COMPARING THE SLOTS
 // =============================================
 
+  var compareSlots = function() {
+    // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
+    // compare the values for 3-way match
 
-// WHEN REELS HAVE STOPPED, COMPARE THE CLASSES
-  // IMGS.LOADED ??
+    // IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> WIN
+    if (oneVal == twoVal && oneVal == threeVal && twoVal == threeVal) {
+      console.log("winner!");
+
+      // SET CHARACTERS FROM THEME
+        // IF ALL 3 ARE THE SAME CHARACTER
+        // APPEND H1 TO PAGE
+        // H1 TEXTCONTENT = QUOTE FROM MOVIE
+
+    } else {
+    // ELSE ==> YOU LOSE
+      // APPEND H1 TO PAGE
+      // H1 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
+      console.log("you lose :(");
+    }
+  }
+  compareSlots();
+
+  // var resetSlots = function() {
+  //   // if (slots.classList.contains("red")) {
+  //   //   slots.classList.remove("red");
+  //   // }
+  //   // if (slots.classList.contains("blue")) {
+  //   //   slots.classList.remove("blue");
+  //   // }
+  //   // if (slots.classList.contains("yellow")) {
+  //   //   slots.classList.remove("yellow");
+  //   // }
+  //   // if (slots.classList.contains("purple")) {
+  //   //   slots.classList.remove("purple");
+  //   // }
+  //   // if (slots.classList.contains("green")) {
+  //   //   slots.classList.remove("green");
+  //   // }
+  //   slots.classList = "";
+  // }
+  // resetSlots();
+  // console.log(slots.classList);
+
+};
+// WHEN PLAYER PUSHES BUTTON TO SPIN
+  // **EVENT LISTENER ON BUTTON**
+spin.addEventListener("click", removeClasses, {once: true});
+
+
+// =============================================
+//    PLAY AGAIN
+// =============================================
+
+// Click PLAY AGAIN to reload the page
+var reloadPage = function(event) {
+  location.reload();
+}
+reset.addEventListener("click", reloadPage);
 
 
 
-// IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> WIN
 
 
-// SET CHARACTERS FROM THEME
-  // IF ALL 3 ARE THE SAME CHARACTER
-  // APPEND H1 TO PAGE
-  // H1 TEXTCONTENT = QUOTE FROM MOVIE
-
-
-// ELSE ==> YOU LOSE
-  // APPEND H1 TO PAGE
-  // H1 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
 
 
 

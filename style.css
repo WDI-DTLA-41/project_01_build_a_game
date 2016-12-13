@@ -38,15 +38,6 @@ button {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 1;
-  animation-name: reel-spin;
-  animation-duration: .5s;
-  animation-iteration-count: 3s;
-}
-#spin-two {
-  position: relative;
-  -webkit-animation-name: reel-spin;
-  -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: 2;
   animation-name: reel-spin;
   animation-duration: .5s;
@@ -56,7 +47,7 @@ button {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 4;
   animation-name: reel-spin;
   animation-duration: .5s;
   animation-iteration-count: 3s;
@@ -75,5 +66,30 @@ button {
   40%  {background-color:palegreen;}
   60%  {background-color:turquoise;}
   80%  {background-color:thistle;}
+  100% {background-color:pink;}
+}
+#spin-two {
+  position: relative;
+  -webkit-animation-name: reverse-spin;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 3;
+  animation-name: reverse-spin;
+  animation-duration: .5s;
+  animation-iteration-count: 3s;
+}
+@-webkit-keyframes reverse-spin {
+  0%   {background-color:pink;}
+  20%  {background-color:thistle;}
+  40%  {background-color:turquoise;}
+  60%  {background-color:palegreen;}
+  80%  {background-color:gold;}
+  100% {background-color:pink;}
+}
+@keyframes reverse-spin {
+  0%   {background-color:pink;}
+  20%  {background-color:thistle;}
+  40%  {background-color:turquoise;}
+  60%  {background-color:palegreen;}
+  80%  {background-color:gold;}
   100% {background-color:pink;}
 }
