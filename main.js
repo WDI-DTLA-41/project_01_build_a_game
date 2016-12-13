@@ -26,7 +26,7 @@ var handleSpin = function(event) {
   three.setAttribute("id", "spin-three");
 
   // DETECT AND SELECT EACH "SLOT" DIV IN DOCUMENT
-  var emptySlot = document.getElementsByClassName("empty");
+  var emptySlot = document.getElementsByTagName("div");
 
   // FOR EACH SLOT, LOOP THROUGH ARRAY OF "COLORS"
   for (var i=0; i < emptySlot.length; i++) {
@@ -45,6 +45,17 @@ var handleSpin = function(event) {
     emptySlot[i].classList.add(selected);
     console.log(emptySlot[i].classList);
   }
+
+  var compareSlots = function() {
+    if ((one.classList == two.classList) && (one.classList == three.classList) && (two.classList == three.classList)) {
+      console.log("winner!");
+    } else {
+      console.log("you lose :(");
+    }
+  }
+
+  compareSlots();
+
 };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**

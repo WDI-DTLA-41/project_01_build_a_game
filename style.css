@@ -8,13 +8,9 @@ div {
   width: 200px;
   display: inline-block;
   border-radius: 10px;
-}
-.empty {
   background: white;
+
 }
-/*.bet {
-  display: inline-block;
-}*/
 .red {
   background: pink;
 }
@@ -42,7 +38,7 @@ button {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 1;
   animation-name: reel-spin;
   animation-duration: .5s;
   animation-iteration-count: 3s;
@@ -51,7 +47,7 @@ button {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 6;
+  -webkit-animation-iteration-count: 2;
   animation-name: reel-spin;
   animation-duration: .5s;
   animation-iteration-count: 3s;
@@ -60,7 +56,7 @@ button {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 12;
+  -webkit-animation-iteration-count: 3;
   animation-name: reel-spin;
   animation-duration: .5s;
   animation-iteration-count: 3s;
