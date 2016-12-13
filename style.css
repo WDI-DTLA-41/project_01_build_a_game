@@ -61,3 +61,8 @@ input {
   font-family: 'Space Mono', monospace;
   width: 75px;
 }
+.new-game {
+  display: inline-block;
+  position: relative;
+  left: 25%;
+}
