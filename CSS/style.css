@@ -4,14 +4,14 @@ body {
 
 #game-container {
   background-color: black;
-  height: 300px;
-  width: 300px;
-  border-radius: 150px;
+  height: 275px;
+  width: 275px;
+  border-radius: 137px;
 }
 
 .colorbtn {
-  height: 75px;
-  width: 75px;
+  height: 100px;
+  width: 100px;
   background-color: white;
   position: relative;
   left: 100px;
@@ -20,8 +20,8 @@ body {
 
 #btn-container {
   position: relative;
-  right: 10px;
-  bottom: 10px;
+  right: 50px;
+  bottom: 50px;
 }
 #col-1 {
   float:left;
@@ -36,28 +36,28 @@ body {
   position: relative;
   left: 75px;
   top: 75px;
-  border-radius: 75px 0 0 0;
+  border-radius: 100px 0 0 0;
 }
 
 #red {
   background-color: red;
   right: 75px;
   top: 75px;
-  border-radius: 0 75px 0 0;
+  border-radius: 0 100px 0 0;
 }
 
 #yellow {
   background-color: yellow;
   left: 75px;
   bottom: 75px;
-  border-radius: 0 0 0 75px;
+  border-radius: 0 0 0 100px;
 }
 
 #blue {
   background-color: blue;
   right: 75px;
   bottom: 75px;
-  border-radius: 0 0 75px 0;
+  border-radius: 0 0 100px 0;
 }
 
 .flash-green {
