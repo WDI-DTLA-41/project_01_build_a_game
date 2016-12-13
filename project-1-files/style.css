@@ -30,9 +30,12 @@ div {
 .green {
   background: palegreen;
 }
-.spin {
-  display: block;
+button {
+  display: inline-block;
 }
+/*.spin {
+  display: inline;
+}*/
 
 /* "REEL SPIN" ANIMATION*/
 #spin-one {

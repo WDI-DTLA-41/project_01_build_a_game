@@ -20,6 +20,7 @@ var colors = ["red", "blue", "yellow", "purple", "green"];
 // =============================================
 
 var handleSpin = function(event) {
+  // APPLIES SPIN CSS TO EACH SLOT
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
@@ -27,52 +28,27 @@ var handleSpin = function(event) {
   // DETECT AND SELECT EACH "SLOT" DIV IN DOCUMENT
   var emptySlot = document.getElementsByClassName("empty");
 
-  // FOR EACH SLOT, LOOP THROUGH ARRAY OF "CARDS"
+  // FOR EACH SLOT, LOOP THROUGH ARRAY OF "COLORS"
   for (var i=0; i < emptySlot.length; i++) {
 
-    // RANDOMLY SELECTS A CLASS COLOR FROM "COLORS" ARRAY
+    // RANDOMLY SELECTS A COLOR FROM ARRAY
     var selectColor = function() {
 
     // RETURNS THE COLOR VALUE
     return colors[Math.floor(Math.random() * colors.length)];
     }
-    // STORE COLOR VALUE INTO VARIABLE
+    // STORES COLOR VALUE INTO VARIABLE
     var selected = selectColor();
     console.log(selected);
 
-    // SET THE VARIABLE VALUE AS A CLASS TO CHANGE SLOT COLOR
+    // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
     emptySlot[i].classList.add(selected);
     console.log(emptySlot[i].classList);
-
   }
-
-
 };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**
 spin.addEventListener("click", handleSpin);
-
-
-
-
-
-
-
-
-
-
-// SELECT RANDOM CARD CLASS FROM ARRAY
-
-
-
-
-// APPLY THAT CARD CLASS TO THE SLOT
-
-
-
-// DELAY "SPINS" SO THAT SLOT 3 STOPS LAST
-
-
 
 
 // =============================================
@@ -81,29 +57,22 @@ spin.addEventListener("click", handleSpin);
 
 
 // WHEN REELS HAVE STOPPED, COMPARE THE CLASSES
-  // IMGS LOADED ??
+  // IMGS.LOADED ??
 
 
 
 // IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> WIN
 
 
-
-// IF ALL 3 ARE DIFFERENT (1 !== 2 && 1 !== 3 && 2 !== 3) ==> WIN
-
+// SET CHARACTERS FROM THEME
+  // IF ALL 3 ARE THE SAME CHARACTER
+  // APPEND H1 TO PAGE
+  // H1 TEXTCONTENT = QUOTE FROM MOVIE
 
 
 // ELSE ==> YOU LOSE
-
-
-
-
-// NEXT STEPS
-  // ADD PLAYER 2
-  // ADD POINT COUNTER & BETTING
-
-
-
+  // APPEND H1 TO PAGE
+  // H1 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
 
 
 
