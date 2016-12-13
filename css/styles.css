@@ -1,0 +1,45 @@
+
+
+body {
+
+}
+#container {
+    border: 1px solid blue;
+    width: 500px;
+    height: 500px;
+    margin: 5px;
+    padding: 10px;
+
+}
+/* player card stack */
+.pile1 {
+    background: pink;
+    border: 1px solid black;
+    z-index: -1;
+
+}
+
+.cardPlayer1 {
+    background: blue;
+
+}
+.cardPlayer2 {
+
+    background: red;
+}
+
+.player{
+    width: 100px;
+    height: 150px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    display: inline-block;
+
+}
+#player1{
+
+}
+#player2{
+
+}
