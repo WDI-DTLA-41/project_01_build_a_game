@@ -16,6 +16,7 @@ var letter;
 var submit = document.querySelector('.submit');
 var j = 0;
 var underscores = [];
+var placeholders;
 
 
 function getLetter(){
@@ -38,14 +39,17 @@ function getWord(evt) {
   for (h = 0; h < playWord.length; h++){
     underscores.push('_');
   }
-  var placeholders = document.querySelector('.placeholders');
+  placeholders = document.querySelector('.placeholders');
   placeholders.textContent = underscores.join(' ');
 }
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
   if (playWord.includes(letter)){
     console.log('yes');
-    letter = null;
+    index = playWord.indexOf(letter);
+    underscores[index] = playWord[index];
+    placeholders.textContent = underscores.join(' ');
+    // letter = null;
     return;
   } else {
     console.log('no');
