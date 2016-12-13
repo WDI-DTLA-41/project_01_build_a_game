@@ -22,17 +22,20 @@ board.addEventListener('click', function(e){
         bars[0].classList.contains('clicked-bar') && bars[2].classList.contains('clicked-bar') &&
         bars[3].classList.contains('clicked-bar') && bars[5].classList.contains('clicked-bar') ) {
           boxes[0].classList.add('player1');
-  } else if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
+  };
+  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
         bars[1].classList.contains('clicked-bar') && bars[3].classList.contains('clicked-bar') &&
         bars[4].classList.contains('clicked-bar') && bars[6].classList.contains('clicked-bar') ) {
           boxes[1].classList.add('player1');
-  } else if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
+  };
+  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
         bars[5].classList.contains('clicked-bar') && bars[7].classList.contains('clicked-bar') &&
         bars[8].classList.contains('clicked-bar') && bars[10].classList.contains('clicked-bar') ) {
           boxes[2].classList.add('player1');
-  } else if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
+  };
+  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
         bars[6].classList.contains('clicked-bar') && bars[8].classList.contains('clicked-bar') &&
         bars[9].classList.contains('clicked-bar') && bars[11].classList.contains('clicked-bar') ) {
           boxes[3].classList.add('player1');
-  }
+  };
 });
