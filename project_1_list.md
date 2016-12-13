@@ -18,7 +18,7 @@
 | Lacey    | Hangman | [Lacey's Repo](https://github.com/lacerbeams/project_01_build_a_game)       |    
 | Roney    |Hangman | [Roney's Repo](https://github.com/ronyarmas/project_01_build_a_game)   |
 | Jake | Connect 4 |[Jake's Repo](https://github.com/jmiller-io/project_01_build_a_game)    |   
-| Kora     | [Dots and Boxe | Kora's Repo](https://github.com/trashdaemon/project_01_build_a_game) |
+| Kora     | Connect 4 | Kora's Repo](https://github.com/trashdaemon/project_01_build_a_game) |
 | An     | Slot Wars| [An's Repo](https://github.com/secretagentan/project_01_build_a_game) |              
 | Andrew      | Blackjack | [Andrew's Repo](https://github.com/amaidah/project_01_build_a_game)  |        
 | Barrett  | [Barrett's Repo](https://github.com/yeahbq/project_01_build_a_game)   |
