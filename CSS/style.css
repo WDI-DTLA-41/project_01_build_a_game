@@ -4,41 +4,86 @@ body {
 
 #game-container {
   background-color: black;
-  height: 250px;
-  width: 250px;
- /* border-radius: 125px;*/
+  height: 300px;
+  width: 300px;
+  border-radius: 150px;
 }
 
 .colorbtn {
-  height: 50px;
-  width: 50px;
+  height: 75px;
+  width: 75px;
   background-color: white;
   position: relative;
-  left: 75px;
-  top: 75px;
+  left: 100px;
+  top: 100px;
 }
 
-#row-1 {
+#btn-container {
+  position: relative;
+  right: 10px;
+  bottom: 10px;
+}
+#col-1 {
   float:left;
 }
 
-#row-2 {
+#col-2 {
   float:left;
 }
-
 
 #green {
   background-color: green;
+  position: relative;
+  left: 75px;
+  top: 75px;
+  border-radius: 75px 0 0 0;
 }
 
 #red {
   background-color: red;
+  right: 75px;
+  top: 75px;
+  border-radius: 0 75px 0 0;
 }
 
 #yellow {
   background-color: yellow;
+  left: 75px;
+  bottom: 75px;
+  border-radius: 0 0 0 75px;
 }
 
 #blue {
   background-color: blue;
+  right: 75px;
+  bottom: 75px;
+  border-radius: 0 0 75px 0;
 }
+
+.flash-green {
+  background-color:;
+}
+
+.flash-red {
+  background-color:;
+}
+
+.flash-yellow {
+  background-color:;
+}
+
+.flash-blue {
+  background-color:;
+}
+
+
+
+
+
+
+
+
+
+
+
+
