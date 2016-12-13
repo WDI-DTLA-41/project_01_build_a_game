@@ -1,4 +1,61 @@
-tr{
+.color1 {
+  background-color: #FF2D00;
+  width: 75px;
+  height: 75px;
+}
+
+.color2 {
+  background-color: #04756F;
+  width: 75px;
+  height: 75px;
+}
+
+.square {
+  /*display: inline-block;*/
+  border-radius: 70px;
+  width: 75px;
+  height: 75px;
+}
+
+.column {
+  display: inline-block;
+  margin: 10px;
+  background: black;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*tr{
   display:inline-block;
   margin: 10px;
   background: black;
@@ -31,4 +88,4 @@ td {
   display: block;
   border-radius: 70px;
 }
-
+*/
