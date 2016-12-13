@@ -17,6 +17,20 @@ function shuffleArray(array) {
     return array;
 }
 
+// function to compare cards
+function compareCards() {
+    if (cardPlayed1 > cardPlayed2) {
+          console.log('Player 1 wins card!');
+        }
+        else if (cardPlayed1 < cardPlayed2) {
+          console.log('Player 2 wins card!');
+        }
+        // else {
+        //   console.log('War!');
+        // }
+  }
+
+
 
 
 
@@ -41,11 +55,15 @@ var deckOfCards = [
 shuffleArray(deckOfCards);
 
 // cut deck in half
-var cardsSplit = deckOfCards.slice(26,51);
+var cardsSplitHalf1 = deckOfCards.slice(0,25);
+var cardsSplitHalf2 = deckOfCards.slice(26,51);
 
 // assign cards to player 1 and 2?
-cardsSplit
-
+var cardPlayed1 = cardsSplitHalf1[0];
+var cardPlayed2 = cardsSplitHalf2[0];
+var player1Pile;
+var Player2Pile;
+compareCards();
 
 
 
@@ -59,13 +77,6 @@ var player2 = document.querySelector('#player2');
 var player = document.querySelector('#player');
 
 
-// use .push .pop .slice .splice to cut deck in half
-// example using .slice
-// var a = ["zero", "one", "two", "three"];
-// var sliced = a.slice(1,3);
-
-// console.log(a);      // [ "zero", "one", "two", "three" ]
-// console.log(sliced); // [ "one", "two" ]
 
 
 
