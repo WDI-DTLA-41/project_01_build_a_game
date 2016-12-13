@@ -1,8 +1,24 @@
+body {
+  font-family: 'Space Mono', monospace;
+}
+h1 {
+  font-weight: 400;
+}
+.main {
+  display: inline-block;
+}
 .board {
   display: inline-block;
   width: 225px;
   height: 225px;
+  margin: 0 auto;
   /*border: 1px solid black;*/
+}
+.scores {
+  width: 200px;
+}
+.p2-score {
+  float: right;
 }
 .divs {
   display: inline-block;
@@ -38,5 +54,10 @@
   background: black;
 }
 .player1 {
-  background: black;
+  background: pink;
+}
+input {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  width: 75px;
 }

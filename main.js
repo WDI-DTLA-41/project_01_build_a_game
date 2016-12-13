@@ -1,41 +1,88 @@
 var board = document.querySelector('.board');
 var boxes = document.querySelectorAll('.box');
-var bars = [];
-var boxes = [];
+
+var hBars = [
+  [1,2],
+  [3,4],
+  [5,6]
+];
+var vBars = [
+  [1,2,3],
+  [4,5,6]
+];
+var boxes = [
+  [1,2],
+  [3,4]
+];
+
+var players = [
+  {
+    name: p1
+  },
+  {
+    name: p2
+  }
+];
+
+var p1;
+var p2;
+
+var input1 = document.querySelector('.p1');
+var input2 = document.querySelector('.p2');
+
+input1.addEventListener('keyup', e => {
+  console.log('code', e.keyCode);
+  if (e.keyCode === 13) {
+    input2.focus();
+    p1 = e.target.value;
+  }
+})
+input2.addEventListener('keyup', e => {
+  console.log('code', e.keyCode);
+  if (e.keyCode === 13) {
+    p2 = e.target.value;
+  }
+})
+
+
+var handleClick = e => {
+  var position = this.dataset;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // via http://stackoverflow.com/questions/37010277/cannot-push-element-to-array-after-using-queryselectorall
-bars.forEach.call(document.querySelectorAll('.bar'), function(e){
-        bars.push(e);
-});
-boxes.forEach.call(document.querySelectorAll('.box'), function(e){
-        boxes.push(e);
-});
+// boxes.forEach.call(document.querySelectorAll('.box'), function(e){
+//         boxes.push(e);
+// });
 
-board.addEventListener('click', function(e){
-  if (e.target.classList.contains('h') || e.target.classList.contains('v')){
-    e.target.classList.add('clicked-bar');
-  }
-});
-
-board.addEventListener('click', function(e){
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[0].classList.contains('clicked-bar') && bars[2].classList.contains('clicked-bar') &&
-        bars[3].classList.contains('clicked-bar') && bars[5].classList.contains('clicked-bar') ) {
-          boxes[0].classList.add('player1');
-  };
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[1].classList.contains('clicked-bar') && bars[3].classList.contains('clicked-bar') &&
-        bars[4].classList.contains('clicked-bar') && bars[6].classList.contains('clicked-bar') ) {
-          boxes[1].classList.add('player1');
-  };
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[5].classList.contains('clicked-bar') && bars[7].classList.contains('clicked-bar') &&
-        bars[8].classList.contains('clicked-bar') && bars[10].classList.contains('clicked-bar') ) {
-          boxes[2].classList.add('player1');
-  };
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[6].classList.contains('clicked-bar') && bars[8].classList.contains('clicked-bar') &&
-        bars[9].classList.contains('clicked-bar') && bars[11].classList.contains('clicked-bar') ) {
-          boxes[3].classList.add('player1');
-  };
-});
+// var bars = [];
+// bars.forEach.call(document.querySelectorAll('.bar'), function(e){
+//         bars.push(e);
+// });
