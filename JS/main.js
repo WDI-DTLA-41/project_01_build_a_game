@@ -7,13 +7,14 @@ var yellowBtn = document.querySelector('#yellow');
 var blueBtn = document.querySelector('#blue');
 var startBtn = document.querySelector('#start');
 var counter = document.querySelector('#counter');
+var btnContainer = document.querySelector('#btn-container');
 var timerId0 = null;
 var timerId1 = null;
 var timerId2 = null;
 var timerId3 = null;
 var timerId4 = null;
 var counterVal = parseInt(counter.textContent);
-
+var squenceArr = [];
 
 // test function for all color changes
 var fourColorFlash = function () {
@@ -38,36 +39,33 @@ var fourColorFlash = function () {
   },250);
 };
 
-
+// adds to the counter for each function loop
 var addCounter = function() {
   counterVal += 1;
   counter.textContent = counterVal;
+};
+
+var resetCounter = function() {
+  counter.textContent = 0;
 }
-
-
-
-
-
-
-
+// gameOver function when userInput is incorrect
+var gameOver = function() {
+  // playing gameOver audio file
+  resetCounter();
+};
 
 // handle start game
 var handleStartGame = function() {
   addCounter();
   timerId0 = setTimeout(fourColorFlash,1000);
-
-  // greenBtn.style.backgroundColor = 'red';
-  // timerId = setTimeout(function() {
-  // greenBtn.style.backgroundColor = 'green';
-  // },250);
-  // greenBtn.classList.toggle('flash-green');
 };
 
 
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
 
-
+// add EventListener for userInputs
+// btnContainer.addEventListener('click', );
 
 
 
