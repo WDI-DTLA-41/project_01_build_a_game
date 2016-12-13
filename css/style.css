@@ -1,7 +1,7 @@
 h1 {
   display: inline-block;
   font-family: 'Trade Winds', cursive;
-
+  font-size: 40px;
 }
 
 button {
@@ -24,32 +24,38 @@ div {
 
 .head {
   left: 190px;
-  top: 117px;
+  top: 137px;
+  visibility: visible;
 }
 
 .body {
   left: 190px;
-  top: 150px;
+  top: 170px;
+  visibility: visible;
 }
 
 .leftarm {
   left: 175px;
-  top: 160px;
+  top: 180px;
+  visibility: visible;
 }
 
 .rightarm {
   left: 222px;
-  top: 156px;
+  top: 176px;
+  visibility: visible;
 }
 
 .leftleg {
   left: 190px;
-  top: 205px;
+  top: 225px;
+  visibility: visible;
 }
 
 .rightleg {
   left: 212px;
-  top:205px;
+  top:225px;
+  visibility: visible;
 }
 
 .letters {
