@@ -1,10 +1,11 @@
 body {
-  background: silver;
+  background: black;
   font-family: Arial, sans-serif;
+  color: white;
 }
 div {
-  height: 150px;
-  width: 100px;
+  height: 300px;
+  width: 200px;
   display: inline-block;
   border-radius: 10px;
 }
@@ -34,7 +35,7 @@ div {
 }
 
 /* "REEL SPIN" ANIMATION*/
-#one {
+#spin-one {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
@@ -43,7 +44,7 @@ div {
   animation-duration: .5s;
   animation-iteration-count: 3s;
 }
-#two {
+#spin-two {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
@@ -52,7 +53,7 @@ div {
   animation-duration: .5s;
   animation-iteration-count: 3s;
 }
-#three {
+#spin-three {
   position: relative;
   -webkit-animation-name: reel-spin;
   -webkit-animation-duration: 1s;
