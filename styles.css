@@ -1,0 +1,29 @@
+table{
+  transform: rotate(180deg);
+  position: fixed; /* or absolute */
+  margin-top: 50px;
+  margin-left: 350px;
+}
+
+.r1{
+  background-color: blue;
+}
+
+.color1 {
+  background-color: #FF2D00;
+  width: 75px;
+  height: 75px;
+}
+
+.color2 {
+  background-color: #04756F;
+  width: 75px;
+  height: 75px;
+}
+
+
+td {
+  width: 75px;
+  height: 75px;
+}
+
