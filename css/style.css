@@ -1,0 +1,72 @@
+body {
+background-image: url(../css/p-table.jpg);
+font-family: 'Knewave', cursive;
+}
+
+h1 {
+font-size: 45px;
+text-shadow: 2px 2px 8px white;
+}
+
+#startBtn{
+  border-radius: 15px;
+  background: #73AD21;
+  height: 40px;
+  width: 100px;
+
+}
+
+#shuffle {
+  border-radius: 15px;
+  background: #73AD21;
+  height: 40px;
+  width: 100px;
+  margin-left: 20px;
+
+}
+
+#hit {
+  border-radius: 15px;
+  background: #73AD21;
+  height: 40px;
+  width: 100px;
+
+}
+
+#stand {
+  border-radius: 15px;
+  background: #73AD21;
+  height: 40px;
+  width: 100px;
+  margin-left: 20px;
+}
+
+.card {
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  border: 2px solid black;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 100px;
+  margin: 40px 20px 20px 60px;
+}
+
+/*#center{
+  height: 100px;
+  width: 100px;
+  min-width: 640px
+  min-height: 520px;
+}*/
+
+/*
+#inside-column {
+  width: 100%;
+  height:
+  border-style: 2px solid black;
+  border-style: none;
+  padding-bottom: 60px
+}
+*/
+
+
