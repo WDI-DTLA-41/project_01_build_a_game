@@ -2,26 +2,34 @@
   background-color: #FF2D00;
   width: 75px;
   height: 75px;
+  border-radius: 70px;
 }
+
 
 .color2 {
   background-color: #04756F;
   width: 75px;
   height: 75px;
+  border-radius: 70px;
 }
 
-.square {
-  /*display: inline-block;*/
-  border-radius: 70px;
-  width: 75px;
-  height: 75px;
+
+.board {
+  margin-top: 100px;
+  margin-left: 300px;
 }
+
 
 .column {
   display: inline-block;
   margin: 10px;
   background: black;
+}
 
+
+.square {
+  width: 75px;
+  height: 75px;
 }
 
 

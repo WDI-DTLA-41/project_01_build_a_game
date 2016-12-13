@@ -16,6 +16,7 @@ var board = [
 ];
 
 
+// if to check for array
 
 
 
@@ -31,25 +32,24 @@ function onClick(evt){
   console.log(this);
   if (colorHolder == color1) {
     colorHolder = color2;
-    console.log(this);
+    // console.log(this);
     // adds .color1
     this.setAttribute('class', 'color1');
     // prevents second click
     this.removeEventListener('click', onClick);
   } else {
     colorHolder = color1;
-      console.log(this);
+      // console.log(this);
     // adds .color2
     this.setAttribute('class', 'color2');
     //prevents second click
     this.removeEventListener('click', onClick);
-    console.log(colorHolder + "othrer color")
   }
 }
 
 
 // adds event listeners to individual square
 square.forEach(function(element){
-  console.log(element);
+  // console.log(element);
   element.addEventListener('click', onClick);
 });
