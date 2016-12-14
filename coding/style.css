@@ -58,13 +58,24 @@ tr {
   height: 4.5em;
 }
 
-
-#Peace {
+#backGroundColorOne{
+  background-color: #ccc;
+}
+#redPeace {
   width: 4em;
   height: 4em;
   border-radius: 50%;
   margin: 0 auto;
   display: inline-block;
+  background-color: red;
+}
+#blackPeace {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: inline-block;
+  background-color: black;
 }
 
 #playerOne {

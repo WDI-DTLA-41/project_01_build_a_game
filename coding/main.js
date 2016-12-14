@@ -21,8 +21,8 @@ var ColumnFive = document.querySelectorAll('.tdColumnFive');
 var ColumnSix = document.querySelectorAll('.tdColumnSix');
 var ColumnSeven = document.querySelectorAll('.tdColumnSeven');
 
-var redPeace = document.getElementById('Peace');
-var blackPeace = document.getElementById('Peace');
+var redPeace = document.getElementById('redPeace');
+var blackPeace = document.getElementById('blackPeace');
 
 
 inputPlayerOne.addEventListener('keyup', function(event) {
