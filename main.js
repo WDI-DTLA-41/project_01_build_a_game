@@ -82,7 +82,7 @@ var handleSpin = function() {
     // compare the values for 3-way match
 
     // IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> WIN
-    if (oneVal == twoVal && oneVal == threeVal && twoVal == threeVal) {
+    if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
       console.log("winner!");
       setTimeout(function() {
         revealQuote();

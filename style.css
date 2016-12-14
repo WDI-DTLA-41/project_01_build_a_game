@@ -4,11 +4,12 @@
 }
 
 body {
+  font-family: Arial, sans-serif;
   background: black;
-  font-family: starwars, Arial, sans-serif;
   color: white;
 }
 h1 {
+  font-family: starwars, Arial, sans-serif;
   font-size: 80px;
 }
 h2 {
@@ -23,6 +24,7 @@ div {
   border-radius: 10px;
   background: white;
   margin: 10px;
+  color: black;
 }
 .darthvader {
   background: red;
@@ -42,19 +44,24 @@ div {
 .bobafett {
   background: cadetblue;
 }
-.buttons {
-  display: block;
-  margin: 20px;
-}
 button {
+  display: inline;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
   background: black;
   color: white;
 }
+.bet-total, .plus-one {
+  display: inline;
+}
+.play {
+  display: block;
+}
 
+/*==================================*/
 /* "REEL SPIN" ANIMATION*/
+/*==================================*/
 #spin-one {
   position: relative;
   -webkit-animation-name: reel-spin;
