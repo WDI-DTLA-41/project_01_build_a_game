@@ -48,7 +48,6 @@ tr {
 }
 
 .trNumbers {
-  background-color: white;
   width: 4.5em;
   height: 4.5em;
 }
@@ -59,35 +58,15 @@ tr {
   height: 4.5em;
 }
 
-#backGroundColorOne {
-  background-color: #ccc;
-}
-#backGroundRed {
-  background-color: red;
-}
-#wrapper {
-  background-color: lightgreen;
-  width: 50%;
-  padding: 1em 0;
+
+#Peace {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
   margin: 0 auto;
-}
-
-#redPeace {
-  width: 4em;
-  height: 4em;
-  border-radius: 50%;
-  background-color: red;
   display: inline-block;
 }
 
-#blackPeace {
-  width: 4em;
-  height: 4em;
-  border-radius: 50%;
-  background-color: black;
-  margin-left: 1em;
-  display: inline-block;
-}
 #playerOne {
   font-size: 1.5em;
   text-align: center;
@@ -96,12 +75,10 @@ tr {
   font-size:  1.5em;
 }
 #playerOneInput {
-  background-color: red;
   font-size: 1.3em;
   text-align: center;
 }
 #playerTwoInput {
-  background-color: black;
   font-size: 1.3em;
   text-align: center;
   color: white;

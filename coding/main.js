@@ -21,10 +21,9 @@ var ColumnFive = document.querySelectorAll('.tdColumnFive');
 var ColumnSix = document.querySelectorAll('.tdColumnSix');
 var ColumnSeven = document.querySelectorAll('.tdColumnSeven');
 
-var redPeace = document.getElementById('redPeace');
-var blackPeace = document.getElementById('blackPeace');
+var redPeace = document.getElementById('Peace');
+var blackPeace = document.getElementById('Peace');
 
-var board = [[],[],[],[],[],[],[]]
 
 inputPlayerOne.addEventListener('keyup', function(event) {
   if(event.keyCode === 13) {
@@ -46,7 +45,6 @@ redPeace.addEventListener('click', function(event) {
   console.log('red clicked');
   selectedPeace = event.target.style.backgroundColor;
   console.log(event.target.style.backgroundColor);
-
 });
 
 blackPeace.addEventListener('click', function(event) {
@@ -54,39 +52,38 @@ blackPeace.addEventListener('click', function(event) {
   redPeace.classList.remove('activeRed');
   selectedPeace = event.target.style.backgroundColor;
   console.log('black clicked')
-
 });
 
-rowOne.addEventListener('click', function(event) {
-  console.log('clicked');
-  for(var i = 6; i >= 0; i--) {
-    if(ColumnOne[i].getAttribute('id') === 'backGroundColorOne'){
-      console.log('i worked');
-      ColumnOne[i].style.backgroundColor = selectedPeace;
-      break;
+  rowOne.addEventListener('click', function(event) {
+    console.log('clicked');
+    for(var i = 6; i >= 0; i--) {
+      if(ColumnOne[i].getAttribute('id') === 'backGroundColorOne'){
+        console.log('i worked');
+        ColumnOne[i].style.backgroundColor = selectedPeace;
+        break;
+      }
     }
-  }
-});
-rowTwo.addEventListener('click', function(event) {
-  console.log('clicked');
-  for(var i = 6; i >= 0; i--) {
-    if(ColumnTwo[i].getAttribute('id') === 'backGroundColorOne'){
-      console.log('i worked');
-      ColumnTwo[i].style.backgroundColor = selectedPeace;
-      break;
+  });
+  rowTwo.addEventListener('click', function(event) {
+    console.log('clicked');
+    for(var i = 6; i >= 0; i--) {
+      if(ColumnTwo[i].getAttribute('id') === 'backGroundColorOne'){
+        console.log('i worked');
+        ColumnTwo[i].style.backgroundColor = selectedPeace;
+        break;
+      }
     }
-  }
-});
-rowThree.addEventListener('click', function(event) {
-  console.log('clicked');
-  for(var i = 6; i >= 0; i--) {
-    if(ColumnThree[i].getAttribute('id') === 'backGroundColorOne'){
-      console.log('i worked');
-      ColumnThree[i].style.backgroundColor = selectedPeace;
-      break;
+  });
+  rowThree.addEventListener('click', function(event) {
+    console.log('clicked');
+    for(var i = 6; i >= 0; i--) {
+      if(ColumnThree[i].getAttribute('id') === 'backGroundColorOne'){
+        console.log('i worked');
+        ColumnThree[i].style.backgroundColor = selectedPeace;
+        break;
+      }
     }
-  }
-});
+  });
 
 
 
