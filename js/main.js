@@ -9,23 +9,26 @@ var deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
 ];
 
 // each player is dealt their cards
-var cardStackA = [4, 7, 5, 2, 4, 12];
+var cardStackA = [7, 10, 4];
   // console.log("A's card stack: " + cardStackA);
-var cardStackB = [4, 10, 3, 6, 7, 14];
+var cardStackB = [6, 9, 3];
   // console.log("B's card stack: " + cardStackB);
 var battleCardA = [];
 var battleCardB = [];
+var battleCard = battleCardA.concat(battleCardB);
 
-console.log("A's card stack: " + cardStackA);
-console.log("B's card stack: " + cardStackB);
+console.log("Beginning cardStackA: " + cardStackA);
+console.log("Beginning cardStackB: " + cardStackB);
 // ==================================================================
 // COMPARE VALUES OF CARDS IN PLAY
 // ==================================================================
 // simply put, compare the value of both cards in play
 
 var compare = function () {
-
- if (battleCardA[0] > battleCardB[0] === true){
+  if (battleCardA[0] === battleCardB[0]) {
+    war();
+    // compareWar();
+  } else if (battleCardA[0] > battleCardB[0] === true){
     // a acquires b's card
     cardStackA.push(battleCardB.shift());
     // used card and new card are pushed to
@@ -41,17 +44,11 @@ var compare = function () {
     console.log("Player B wins!")
   }
 
-  console.log("A's card stack: " + cardStackA);
-  console.log("B's card stack: " + cardStackB);
+  console.log("NEW cardStackA: " + cardStackA);
+  console.log("NEW cardStackB: " + cardStackB);
 };
 
-var compareWar = function () {
-  if (battleCardA[4] > battleCardB[4] === true){
-    collectCardsA();
-  } else {
-    collectCardsB();
-  }
-}
+
 // ==================================================================
 // WHEN PLAYER WINS A WAR, COLLECT ALL CARDS IN PLAY
 // ==================================================================
@@ -62,8 +59,8 @@ var collectCardsA = function () {
   for ( var i = battleCardA.length - 1; i >= 0; i --){
     cardStackA.push(battleCardA.shift());
   }
-  console.log("A's NEW card stack: " + cardStackA);
-  console.log("B's NEW card stack: " + cardStackB);
+  console.log("NEW cardStackA: " + cardStackA);
+  console.log("NEW cardStackB: " + cardStackB);
 }
 
 var collectCardsB = function () {
@@ -73,8 +70,8 @@ var collectCardsB = function () {
   for ( var i = battleCardB.length - 1; i >= 0; i --){
     cardStackB.push(battleCardB.shift());
   }
-  console.log("A's NEW card stack: " + cardStackA);
-  console.log("B's NEW card stack: " + cardStackB);
+  // console.log("NEW cardStackA: " + cardStackA);
+  // console.log("NEW cardStackB: " + cardStackB);
 }
 
 // ==================================================================
@@ -90,13 +87,16 @@ var collectCardsB = function () {
 var battle = function () {
 
   battleCardA.push(cardStackA.shift([0]));
-  console.log("A's card left in stack: " + cardStackA);
-  console.log("A's card(s) in battle: " + battleCardA);
+  // console.log("cardStackA: " + cardStackA);
+  console.log("battleCardA: " + battleCardA);
 
   battleCardB.push(cardStackB.shift([0]));
-  console.log("B's card left in stack: " + cardStackB);
-  console.log("B's card(s) in battle: " + battleCardB);
+  // console.log("cardStackB: " + cardStackB);
+  console.log("battleCardB: " + battleCardB);
+
+  compare();
 }
+
 
 // if (cardStackA.length >= 1 && cardStackB.length >= 1) {
 //    battle();
@@ -111,29 +111,57 @@ var battle = function () {
 // ==================================================================
 // CREATE A WAR FUNCTION
 // ==================================================================
-var war = function () {
-  for (var i = 0; i < 4; i ++){
-    battle();
+
+
+// var war2 = function () {
+//   var battleCard = battleCardA.concat(battleCardB);
+//   for (var i = 0; i < (battleCard.length - 2); i ++){
+//     battle();
+//   }
+// }
+
+// var compareWar = function () {
+// //   if (battleCardA[4] === battleCardB[4]) {
+// //     war2();
+//    if (battleCardA[4] > battleCardB[4] === true) {
+//     collectCardsA();
+//   } else {
+//     collectCardsB();
+//   }
+// }
+
+// var war = function () {
+//   for (var i = 0; i < 4; i ++) {
+//     battle();
+//     compareWar();
+//   }
+
+//   console.log("A card at war: " + battleCardA[4]);
+//   console.log("B card at war: " + battleCardB[4]);
+// }
+
+// ==================================================================
+// CREATE GAME FLOW/WINNING CONIDITION
+// ==================================================================
+var winner = function () {
+if (cardStackA.length < 1) {
+  console.log("player B conquers the world!")
+  alert("player B conquers the world!")
+  } else if (cardStackB.length < 1) {
+  console.log("player A conquers the world!")
+  alert("player A conquers the world!")
   }
+  // else {
+  // while (cardStackA.length >= 1 && cardStackB.length >= 1) {
+  // battle();  // continue game play
+  // }
 }
 
+while (cardStackA.length >= 1 && cardStackB.length >= 1) {
+  battle();
+}
 
-
-
-// if (battleCardA[0] === battleCardB[0]) {
-  // war();
-// }
-
-
-
-// loop the battle function until player runs out of cards
-
-// while (cardStackA.length >= 1 && cardStackB.length >= 1) {
-//   battle();
-// }
-
-
-
+winner();
 
 
 // ==================================================================
