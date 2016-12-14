@@ -20,8 +20,6 @@ var userInput = [];
 
 
 
-
-
 // random number generator bet
 var randomGen = function() {
   return Math.ceil(Math.random()*4);
@@ -53,9 +51,35 @@ var fourColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
-  timerId5 = setTimeout(gameOver, 2000);
-};
+  timerId5 = setTimeout(checkInput, 2000);
+  };
 
+
+
+var repeatColorFlash = function () {
+  for(var i = 0; sequenceArr.length; i++)
+    if (sequenceArr[i] === 1) {
+      greenBtn.style.backgroundColor = 'white';
+      timerId1 = setTimeout(function() {
+      greenBtn.style.backgroundColor = 'green';
+      },250);
+    } else if (sequenceArr[i] === 2) {
+      redBtn.style.backgroundColor = 'white';
+      timerId2 = setTimeout(function() {
+      redBtn.style.backgroundColor = 'red';
+      },250);
+    } else if (sequenceArr[i] === 3) {
+      yellowBtn.style.backgroundColor = 'white';
+      timerId3 = setTimeout(function() {
+      yellowBtn.style.backgroundColor = 'yellow';
+      },250);
+    } else {
+      blueBtn.style.backgroundColor = 'white';
+      timerId4 = setTimeout(function() {
+      blueBtn.style.backgroundColor = 'blue';
+      },250);
+    }
+}
 
 // adds to the counter for each function loop
 var addCounter = function() {
@@ -84,6 +108,7 @@ var handleStartGame = function() {
   timerId0 = setTimeout(fourColorFlash,1000);
 };
 
+
 // handle to convert userInput to a number in the sequence
 var handleUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
@@ -97,19 +122,30 @@ var handleUserInput = function(event) {
       return userInput.push(4);
     }
 }
+// function to check if userInput equals sequence
+// var checkInput = function() {
+//     if (userInput === sequenceArr) {
+//       console.log('true');
+//     // } else {
+//     //   gameOver();
+//     //   return console.log("You lose!");
+//     }
+// };
 
 var checkInput = function() {
-    if (userInput === sequenceArr) {
-      return fourColorFlash();
-    } else {
-      gameOver();
-      return console.log("You lose!");
+  for(var i = 0; i < userInput.length; i++) {
+    for(var j = 0; j < sequenceArr.length; j++) {
+      if (userInput[i] === sequenceArr[j]) {
+        return repeatColorFlash();
+      } else {
+        return gameOver();
+      }
     }
+  }
 };
 
-var handleHighLight = function(event) {
-  (event.target.classList.toggle('highlight'));
-};
+
+
 
 
 // add EventListener for startBtn to start game
@@ -117,7 +153,7 @@ startBtn.addEventListener('click',handleStartGame);
 
 // add EventListener for userInputs
 btnContainer.addEventListener('click', handleUserInput);
-btnContainer.addEventListener('click', handleHighLight);
+
 
 
 

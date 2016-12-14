@@ -18,7 +18,7 @@ body {
   top: 100px;
 }
 
-.highlight:active {
+.colorbtn:active {
   border: 5px solid white;
 }
 
