@@ -56,6 +56,9 @@ h1 {
 .player1 {
   background: pink;
 }
+.player2 {
+  background: lightblue;
+}
 input {
   text-align: center;
   font-family: 'Space Mono', monospace;
