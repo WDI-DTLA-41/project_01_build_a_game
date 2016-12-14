@@ -31,15 +31,6 @@ function compareCards() {
 
     if (cardPlayed1 > cardPlayed2) {
 
-          //check if war flag = true
-          if (war !== false) {
-              // remove next 3 cards from both decks
-              cardsSplitHalf1.splice(0,2) // index 0-2 = 3 cards
-              cardsSplitHalf2.splice(0,2) // index 0-2 = 3
-              // add cards to back of player 1 pile
-              cardsSplitHalf1.push(0,6);
-              war === false;
-            }
           //logic here to add card back
           // remove cards from players' hands
           var removedCard1 = cardsSplitHalf1.shift();
@@ -56,16 +47,6 @@ function compareCards() {
         }
         else if (cardPlayed1 < cardPlayed2) {
 
-            //check if war flag = true
-            if (war !== false) {
-              // remove next 3 cards from both decks
-              cardsSplitHalf1.splice(0,2) // index 0-2 = 3 cards
-              cardsSplitHalf2.splice(0,2) // index 0-2 = 3
-              // add cards to back of player 1 pile
-              cardsSplitHalf2.push(0,6);
-              war === false;
-            }
-
 
           //logic here to add card back
           // remove cards from players' hands
@@ -80,16 +61,27 @@ function compareCards() {
         }
         else {
           // cards match
-          var war = true;
+          //var war = true;
           return 'War!';
 
-          // compare next 2 cards
-          // 2- cards get added to winner card deck on back end
-          compareCards();
+          //check if war flag = true
+          // if (war !== false) {
+
+            //war === false;
+          }
 
         }
-  }
 
+// function of War comparison
+var war = function () {
+        compareCards();
+          // remove next 3 cards from both decks
+          cardsSplitHalf1.splice(0,2) // index 0-2 = 3 cards
+          cardsSplitHalf2.splice(0,2) // index 0-2 = 3
+          // add cards to back of player 1 pile
+          cardsSplitHalf1.push(0,6);
+
+}
 
 
 
@@ -105,9 +97,15 @@ var deckOfCards = [
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 26-38
   2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51
 ];
+
+
+
+
+
+
 //shuffle the deck of cards. Pulls from func above
 shuffleArray(deckOfCards);
-// shuffle(deckOfCards);
+//shuffle(deckOfCards);
 
 // cut deck in half
 var cardsSplitHalf1 = deckOfCards.slice(0,25);
