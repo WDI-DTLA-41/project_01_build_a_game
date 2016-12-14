@@ -41,7 +41,7 @@
 |:-------------:   | :-------------: | 
 | Margie | 10:00am -10:20am |   
 | Bao | 10:30am -10:50am |
-| James | 11:00am -11:20am |
+| Ritwick | 11:00am -11:20am |
 | Abi | 11:30am -11:50am |
 | Brad | 12:00pm -12:20pm |
 
@@ -75,8 +75,6 @@
 | Jake | 10:30am -10:50am |
 | Andrew | 11:00am -11:20am |
 | Barrett | 11:30am -11:50am |
-| Ritwick | 12:00pm -12:20pm |
-
 
 ### *Students Pairing with Boshika* 
 | Student | Time |  
