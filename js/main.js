@@ -1,7 +1,7 @@
 console.log('hello');
 var button = document.querySelector('button');
-// var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
-var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
+var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
+// var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
 // var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
 var word2 = ['C', 'O', 'M', 'P', 'U', 'T', 'E', 'R'];
 var word3 = ['T', 'E', 'A'];
@@ -69,6 +69,7 @@ function getLetterEnter(evt){
       console.log('yes');
       isMatch.push('match');
       index = playWord.indexOf(letter);
+
       underscores[index] = playWord[index];
       placeholders.textContent = underscores.join(' ');
       if (isMatch.length === playWord.length){
@@ -91,6 +92,7 @@ function getLetterEnter(evt){
   }
  }
 }
+
 
 function reset(evt) {
   for (k = 0; k < skeleton.length; k++){
