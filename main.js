@@ -40,12 +40,12 @@ input2.addEventListener('keyup', e => {
 
 var handleClick = function(e) {
   if ( e.target.classList.contains('bar') ){
-    console.log(this);
+    // console.log(this);
     this.removeEventListener('click', handleClick);
     e.target.classList.add('clicked-bar');
     var position = this.dataset;
     gameBoard[position.row][position.col] = 'bar';
-    checkBoard();
+    // checkBoard();
   }
 }
 
@@ -53,8 +53,14 @@ for ( var i = 0; i < $divs.length; i++ ) {
   $divs[i].addEventListener('click', handleClick);
 }
 
-var checkBoard = function(x, y) {
+board.addEventListener('click', function(e) {
+  // console.log(e.target.dataset);
+  // console.log('gameboard ', gameBoard);
+  var pos2 = this.dataset;
+  var x = pos2.row;
+  var y = pos2.col;
   for ( var j = 0; j < $divs.length; j++ ) {
+    console.log('x: ' + x,'y: ' + y,'j: ' + j);
     // for clicked vertical bar, checks for clicked bars around box to the right
     if ( gameBoard[x][y] === 'bar' && gameBoard[x+2][y] === 'bar' &&
           gameBoard[x+1][y+1] === 'bar' && gameBoard[x+1][y-1] === 'bar' ) {
@@ -76,7 +82,7 @@ var checkBoard = function(x, y) {
       $divs[j-5].classList.add('player1');
     }
   }
-}
+});
 
 
 
@@ -98,6 +104,13 @@ var checkBoard = function(x, y) {
 
 
 
+// var gameBoard = [
+//    [0, 1, 2, 3, 4],
+//    [0, 1, 2, 3, 4],
+//    [0, 1, 2, 3, 4],
+//    [0, 1, 2, 3, 4],
+//    [0, 1, 2, 3, 4]
+// ];
 
 
 
