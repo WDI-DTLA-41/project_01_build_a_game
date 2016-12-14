@@ -1,8 +1,10 @@
 console.log('hello');
 var button = document.querySelector('button');
-var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
-var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
-var word3 = ['D', 'O', 'G']
+// var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
+var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
+// var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
+var word2 = ['C', 'O', 'M', 'P', 'U', 'T', 'E', 'R'];
+var word3 = ['T', 'E', 'A'];
 var skeleton = [
 document.querySelector('.head'),
 document.querySelector('.body'),
@@ -20,10 +22,15 @@ var placeholders;
 var guessed = [];
 var guessedBox = document.querySelector('.guessed')
 var resetButton = document.querySelector('.reset');
+var noMatch = [];
+var isMatch = [];
 
 
 function getLetter(){
   letter = document.querySelector('input').value;
+  // if (letter = ''){
+  //   alert('Please enter a letter')
+  // }
   letter = letter.toUpperCase();
   document.querySelector('input').value = '';
   gameLogic();
@@ -45,36 +52,60 @@ function getWord(evt) {
   placeholders = document.querySelector('.placeholders');
   placeholders.textContent = underscores.join(' ');
 }
+
+function getLetterEnter(evt){
+  if (evt.keyCode === 13){
+  getLetter()
+  }
+}
+
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
   if (playWord.includes(letter)){
     console.log('yes');
+    isMatch.push('match');
     index = playWord.indexOf(letter);
     underscores[index] = playWord[index];
     placeholders.textContent = underscores.join(' ');
-    // letter = null;
+    if (isMatch.length === playWord.length){
+      console.log(isMatch.length);
+      alert('You win!');
+    }
     return;
   } else {
     console.log('no');
+    skeleton[j].style.visibility = "visible";
+    j= j + 1;
     guessed.push(letter);
     guessedBox.innerHTML = 'Guessed:<br>' + guessed;
-    skeleton[j].style.visibility = "visible";
-    j = j + 1;
+    noMatch.push(1);
+    if (noMatch.length === 6 || noMatch.length === playWord.length) {
+    alert('Sorry, you lose!');
+    }
+
     return;
   }
-}
+ }
 }
 
 function reset(evt) {
-  guessedBox.innerHTML = 'Guessed:';
-  placeholders.textContent = '';
   for (k = 0; k < skeleton.length; k++){
     skeleton[k].style.visibility = "hidden";
   }
+  guessedBox.innerHTML = 'Guessed:';
+  placeholders.textContent = '';
   playWord = null;
+  noMatch = [];
+  guessed = [];
+  isMatch = [];
+  j = 0;
 }
+
+
+
 
 
 button.addEventListener('click', getWord);
 submit.addEventListener('click', getLetter);
+document.querySelector('input').addEventListener('keyup', getLetterEnter);
 resetButton.addEventListener('click', reset)
