@@ -46,7 +46,9 @@ var handleClick = function(e) {
     var position = this.dataset;
     x = position.row;
     y = position.col;
-    gameBoard[x][y] = 'bar';
+    x = parseInt(x);
+    y = parseInt(y);
+    gameBoard[y][x] = 'bar';
     checkPerimeter(e);
   }
 }
@@ -58,22 +60,24 @@ for ( var i = 0; i < $divs.length; i++ ) {
 
 //  g a m e  l o g i c  //
 var checkPerimeter = (e) => {
-  console.log(e.target);
-  console.log('x: ' + x,'y: ' + y,'j: ' + j);
-  console.log('gameBoard[x][y]: ' + gameBoard[x][y]);
-  console.log('gameBoard[x + 2][y]: ' + gameBoard[x+2][y]);
-  console.log('gameBoard[x + 1][y + 1]: ' + gameBoard[x+1][y+1]);
-  console.log('gameBoard[x + 1][y - 1]: ' + gameBoard[x+1][y-1]);
-  for ( var j = 0; j < $divs.length; j++ ) {
-  // for ( var j in this.dataset ) {
-    // for clicked vertical bar, checks for clicked bars around box to the right
-    if ( gameBoard[x][y]     === 'bar' &&   //vertical bar at click
-         gameBoard[x+2][y]   === 'bar' &&   //vertical bar opposite of click on right
-         gameBoard[x+1][y+1] === 'bar' &&   //horizontal bar below, right
-         gameBoard[x+1][y-1] === 'bar' ) {  //horizontal bar above, right
-      $divs[j+1].classList.add('player1');
-    }
-  }
+  // console.log(e.target);
+  console.log('x: ' + x,'y: ' + y);
+  console.log('gameBoard[y][x]: ' + gameBoard[y][x]);
+  console.log('gameBoard[y + 2][x]: ' + gameBoard[y+2][x]);
+  console.log('gameBoard[y + 1][x + 1]: ' + gameBoard[y+1][x+1]);
+  console.log('gameBoard[y + 1][x - 1]: ' + gameBoard[y+1][x-1]);
+  // for ( var j = 0; j < $divs.length; j++ ) {
+          // for ( var j in this.dataset ) {
+          // for clicked vertical bar, checks for clicked bars around box to the right
+      if ( gameBoard[y][x]     === 'bar' &&   //vertical bar at click
+           gameBoard[y+2][x]   === 'bar' &&   //vertical bar opposite of click on right
+           gameBoard[y+1][x+1] === 'bar' &&   //horizontal bar below, right
+           gameBoard[y+1][x-1] === 'bar' ) {  //horizontal bar above, right
+        // console.log('j: ' + j);
+        console.log('box!');
+        $divs[x+5].classList.add('player1');
+      }
+  // }
 }
   // console.log(e.target.dataset);
   // console.log('gameboard ', gameBoard);
