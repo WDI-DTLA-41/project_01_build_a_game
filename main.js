@@ -5,38 +5,48 @@ console.log('meow');
 var value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q','K','A'];
 var suit = ["Spades", "Hearts", "Clubs", "Diamonds"];
 
+//make deck
 var deck = [];
+var card;
 
 var createDeck = function(){
   // loops through 2 - A
   for (var i = 0; i < value.length; i++) {
     // loops spades - diamonds
     for (var j = 0; j < suit.length; j++) {
-      var card = {value: value[i], suit: suit[j]}
-      deck.push(card)
+      card = {value: value[i], suit: suit[j]};
+      deck.push(card);
     }
   }
 }
 
+createDeck();
+
+console.log(deck);
+
+// shuffle
+Array.prototype.shuffle = function() {
+var n = this.length, j, temp;
+console.log(n);
+while(--n > 0) {
+  j = Math.floor(Math.random() * (n+1));
+  temp = this[j];
+  this[j] = deck[n];
+  this[n] = temp;
+  }
+  return this;
+}
+var deckShuffled = deck.shuffle();
+console.log(deckShuffled);
 
 
+//deal
+//draw
+//addcards
+//combine
+//cardCount
 
 
-
-
-
-
-
-
-
-//createDeck will run the for loop, four times, for each suite
-
-//for loop to go from 1 - 13
-//add the object 'card' and add it to deck array
-//use for loop to individual suites - hearts
-// each time you go through the full loop
-
-//need the value and suite
 
 
 
