@@ -1,7 +1,20 @@
+@font-face {
+  font-family: 'starwars';
+  src: url('assets/Death Star.otf');
+}
+
 body {
   background: black;
-  font-family: Arial, sans-serif;
+  font-family: starwars, Arial, sans-serif;
   color: white;
+}
+h1 {
+  font-size: 80px;
+}
+h2 {
+  font-size: 20px;
+  font-style: italic;
+  height: 30px;
 }
 div {
   height: 300px;
@@ -9,7 +22,7 @@ div {
   display: inline-block;
   border-radius: 10px;
   background: white;
-
+  margin: 10px;
 }
 .red {
   background: pink;
@@ -26,12 +39,17 @@ div {
 .green {
   background: palegreen;
 }
-button {
-  display: inline-block;
+.buttons {
+  display: block;
+  margin: 20px;
 }
-/*.spin {
-  display: inline;
-}*/
+button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+}
 
 /* "REEL SPIN" ANIMATION*/
 #spin-one {
