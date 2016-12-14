@@ -1,13 +1,17 @@
 var board = document.querySelector('.board');
 var boxes = document.querySelectorAll('.box');
+var input1 = document.querySelector('.p1');
+var input2 = document.querySelector('.p2');
 var $divs = document.querySelectorAll('.divs');
+var x = null;
+var y = null;
 
 var gameBoard = [
-   [1, 2, 3, 4, 5 ],
-   [6, 7, 8, 9, 10],
-   [11,12,13,14,15],
-   [16,17,18,19,20],
-   [21,22,23,24,25]
+   [0, 1, 2, 3, 4],
+   [0, 1, 2, 3, 4],
+   [0, 1, 2, 3, 4],
+   [0, 1, 2, 3, 4],
+   [0, 1, 2, 3, 4]
 ];
 
 var players = [
@@ -20,8 +24,6 @@ var players = [
 ];
 
 
-var input1 = document.querySelector('.p1');
-var input2 = document.querySelector('.p2');
 
 input1.addEventListener('keyup', e => {
   if ( e.keyCode === 13 ) {
@@ -42,8 +44,10 @@ var handleClick = function(e) {
     this.removeEventListener('click', handleClick);
     e.target.classList.add('clicked-bar');
     var position = this.dataset;
-    gameBoard[position.row][position.col] = 'bar';
-    // checkBoard();
+    x = position.row;
+    y = position.col;
+    gameBoard[x][y] = 'bar';
+    checkPerimeter();
   }
 }
 
@@ -51,20 +55,9 @@ for ( var i = 0; i < $divs.length; i++ ) {
   $divs[i].addEventListener('click', handleClick);
 }
 
-//  g a m e  l o g i c  //
-board.addEventListener('click', function(e) {
-  // console.log(e.target.dataset);
-  // console.log('gameboard ', gameBoard);
-  var pos2 = this.dataset;
-  var x    = pos2.row;
-  var y    = pos2.col;
-  vBarBoxToLeft(x,y);
-  vBarBoxToRight(x,y);
-  hBarBoxBelow(x,y);
-  hBarBoxAbove(x,y);
-});
 
-var vBarBoxToRight = function(x,y) {
+//  g a m e  l o g i c  //
+var checkPerimeter = () => {
   for ( var j = 0; j < $divs.length; j++ ) {
   // for ( var j in this.dataset ) {
     console.log('x: ' + x,'y: ' + y,'j: ' + j);
@@ -75,33 +68,50 @@ var vBarBoxToRight = function(x,y) {
     }
   }
 }
-var vBarBoxToLeft = function(x,y) {
-  for ( var j = 0; j < $divs.length; j++ ) {
-    // for clicked vertical bar, checks for clicked bars around box to the left
-    if ( gameBoard[x][y]     === 'bar' && gameBoard[x-2][y]   === 'bar' &&
-         gameBoard[x-1][y-1] === 'bar' && gameBoard[x-1][y+1] === 'bar' ) {
-      $divs[j-1].classList.add('player1');
-    }
-  }
-}
-var hBarBoxBelow = function(x,y) {
-  for ( var j = 0; j < $divs.length; j++ ) {
-    // for clicked horizontal bar, checks for clicked bars around box below
-    if ( gameBoard[x][y]     === 'bar' && gameBoard[x+1][y+1] === 'bar' &&
-         gameBoard[x-1][y+1] === 'bar' && gameBoard[x][y+2]   === 'bar' ) {
-      $divs[j+5].classList.add('player1');
-    }
-  }
-}
-var hBarBoxAbove = function(x,y) {
-  for ( var j = 0; j < $divs.length; j++ ) {
-    // for clicked horizontal bar, checks for clicked bars around box above
-    if ( gameBoard[x][y]     === 'bar' && gameBoard[x-1][y-1] === 'bar' &&
-         gameBoard[x+1][y-1] === 'bar' && gameBoard[x][y-2]   === 'bar' ) {
-      $divs[j-5].classList.add('player1');
-    }
-  }
-};
+  // console.log(e.target.dataset);
+  // console.log('gameboard ', gameBoard);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //  g a m e  l o g i c  //
+
+// var vBarBoxToLeft = function(x,y) {
+//   for ( var j = 0; j < $divs.length; j++ ) {
+//     // for clicked vertical bar, checks for clicked bars around box to the left
+//     if ( gameBoard[x][y]     === 'bar' && gameBoard[x-2][y]   === 'bar' &&
+//          gameBoard[x-1][y-1] === 'bar' && gameBoard[x-1][y+1] === 'bar' ) {
+//       $divs[j-1].classList.add('player1');
+//     }
+//   }
+// }
+// var hBarBoxBelow = function(x,y) {
+//   for ( var j = 0; j < $divs.length; j++ ) {
+//     // for clicked horizontal bar, checks for clicked bars around box below
+//     if ( gameBoard[x][y]     === 'bar' && gameBoard[x+1][y+1] === 'bar' &&
+//          gameBoard[x-1][y+1] === 'bar' && gameBoard[x][y+2]   === 'bar' ) {
+//       $divs[j+5].classList.add('player1');
+//     }
+//   }
+// }
+// var hBarBoxAbove = function(x,y) {
+//   for ( var j = 0; j < $divs.length; j++ ) {
+//     // for clicked horizontal bar, checks for clicked bars around box above
+//     if ( gameBoard[x][y]     === 'bar' && gameBoard[x-1][y-1] === 'bar' &&
+//          gameBoard[x+1][y-1] === 'bar' && gameBoard[x][y-2]   === 'bar' ) {
+//       $divs[j-5].classList.add('player1');
+//     }
+//   }
+// };
 
         // var p1Score = document.querySelector('.p1-score');
         // var p1ScoreNum = 0;
@@ -132,19 +142,19 @@ var hBarBoxAbove = function(x,y) {
 
 
 
-
-
-
-
-
-
 // var gameBoard = [
-//    [0, 1, 2, 3, 4],
-//    [0, 1, 2, 3, 4],
-//    [0, 1, 2, 3, 4],
-//    [0, 1, 2, 3, 4],
-//    [0, 1, 2, 3, 4]
+//    [1, 2, 3, 4, 5 ],
+//    [6, 7, 8, 9, 10],
+//    [11,12,13,14,15],
+//    [16,17,18,19,20],
+//    [21,22,23,24,25]
 // ];
+
+
+
+
+
+
 
 
 
