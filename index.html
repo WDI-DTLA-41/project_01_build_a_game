@@ -18,13 +18,13 @@
       <div class="gameButton">
         <button id="startGameButton">Start Game</button>
         <button id="startTournamentButton">Start Tournament</button>
-        <button id="resesGameButton">Reset Game</button>
+        <button id="resetGameButton">Reset Game</button>
         <button id="resetTournamentButton">Reset Tournament</button>
       </div>
 
       <div class="stats">
         <div id="turnBox">
-          <div id="playerTurn">Player's Turn:<br></div><div id="turnResult">Player 1</div>
+          <div id="playerTurn">Player's Turn:<br></div><div id="turnResult">Game not active</div>
         </div>
         <div id="scores">
           <h3 class="h3">Scores</h3>
@@ -36,20 +36,28 @@
         <div id="tournamentScores">
           <h3 class="h3">Tournament Scores</h3>
           <p style="margin-top:0;">W</p><p style="margin-top:0;margin-left:90%;">L</p><br>
-          <span id="player1TournamentWinTally">1</span>
-          <div id="player1Score">Player 1: </div>
-          <span id="player1TournamentLossTally">2</span><br>
-          <span id="player2TournamentWinTally">3</span>
-          <div id="player2Score">Player 2: </div>
-          <span id="player2TournamentLossTally">4</span>
+          <span id="player1TournamentWinTally">1</span><div id="player1Score">Player 1: </div><span id="player1TournamentLossTally">2</span><br>
+          <span id="player2TournamentWinTally">3</span><div id="player2Score">Player 2: </div><span id="player2TournamentLossTally">4</span>
         </div>
       </div>
 
+
+                                  <p id="pieceTitle"></p>
+      <table class="pieceSelector">
+                                  <tr>
+                                    <td><div class="standardPieceOne"></div></td>
+                                    <td><div class="standardPieceOne"></div></td>
+                                    <td><div class="standardPieceOne"></div></td>
+                                    <td><div class="standardPieceOne"></div></td>
+                                    <td><div class="standardPieceOne"></div></td>
+                                    <td><div class="standardPieceOne"></div></td>
+                                    <td><div class="standardPieceOne"></div></td>
+                                  </tr></table>
       <table class="gameBoard"></table>
 
       <div class="navBar">
         <ul>
-          <li><a href="#">HOME</a></li>
+          <li><a href="#">Home</a></li>
           <li><a href="#">Instructions</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
