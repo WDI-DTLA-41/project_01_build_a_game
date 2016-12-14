@@ -1,6 +1,5 @@
 // create a deck of cards
-
-var deck = [];
+var deck;
 var suits = ['hearts', 'clubs', 'spades', 'diamonds'];
 var cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
 var names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
@@ -8,6 +7,16 @@ var dealerHand = [];
 var playerHand = [];
 var dealerScore = null;
 var playerScore = null;
+
+var dealer = {
+  score: 0,
+  hand: []
+}
+
+var player = {
+  score: 0,
+  hand: []
+}
 
 var $newHand = document.querySelector('.newhand');
 var $deal = document.querySelector('.deal');
@@ -18,7 +27,7 @@ var $stay = document.querySelector('.stay');
 // question - is it not possible to do this with 3 for loops? I got back ~ 670 objects in my array
 
 var makeDeck = function() {
-
+  deck = [];
   for (var i = 0; i < suits.length; i++) {
     for (var j = 0; j < names.length; j++) {
       var card = {};
@@ -31,6 +40,7 @@ var makeDeck = function() {
   console.log(deck); //logs created deck
 };
 
+<<<<<<< HEAD
 // var card = {
 //   name: 'fillmurray.com',
 //   size: '100/100',
@@ -41,6 +51,8 @@ var makeDeck = function() {
 // document.body.append(img);
 
 $newHand.addEventListener('click', makeDeck);
+=======
+>>>>>>> pairing
 
 // for test
 // makeDeck();
@@ -50,11 +62,11 @@ $newHand.addEventListener('click', makeDeck);
 // Durstenfeld Shuffle
 // do not know if actually need a parameter - works without
 var shuffleDeck = function(array) {
-  for (var i = deck.length - 1; i > 0; i--) {
+  for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
-      var temp = deck[i];
-      deck[i] = deck[j];
-      deck[j] = temp;
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
   }
    return array;
 };
@@ -62,13 +74,12 @@ var shuffleDeck = function(array) {
 
 //function to deal cards & calculate initial score at the beginning of the game
 var dealCards = function() {
-  shuffleDeck()
-  for(i=0;i<2;i++){
-  dealerHand[i] = deck.pop();
-  playerHand[i] = deck.pop();
-  dealerCal();
-  playerCal();
-
+  deck = shuffleDeck(deck);
+  for (var i = 0; i < 2; i++) {
+    dealerHand[i] = deck.pop();
+    playerHand[i] = deck.pop();
+    dealerCal();
+    playerCal();
   }
 
   // Replaced hard coding with dealerCal & playerCal above
@@ -81,7 +92,6 @@ var dealCards = function() {
   console.log('Player Score Is:' + playerScore);
 };
 
-$deal.addEventListener('click', dealCards);
 
 //using a function to calculate dealer score
 var dealerCal = function() {
@@ -94,25 +104,31 @@ var playerCal = function() {
 }
 
 
+
+// takes an object(player or dealer) and calculates the scores for that 'user'[parameter]
+var calculateHandOf = function(user) {
+  user.score = user.score + user.hand[user.hand.length-1].value;
+  // playerScore = playerScore + playerHand[playerHand.length-1].value;
+}
+
 var playerHit = function(result) {
-    playerHand[playerHand.length] = deck.pop();
-    playerCal();
-    // playerScore = playerScore + playerHand[2].value; //redundant
-    console.log("Player's new score is" + playerScore);
+  playerHand[playerHand.length] = deck.pop();
+  // calculateHandOf(player); // NOTE will require refactoring playerHand code to use player.hand
+  playerCal();
+  // playerScore = playerScore + playerHand[2].value; //redundant
+  console.log("Player's new score is" + playerScore);
   if(playerScore === 21) {
     return console.log('BLACKJACK!');
-
   } else if (playerScore > 21){
     return console.log('you went BUST');
-
   } else {
     return playerScore;
   }
-
 }
 
 $hit.addEventListener('click', playerHit);
-
+$deal.addEventListener('click', dealCards);
+$newHand.addEventListener('click', makeDeck);
 
 
 
