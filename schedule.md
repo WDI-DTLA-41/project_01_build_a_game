@@ -41,7 +41,7 @@
 |:-------------:   | :-------------: | 
 | Margie | 10:00am -10:20am |   
 | Bao | 10:30am -10:50am |
-| Ritwick | 11:00am -11:20am |
+| James | 11:00am -11:20am |
 | Abi | 11:30am -11:50am |
 | Brad | 12:00pm -12:20pm |
 
@@ -61,7 +61,7 @@
 | Adam- Kora | 2:00pm -2:20pm | 
 | Adam-Bao | 2:20pm -2:40pm |
 | Adam-Rony | 3:00pm -3:20pm | 
-| Adam-Ritwick | 3:20pm -3:40pm |
+| Adam-James | 3:20pm -3:40pm |
 | Adam-Justin | 3:40pm-4:00pm  |
 | Adam-Dakotah | 4:00pm -4:20pm |
 | Adam-Kris | 4:20pm -4:40pm |
@@ -75,7 +75,7 @@
 | Jake | 10:30am -10:50am |
 | Andrew | 11:00am -11:20am |
 | Barrett | 11:30am -11:50am |
-| James | 12:00pm -12:20pm |
+| Ritwick | 12:00pm -12:20pm |
 
 
 ### *Students Pairing with Boshika* 
@@ -97,7 +97,7 @@
 | Adam-Lacey | 3:00pm- 3:20pm | 
 | Adam-Barrett | 3:20pm -3:40pm |
 | Adam-Qian | 3:40pm -4:00pm
-| Adam-James | 4:00pm -4:20pm |
+| Adam-Ritwick | 4:00pm -4:20pm |
 ---
 
 # **Instructor-Student Gut check**
