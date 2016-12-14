@@ -1,14 +1,18 @@
 var player1;
-var Player2;
+var player2;
+var cardPlayed1;
+var cardPlayed2;
 
 var isWar = false;
 var cards;
 
+// start button on html page
 var $start = document.querySelector('#start');
 
-//shuffle the deck of cards. Pulls from func above
-//shuffle(deckOfCards);
+// play button on html page
+var $play = document.querySelector('#play');
 
+//shuffle(deckOfCards);
 var makeDeck = function() {
   // organize cards function. Ace is #13
   // each row represents card suit
@@ -51,54 +55,48 @@ function shuffleArray(array) {
 
 // function to compare first two cards
 // maybe give the cards to compare cards first...
-function compareCards(a, b) {
+function compareCards() {
   // assign cards to player 1 and 2?
-  // maybe use isWar further down to do more checks
-  // example here:
-  // if (isWar) {
-  //   cardPlayed1 = player1[3];
-  //   cardPlayed2 = player2[3];
-  //   var trashcards1 = player1.splice(0, 2);
-  //   var trashcards2 = player2.splice(0, 2);
-  // } else {
-    cardPlayed1 = player1[0];
-    cardPlayed2 = player2[0];
-  //   var trashcards1 = player1[0];
-  //   var trashcards2 = player2[0];
-  // }
 
   if (cardPlayed1 > cardPlayed2) {
 
-    //logic here to add card back
-    // remove cards from players' hands
-    var removedCard1 = player1.shift();
-    var removedCard2 = player2.shift();
-    // add both cards to bottom of winner's pile
-    player1.push(removedCard1, removedCard2);
+          // If WAR flag is on, do this, if off, fall through
+          if (isWar !== false) {
+              startWar();
+          }
+        //logic here to add card back
+        // remove cards from players' hands
+        var removedCard1 = player1.shift();
+        var removedCard2 = player2.shift();
+        // add both cards to bottom of player1 pile
+        player1.push(removedCard1, removedCard2);
+        isWar = false;
+        return 'Winner is Player 1';
 
-    // helper to visualize
-    // console.log(cardsSplitHalf1);
-    // console.log(cardsSplitHalf2);
-    return 'Winner is Player 1';
-  } else if (cardPlayed1 < cardPlayed2) {
-    //logic here to add card back
-    // remove cards from players' hands
-    var removedCard1 = player1.shift();
-    var removedCard2 = player2.shift();
-    // add both cards to bottom of winner's pile
-    player2.push(removedCard1,removedCard2);
-    // helper to visualize
-    // console.log(cardsSplitHalf1);
-    // console.log(cardsSplitHalf2);
-    return 'Winner is Player 2';
-  } else {
-    // cards match
-    isWar = true;
-    return 'War!';
+    } else if (cardPlayed1 < cardPlayed2) {
 
-    //check if war flag = true
-    // if (war !== false) {
-    //war === false;
+          // If WAR flag is on, do this, if off, fall through
+          if (isWar !== false) {
+              startWar();
+          }
+
+        //logic here to add card back
+        // remove cards from players' hands
+        var removedCard1 = player1.shift();
+        var removedCard2 = player2.shift();
+        // add both cards to bottom of player 2 pile
+        player2.push(removedCard1,removedCard2);
+        // helper to visualize
+        // console.log(cardsSplitHalf1);
+        // console.log(cardsSplitHalf2);
+        isWar = false;
+        return 'Winner is Player 2';
+   } else {
+
+        // cards match
+        isWar = true;
+        return 'War!';
+        compareCards();
   }
 
 }
@@ -109,31 +107,41 @@ function compareCards(a, b) {
 // and we just use isWar to change variables
 // function of War comparison
 var war = function () {
-        compareCards();
-        // player1[3] vs player2[3]
-          // remove next 3 cards from both decks
-          cardsSplitHalf1.splice(0,2) // index 0-2 = 3 cards
-          cardsSplitHalf2.splice(0,2) // index 0-2 = 3
-          // add cards to back of player 1 pile
-          cardsSplitHalf1.push(0,6);
+
+        //player1[3] vs player2[3];
+        warCardsRemoved();
+
 
 }
-
+// start button
 $start.addEventListener('click', startGame);
+// Play button
+$play.addEventListener('click', compareCards);
 
 // subtract one card from deck (loser of card draw)
-
 // add two cards to deck (winner of card drawer)
-
-
 // subtract 10 cards from deck (loser of war)
 /// this is how we could put cards for war in a holding tank first
-// var tempHand1 = player1.splice(0, 4)
-// var tempHand2 = player2.splice(0, 4)
-// var compare1 = tempHand1[0]
-// var compare2 = tempHand2[0]
-// player1.concat(tempHand1, tempHand2);
-
-// add 6 cards to deck (winner of War)
+var warCardsRemoved = function() {
+      var tempHand1 = player1.splice(0, 4);  // this removes first 4 cards
+      var tempHand2 = player2.splice(0, 4);  // this removes first 4 cards
+      var compare1 = tempHand1[0];    // compares 1st card
+      var compare2 = tempHand2[0];    // compares 1st card
+      player1.concat(tempHand1, tempHand2); // this adds 8 cards to winner
+}
+var startWar = function () {
+    // run func to hold out cards 3 facedown, 1 up
+    warCardsRemoved();
+    if (cardPlayed1 > cardPlayed2) {
+       player1.push(removedCard1, removedCard2);
+       // player 1 wins 'WAR' and gets all 8 cards
+       player1.concat(tempHand1, tempHand2);
+       player1.push(removedCard1, removedCard2);
+       //resets war flag to off
+       isWar = false;
+       // starts game comparing new cards
+       compareCards();
+    }
+}
 
 
