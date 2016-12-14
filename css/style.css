@@ -16,5 +16,5 @@ body {
   background-color: green;
 }
 .square:nth-child(2n+1) {
-  background-color: yellow;
+  background-color: grey;
 }
