@@ -13,6 +13,7 @@ var timerId1 = null;
 var timerId2 = null;
 var timerId3 = null;
 var timerId4 = null;
+var timerId5 = null;
 var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
 var userInput = [];
@@ -52,7 +53,7 @@ var fourColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
-  btnContainer.addEventListener('click', handleUserInput);
+  timerId5 = setTimeout(gameOver, 2000);
 };
 
 
@@ -65,6 +66,7 @@ var addCounter = function() {
 
 // resets the Counter back to 0
 var resetCounter = function() {
+  counterVal = 0;
   counter.textContent = 0;
 };
 
@@ -82,40 +84,40 @@ var handleStartGame = function() {
   timerId0 = setTimeout(fourColorFlash,1000);
 };
 
-
+// handle to convert userInput to a number in the sequence
 var handleUserInput = function(event) {
-  console.log(event.target.dataset.number);
   var userInputInt = (event.target.dataset.number);
-  console.log(userInputInt);
-  if (userInputInt === greenBtn.dataset.number) {
-    return userInput.push(1);
-  } else if (userInputInt === redBtn.dataset.number) {
-    return userInput.push(2);
-  } else if (userInputInt === yellowBtn.dataset.number) {
-    return userInput.push(3);
-  } else {
-    return userInput.push(4);
-  }
-
-
-
-
-
-
-  // if (userInput === sequenceArr) {
-  //   return fourColorFlash();
-  // } else {
-  //   gameOver();
-  //   return console.log("You lose!");
-  // }
+    if (userInputInt === greenBtn.dataset.number) {
+      return userInput.push(1);
+    } else if (userInputInt === redBtn.dataset.number) {
+      return userInput.push(2);
+    } else if (userInputInt === yellowBtn.dataset.number) {
+      return userInput.push(3);
+    } else {
+      return userInput.push(4);
+    }
 }
+
+var checkInput = function() {
+    if (userInput === sequenceArr) {
+      return fourColorFlash();
+    } else {
+      gameOver();
+      return console.log("You lose!");
+    }
+};
+
+var handleHighLight = function(event) {
+  (event.target.classList.toggle('highlight'));
+};
+
 
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
 
 // add EventListener for userInputs
 btnContainer.addEventListener('click', handleUserInput);
-
+btnContainer.addEventListener('click', handleHighLight);
 
 
 

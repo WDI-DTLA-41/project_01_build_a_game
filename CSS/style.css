@@ -18,6 +18,11 @@ body {
   top: 100px;
 }
 
+.highlight:active {
+  border: 5px solid white;
+}
+
+
 #btn-container {
   position: relative;
   right: 50px;
@@ -61,7 +66,7 @@ body {
   border-radius: 0 0 100px 0;
 }
 
-.flash-green {
+.green {
   background-color:white;
 }
 
