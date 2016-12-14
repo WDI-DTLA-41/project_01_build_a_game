@@ -28,8 +28,12 @@ var isMatch = [];
 
 function getLetter(){
   letter = document.querySelector('input').value;
-  // if (letter = ''){
-  //   alert('Please enter a letter')
+
+  if (letter.value = ''){
+    alert('Please enter a letter')
+  }
+  // if (letter.length === 2) {
+  //   alert('One at a time, please!');
   // }
   letter = letter.toUpperCase();
   document.querySelector('input').value = '';
@@ -61,29 +65,33 @@ function getLetterEnter(evt){
 
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
-  if (playWord.includes(letter)){
-    console.log('yes');
-    isMatch.push('match');
-    index = playWord.indexOf(letter);
-    underscores[index] = playWord[index];
-    placeholders.textContent = underscores.join(' ');
-    if (isMatch.length === playWord.length){
-      console.log(isMatch.length);
-      alert('You win!');
-    }
+    if (letter.length === 2) {
+    alert('One at a time, please!');
     return;
-  } else {
-    console.log('no');
-    skeleton[j].style.visibility = "visible";
-    j= j + 1;
-    guessed.push(letter);
-    guessedBox.innerHTML = 'Guessed:<br>' + guessed;
-    noMatch.push(1);
-    if (noMatch.length === 6 || noMatch.length === playWord.length) {
-    alert('Sorry, you lose!');
-    }
+  }
+    if (playWord.includes(letter)){
+      console.log('yes');
+      isMatch.push('match');
+      index = playWord.indexOf(letter);
+      underscores[index] = playWord[index];
+      placeholders.textContent = underscores.join(' ');
+      if (isMatch.length === playWord.length){
+        console.log(isMatch.length);
+        alert('You win!');
+      }
+      return;
+    } else {
+      console.log('no');
+      skeleton[j].style.visibility = "visible";
+      j= j + 1;
+      guessed.push(letter);
+      guessedBox.innerHTML = 'Guessed:<br>' + guessed;
+      noMatch.push(1);
+      if (noMatch.length === 6 || noMatch.length === playWord.length) {
+      alert('Sorry, you lose!');
+      }
 
-    return;
+      return;
   }
  }
 }
