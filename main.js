@@ -31,6 +31,15 @@ var makeDeck = function() {
   console.log(deck); //logs created deck
 };
 
+// var card = {
+//   name: 'fillmurray.com',
+//   size: '100/100',
+// }
+
+// var img = document.createElement('img');
+// img.src = 'http://' + card.name + '/' + card.size;
+// document.body.append(img);
+
 $newHand.addEventListener('click', makeDeck);
 
 // for test
