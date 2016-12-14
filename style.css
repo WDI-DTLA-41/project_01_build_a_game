@@ -259,7 +259,7 @@ a {
 }
 
 #player2 {
-  color:green;
+  color:lightgreen;
 }
 
 #player1Hov:hover {
@@ -273,5 +273,11 @@ a {
   border-color:lightgreen;
 }
 
+div[color='red'] {
+  background:red;
+}
 
+div[color='green'] {
+  background:lightgreen;
+}
 
