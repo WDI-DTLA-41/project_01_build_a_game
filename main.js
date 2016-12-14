@@ -3,8 +3,8 @@ var deck;
 var suits = ['hearts', 'clubs', 'spades', 'diamonds'];
 var cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
 var names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
-var dealerHand = [];
-var playerHand = [];
+var dealerHand = []; // not req after using player & dealer
+var playerHand = []; // not req after using player & dealer
 var dealerScore = null;
 var playerScore = null;
 
@@ -40,7 +40,6 @@ var makeDeck = function() {
   console.log(deck); //logs created deck
 };
 
-<<<<<<< HEAD
 // var card = {
 //   name: 'fillmurray.com',
 //   size: '100/100',
@@ -50,9 +49,6 @@ var makeDeck = function() {
 // img.src = 'http://' + card.name + '/' + card.size;
 // document.body.append(img);
 
-$newHand.addEventListener('click', makeDeck);
-=======
->>>>>>> pairing
 
 // for test
 // makeDeck();
