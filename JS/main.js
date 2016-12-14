@@ -57,28 +57,37 @@ var fourColorFlash = function () {
 
 
 var repeatColorFlash = function () {
-  for(var i = 0; sequenceArr.length; i++)
+  for(var i = 0; i < sequenceArr.length; i++)
     if (sequenceArr[i] === 1) {
-      return greenBtn.style.backgroundColor = 'white';
+      greenBtn.style.backgroundColor = 'white';
       timerId1 = setTimeout(function() {
       greenBtn.style.backgroundColor = 'green';
       },250);
+      timerId1 = null;
+      timerId1 = setTimeout(3000);
     } else if (sequenceArr[i] === 2) {
-      return redBtn.style.backgroundColor = 'white';
+      redBtn.style.backgroundColor = 'white';
       timerId2 = setTimeout(function() {
       redBtn.style.backgroundColor = 'red';
       },250);
+      timerId2 = null;
+      timerId2 = setTimeout(3000);
     } else if (sequenceArr[i] === 3) {
-      return yellowBtn.style.backgroundColor = 'white';
+      yellowBtn.style.backgroundColor = 'white';
       timerId3 = setTimeout(function() {
       yellowBtn.style.backgroundColor = 'yellow';
       },250);
-    } else {
-      return blueBtn.style.backgroundColor = 'white';
+      timerId3 = null;
+      timerId3 = setTimeout(3000);
+    } else if (sequenceArr[i] === 4) {
+      blueBtn.style.backgroundColor = 'white';
       timerId4 = setTimeout(function() {
       blueBtn.style.backgroundColor = 'blue';
       },250);
+      timerId4 = null;
+      timerId4 = setTimeout(3000);
     }
+    timerId0 = setTimeout(4000);
 }
 
 // adds to the counter for each function loop
@@ -94,11 +103,18 @@ var resetCounter = function() {
   counter.textContent = 0;
 };
 
+var clearSequence = function() {
+  userInput = [];
+  sequenceArr = [];
+};
+
 
 // gameOver function when userInput is incorrect
 var gameOver = function() {
   // playing gameOver audio file
   resetCounter();
+  clearSequence();
+  return console.log('Nice try!');
 };
 
 
@@ -122,29 +138,17 @@ var handleUserInput = function(event) {
       return userInput.push(4);
     }
 }
-// function to check if userInput equals sequence
-// var checkInput = function() {
-//     if (userInput === sequenceArr) {
-//       console.log('true');
-//     // } else {
-//     //   gameOver();
-//     //   return console.log("You lose!");
-//     }
-// };
 
+
+// function to check if userInput equals sequence
 var checkInput = function() {
-  for(var i = 0; i < userInput.length; i++) {
-    for(var j = 0; j < sequenceArr.length; j++) {
-      if (userInput[i] === sequenceArr[j]) {
+  if (_.isEqual(userInput,sequenceArr)) {
         return console.log('true');
       } else {
-        return gameOver();
+        gameOver();
+        // return console.log("You lose!");
       }
-    }
-  }
 };
-
-
 
 
 
