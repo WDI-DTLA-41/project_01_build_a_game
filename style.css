@@ -1,3 +1,20 @@
+body{
+  background: black;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+#start {
+  visibility: visible;
+}
+
+#restart {
+  visibility: visible;
+}
+
 div {
   height: 150px;
   width: 150px;
@@ -13,37 +30,53 @@ div {
 }
 
 #red {
-  background: #ff723f;
+  background: rgba(255, 0, 0, 0.4);
   border-radius: 100% 0 0 0;
 }
 
+#red.light {
+  background: rgb(255, 0, 0);
+}
+
 #red:active {
-  background: red;
+  background: rgb(255, 0, 0);
 }
 
 #green {
-  background: green;
+  background: rgba(0, 255, 0, 0.4);
   border-radius: 0 100% 0 0;
 }
 
+#green.light {
+  background: rgb(0, 255, 0);
+}
+
 #green:active {
-  background: #19ff00;
+  background: rgb(0, 255, 0);
 }
 
 #blue {
-  background: blue;
+  background: rgba(0, 97, 255, 0.4);
   border-radius: 0 0 0 100%;
 }
 
+#blue.light {
+  background: rgb(0, 97, 255);
+}
+
 #blue:active {
-  background:#0099ff;
+  background: rgb(0, 97, 255);
 }
 
 #yellow {
-  background: #e8e82e;
+  background: rgba(255, 255, 0, 0.4);
   border-radius: 0 0 100% 0;
 }
 
+#yellow.light {
+  background: rgb(255, 255, 0);
+}
+
 #yellow:active {
-  background: yellow;
+  background: rgb(255, 255, 0);
 }

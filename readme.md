@@ -25,10 +25,15 @@ A description of your game ([Use Your Game's Name])
     5a. Follow all of Simon's sequences correctly, up to sequence.length==31 through the most difficult level
 
 *Next Steps*
+* Make Simon play his own sequence
+* Black out Start button after first click (and until streak break)
 * Timer (player has 3 seconds to make next selection)
 * Track record streak
 * Keep track of rounds played (successfully) to increment difficulty
 * Make tiered difficulty levels (lengthen sequences, speed up signals)
 * Implement multi-player and corresponding winners/losers
 * Make game playable on keyboard (number keys = color selection)
-* 
+
+
+*Current Bugs*
+* Simon's sequence doubles up if start is clicked multiple times
