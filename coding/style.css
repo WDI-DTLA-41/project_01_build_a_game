@@ -1,8 +1,8 @@
-body {
+ body {
   background-color: lightblue;
   text-align: center;
   padding: 2em 0;
-  font-size: 16px;
+  font-size: 10px;
   margin: 0 auto;
 }
 
@@ -34,25 +34,37 @@ tr {
   margin: 3em 2em;
 }
 
-.tdBoard {
-  background-color: #ccc;
-  border-radius: 1px solid black;
-  width: 4.5em;
-  height: 4.5em;
-}
 .activeRed {
   border: 4px dashed black;
+  background-color: red;
+  width: 4em;
+  height: 4em;
 }
 .activeBlack {
   border: 4px dashed red;
+  background-color: black;
+  width: 4em;
+  height: 4em;
 }
+
 .trNumbers {
   background-color: white;
   width: 4.5em;
   height: 4.5em;
 }
 
+.tdBoard {
+  border-radius: 1px solid black;
+  width: 4.5em;
+  height: 4.5em;
+}
 
+#backGroundColorOne {
+  background-color: #ccc;
+}
+#backGroundRed {
+  background-color: red;
+}
 #wrapper {
   background-color: lightgreen;
   width: 50%;
@@ -61,15 +73,16 @@ tr {
 }
 
 #redPeace {
-  width: 4.5em;
-  height: 4.5em;
+  width: 4em;
+  height: 4em;
   border-radius: 50%;
   background-color: red;
   display: inline-block;
 }
+
 #blackPeace {
-  width: 4.5em;
-  height: 4.5em;
+  width: 4em;
+  height: 4em;
   border-radius: 50%;
   background-color: black;
   margin-left: 1em;
@@ -77,16 +90,20 @@ tr {
 }
 #playerOne {
   font-size: 1.5em;
+  text-align: center;
 }
 #playerTwo {
   font-size:  1.5em;
 }
 #playerOneInput {
   background-color: red;
-  font-size: 1em;
+  font-size: 1.3em;
+  text-align: center;
 }
 #playerTwoInput {
   background-color: black;
-  font-size: 1em;
+  font-size: 1.3em;
+  text-align: center;
+  color: white;
 }
 
