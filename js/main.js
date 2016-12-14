@@ -28,13 +28,6 @@ var isMatch = [];
 
 function getLetter(){
   letter = document.querySelector('input').value;
-
-  if (letter.value = ''){
-    alert('Please enter a letter')
-  }
-  // if (letter.length === 2) {
-  //   alert('One at a time, please!');
-  // }
   letter = letter.toUpperCase();
   document.querySelector('input').value = '';
   gameLogic();
@@ -65,11 +58,14 @@ function getLetterEnter(evt){
 
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
-    if (letter.length === 2) {
+    if (letter === ''){
+    alert('Please enter a letter');
+    return;
+  } else
+    if (letter.length > 1) {
     alert('One at a time, please!');
     return;
-  }
-    if (playWord.includes(letter)){
+  } else if (playWord.includes(letter)){
       console.log('yes');
       isMatch.push('match');
       index = playWord.indexOf(letter);
