@@ -47,7 +47,7 @@ var handleClick = function(e) {
     x = position.row;
     y = position.col;
     gameBoard[x][y] = 'bar';
-    checkPerimeter();
+    checkPerimeter(e);
   }
 }
 
@@ -57,13 +57,20 @@ for ( var i = 0; i < $divs.length; i++ ) {
 
 
 //  g a m e  l o g i c  //
-var checkPerimeter = () => {
+var checkPerimeter = (e) => {
+  console.log(e.target);
+  console.log('x: ' + x,'y: ' + y,'j: ' + j);
+  console.log('gameBoard[x][y]: ' + gameBoard[x][y]);
+  console.log('gameBoard[x + 2][y]: ' + gameBoard[x+2][y]);
+  console.log('gameBoard[x + 1][y + 1]: ' + gameBoard[x+1][y+1]);
+  console.log('gameBoard[x + 1][y - 1]: ' + gameBoard[x+1][y-1]);
   for ( var j = 0; j < $divs.length; j++ ) {
   // for ( var j in this.dataset ) {
-    console.log('x: ' + x,'y: ' + y,'j: ' + j);
     // for clicked vertical bar, checks for clicked bars around box to the right
-    if ( gameBoard[x][y]     === 'bar' && gameBoard[x+2][y]   === 'bar' &&
-         gameBoard[x+1][y+1] === 'bar' && gameBoard[x+1][y-1] === 'bar' ) {
+    if ( gameBoard[x][y]     === 'bar' &&   //vertical bar at click
+         gameBoard[x+2][y]   === 'bar' &&   //vertical bar opposite of click on right
+         gameBoard[x+1][y+1] === 'bar' &&   //horizontal bar below, right
+         gameBoard[x+1][y-1] === 'bar' ) {  //horizontal bar above, right
       $divs[j+1].classList.add('player1');
     }
   }
