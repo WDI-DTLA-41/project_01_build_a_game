@@ -24,20 +24,23 @@ div {
   background: white;
   margin: 10px;
 }
-.red {
-  background: pink;
+.darthvader {
+  background: red;
 }
-.blue {
-  background: turquoise;
+.hansolo {
+  background: blue;
 }
-.yellow {
-  background: gold;
+.luke {
+  background: skyblue;
 }
-.purple {
-  background: thistle;
+.leia {
+  background: silver;
 }
-.green {
+.yoda {
   background: palegreen;
+}
+.bobafett {
+  background: cadetblue;
 }
 .buttons {
   display: block;

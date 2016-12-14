@@ -14,9 +14,9 @@ var tryBtn = document.querySelector(".try");
 var spin = document.querySelector(".spin");
 var reset = document.querySelector(".reset");
 
-// ARRAY: Store class colors here
-var colors = ["red", "blue", "yellow", "purple", "green"];
-// var colors = ["green"];
+// ARRAY: Store classes of cards here
+var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+// var cards = ["yoda"];
 
 // =============================================
 //    "SPINNING" THE REEL
@@ -28,10 +28,6 @@ var removeClasses = function(event) {
   one.classList = "";
   two.classList = "";
   three.classList = "";
-
-  // one.removeAttribute("id", "spin-one");
-  // two.removeAttribute("id", "spin-two");
-  // three.removeAttribute("id", "spin-three");
 
   handleSpin();
 
@@ -50,14 +46,14 @@ var handleSpin = function() {
   var twoVal;
   var threeVal;
 
-  // FOR EACH SLOT, LOOP THROUGH ARRAY OF "COLORS"
+  // FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
   for (var i=0; i < slots.length; i++) {
 
     // RANDOMLY SELECTS A COLOR FROM ARRAY
     var selectColor = function() {
 
     // RETURNS THE COLOR VALUE
-    return colors[Math.floor(Math.random() * colors.length)];
+    return cards[Math.floor(Math.random() * cards.length)];
     }
 
     // STORES COLOR VALUE INTO VARIABLE
@@ -68,7 +64,7 @@ var handleSpin = function() {
     slots[i].classList.add(selected);
     // console.log(slots[i].classList);
 
-    // grab the classes of each slot and store into variables as values
+    // STORE CLASSES AS VALUES INTO VARIABLES
     var oneVal = slots[0].classList.value;
     var twoVal = slots[1].classList.value;
     var threeVal = slots[2].classList.value;
@@ -90,7 +86,7 @@ var handleSpin = function() {
       console.log("winner!");
       setTimeout(function() {
         revealQuote();
-      }, 2000);
+      }, 3000);
 
       // SET CHARACTERS FROM THEME
         // IF ALL 3 ARE THE SAME CHARACTER
@@ -106,34 +102,12 @@ var handleSpin = function() {
   compareSlots();
 
   var revealQuote = function() {
-    if (oneVal == "green" && twoVal == "green" && threeVal == "green") {
+    if (oneVal == "yoda" && twoVal == "yoda" && threeVal == "yoda") {
       var quote = document.querySelector("h2");
       quote.textContent = '"Do or do not, there is no try"';
     }
   }
   // revealQuote();
-
-
-  // var resetSlots = function() {
-  //   // if (slots.classList.contains("red")) {
-  //   //   slots.classList.remove("red");
-  //   // }
-  //   // if (slots.classList.contains("blue")) {
-  //   //   slots.classList.remove("blue");
-  //   // }
-  //   // if (slots.classList.contains("yellow")) {
-  //   //   slots.classList.remove("yellow");
-  //   // }
-  //   // if (slots.classList.contains("purple")) {
-  //   //   slots.classList.remove("purple");
-  //   // }
-  //   // if (slots.classList.contains("green")) {
-  //   //   slots.classList.remove("green");
-  //   // }
-  //   slots.classList = "";
-  // }
-  // resetSlots();
-  // console.log(slots.classList);
 
 };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
@@ -153,16 +127,16 @@ reset.addEventListener("click", reloadPage);
 
 
 // =============================================
-//    TRY BUTTON
+//    TRY BUTTON ** OPTIONAL **
 // =============================================
 
-var removeTry = function() {
-  var quote = document.querySelector("h2");
-  quote.textContent = '"Do or do not, there is no try"';
-  var buttons = document.querySelector(".buttons");
-  buttons.removeChild("tryBtn");
-}
-tryBtn.addEventListener("click", removeTry);
+// var removeTry = function() {
+//   var quote = document.querySelector("h2");
+//   quote.textContent = '"Do or do not, there is no try"';
+//   var buttons = document.querySelector(".buttons");
+//   buttons.removeChild("tryBtn");
+// }
+// tryBtn.addEventListener("click", removeTry);
 
 
 
