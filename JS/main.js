@@ -59,22 +59,22 @@ var fourColorFlash = function () {
 var repeatColorFlash = function () {
   for(var i = 0; sequenceArr.length; i++)
     if (sequenceArr[i] === 1) {
-      greenBtn.style.backgroundColor = 'white';
+      return greenBtn.style.backgroundColor = 'white';
       timerId1 = setTimeout(function() {
       greenBtn.style.backgroundColor = 'green';
       },250);
     } else if (sequenceArr[i] === 2) {
-      redBtn.style.backgroundColor = 'white';
+      return redBtn.style.backgroundColor = 'white';
       timerId2 = setTimeout(function() {
       redBtn.style.backgroundColor = 'red';
       },250);
     } else if (sequenceArr[i] === 3) {
-      yellowBtn.style.backgroundColor = 'white';
+      return yellowBtn.style.backgroundColor = 'white';
       timerId3 = setTimeout(function() {
       yellowBtn.style.backgroundColor = 'yellow';
       },250);
     } else {
-      blueBtn.style.backgroundColor = 'white';
+      return blueBtn.style.backgroundColor = 'white';
       timerId4 = setTimeout(function() {
       blueBtn.style.backgroundColor = 'blue';
       },250);
@@ -136,7 +136,7 @@ var checkInput = function() {
   for(var i = 0; i < userInput.length; i++) {
     for(var j = 0; j < sequenceArr.length; j++) {
       if (userInput[i] === sequenceArr[j]) {
-        return repeatColorFlash();
+        return console.log('true');
       } else {
         return gameOver();
       }
