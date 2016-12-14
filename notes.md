@@ -49,6 +49,7 @@ var card = {
     value: 10,
     name: 'Ten',
     suit: 'Hearts',
+    img: 
 }
 
 Functions:
@@ -128,6 +129,7 @@ objects
 //     };
 
 //   };
+
 
 
 
