@@ -1,93 +1,92 @@
 console.log('ha');
 
-// var playerHand = [], //maybe add to array of players
-//     dealerHand = [],
-var playerHandScore = 0,
-    dealerHandScore = 0;
+var $startButton = document.querySelector('[name="start"]');
+var $dealButton = document.querySelector('[name="deal"]');
+var $hitButton = document.querySelector('[name="hit"]');
+
+var deck = [],
+    shuffledDeck= [];
+
+var value = [2,3,4,5,6,7,8,9,10,10,10,10,11],
+    suits = ['diamonds', 'clubs', 'hearts', 'spades'],
+    names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'],
+    isFaceUp = [true];
+
+function createDeck() {
+  for (var i = 0; i < value.length; i++) {
+    for (var j = 0; j < suits.length; j++) {
+      newObj = {};
+      newObj.suits = suits[j];
+      newObj.value = value[i];
+      newObj.name = names[i];
+      newObj.isFaceUp = isFaceUp[0];
+      deck.push(newObj);
+    }
+  }
+}
+
+function shuffleDeck() {
+  return shuffledDeck = _.shuffle(deck);
+}
 
 var players = [
   {
     name: 'player',
     cash: 0,
-    playerHand: [],
+    hand: [],
+    score: 0
   },
   {
     name: 'dealer',
     cash: 0,
-    dealerHand: []
+    hand: [],
+    score: 0
   }
-
 ]
 
-function createDeck(){
-  //makes decks and stores it in var deck;
+var currentPlayer = players[0];
+
+function nextTurn() {
+  if (currentPlayer && currentPlayer.name === 'player') {
+    currentPlayer = players[1];
+  } else {
+    currentPlayer = players[0];
+  }
 }
 
-var deck = [
-  {
-    value: 6,
-    suit: 'clubs',
-    face: null,
-    isFaceUp: true,
-  },
-  {
-    value: 10,
-    suit: 'hearts',
-    face: 'king',
-    isFaceUp: true,
-  },
-  {
-    value: 2,
-    suit: 'diamonds',
-    face: 'null',
-    isFaceUp: true,
-  },
-  {
-    value: 3,
-    suit: 'hearts',
-    face: 'null',
-    isFaceUp: true,
-  },
-  {
-    value: 9,
-    suit: 'spades',
-    face: 'null',
-    isFaceUp: true,
-  },
-  {
-    value: 8,
-    suit: 'spades',
-    face: 'null',
-    isFaceUp: true,
+function score() {
+  // for (var i = 0; i < currentPlayer.hand.length; i++){
+    currentPlayer.score = currentPlayer.score + currentPlayer.hand[currentPlayer.hand.length-1].value;
+    console.log(currentPlayer.score);
+  // }
+
+}
+
+//GAMEPLAY
+
+function startGame() {
+  createDeck();
+  shuffleDeck();
+}
+
+$startButton.addEventListener('click', startGame);
+
+function dealCards() {
+  for (var i = 0; i < (players.length * 2); i++) {
+    currentPlayer.hand.push(shuffledDeck.shift());
+    score();
+    nextTurn();
   }
-];
+}
 
-// function deal(player) { //have not solved faceup/facedown
-//   //deal first to player faceup
-//   var card = deck.shift();
-
-//   playerHand.push(card);
-//   //deal dealer facedown
-//   dealerHand.push(deck.shift());
-//   //deal second to player faceup
-//   playerHand.push(deck.shift());
-//   //deal dealer faceup
-//   dealerHand.push(deck.shift());
-// }
-// deal();
+$dealButton.addEventListener('click', dealCards);
 
 function hit() {
-  return playerHand.push(deck.shift());
+  var card = shuffledDeck.shift();
+  currentPlayer.hand.push(card);
+  score();
 }
-// hit();
-// hit();
 
-// function playerScore() { //pass the playerobject try
-//   for (i = 0; i < playerHand.length; i++){
-//     playerHandScore = playerHandScore + playerHand[i].value;
-//     console.log(playerHandScore);
-//   }
-// }
-// playerScore();
+$hitButton.addEventListener('click', hit);
 
 
