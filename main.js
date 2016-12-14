@@ -17,46 +17,76 @@ function shuffleArray(array) {
     return array;
 }
 
-// function to compare cards
+// var shuffle = function (array) {
+//       array.sort(function(a, b) {
+//           return 0.5 - Math.random()
+//         });
+//         console.log(shuffle(array));
+//       }
+
+
+
+// function to compare first two cards
 function compareCards() {
 
     if (cardPlayed1 > cardPlayed2) {
+
+          //check if war flag = true
+          if (war !== false) {
+              // remove next 3 cards from both decks
+              cardsSplitHalf1.splice(0,2) // index 0-2 = 3 cards
+              cardsSplitHalf2.splice(0,2) // index 0-2 = 3
+              // add cards to back of player 1 pile
+              cardsSplitHalf1.push(0,6);
+              war === false;
+            }
           //logic here to add card back
           // remove cards from players' hands
           var removedCard1 = cardsSplitHalf1.shift();
           var removedCard2 = cardsSplitHalf2.shift();
-          // add to bottom of winner's pile
+          // add both cards to bottom of winner's pile
           cardsSplitHalf1.push(removedCard1,removedCard2);
+
           // helper to visualize
-          console.log(cardsSplitHalf1);
-          console.log(cardsSplitHalf2);
+          // console.log(cardsSplitHalf1);
+          // console.log(cardsSplitHalf2);
           return 'Winner is Player 1';
 
 
         }
         else if (cardPlayed1 < cardPlayed2) {
+
+            //check if war flag = true
+            if (war !== false) {
+              // remove next 3 cards from both decks
+              cardsSplitHalf1.splice(0,2) // index 0-2 = 3 cards
+              cardsSplitHalf2.splice(0,2) // index 0-2 = 3
+              // add cards to back of player 1 pile
+              cardsSplitHalf2.push(0,6);
+              war === false;
+            }
+
+
           //logic here to add card back
-                    // remove cards from players' hands
+          // remove cards from players' hands
           var removedCard1 = cardsSplitHalf1.shift();
           var removedCard2 = cardsSplitHalf2.shift();
-          // add to bottom of winner's pile
+          // add both cards to bottom of winner's pile
           cardsSplitHalf2.push(removedCard1,removedCard2);
           // helper to visualize
-          console.log(cardsSplitHalf1);
-          console.log(cardsSplitHalf2);
+          // console.log(cardsSplitHalf1);
+          // console.log(cardsSplitHalf2);
           return 'Winner is Player 2';
         }
         else {
-          // 1- loop back to compareCards until different vals
-          // 2- cards get added to winner card deck on back end
-          // compareCards();
-          // // remove cards from players' hands
-          // var removedCard1 = cardsSplitHalf1.shift();
-          // var removedCard2 = cardsSplitHalf2.shift();
-          // // add to bottom of winner's pile
-          // cardsSplitHalf1.push(removedCard1,removedCard2);
-
+          // cards match
+          var war = true;
           return 'War!';
+
+          // compare next 2 cards
+          // 2- cards get added to winner card deck on back end
+          compareCards();
+
         }
   }
 
@@ -77,6 +107,7 @@ var deckOfCards = [
 ];
 //shuffle the deck of cards. Pulls from func above
 shuffleArray(deckOfCards);
+// shuffle(deckOfCards);
 
 // cut deck in half
 var cardsSplitHalf1 = deckOfCards.slice(0,25);
@@ -86,7 +117,7 @@ var cardsSplitHalf2 = deckOfCards.slice(26,51);
 // assign cards to player 1 and 2?
 var cardPlayed1 = cardsSplitHalf1[0];
 var cardPlayed2 = cardsSplitHalf2[0];
-
+var war = false;
 var player1Pile;
 var Player2Pile;
 compareCards();
