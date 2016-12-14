@@ -15,27 +15,46 @@ var board = [
   [null, null, null, null, null, null]
 ];
 
+
 var isThisOneEmpty = function(row, col) {
-  if (this.position !== color1 || color2){
+  for (var i = 0; i < board.length; i++) {
+    if (this.position === color1 && color2){
     console.log('true');
     return true;
   } else {
+    console.log('false');
+    return false;
+  }
+}
+  }
+isThisOneEmpty(2, 2)
+
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+
+
+var checkTheOneBelow = function(row, col){
+  if(this.position - 6 === color1 && color2){
+    console.log('true');
+    return true;
+  } else {
+    console.log('false');
     return false;
   }
 }
 
-// var checkTheOneBelow = function(row, col){
-//   if
+checkTheOneBelow()
 
-// }
-// checkTheOneBelow(3, 4) // true
-// checkTheOneBelow(3, 3) // false
+checkTheOneBelow(3, 4) // true
 
-
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
 
 // add class on click
 function onClick(evt){
-  console.log(this.target); //same
+  console.log(this); //same
   var position = this.dataset;
   // console.log(board[position.row][position.col]);
   console.log('position: ', position);
@@ -43,9 +62,6 @@ function onClick(evt){
   console.log('row: ', position.row);
 
 
-
-
-  console.log('add color to: ', this);
   if (colorHolder == color1) {
     colorHolder = color2;
     // console.log(this);
@@ -62,6 +78,20 @@ function onClick(evt){
     //prevents second click
     this.removeEventListener('click', onClick);
   }
+
+
+                var isThisOneEmpty = function(row, col) {
+                  for (var i = 0; i < board.length; i++) {
+                      if (this.position === color1 && color2){
+                    console.log('true');
+                    return true;
+                  } else {
+                    console.log('false');
+                    return false;
+                  }
+                }
+                  }
+                isThisOneEmpty()
 }
 
 
