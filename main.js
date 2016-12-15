@@ -18,6 +18,7 @@ var colorToLight;
 
 // find a way to make Simon play his sequence
 var generateSimonSequence = function(){
+  userSequence = [];
   var randomColor = Math.floor(Math.random() * 4);
   simonSequence.push(simonGeneratorIndex[randomColor]);
   console.log('simon sequence: ', simonSequence);
@@ -98,7 +99,6 @@ var handleUserSequence = function(event){
   console.log('user sequence: ', userSequence);
   if(simonSequence.length === userSequence.length){
     if(sequenceMatch()){
-    userSequence = [];
     generateSimonSequence();
     };
   };

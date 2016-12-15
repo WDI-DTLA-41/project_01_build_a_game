@@ -15,7 +15,7 @@ div {
 }
 
 .hide {
-  visibility: hidden;
+  display:none;
 }
 
 .gamePiece {
