@@ -62,7 +62,10 @@ function getLetterEnter(evt){
 
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
-
+    if (!letter.match(/[a-z]/i)){
+      alert('Alphabet characters only!');
+      return;
+    } else
     if (letter === ''){
     alert('Please enter a letter');
     return;
