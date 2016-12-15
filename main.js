@@ -14,45 +14,47 @@ var three = document.querySelector("#three");
 var plusOne = document.querySelector(".plus-one");
 var placeBet = document.querySelector(".place-bet");
 var spin = document.querySelector(".spin");
-var reset = document.querySelector(".reset");
+var playAgain = document.querySelector(".play-again");
 
-// vars for bet counter
+// var for h2 header quote
+var quote = document.querySelector("h2");
+
+// var for bet counter
 var betAmount = document.querySelector(".bet-amount");
+
+// var for score counter
+var score = document.querySelector(".total-score");
+var scoreVal = parseInt(score.textContent);
 
 // ARRAY: Store classes of cards here
 // var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
 var cards = ["darthvader"];
 
 // =============================================
-//    PLACING A BET
+//    1. PLACE A BET
 // =============================================
-// When +1 button is pressed
+
+var betTotal;
+
 var addOne = function(event) {
 // Add 1 to the value in span.bet-amount
   console.log(betAmount.textContent);
+  // CONVERT TEXT IN betAmount PLACEHOLDER TO NUMBER
   var betValue = parseInt(betAmount.textContent);
+  // ADD 1 TO THE VALUE, STORE IN betTotal VAR
   var betTotal = betValue + 1;
-  console.log(betTotal);
+  // UPDATE betAmount
   betAmount.textContent = betTotal;
   return betTotal;
 }
+// RUN WHEN BET +1 BUTTON IS PRESSED
 plusOne.addEventListener("click", addOne);
+console.log(betAmount.textContent);
 
 // placeBet();
-// =============================================
-//    RESET CLASSES FOR NEW TURN
-// =============================================
-
-// var removeClasses = function(event) {
-//   // spin.removeEventListener("click", removeClasses);
-//   one.classList = "";
-//   two.classList = "";
-//   three.classList = "";
-//   spinReel();
-// }
 
 // =============================================
-//    "SPINNING" THE REEL
+//    2. "SPIN" THE REEL
 // =============================================
 
 var spinReel = function(event) {
@@ -66,7 +68,7 @@ var spinReel = function(event) {
 };
 
 // =============================================
-//    RANDOMLY SELECTS CLASSES FOR SLOTS
+//    3. RANDOMLY SELECTS CLASSES FOR SLOTS
 // =============================================
 
 // var slots = document.querySelectorAll("div");
@@ -99,15 +101,16 @@ var stopReel = function() {
     var twoVal = slots[1].classList.value;
     var threeVal = slots[2].classList.value;
   }
+
 // =============================================
-//    COMPARING THE SLOTS
+//    4. COMPARING THE SLOTS
 // =============================================
 
   var compareSlots = function() {
     // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
     // compare the values for 3-way match
 
-    // IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> WIN
+    // IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> ** WIN **
     if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
       console.log("winner!");
       // SET CHARACTERS FROM THEME
@@ -119,7 +122,6 @@ var stopReel = function() {
       }, 2800);
 
       var revealQuoteWin = function() {
-        var quote = document.querySelector("h2");
         quote.textContent = '"The force is strong with this one."';
       }
     } else {
@@ -133,39 +135,67 @@ var stopReel = function() {
       }, 2800);
 
       var revealQuoteLose = function() {
-        var quote = document.querySelector("h2");
         quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
       }
     }
   }
   compareSlots();
-
+};
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**
-};
 spin.addEventListener("click", spinReel);
+
+// =============================================
+//    5. TOTAL SCORE
+// =============================================
+
+var totalScore = function() {
+  if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
+
+
+
+
+  }
+}
 
 
 // =============================================
-//    NEW TURN
+//    6. NEW TURN
 // =============================================
 
 // Click PLAY AGAIN to:
-  // REMOVE ID'S FROM
 var newTurn = function(event) {
   // location.reload();
+
+  // RESETS H2 QUOTE
+  quote.textContent = "The Force, it's calling to you. Just let it in.";
+
+  // RESETS CLASSES OF SLOT DIVS
   one.classList = "";
   two.classList = "";
   three.classList = "";
 
+  // REMOVES SLOT ANIMATION ID'S
   one.removeAttribute("id", "spin-one");
   two.removeAttribute("id", "spin-two");
   three.removeAttribute("id", "spin-three");
 
+  // RESETS BET COUNTER TO $1
   betAmount.textContent = 1;
 }
-reset.addEventListener("click", newTurn);
+playAgain.addEventListener("click", newTurn);
 
+// =============================================
+//    RESET ENTIRE BOARD & START OVER
+// =============================================
+
+// var removeClasses = function(event) {
+//   // spin.removeEventListener("click", removeClasses);
+//   one.classList = "";
+//   two.classList = "";
+//   three.classList = "";
+//   spinReel();
+// }
 
 // =============================================
 //    TRY BUTTON ** OPTIONAL **

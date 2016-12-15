@@ -4,9 +4,9 @@
 - When SPIN button is clicked, reels to animate/"spin"
 - Each slot to return a random image
 - Basic game rules: All three match === win 
-- Apply a theme (Star Wars)
 
 ## Niceties
+- Apply a theme (Star Wars)
 - Betting & Point Tracker
 - Mobile
 - Player 2
