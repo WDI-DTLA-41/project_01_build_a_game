@@ -59,7 +59,8 @@ function nextTurn() {
 
 function startGame() {
   createDeck();
-  console.log('Game started... good luck.')
+  console.log('Game started... good luck.');
+  $startButton.removeEventListener('click', startGame);
 }
 
 $startButton.addEventListener('click', startGame);
@@ -70,7 +71,7 @@ function dealCards() { //try to pass in a player object??
   for (var i = 0; i < (players.length * 2); i++) {
     currentPlayer.hand.push(shuffledDeck.shift());
     console.log(capFirstLetter(currentPlayer.name) + ' drew a ' +
-      currentPlayer.hand[currentPlayer.hand.length-1].value + ' of ' + capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].suits));
+      capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].name) + ' of ' + capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].suits));
     findScore(currentPlayer);
     nextTurn();
   }
@@ -85,7 +86,7 @@ function hit() {
   var card = shuffledDeck.shift();
   currentPlayer.hand.push(card);
   console.log(capFirstLetter(currentPlayer.name) + ' drew a ' +
-    currentPlayer.hand[currentPlayer.hand.length-1].value + ' of ' + capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].suits));
+    currentPlayer.hand[currentPlayer.hand.length-1].name + ' of ' + capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].suits));
   findScore(currentPlayer);
   testBust();
 }
@@ -94,7 +95,7 @@ function dealerHit() {
   var card = shuffledDeck.shift();
   players[players.length-1].hand.push(card);
   console.log(capFirstLetter(players[players.length-1].name) + ' drew a ' +
-    players[players.length-1].hand[players[players.length-1].hand.length-1].value + ' of ' + capFirstLetter(players[players.length-1].hand[players[players.length-1].hand.length-1].suits));
+    players[players.length-1].hand[players[players.length-1].hand.length-1].name + ' of ' + capFirstLetter(players[players.length-1].hand[players[players.length-1].hand.length-1].suits));
   findScore(players[players.length-1]);
   testBust();
 }
@@ -165,11 +166,9 @@ function onDealWinner() {
   if (players[0].score === 21 && players[players.length - 1].score != 21) {
     console.log('Blackjack! Player Wins!');
     startNextRound();
-    // $dealButton.addEventListener('click', dealCards);
   } if (players[players.length - 1].score === 21 && players[0].score != 21) {
       console.log('Sorry, dealer wins. Better luck next time...');
       startNextRound();
-      // $dealButton.addEventListener('click', dealCards);
     } //if (players[0].score === players[players.length - 1].score) {
     //     console.log('Push... nobody wins.')
     //     startNextRound();
@@ -187,11 +186,9 @@ function testBust() {
     if (players[0].score > 21) {
       console.log('BUST, dealer wins. Better luck next time...');
       startNextRound();
-      // $dealButton.addEventListener('click', dealCards);
     } if (players[1].score > 21) {
         console.log('Dealer BUST! You win!');
         startNextRound();
-        // $dealButton.addEventListener('click', dealCards);
     } else {
         return false;
       }
@@ -201,16 +198,13 @@ function findWinner() {  //how to notate compare against "other" player
   if (players[0].score === players[players.length - 1].score) {
     console.log('Push... nobody wins.')
     startNextRound();
-    // $dealButton.addEventListener('click', dealCards);
     return false;
-  } if ((players[1].score > players[0].score) && players[1].score < 21) {
+  } if ((players[1].score > players[0].score) && players[1].score <= 21) {
         console.log('Dealer wins. Better luck next time...')
         startNextRound();
-        // $dealButton.addEventListener('click', dealCards);
     } else {
       console.log('You win!!!');
       startNextRound();
-      // $dealButton.addEventListener('click', dealCards);
     }
 }
 
