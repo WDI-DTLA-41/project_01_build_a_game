@@ -1,14 +1,52 @@
 console.log('hello');
+var playWord;
 var button = document.querySelector('button');
 
+var words = [
+'BONES',
+'CREEPY',
+'GHOST',
+'GOBLIN',
+'GRAVEYARD',
+'HOWL',
+'MONSTER',
+'MUMMY',
+'SCARE',
+'SKULL',
+'SPIDER',
+'VAMPIRE',
+'WITCH',
+'ZOMBIE'
+]
+var number;
 
 
 
-var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
-// var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
-var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
-var word3 = ['C', 'O', 'M', 'P', 'U', 'T', 'E', 'R'];
-// var word3 = ['T', 'E', 'A'];
+var array = []
+
+var randomNumber = function() {
+  number = Math.floor(Math.random()*10)
+}
+
+function getWord(){
+  randomNumber();
+for (x = 0; x < words.length; x++){
+  array[x] = words[x].split('');
+  if (number === x){
+    playWord = words[x];
+  }
+ }
+  for (h = 0; h < playWord.length; h++){
+    underscores.push('_');
+  }
+  placeholders = document.querySelector('.placeholders');
+  placeholders.textContent = underscores.join(' ');
+button.removeEventListener('click', getWord);
+}
+
+
+
+//parts of the skeleton
 var skeleton = [
 document.querySelector('.head'),
 document.querySelector('.body'),
@@ -17,7 +55,7 @@ document.querySelector('.rightarm'),
 document.querySelector('.leftleg'),
 document.querySelector('.rightleg')
 ]
-var playWord;
+
 var letter;
 var submit = document.querySelector('.submit');
 var j = 0;
@@ -29,7 +67,7 @@ var resetButton = document.querySelector('.reset');
 var noMatch = [];
 var isMatch = [];
 
-
+//this grabs the input value
 function getLetter(){
   letter = document.querySelector('input').value;
   letter = letter.toUpperCase();
@@ -37,28 +75,28 @@ function getLetter(){
   gameLogic();
 }
 
-function getWord(evt) {
-  underscores = [];
-  var number = Math.random();
-  if (number >= .6){
-    playWord = word1;
-  } else if (number < .6 && number >= .3){
-    playWord = word2;
-  } else if (number < .3){
-    playWord = word3;
-  }
-  for (h = 0; h < playWord.length; h++){
-    underscores.push('_');
-  }
-  placeholders = document.querySelector('.placeholders');
-  placeholders.textContent = underscores.join(' ');
-}
+// //this selects a random word
+// function getWord(evt) {
+//   underscores = [];
+//   var number = Math.random();
+//   if (number >= .6){
+//     playWord = word1;
+//   } else if (number < .6 && number >= .3){
+//     playWord = word2;
+//   } else if (number < .3){
+//     playWord = word3;
+//   }
+//   //this displays the correct number of underscores
 
+// }
+
+//this is so that user can use enter key as well
 function getLetterEnter(evt){
   if (evt.keyCode === 13){
   getLetter()
   }
 }
+
 
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
@@ -126,12 +164,14 @@ function reset(evt) {
     skeleton[k].style.visibility = "hidden";
   }
   guessedBox.innerHTML = 'Guessed:';
+  underscores = [];
   placeholders.textContent = '';
   playWord = null;
   noMatch = [];
   guessed = [];
   isMatch = [];
   j = 0;
+  button.addEventListener('click', getWord);
 }
 
 
@@ -142,3 +182,4 @@ button.addEventListener('click', getWord);
 submit.addEventListener('click', getLetter);
 document.querySelector('input').addEventListener('keyup', getLetterEnter);
 resetButton.addEventListener('click', reset)
+
