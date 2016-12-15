@@ -5,7 +5,7 @@ var colorHolder = color1;
 
 
 var square = document.querySelectorAll('.square');
-var button = document.querySelector('#clear');
+var button = document.querySelector('button');
 
 
 var board = [
@@ -131,10 +131,10 @@ square.forEach(function(element){
   element.addEventListener('click', onClick);
 });
 
-// // clear divs with button click
-// var clear = function(){
-//  // square.classList.remove("color1");
-//  console.log('click')
-// }
+// refreshes game
+function clear() {
+  console.log('click');
+    location.reload();
+}
 
-// button.addEventListener('click', clear);
+button.addEventListener('click', clear);
