@@ -20,7 +20,7 @@ body {
 }
 
 .colorbtn:active {
-  border: 5px solid rgb();
+  border: 5px solid rgba(255,153,51,1);
 }
 
 
@@ -79,6 +79,9 @@ body {
   background-color: rgb(252,90,184);
 }
 
+#hardmode {
+  background-color: rgb(252,90,184);
+}
 
 
 

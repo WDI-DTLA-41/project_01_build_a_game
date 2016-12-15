@@ -11,6 +11,18 @@ var btnContainer = document.querySelector('#btn-container');
 var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
 var userInput = [];
+var hardMode = document.querySelector('#hardmode');
+var audioOne = document.querySelectorAll('audio');
+var audioTwo = document.querySelectorAll('source');
+
+
+
+
+
+
+
+
+
 
 // random number generator (1-4)
 var randomGen = function() {
@@ -21,21 +33,25 @@ var randomGen = function() {
 var fourColorFlash = function () {
   sequence = randomGen();
   if (sequence === 1) {
+    audioOne[0].play();
     greenBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'rgb(193,253,51)';
     },250);
   } else if (sequence === 2) {
+    audioOne[4].play();
     redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'rgb(252,90,184)';
     },250);
   } else if (sequence === 3) {
+    audioOne[2].play();
     yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
     },250);
   } else {
+    audioOne[3].play();
     blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
@@ -49,24 +65,27 @@ var fourColorFlash = function () {
 // adding another color to the sequenceArr
 var addColorFlash = function () {
   addCounter();
-  praise();
   sequence = randomGen();
   if (sequence === 1) {
+    audioOne[0].play();
     greenBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'rgb(193,253,51)';
     },250);
   } else if (sequence === 2) {
+    audioOne[4].play();
     redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'rgb(252,90,184)';
     },250);
   } else if (sequence === 3) {
+    audioOne[2].play();
     yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
     },250);
   } else {
+    audioOne[3].play();
     blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
@@ -74,30 +93,35 @@ var addColorFlash = function () {
   }
   sequenceArr.push(sequence);
   setTimeout(checkInput, 1000*sequenceArr.length);
+  setTimeout(praise, 1000);
   };
 
 // function to flash the color of the sequenceArr
 // to be called back in the recursiveLights function
 var colorFlash = function (color) {
     if (color === 1) {
+      audioOne[0].play();
       greenBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       greenBtn.style.backgroundColor = 'rgb(193,253,51)';
       },250);
       console.log('1');
     } else if (color === 2) {
+      audioOne[4].play();
       redBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       redBtn.style.backgroundColor = 'rgb(252,90,184)';
       },250);
       console.log('2');
     } else if (color === 3) {
+      audioOne[2].play();
       yellowBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
       },250);
       console.log('3');
     } else if (color === 4) {
+      audioOne[3].play();
       blueBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       blueBtn.style.backgroundColor = 'rgb(13,213,252)';
@@ -143,6 +167,7 @@ var clearSequence = function() {
 var gameOver = function() {
   resetCounter();
   clearSequence();
+  audioOne[1].play();
   return console.log('Nice try! YOU LOSE SUCKA!');
 };
 
@@ -183,12 +208,14 @@ var checkInput = function() {
 
 // function to give praise for hitting certain levels
 var praise = function() {
-  if (counterVal % 11 === 0)  {
+  if (counterVal % 35 === 0) {
+    audioOne[8].play();
+  }  else if (counterVal % 11 === 0)  {
+    audioOne[7].play();
     return console.log('Fuck Yea');
   } else if (counterVal % 5 === 0) {
+    audioOne[6].play();
     return console.log('Great Job');
-  } else if (counterVal % 3 === 0) {
-    return console.log('SCOOOOPPS!!!');
   }
 };
 
@@ -198,6 +225,11 @@ startBtn.addEventListener('click',handleStartGame);
 // add EventListener for userInputs clicks
 btnContainer.addEventListener('click', handleUserInput);
 
+var handleAudio = function() {
+  audioOne[1].play();
+}
+
+hardMode.addEventListener('click', handleAudio);
 
 
 
