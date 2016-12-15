@@ -131,7 +131,7 @@ objects
 //   };
 
 
-
+user.hand[].name
 
 
 

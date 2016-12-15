@@ -100,14 +100,19 @@ var dealCards = function() {
 // }
 
 
-
+// haven't found a case where converting ace from 11 to 1 breaks
 // takes an object(player or dealer) and calculates the scores for that 'user'[parameter]
 var calculateHandOf = function(user) {
   user.score = user.score + user.hand[user.hand.length-1].value;
-  // playerScore = playerScore + playerHand[playerHand.length-1].value;
-  //check if user score > 21 && user.hand.name === ace
-  //if yes, subtract 10 from user score
-}
+  if (user.score > 21) {
+    for (var i = 0; i < user.hand.length; i++) {
+      if (user.hand[i].name == "ace") {
+        console.log('Ace value converting to 1 from 11');
+        user.hand[i].value = 1;
+      }
+    }
+  }
+};
 
 var playerHit = function(result) {
   player.hand[player.hand.length] = deck.pop();
@@ -153,6 +158,9 @@ var dealerTurn = function(result) {
   }
 }
 
+var scoreCompare = function(result) {
+
+}
 
 // dealerTurn not perfect
 // var dealerTurn = function(result) {
@@ -171,10 +179,9 @@ var dealerTurn = function(result) {
 //   }
 // }
 
-
+$newHand.addEventListener('click', makeDeck);
 $hit.addEventListener('click', playerHit);
 $deal.addEventListener('click', dealCards);
-$newHand.addEventListener('click', makeDeck);
 $stay.addEventListener('click', playerStay);
 
 
