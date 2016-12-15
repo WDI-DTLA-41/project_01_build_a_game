@@ -1,25 +1,26 @@
 //greeting
-var input = document.getElementById('userName');
-var button = document.getElementById('button');
-var p = document.getElementById('text');
+var input = document.getElementById("userName");
+var button = document.getElementById("button");
+var p = document.getElementById("text");
 addText = function() {
   var userValue = userName.value;
-  h3 = document.createElement('h3');
+  h3 = document.createElement("h3");
   textNode = document.createTextNode("Dive in " + userValue);
   p.appendChild(h3);
   h3.appendChild(textNode);
+  userName.value = " ";
 }
-button.addEventListener('click', addText);
+button.addEventListener("click", addText);
 //greeting
 
 
 // choose random word
 
-var sharkNames = ['carcharodon carcharias', 'rhincodon typus', 'galeocerdo cuvier',
-  'manta birostris', 'stegostoma fasciatum', 'mitsukurina owstoni',
-  'cetorhinus maximus', 'alopias vulpinus', 'sphyrna mokarran', 'squatina squatina',
-  'etmopterus benchleyi'];
-
+var sharkNames = ["squatina squatina", "cetorhinus maximus",
+  "mitsukurina owstoni", "sphyrna mokarran", "carcharodon carcharias",
+  "manta birostris", "etmopterus benchleyi", "alopias vulpinus",
+  "galeocerdo cuvier", "rhincodon typus", "stegostoma fasciatum"
+  ];
 
 
 function randomizeWords(words) {
@@ -88,9 +89,9 @@ var guess   = document.getElementById("guess");
 start.addEventListener("click", function(){
   // words;
   sharks = randomizeWords(sharkNames);
-  letters = sharks.split('');
+  letters = sharks.split("");
   dashWord = dashes(letters);
-  render(dashWord.join(''));
+  render(dashWord.join(""));
   console.log("start game");
   wrongLetters.value;
   wrong.length = 0;
@@ -102,7 +103,7 @@ var guessButton = function() {
   if (checkLetter(letter)) {
     console.log("correct!");
     replaceDash(letter);
-    render(dashWord.join(''));
+    render(dashWord.join(""));
   } else {
     console.log("guess again");
     wrongGuess(letter);
@@ -110,12 +111,12 @@ var guessButton = function() {
     lose();
     console.log(counter);
   }
-  input.value = '';
+  input.value = "";
 };
 
 guess.addEventListener("click", guessButton);
 
-input.addEventListener('keyup',function() {
+input.addEventListener("keyup",function() {
   if (event.keyCode === 13) {
     guessButton();
   }

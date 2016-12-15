@@ -92,19 +92,79 @@ h3 {
   height: 300px;
 }
 
-#squatina-squatina {
+.squatina-squatina {
     width: inherit;
     display: none;
     position: absolute;
-    margin: 75px;
+    margin-top: 90px;
+    color: white;
 }
 
-#cetorhinus-maximus {
+.cetorhinus-maximus {
   width: inherit;
   display: none;
+  color: white;
 }
 
+.mitsukurina-owstoni {
+  width: inherit;
+  display: none;
+  margin-top: 100px;
+  color: white;
+}
 
+.sphyrna-mokarran {
+  width: inherit;
+  display: none;
+  margin-top: 50px;
+  color: white;
+}
 
+.carcharodon-carcharias {
+  width: inherit;
+  display: none;
+  margin-top: 55px;
+  color: white;
+}
 
+.manta-birostris {
+  width: inherit;
+  display: none;
+  margin-top: 90px;
+  color: white;
+}
 
+.etmopterus-benchleyi {
+  width: 350px;
+  display: none;
+  margin-top: 60px;
+  color: white;
+}
+
+.alopias-vulpinus {
+  width: inherit;
+  display: none;
+  margin-top: 140px;
+  color: white;
+}
+
+.galeocerdo-cuvier {
+  width: inherit;
+  display: none;
+  margin-top: 100px;
+  color: white;
+}
+
+.rhincodon-typus {
+  width: inherit;
+  display: none;
+  margin-top: 150px;
+  color: white;
+}
+
+.stegostoma-fasciatum {
+  width: inherit;
+  display: none;
+  margin-top: 130px;
+  color: white;
+}
