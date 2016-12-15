@@ -2,7 +2,7 @@
 
 | Monday (12/12)         | Tuesday (12/13)         | Wednesday (12/14)                 | Thursday (12/15)         | Friday (12/16) | Saturday (12/17) | Sunday (12/18) | Monday (12/19) |
 | :-------------: |:-------------:   | :-------------:     | :-------------:   | :-------------: | :-------------: | :-------------: |  :-------------: |
-| PROJECT KICKOFF- Working on prompts,  Wireframing, Pseudocoding | START CODING- one-on-one check-ins(10 minutes/each student)     | INSTRUCTOR-STUDENT PAIRING - See Schedule Below | INSTRUCTOR-STUDENT PAIRING - See Schedule Below | GUT CHECK- one-on-ones(10 minutes/each student), see student progress, and Squad presentations  |  KEEP WORKING ON THE PROJECT | KEEP WORKING | STUDENT PRESENTATIONS
+| PROJECT KICKOFF- Working on prompts,  Wireframing, Pseudocoding | START CODING, Morning: one-on-one check-ins(10 minutes/each student), Afternoon: TA-student pairing     | INSTRUCTOR-STUDENT PAIRING - See Schedule Below, ), Afternoon: TA-student pairing  | INSTRUCTOR-STUDENT PAIRING - See Schedule Below, ), Afternoon: TA-student pairing  | GUT CHECK- one-on-ones(10 minutes/each student), see student progress, and Squad presentations  |  KEEP WORKING ON THE PROJECT | KEEP WORKING | STUDENT PRESENTATIONS
 
 ---
 
@@ -21,6 +21,17 @@
 | Boshika-Qian | 12:00pm -12:10pm | Phil-Brad | 12:00pm -12:10pm |
 | Boshika-Mimi | 12:10pm -12:20pm | Phil-James | 12:10pm -12:20pm |
  
+# **TA-Student Pairing**
+## **Tuesday (12/13)**            
+| TA-Student | Time | 
+|:-------------: | :-------------: |
+| Adam-Margie | 2:00pm -2:20pm | 
+| Adam-Brad | 2:30pm -2:50pm |
+| Adam-Mimi | 3:00pm -3:20pm |
+| Adam-Abi | 3:30pm -3:50pm  |
+| Adam-Michelle | 4:00pm -4:20pm |
+| Adam-An | 4:30pm -4:50pm | 
+
 ---
 
 # **INSTRUCTOR-STUDENT PAIRING SCHEDULE**
@@ -43,6 +54,17 @@
 | Michelle | 11:30am -11:50am |
 | An | 12:00pm -12:20pm |
 
+# **TA-Student Pairing**
+## **Wednesday (12/14)**            
+| TA-Student | Time | 
+|:-------------: | :-------------: |
+| Adam- Kora | 2:00pm -2:20pm | 
+| Adam-Bao | 2:20pm -2:40pm |
+| Adam-Rony | 3:00pm -3:20pm | 
+| Adam-James | 3:20pm -3:40pm |
+| Adam-Justin | 3:40pm-4:00pm  |
+| Adam-Dakotah | 4:00pm -4:20pm |
+| Adam-Kris | 4:20pm -4:40pm |
 ---
 
 ### **Thursday (12/15)**
@@ -53,8 +75,6 @@
 | Jake | 10:30am -10:50am |
 | Andrew | 11:00am -11:20am |
 | Barrett | 11:30am -11:50am |
-| James | 12:00pm -12:20pm |
-
 
 ### *Students Pairing with Boshika* 
 | Student | Time |  
@@ -65,7 +85,17 @@
 | Qian | 11:30am -11:50am |
 | Mimi | 12:00pm -12:20pm |
 
-
+# **TA-Student Pairing**
+## **Thursday (12/15)**            
+| TA-Student | Time |
+|:-------------: | :-------------: |
+| Adam-Tim | 2:00pm -2:20pm | 
+| Adam-Jake | 2:20pm -2:40pm |  
+| Adam-Andrew | 2:40pm -3:00pm |
+| Adam-Lacey | 3:00pm- 3:20pm | 
+| Adam-Barrett | 3:20pm -3:40pm |
+| Adam-Qian | 3:40pm -4:00pm
+| Adam-Ritwick | 4:00pm -4:20pm |
 ---
 
 # **Instructor-Student Gut check**
@@ -114,6 +144,7 @@ From 2:00pm-5:00pm
 | Andrew | 12:30pm -12:35pm |
 | James | 12:40pm -12:45pm |
 | Barrett | 12:50pm -12:55pm |
+| Kora | 1:00pm -1:05pm |
 
 
 
