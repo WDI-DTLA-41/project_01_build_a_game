@@ -14,6 +14,8 @@ var gameBoard = [
    [0, 1, 2, 3, 4]
 ];
 
+
+
 var players = [
   {
     name: null
@@ -61,11 +63,11 @@ for ( var i = 0; i < $divs.length; i++ ) {
 //  g a m e  l o g i c  //
 var checkPerimeter = (e) => {
   // console.log(e.target);
-  console.log('x: ' + x,'y: ' + y);
-  console.log('gameBoard[y][x]: ' + gameBoard[y][x]);
-  console.log('gameBoard[y + 2][x]: ' + gameBoard[y+2][x]);
-  console.log('gameBoard[y + 1][x + 1]: ' + gameBoard[y+1][x+1]);
-  console.log('gameBoard[y + 1][x - 1]: ' + gameBoard[y+1][x-1]);
+  // console.log('x: ' + x,'y: ' + y);
+  // console.log('gameBoard[y][x]: ' + gameBoard[y][x]);
+  // console.log('gameBoard[y + 2][x]: ' + gameBoard[y+2][x]);
+  // console.log('gameBoard[y + 1][x + 1]: ' + gameBoard[y+1][x+1]);
+  // console.log('gameBoard[y + 1][x - 1]: ' + gameBoard[y+1][x-1]);
   // for ( var j = 0; j < $divs.length; j++ ) {
           // for ( var j in this.dataset ) {
           // for clicked vertical bar, checks for clicked bars around box to the right
@@ -148,7 +150,34 @@ var checkPerimeter = (e) => {
 
 
 
-
+// var box1 = {
+//   top: null,
+//   bottom: null,
+//   left: null,
+//   right: null,
+//   owner: null
+// }
+// var box2 = {
+//   top: null,
+//   bottom: null,
+//   left: null,
+//   right: null,
+//   owner: null
+// }
+// var box3 = {
+//   top: null,
+//   bottom: null,
+//   left: null,
+//   right: null,
+//   owner: null
+// }
+// var box4 = {
+//   top: null,
+//   bottom: null,
+//   left: null,
+//   right: null,
+//   owner: null
+// }
 
 
 
