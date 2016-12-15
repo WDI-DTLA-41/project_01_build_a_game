@@ -1,5 +1,5 @@
 body {
-  background-color: teal;
+  background-color: black;
 }
 
 #game-container {
@@ -7,19 +7,20 @@ body {
   height: 275px;
   width: 275px;
   border-radius: 137px;
+  border: 5px solid rgba(255,153,51,1);
+  margin: 40px;
 }
 
 .colorbtn {
   height: 100px;
   width: 100px;
-  background-color: white;
   position: relative;
   left: 100px;
   top: 100px;
 }
 
 .colorbtn:active {
-  border: 5px solid white;
+  border: 5px solid rgb();
 }
 
 
@@ -38,7 +39,7 @@ body {
 }
 
 #green {
-  background-color: green;
+  background-color: rgb(193,253,51);
   position: relative;
   left: 75px;
   top: 75px;
@@ -46,52 +47,36 @@ body {
 }
 
 #red {
-  background-color: red;
+  background-color: rgb(252,90,184);
   right: 75px;
   top: 75px;
   border-radius: 0 100px 0 0;
 }
 
 #yellow {
-  background-color: yellow;
+  background-color: rgb(243,243,21);
   left: 75px;
   bottom: 75px;
   border-radius: 0 0 0 100px;
 }
 
 #blue {
-  background-color: blue;
+  background-color: rgb(13,213,252);
   right: 75px;
   bottom: 75px;
   border-radius: 0 0 100px 0;
 }
 
-.green {
-  background-color:white;
-}
-
-.flash-red {
-  background-color:;
-}
-
-.flash-yellow {
-  background-color:;
-}
-
-.flash-blue {
-  background-color:;
-}
-
 #counter {
   height:20px;
   width: 40px;
-  background-color: gray;
-  color: red;
+  background-color: black;
+  color: rgb(252,90,184);
   display:left;
 }
 
 #start {
-  background-color: red;
+  background-color: rgb(252,90,184);
 }
 
 
