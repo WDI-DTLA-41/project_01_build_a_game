@@ -27,6 +27,10 @@ div {
   color: black;
 }
 .darthvader {
+/*  background-image: url("assets/darthvader.jpg") no-repeat;
+*/  display: inline-block;
+  height: 300px;
+  width: 200px;
   background: red;
 }
 .hansolo {
@@ -59,9 +63,12 @@ button {
   display: block;
 }
 
-/*==================================*/
+/*==================================
 /* "REEL SPIN" ANIMATION*/
+/* Resource:
+  http://www.w3schools.com/css/css3_animations.asp */
 /*==================================*/
+
 #spin-one {
   position: relative;
   -webkit-animation-name: reel-spin;

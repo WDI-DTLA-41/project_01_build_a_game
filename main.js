@@ -4,6 +4,7 @@ console.log("meow");
 //    VARIABLES NEEDED
 // =============================================
 
+
 // vars for each card slot
 var one = document.querySelector("#one");
 var two = document.querySelector("#two");
@@ -15,50 +16,62 @@ var spin = document.querySelector(".spin");
 var reset = document.querySelector(".reset");
 
 // ARRAY: Store classes of cards here
-var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
-// var cards = ["yoda"];
+// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+var cards = ["darthvader"];
+
+// =============================================
+//    PLACING A BET
+// =============================================
+
+
+// =============================================
+//    RESET CLASSES FOR NEW TURN
+// =============================================
+
+var removeClasses = function(event) {
+  // spin.removeEventListener("click", removeClasses);
+  one.classList = "";
+  two.classList = "";
+  three.classList = "";
+  spinReel();
+}
 
 // =============================================
 //    "SPINNING" THE REEL
 // =============================================
 
-var removeClasses = function(event) {
-  // spin.removeEventListener("click", removeClasses);
-
-  one.classList = "";
-  two.classList = "";
-  three.classList = "";
-
-  handleSpin();
-
-}
-
-var handleSpin = function() {
-
+var spinReel = function(event) {
   // ADDS CSS ANIMATION ID TO EACH SLOT
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
+  stopReel();
+};
 
-  // DETECT EACH "SLOT" DIV IN DOCUMENT
-  var slots = document.getElementsByTagName("div");
-  var oneVal;
-  var twoVal;
-  var threeVal;
+// =============================================
+//    RANDOMLY SELECTS CLASSES FOR SLOTS
+// =============================================
+
+// var slots = document.querySelectorAll("div");
+var slots = document.querySelectorAll("div");
+
+var oneVal;
+var twoVal;
+var threeVal;
+
+var stopReel = function() {
 
   // FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
   for (var i=0; i < slots.length; i++) {
 
     // RANDOMLY SELECTS A COLOR FROM ARRAY
-    var selectColor = function() {
-
-    // RETURNS THE COLOR VALUE
-    return cards[Math.floor(Math.random() * cards.length)];
+    var randomSelect = function() {
+      // RETURNS THE COLOR VALUE
+      return cards[Math.floor(Math.random() * cards.length)];
     }
 
     // STORES COLOR VALUE INTO VARIABLE
-    var selected = selectColor();
-    // console.log(selected);
+    var selected = randomSelect();
 
     // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
     slots[i].classList.add(selected);
@@ -72,6 +85,7 @@ var handleSpin = function() {
     // console.log(twoVal);
     // console.log(threeVal);
   }
+};
 
 // =============================================
 //    COMPARING THE SLOTS
@@ -109,7 +123,7 @@ var handleSpin = function() {
   }
   // revealQuote();
 
-};
+// };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**
 spin.addEventListener("click", removeClasses);
