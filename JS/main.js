@@ -8,16 +8,9 @@ var blueBtn = document.querySelector('#blue');
 var startBtn = document.querySelector('#start');
 var counter = document.querySelector('#counter');
 var btnContainer = document.querySelector('#btn-container');
-var timerId0 = null;
-var timerId1 = null;
-var timerId2 = null;
-var timerId3 = null;
-var timerId4 = null;
-var timerId5 = null;
 var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
 var userInput = [];
-
 
 
 // random number generator bet
@@ -51,52 +44,87 @@ var fourColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
-  timerId5 = setTimeout(checkInput, 2000);
+  setTimeout(checkInput, 2000);
   };
 
 
 
-var repeatColorFlash = function () {
-  for(var i = 0; i < sequenceArr.length; i++) {
-    if (sequenceArr[i] === 1) {
+// var repeatColorFlash = function () {
+//   for(var i = 0; i < sequenceArr.length; i++) {
+//     if (sequenceArr[i] === 1) {
+//       greenBtn.style.backgroundColor = 'white';
+//       setTimeout(function() {
+//       greenBtn.style.backgroundColor = 'green';
+//       },250);
+//       console.log('1');
+//     } else if (sequenceArr[i] === 2) {
+//       redBtn.style.backgroundColor = 'white';
+//       setTimeout(function() {
+//       redBtn.style.backgroundColor = 'red';
+//       },250);
+//       console.log('2');
+//     } else if (sequenceArr[i] === 3) {
+//       yellowBtn.style.backgroundColor = 'white';
+//       setTimeout(function() {
+//       yellowBtn.style.backgroundColor = 'yellow';
+//       },250);
+//       console.log('3');
+//     } else if (sequenceArr[i] === 4) {
+//       blueBtn.style.backgroundColor = 'white';
+//       setTimeout(function() {
+//       blueBtn.style.backgroundColor = 'blue';
+//       },250);
+//       console.log('4');
+//     }
+//   }
+// }
+
+//////////////////////////////////////
+// testing to add to recursion function
+
+var colorFlash = function (color) {
+    if (color === 1) {
       greenBtn.style.backgroundColor = 'white';
       setTimeout(function() {
       greenBtn.style.backgroundColor = 'green';
       },250);
       console.log('1');
-      if (i < sequenceArr.length) {
-        setTimeout(repeatColorFlash, 1000);
-        }
-      } else if (sequenceArr[i] === 2) {
+    } else if (color === 2) {
       redBtn.style.backgroundColor = 'white';
       setTimeout(function() {
       redBtn.style.backgroundColor = 'red';
       },250);
       console.log('2');
-      if (i < sequenceArr.length) {
-        setTimeout(repeatColorFlash, 1000);
-        }
-      } else if (sequenceArr[i] === 3) {
+    } else if (color === 3) {
       yellowBtn.style.backgroundColor = 'white';
       setTimeout(function() {
       yellowBtn.style.backgroundColor = 'yellow';
       },250);
       console.log('3');
-      if (i < sequenceArr.length) {
-        setTimeout(repeatColorFlash, 1000);
-        }
-      } else if (sequenceArr[i] === 4) {
+    } else if (color === 4) {
       blueBtn.style.backgroundColor = 'white';
       setTimeout(function() {
       blueBtn.style.backgroundColor = 'blue';
       },250);
       console.log('4');
-      if (i < sequenceArr.length) {
-        setTimeout(repeatColorFlash, 1000);
-        }
     }
+}
+
+// recursiveLights for replaying the sequences
+function recursiveLights(arr, i = 0) {
+  console.log(arr[i]) // log element at index i of arr
+  if (i === arr.length) { // if index/counter reaches length of array, end loop
+    console.log('looped thru array');
+  } else {
+    // make it light up
+    colorFlash(arr[i]);
+    i++;
+    setTimeout(function() {
+      recursiveLights(arr, i);
+    }, 1000)
   }
 }
+
 // adds to the counter for each function loop
 var addCounter = function() {
   counterVal += 1;
@@ -151,13 +179,13 @@ var handleUserInput = function(event) {
 // function to check if userInput equals sequence
 var checkInput = function() {
   if (_.isEqual(userInput,sequenceArr)) {
-        return console.log('true');
+        console.log('true');
+        return
       } else {
         gameOver();
         // return console.log("You lose!");
       }
 };
-
 
 
 // add EventListener for startBtn to start game
@@ -166,13 +194,6 @@ startBtn.addEventListener('click',handleStartGame);
 // add EventListener for userInputs
 btnContainer.addEventListener('click', handleUserInput);
 
-
-// var object = {
-//   'name': 'kris',
-//   'age': 32,
-// };
-
-// var newObj = {};
 
 
 
