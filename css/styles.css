@@ -12,6 +12,11 @@ body {
     padding: 10px;
 
 }
+.cardPosition {
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
 button {
     width: 100px;
     height: 25px;
@@ -28,7 +33,16 @@ button {
     z-index: -1;
 
 }
+#invisible {
+  display: none;
+}
+img {
+    width: 100px;
+    /* visibility: hidden;*/
+    /*display:none;*/
 
+
+}
 .cardPlayer1 {
     background: blue;
 
