@@ -157,7 +157,19 @@ function findScore(user) { //experiment passing object through
   for (var x = 0; x < user.hand.length; x++) {
     user.score = user.score + user.hand[x].value;
   }
+  //check if userscore > 21 && user.hand.value contains 11
+  if (user.score > 21 && user.hand[user.hand.length-1].value === 11) {
+    console.log('Whoah, there\'s an Ace');
+    //if so, change value of ace to 1
+    user.hand[user.hand.length-1].value = 1;
+    //update score
+    user.score = null;
+    for (var x = 0; x < user.hand.length; x++) {
+      user.score = user.score + user.hand[x].value;
+    }
+  }
   console.log(capFirstLetter(user.name) + ' score:' + ' ' + user.score);
+  return user.score;
 }
 
 //Winner
@@ -169,16 +181,13 @@ function onDealWinner() {
   } if (players[players.length - 1].score === 21 && players[0].score != 21) {
       console.log('Sorry, dealer wins. Better luck next time...');
       startNextRound();
-    } //if (players[0].score === players[players.length - 1].score) {
-    //     console.log('Push... nobody wins.')
-    //     startNextRound();
-    //     $dealButton.addEventListener('click', dealCards);
-    //   } if (players[0].score > 21) {
-    //     console.log('Dealer BUST. You win!!');
-    //     startNextRound();
-    //     $dealButton.addEventListener('click', dealCards);
-    //   } else {
-        return false;
+    } if (players[0].score === 21 && players[players.length - 1].score === 21) {
+        console.log('Push... nobody wins.')
+        startNextRound();
+        $dealButton.addEventListener('click', dealCards);
+      } else {
+          return false;
+        }
 }
 
 
