@@ -96,7 +96,7 @@ start.addEventListener("click", function(){
   wrong.length = 0;
 });
 
-guess.addEventListener("click", function(){
+var guessButton = function() {
   var letter = input.value;
   // input.value;
   if (checkLetter(letter)) {
@@ -106,12 +106,20 @@ guess.addEventListener("click", function(){
   } else {
     console.log("guess again");
     wrongGuess(letter);
+    add();
     lose();
     console.log(counter);
   }
   input.value = '';
-});
+};
 
+guess.addEventListener("click", guessButton);
+
+input.addEventListener('keyup',function() {
+  if (event.keyCode === 13) {
+    guessButton();
+  }
+});
 
 // displays wrong guesses
 var wrong = [];
