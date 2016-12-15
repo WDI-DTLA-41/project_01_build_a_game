@@ -21,36 +21,36 @@ var reset = document.querySelector(".reset");
 var quote = document.querySelector("h2");
 
 // var for bet counter
-var betAmount = document.querySelector(".bet-amount");
+var totalBet = document.querySelector(".total-bet");
 
 // var for score counter
 var totalScore = document.querySelector(".total-score");
-var totalScoreVal = parseInt(totalScore.textContent);
+// var totalScoreVal = parseInt(totalScore.textContent);
 
 // ARRAY: Store classes of cards here
-// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
-var cards = ["darthvader"];
+var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+// var cards = ["darthvader"];
 
 // =============================================
 //    1. PLACE A BET
 // =============================================
 
-var betTotal;
+var currentBet;
 
 var addOne = function(event) {
-// Add 1 to the value in span.bet-amount
-  console.log(betAmount.textContent);
-  // CONVERT TEXT IN betAmount PLACEHOLDER TO NUMBER
-  var betValue = parseInt(betAmount.textContent);
+// Add 1 to the value in span.total-bet
+  console.log(totalBet.textContent);
+  // CONVERT TEXT IN totalBet PLACEHOLDER TO NUMBER
+  var betValue = parseInt(totalBet.textContent);
   // ADD 1 TO THE VALUE, STORE IN betTotal VAR
-  var betTotal = betValue + 1;
-  // UPDATE betAmount
-  betAmount.textContent = betTotal;
-  return betTotal;
+  totalBet.textContent = betValue + 1;
+  // UPDATE totalBet
+  var currentBet = parseInt(totalBet.textContent);
+  return currentBet;
 }
 // RUN WHEN BET +1 BUTTON IS PRESSED
 plusOne.addEventListener("click", addOne);
-console.log(betAmount.textContent);
+console.log(currentBet);
 
 // placeBet();
 
@@ -141,6 +141,8 @@ var stopReel = function() {
       var revealQuoteLose = function() {
         quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
       }
+
+      minusScore();
     }
   }
   compareSlots();
@@ -153,21 +155,76 @@ spin.addEventListener("click", spinReel);
 //    5. TOTAL SCORE
 // =============================================
 
+    // GRAB THE TOTAL-BET SPAN ELEMENT
+    var betSpan = document.querySelector("span.total-bet");
+
+    // GRAB THE TOTAL-SCORE SPAN ELEMENT
+    var scoreSpan = document.querySelector("span.total-score");
+
 var addScore = function() {
-  // IF ROUND = WIN
-  if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
+
+    // CONVERT THAT SPAN ELEMENT TEXT ==> INTEGER
+    var betInt = parseInt(betSpan.textContent);
+
+    // CONVERT THAT SCORE SPAN ELEMENT TEXT ==> INTEGER
+    var scoreInt = parseInt(scoreSpan.textContent);
+
+  // IF ROUND === **WIN**
+  // if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
     // SCORE FOR THE ROUND = 100 PTS
     var roundScore = 100;
-    // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
-    var totalRoundScore = parseInt(betAmount.textContent) * roundScore;
 
-  }
+    // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
+    console.log(betInt);
+    console.log(roundScore);
+    console.log(betInt * roundScore);
+
+    var totalRoundScore = betInt * roundScore;
+    // LOG TOTAL ROUND SCORE
+    console.log(totalRoundScore);
+
+    // CONVERT TOTAL ROUND SCORE ==> INTEGER
+    var totalRoundScoreInt = parseInt(totalRoundScore);
+    console.log(totalRoundScoreInt);
+
     // ADD THAT TO THE CURRENT TOTAL SCORE
-    var currentScore = totalScore.textContent;
-    currentScore = totalScore + totalRoundScore;
-    return currentScore;
-    console.log(totalScore);
-}
+
+    scoreSpan.textContent = scoreInt + totalRoundScoreInt;
+
+    console.log(scoreSpan);
+  }
+// };
+
+var minusScore = function() {
+
+  // CONVERT THAT SPAN ELEMENT TEXT ==> INTEGER
+  var betInt = parseInt(betSpan.textContent);
+
+  // CONVERT THAT SCORE SPAN ELEMENT TEXT ==> INTEGER
+  var scoreInt = parseInt(scoreSpan.textContent);
+
+// IF ROUND === **LOSE**
+// if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
+  // SCORE FOR THE ROUND = 100 PTS
+  var roundScore = -100;
+
+  // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
+
+  var totalRoundScore = betInt * roundScore;
+  // LOG TOTAL ROUND SCORE
+  console.log(totalRoundScore);
+
+  // CONVERT TOTAL ROUND SCORE ==> INTEGER
+  var totalRoundScoreInt = parseInt(totalRoundScore);
+  console.log(totalRoundScoreInt);
+
+  // ADD THAT TO THE CURRENT TOTAL SCORE
+
+  scoreSpan.textContent = scoreInt + totalRoundScoreInt;
+
+  console.log(scoreSpan);
+};
+
 
 // =============================================
 //    6. NEW TURN
@@ -190,7 +247,7 @@ var newTurn = function(event) {
   three.removeAttribute("id", "spin-three");
 
   // RESETS BET COUNTER TO $1
-  betAmount.textContent = 1;
+  totalBet.textContent = 1;
 }
 playAgain.addEventListener("click", newTurn);
 

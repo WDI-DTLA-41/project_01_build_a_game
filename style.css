@@ -64,7 +64,7 @@ button {
   background: black;
   color: white;
 }
-.bet-total, .plus-one {
+.bet, .plus-one {
   display: inline;
 }
 .play {
