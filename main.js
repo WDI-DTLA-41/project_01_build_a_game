@@ -10,7 +10,6 @@ var two = document.querySelector("#two");
 var three = document.querySelector("#three");
 
 // var for buttons
-// var tryBtn = document.querySelector(".try");
 var plusOne = document.querySelector(".plus-one");
 var placeBet = document.querySelector(".place-bet");
 var spin = document.querySelector(".spin");
@@ -28,8 +27,8 @@ var totalScore = document.querySelector(".total-score");
 // var totalScoreVal = parseInt(totalScore.textContent);
 
 // ARRAY: Store classes of cards here
-var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
-// var cards = ["darthvader"];
+// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+var cards = ["darthvader"];
 
 // =============================================
 //    1. PLACE A BET
@@ -59,20 +58,24 @@ console.log(currentBet);
 // =============================================
 
 var spinReel = function(event) {
+  // spin.removeEventListener("click", spinReel);
+
   // ADDS CSS ANIMATION ID TO EACH SLOT
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
   // debugger;
-  stopReel();
+  setTimeout(stopReel, 3500);
   // setTimeout(stopReel,2000);
 };
-
+// WHEN PLAYER PUSHES BUTTON TO SPIN
+  // **EVENT LISTENER ON BUTTON**
+spin.addEventListener("click", spinReel);
 // =============================================
 //    3. RANDOMLY SELECTS CLASSES FOR SLOTS
 // =============================================
 
-// var slots = document.querySelectorAll("div");
+// var slots = document.getElementsByTagName("div");
 var slots = document.querySelectorAll("div");
 
 var oneVal;
@@ -87,6 +90,7 @@ var stopReel = function() {
     // RANDOMLY SELECTS A COLOR FROM ARRAY
     var randomSelect = function() {
       // RETURNS THE COLOR VALUE
+
       return cards[Math.floor(Math.random() * cards.length)];
     }
 
@@ -96,6 +100,7 @@ var stopReel = function() {
     // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
     slots[i].classList.add(selected);
     // console.log(slots[i].classList);
+
 
     // STORE CLASSES AS VALUES INTO VARIABLES
     var oneVal = slots[0].classList.value;
@@ -147,19 +152,17 @@ var stopReel = function() {
   }
   compareSlots();
 };
-// WHEN PLAYER PUSHES BUTTON TO SPIN
-  // **EVENT LISTENER ON BUTTON**
-spin.addEventListener("click", spinReel);
+
 
 // =============================================
 //    5. TOTAL SCORE
 // =============================================
 
-    // GRAB THE TOTAL-BET SPAN ELEMENT
-    var betSpan = document.querySelector("span.total-bet");
+// GRAB THE TOTAL-BET SPAN ELEMENT
+var betSpan = document.querySelector("span.total-bet");
 
-    // GRAB THE TOTAL-SCORE SPAN ELEMENT
-    var scoreSpan = document.querySelector("span.total-score");
+// GRAB THE TOTAL-SCORE SPAN ELEMENT
+var scoreSpan = document.querySelector("span.total-score");
 
 var addScore = function() {
 
@@ -256,7 +259,6 @@ playAgain.addEventListener("click", newTurn);
 // =============================================
 
 var resetGame = function(event) {
-  // spin.removeEventListener("click", removeClasses);
   location.reload();
 }
 reset.addEventListener("click", resetGame);

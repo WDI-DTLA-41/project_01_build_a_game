@@ -33,13 +33,13 @@ div {
   color: black;
 }
 .darthvader {
-  /*background-image: url("assets/darthvader.jpg");*/
+  background-image: url("assets/darthvader.jpg");
   display: inline-block;
   /*z-index: -10;*/
   /*opacity: 0.8;*/
   height: 300px;
   width: 200px;
-  background: red;
+  /*background-color: red;*/
 }
 .hansolo {
   background: blue;
@@ -80,7 +80,7 @@ button {
 #spin-one {
   position: relative;
   -webkit-animation-name: reel-spin;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: .5s;
   -webkit-animation-iteration-count: 2;
   animation-name: reel-spin;
   animation-duration: .5s;
@@ -89,8 +89,8 @@ button {
 #spin-three {
   position: relative;
   -webkit-animation-name: reel-spin;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 4;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-iteration-count: 6;
   animation-name: reel-spin;
   animation-duration: .5s;
   animation-iteration-count: 3s;
@@ -114,8 +114,8 @@ button {
 #spin-two {
   position: relative;
   -webkit-animation-name: reverse-spin;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 3;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-iteration-count: 4;
   animation-name: reverse-spin;
   animation-duration: .5s;
   animation-iteration-count: 3s;
