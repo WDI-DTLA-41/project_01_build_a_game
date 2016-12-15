@@ -15,6 +15,7 @@ var plusOne = document.querySelector(".plus-one");
 var placeBet = document.querySelector(".place-bet");
 var spin = document.querySelector(".spin");
 var playAgain = document.querySelector(".play-again");
+var reset = document.querySelector(".reset");
 
 // var for h2 header quote
 var quote = document.querySelector("h2");
@@ -23,8 +24,8 @@ var quote = document.querySelector("h2");
 var betAmount = document.querySelector(".bet-amount");
 
 // var for score counter
-var score = document.querySelector(".total-score");
-var scoreVal = parseInt(score.textContent);
+var totalScore = document.querySelector(".total-score");
+var totalScoreVal = parseInt(totalScore.textContent);
 
 // ARRAY: Store classes of cards here
 // var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
@@ -124,6 +125,9 @@ var stopReel = function() {
       var revealQuoteWin = function() {
         quote.textContent = '"The force is strong with this one."';
       }
+
+      addScore();
+
     } else {
     // ELSE ==> YOU LOSE
       // APPEND H2 TO PAGE
@@ -149,15 +153,21 @@ spin.addEventListener("click", spinReel);
 //    5. TOTAL SCORE
 // =============================================
 
-var totalScore = function() {
+var addScore = function() {
+  // IF ROUND = WIN
   if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
-
-
-
+    // SCORE FOR THE ROUND = 100 PTS
+    var roundScore = 100;
+    // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
+    var totalRoundScore = parseInt(betAmount.textContent) * roundScore;
 
   }
+    // ADD THAT TO THE CURRENT TOTAL SCORE
+    var currentScore = totalScore.textContent;
+    currentScore = totalScore + totalRoundScore;
+    return currentScore;
+    console.log(totalScore);
 }
-
 
 // =============================================
 //    6. NEW TURN
@@ -165,10 +175,9 @@ var totalScore = function() {
 
 // Click PLAY AGAIN to:
 var newTurn = function(event) {
-  // location.reload();
 
   // RESETS H2 QUOTE
-  quote.textContent = "The Force, it's calling to you. Just let it in.";
+  quote.textContent = '"The Force, it\'s calling to you. Just let it in."';
 
   // RESETS CLASSES OF SLOT DIVS
   one.classList = "";
@@ -189,13 +198,11 @@ playAgain.addEventListener("click", newTurn);
 //    RESET ENTIRE BOARD & START OVER
 // =============================================
 
-// var removeClasses = function(event) {
-//   // spin.removeEventListener("click", removeClasses);
-//   one.classList = "";
-//   two.classList = "";
-//   three.classList = "";
-//   spinReel();
-// }
+var resetGame = function(event) {
+  // spin.removeEventListener("click", removeClasses);
+  location.reload();
+}
+reset.addEventListener("click", resetGame);
 
 // =============================================
 //    TRY BUTTON ** OPTIONAL **
