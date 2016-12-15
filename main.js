@@ -4,7 +4,6 @@ console.log("meow");
 //    VARIABLES NEEDED
 // =============================================
 
-
 // vars for each card slot
 var one = document.querySelector("#one");
 var two = document.querySelector("#two");
@@ -17,26 +16,40 @@ var placeBet = document.querySelector(".place-bet");
 var spin = document.querySelector(".spin");
 var reset = document.querySelector(".reset");
 
+// vars for bet counter
+var betAmount = document.querySelector(".bet-amount");
+
 // ARRAY: Store classes of cards here
-var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
-// var cards = ["darthvader"];
+// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+var cards = ["darthvader"];
 
 // =============================================
 //    PLACING A BET
 // =============================================
+// When +1 button is pressed
+var addOne = function(event) {
+// Add 1 to the value in span.bet-amount
+  console.log(betAmount.textContent);
+  var betValue = parseInt(betAmount.textContent);
+  var betTotal = betValue + 1;
+  console.log(betTotal);
+  betAmount.textContent = betTotal;
+  return betTotal;
+}
+plusOne.addEventListener("click", addOne);
 
-
+// placeBet();
 // =============================================
 //    RESET CLASSES FOR NEW TURN
 // =============================================
 
-var removeClasses = function(event) {
-  // spin.removeEventListener("click", removeClasses);
-  one.classList = "";
-  two.classList = "";
-  three.classList = "";
-  spinReel();
-}
+// var removeClasses = function(event) {
+//   // spin.removeEventListener("click", removeClasses);
+//   one.classList = "";
+//   two.classList = "";
+//   three.classList = "";
+//   spinReel();
+// }
 
 // =============================================
 //    "SPINNING" THE REEL
@@ -47,7 +60,9 @@ var spinReel = function(event) {
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
+  // debugger;
   stopReel();
+  // setTimeout(stopReel,2000);
 };
 
 // =============================================
@@ -83,7 +98,6 @@ var stopReel = function() {
     var oneVal = slots[0].classList.value;
     var twoVal = slots[1].classList.value;
     var threeVal = slots[2].classList.value;
-
   }
 // =============================================
 //    COMPARING THE SLOTS
@@ -129,19 +143,28 @@ var stopReel = function() {
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**
 };
-spin.addEventListener("click", removeClasses);
+spin.addEventListener("click", spinReel);
 
 
 // =============================================
-//    NEXT TURN
+//    NEW TURN
 // =============================================
 
 // Click PLAY AGAIN to:
   // REMOVE ID'S FROM
-var reloadPage = function(event) {
-  location.reload();
+var newTurn = function(event) {
+  // location.reload();
+  one.classList = "";
+  two.classList = "";
+  three.classList = "";
+
+  one.removeAttribute("id", "spin-one");
+  two.removeAttribute("id", "spin-two");
+  three.removeAttribute("id", "spin-three");
+
+  betAmount.textContent = 1;
 }
-reset.addEventListener("click", reloadPage);
+reset.addEventListener("click", newTurn);
 
 
 // =============================================
