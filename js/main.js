@@ -1,5 +1,9 @@
 console.log('hello');
 var button = document.querySelector('button');
+
+
+
+
 var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
 // var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
 var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
@@ -87,15 +91,27 @@ function getLetterEnter(evt){
       return;
     } else {
       console.log('no');
+      if (!guessed.includes(letter)){
+      guessed.push(letter);
+      guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       skeleton[j].style.visibility = "visible";
       j= j + 1;
-      guessed.push(letter);
+    }
+
+    else if (guessed.includes(letter)){
+      alert('You already guessed that letter!');
+    }
+
+    else {
+      skeleton[j].style.visibility = "visible";
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
       if (noMatch.length === 6 || noMatch.length === playWord.length) {
       setTimeout(function(){alert('Sorry, you lose!')}, 200);
+      j= j + 1;
       }
 
+      }
       return;
   }
  }
