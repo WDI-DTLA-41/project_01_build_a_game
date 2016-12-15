@@ -7,18 +7,15 @@ h1 {
   text-align: center;
 }
 
-#start {
-  visibility: visible;
-}
-
-#restart {
-  visibility: visible;
-}
 
 div {
   height: 150px;
   width: 150px;
   padding: 10px;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 .gamePiece {

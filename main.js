@@ -22,6 +22,8 @@ var generateSimonSequence = function(){
   simonSequence.push(simonGeneratorIndex[randomColor]);
   console.log('simon sequence: ', simonSequence);
   lightEmAndDimEm(simonSequence);
+  $start.classList.add("hide");
+  $restart.classList.remove("hide");
 };
 
 
@@ -40,14 +42,14 @@ var dimIt = function(n){
 var lightEmAndDimEm = function(arr, i=0){
   setTimeout(function(){
   if(i===arr.length){
-    console.log("Loop finished!");
+    // console.log("Loop finished!");
   } else {
     lightIt(i);
     dimIt(i);
     i++;
     setTimeout(function() {
       lightEmAndDimEm(arr, i);
-    }, 1000)
+    }, 900)
   };
 }, 1000);
 };
