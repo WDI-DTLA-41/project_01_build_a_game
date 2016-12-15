@@ -9,9 +9,11 @@ var userSequence = [];
 var sequenceLength = 1;
 var $streak = document.querySelector('#streak');
 var streak = 0;
+var $record = document.querySelector('#record');
+var record = 0;
 var $start = document.querySelector('#start');
 var $restart = document.querySelector('#restart');
-var colorToLight
+var colorToLight;
 // = [{}];
 
 // find a way to make Simon play his sequence
@@ -19,32 +21,36 @@ var generateSimonSequence = function(){
   var randomColor = Math.floor(Math.random() * 4);
   simonSequence.push(simonGeneratorIndex[randomColor]);
   console.log('simon sequence: ', simonSequence);
+  lightEmAndDimEm(simonSequence);
 };
 
-// var dimIt = function(n){
-//   setTimeout(function(){
-//   n.classList.remove('light');
-// }, 1000);
-// };
-var lightIt = function(n){n.classList.add('light');}
-var dimIt = function(n){n.classList.remove('light');}
 
-
-var flashLight = function(){
-  generateSimonSequence();
-  var timeOutVar1;
-  var timeOutVar2;
-  for(var i = 0; i<simonSequence.length; i++){
-    setTimeout(lightIt(simonSequence[i]), 1000*timeOutVar1);
-    timeOutVar1++;
-
-    setTimeout(dimIt(simonSequence[i]), 1000*timeOutVar2);
-    timeOutVar2++;
-
-    // dimIt(simonSequence[i]);
-  }
+var lightIt = function(n){
+  simonSequence[n].classList.add('light');
 };
 
+var dimIt = function(n){
+  setTimeout(function(){
+    simonSequence[n].classList.remove('light');
+  }, 700);
+};
+
+
+
+var lightEmAndDimEm = function(arr, i=0){
+  setTimeout(function(){
+  if(i===arr.length){
+    console.log("Loop finished!");
+  } else {
+    lightIt(i);
+    dimIt(i);
+    i++;
+    setTimeout(function() {
+      lightEmAndDimEm(arr, i);
+    }, 1000)
+  };
+}, 1000);
+};
 // maybe need to use setInterval that can iterate through simon sequence
 // setInterval so every second, a new color is passed in to a setTimout and clearTimeout
 // setInterval can take a fxn. Make it take a function that takes a new elem from
@@ -61,11 +67,18 @@ var sequenceMatch = function(){
       streak = 0;
       $streak.textContent = streak;
       sequenceLength = 1;
+      userSequence = [];
+      simonSequence = [];
+      generateSimonSequence();
       return false;
     };
   };
   streak++;
   $streak.textContent = streak;
+  if(record < streak){
+    record = streak;
+    $record.textContent = record;
+  }
   // if (sequenceLength===31){
     sequenceLength++;
   // }else {
@@ -76,7 +89,7 @@ var sequenceMatch = function(){
 }
 
 // then find a way to make Simon's play initiate after user hits start button
-$start.addEventListener('click', flashLight);
+$start.addEventListener('click', generateSimonSequence);
 
 var handleUserSequence = function(event){
   userSequence.push(event.target.getAttribute('id'));
@@ -84,7 +97,7 @@ var handleUserSequence = function(event){
   if(simonSequence.length === userSequence.length){
     if(sequenceMatch()){
     userSequence = [];
-    flashLight();
+    generateSimonSequence();
     };
   };
 };
@@ -94,5 +107,10 @@ var handleUserSequence = function(event){
 
 $gamePiece.addEventListener('click', handleUserSequence);
 
-
+$restart.addEventListener('click', function(){
+  streak=0;
+  simonSequence = [];
+  userSequence = [];
+  generateSimonSequence();
+})
 
