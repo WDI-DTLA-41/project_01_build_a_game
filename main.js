@@ -3,6 +3,7 @@ var color1 = 'color1';
 var color2 = 'color2';
 var colorHolder = color1;
 
+
 var square = document.querySelectorAll('.square');
 var button = document.querySelector('#clear');
 
@@ -16,18 +17,20 @@ var board = [
   [null, null, null, null, null, null, null]
 ];
 
+
 var isThisOneEmpty = function(position) {
-  console.log("this is empty");
+  // console.log("this is empty");
   var row = parseInt(position.row);
   var col = parseInt(position.col);
   return board[row][col] === null;
 }
 
+
 var checkTheOneBelow = function(position){
   var row = parseInt(position.row) + 1;
   var col = parseInt(position.col);
   if (position.row == 5) {
-    console.log("row 5 you can move")
+    // console.log("row 5 you can move")
     return true;
   } else {
     return board[row][col] !== null;
@@ -35,10 +38,63 @@ var checkTheOneBelow = function(position){
 }
 
 
+
+
+
+var winColor1 = [ ];
+var winColor2= [ ];
+var object = {};
+
+
+var win = function (position) {
+  console.log(position.className);
+  console.log("the other here i am 2");
+  var row = parseInt(position.row);
+  var col = parseInt(position.col);
+  if (position.className === color1 && board[position.row][parseInt(position.col)-1] === color1){
+    winColor1.push(position);
+    console.log(winColor1);
+    console.log('position: ', position);
+    console.log('class: ', position.className);
+  }
+
+  console.log(winColor1);
+
+
+  // if (this.position.className === color1 && (this.position.col - 1, this.position.row) === color1){
+  //   winColor1.push();
+  //   console.log('position: ', position);
+  // }
+  // if (this.position.className === color1 && (this.position.row) -1 === color1){
+  //   winColor1.push();
+  //   console.log('position: ', position);
+  // }
+  // if (this.position.className === color1 && (this.position.col + 1, this.position.col-1) === color1){
+  //   winColor1.push();
+  //   console.log('position: ', position);
+  // }
+  // if (this.position.className === color1 && (this.position.col) + 1 === color1){
+  //   winColor1.push();
+  //   console.log('position: ', position);
+  // }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // add class on click
 function onClick(evt){
 
   console.log(this); //same
+  // console.log('here i am');
   var position = this.dataset;
   // console.log(board[position.row][position.col]);
   console.log('position: ', position);
@@ -48,7 +104,6 @@ function onClick(evt){
   if (isThisOneEmpty(position) && checkTheOneBelow(position)) {
     // if the square is empty and the one below it is not empty
     // then we can mark that square
-
 
     if (colorHolder == color1) {
       colorHolder = color2;
@@ -65,6 +120,7 @@ function onClick(evt){
     }
     this.removeEventListener('click', onClick);
     board[position.row][position.col] = colorHolder;
+    win(this);
   }
 }
 
@@ -75,10 +131,10 @@ square.forEach(function(element){
   element.addEventListener('click', onClick);
 });
 
-// clear divs with button click
-var clear = function(){
- // square.classList.remove("color1");
- console.log('click')
-}
+// // clear divs with button click
+// var clear = function(){
+//  // square.classList.remove("color1");
+//  console.log('click')
+// }
 
-button.addEventListener('click', clear);
+// button.addEventListener('click', clear);
