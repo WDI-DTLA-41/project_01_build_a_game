@@ -24,7 +24,6 @@ var $hit = document.querySelector('.hit');
 var $stay = document.querySelector('.stay');
 
 // function to make a deck of cards
-// question - is it not possible to do this with 3 for loops? I got back ~ 670 objects in my array
 
 var makeDeck = function() {
   deck = [];
@@ -70,6 +69,7 @@ var shuffleDeck = function(array) {
 
 //function to deal cards & calculate initial score at the beginning of the game
 var dealCards = function() {
+  resetHands();
   deck = shuffleDeck(deck);
   for (var i = 0; i < 2; i++) {
     dealer.hand[i] = deck.pop();
@@ -109,6 +109,7 @@ var calculateHandOf = function(user) {
       if (user.hand[i].name == "ace") {
         console.log('Ace value converting to 1 from 11');
         user.hand[i].value = 1;
+        user.score = user.score - 10;
       }
     }
   }
@@ -158,6 +159,15 @@ var dealerTurn = function(result) {
   }
 }
 
+//function to reset score (called: at the beginning of a new hand)
+var resetHands = function() {
+  player.score = 0;
+  dealer.score = 0;
+  player.hand = [];
+  dealer.hand = [];
+};
+
+// function to compare dealer score with player's score
 var scoreCompare = function(result) {
 
 }
@@ -179,7 +189,9 @@ var scoreCompare = function(result) {
 //   }
 // }
 
+
 $newHand.addEventListener('click', makeDeck);
+$newHand.addEventListener('click', resetHands);
 $hit.addEventListener('click', playerHit);
 $deal.addEventListener('click', dealCards);
 $stay.addEventListener('click', playerStay);
