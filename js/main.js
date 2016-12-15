@@ -1,7 +1,18 @@
 console.log('hello');
 var playWord;
 var button = document.querySelector('button');
-
+var letter;
+var submit = document.querySelector('.submit');
+var j = 0;
+var underscores = [];
+var placeholders;
+var guessed = [];
+var guessedBox = document.querySelector('.guessed')
+var resetButton = document.querySelector('.reset');
+var noMatch = [];
+var isMatch = [];
+var array = []
+var number;
 var words = [
 'BONES',
 'CREEPY',
@@ -18,16 +29,21 @@ var words = [
 'WITCH',
 'ZOMBIE'
 ]
-var number;
-
-
-
-var array = []
+//parts of the skeleton
+var skeleton = [
+document.querySelector('.head'),
+document.querySelector('.body'),
+document.querySelector('.leftarm'),
+document.querySelector('.rightarm'),
+document.querySelector('.leftleg'),
+document.querySelector('.rightleg')
+]
 
 var randomNumber = function() {
   number = Math.floor(Math.random()*10)
 }
 
+//this chooses a random word
 function getWord(){
   randomNumber();
 for (x = 0; x < words.length; x++){
@@ -44,29 +60,6 @@ for (x = 0; x < words.length; x++){
 button.removeEventListener('click', getWord);
 }
 
-
-
-//parts of the skeleton
-var skeleton = [
-document.querySelector('.head'),
-document.querySelector('.body'),
-document.querySelector('.leftarm'),
-document.querySelector('.rightarm'),
-document.querySelector('.leftleg'),
-document.querySelector('.rightleg')
-]
-
-var letter;
-var submit = document.querySelector('.submit');
-var j = 0;
-var underscores = [];
-var placeholders;
-var guessed = [];
-var guessedBox = document.querySelector('.guessed')
-var resetButton = document.querySelector('.reset');
-var noMatch = [];
-var isMatch = [];
-
 //this grabs the input value
 function getLetter(){
   letter = document.querySelector('input').value;
@@ -75,21 +68,6 @@ function getLetter(){
   gameLogic();
 }
 
-// //this selects a random word
-// function getWord(evt) {
-//   underscores = [];
-//   var number = Math.random();
-//   if (number >= .6){
-//     playWord = word1;
-//   } else if (number < .6 && number >= .3){
-//     playWord = word2;
-//   } else if (number < .3){
-//     playWord = word3;
-//   }
-//   //this displays the correct number of underscores
-
-// }
-
 //this is so that user can use enter key as well
 function getLetterEnter(evt){
   if (evt.keyCode === 13){
@@ -97,7 +75,7 @@ function getLetterEnter(evt){
   }
 }
 
-
+//this runs the game
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
     if (!letter.match(/[a-z]/i)){
@@ -111,9 +89,9 @@ function getLetterEnter(evt){
     if (letter.length > 1) {
     alert('One at a time, please!');
     return;
-  }
-
-    else if (playWord.includes(letter)){
+  } else if (guessed.includes(letter)){
+      alert('You already guessed that letter!');
+    } else if (playWord.includes(letter)){
       console.log('yes');
       isMatch.push('match');
       index = playWord.indexOf(letter);
@@ -122,28 +100,23 @@ function getLetterEnter(evt){
         underscores[index+1] = playWord[index];
         placeholders.textContent = underscores.join(' ');
         isMatch.push('match');
+          if (isMatch.length === playWord.length){
+        console.log(isMatch.length);
+        setTimeout(function(){alert('You win!')}, 200);
+      }
       } else if (playWord.includes(letter) && playWord[i]!==playWord[i+1]){
       underscores[index] = playWord[index];
       placeholders.textContent = underscores.join(' ');
-      if (isMatch.length === playWord.length){
+        if (isMatch.length === playWord.length){
         console.log(isMatch.length);
         setTimeout(function(){alert('You win!')}, 200);
-      }}
+      }
+      }
       return;
     } else {
       console.log('no');
       if (!guessed.includes(letter)){
       guessed.push(letter);
-      guessedBox.innerHTML = 'Guessed:<br>' + guessed;
-      skeleton[j].style.visibility = "visible";
-      j= j + 1;
-    }
-
-    else if (guessed.includes(letter)){
-      alert('You already guessed that letter!');
-    }
-
-    else {
       skeleton[j].style.visibility = "visible";
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
@@ -153,10 +126,13 @@ function getLetterEnter(evt){
       }
 
       }
+
       return;
   }
  }
 }
+
+
 
 
 function reset(evt) {
