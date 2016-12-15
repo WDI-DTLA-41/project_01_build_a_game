@@ -5,8 +5,8 @@ var cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
 var names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
 var dealerHand = []; // not req after using player & dealer
 var playerHand = []; // not req after using player & dealer
-var dealerScore = null;
-var playerScore = null;
+var dealerScore = null; //
+var playerScore = null; //
 
 var dealer = {
   score: 0,
@@ -72,10 +72,10 @@ var shuffleDeck = function(array) {
 var dealCards = function() {
   deck = shuffleDeck(deck);
   for (var i = 0; i < 2; i++) {
-    dealerHand[i] = deck.pop();
-    playerHand[i] = deck.pop();
-    dealerCal();
-    playerCal();
+    dealer.hand[i] = deck.pop();
+    player.hand[i] = deck.pop();
+    calculateHandOf(dealer);
+    calculateHandOf(player);
   }
 
   // Replaced hard coding with dealerCal & playerCal above
@@ -84,20 +84,20 @@ var dealCards = function() {
 
   //add auto-win conditions here(21)
 
-  console.log('Dealer Score Is:' + dealerScore);
-  console.log('Player Score Is:' + playerScore);
+  console.log('Dealer Score Is:' + dealer.score);
+  console.log('Player Score Is:' + player.score);
 };
 
 
-//using a function to calculate dealer score
-var dealerCal = function() {
-  dealerScore = dealerScore + dealerHand[dealerHand.length-1].value;
-};
+// //using a function to calculate dealer score
+// var dealerCal = function() {
+//   dealerScore = dealerScore + dealerHand[dealerHand.length-1].value;
+// };
 
-//using a function to calculate player score
-var playerCal = function() {
-  playerScore = playerScore + playerHand[playerHand.length-1].value;
-}
+// //using a function to calculate player score
+// var playerCal = function() {
+//   playerScore = playerScore + playerHand[playerHand.length-1].value;
+// }
 
 
 
@@ -105,27 +105,77 @@ var playerCal = function() {
 var calculateHandOf = function(user) {
   user.score = user.score + user.hand[user.hand.length-1].value;
   // playerScore = playerScore + playerHand[playerHand.length-1].value;
+  //check if user score > 21 && user.hand.name === ace
+  //if yes, subtract 10 from user score
 }
 
 var playerHit = function(result) {
-  playerHand[playerHand.length] = deck.pop();
+  player.hand[player.hand.length] = deck.pop();
   // calculateHandOf(player); // NOTE will require refactoring playerHand code to use player.hand
-  playerCal();
+  calculateHandOf(player);
   // playerScore = playerScore + playerHand[2].value; //redundant
-  console.log("Player's new score is" + playerScore);
-  if(playerScore === 21) {
+  console.log("Player's new score is" + player.score);
+  if(player.score === 21) {
     return console.log('BLACKJACK!');
-  } else if (playerScore > 21){
+  } else if (player.score > 21){
     return console.log('you went BUST');
   } else {
-    return playerScore;
+    return player.score;
+  }
+};
+
+var playerStay = function() {
+  console.log("You Stay! Dealer's Turn");
+  dealerTurn();
+
+};
+
+
+var dealerTurn = function(result) {
+  if (dealer.score > 21) {
+    console.log('Dealer Went BUST! You Win!');
+    return dealer.score;
+    //also need to compare with user
+  } else if (dealer.score === 21) {
+      console.log('Dealer Hits BlackJack. Sorry!');
+      return dealer.score;
+      //also need to compare with user
+  } else if (dealer.score < 17){
+    dealer.hand[dealer.hand.length] = deck.pop();
+    console.log(dealer.hand[dealer.hand.length-1]);
+    calculateHandOf(dealer)
+    console.log("Dealer Score is Currently " + dealer.score);
+    dealerTurn();
+    //make dealer draw another card
+  } else {
+    console.log('Dealer Score is: ' + dealer.score);
+    return dealer.score;
   }
 }
+
+
+// dealerTurn not perfect
+// var dealerTurn = function(result) {
+//   if (dealer.score === 21) {
+//     console.log('Dealer Hits BlackJack. Sorry!');
+//     return dealer.score;
+//     //also need to compare with user
+//   } else if (dealer.score < 17) {
+//     dealer.hand[dealer.hand.length] = deck.pop();
+//     calculateHandOf(dealer)
+//     console.log('Dealer Score is Currently' + dealer.score);
+//     //make dealer draw another card
+//   } else {
+//     console.log('Dealer Score is: ' + dealer.score);
+//     return dealer.score;
+//   }
+// }
+
 
 $hit.addEventListener('click', playerHit);
 $deal.addEventListener('click', dealCards);
 $newHand.addEventListener('click', makeDeck);
-
+$stay.addEventListener('click', playerStay);
 
 
 
