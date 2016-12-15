@@ -85,17 +85,14 @@
 | Qian | 11:30am -11:50am |
 | Mimi | 12:00pm -12:20pm |
 
-# **TA-Student Pairing**
-## **Thursday (12/15)**            
-| TA-Student | Time |
-|:-------------: | :-------------: |
-| Adam-Tim | 2:00pm -2:20pm | 
-| Adam-Jake | 2:20pm -2:40pm |  
-| Adam-Andrew | 2:40pm -3:00pm |
-| Adam-Lacey | 3:00pm- 3:20pm | 
-| Adam-Barrett | 3:20pm -3:40pm |
-| Adam-Qian | 3:40pm -4:00pm
-| Adam-Ritwick | 4:00pm -4:20pm |
+### *Students Pairing with Boshika* 
+| Student | Time |  
+|:-------------:   | :-------------: | 
+| Tim | 10:00am -10:20am |
+| Dakotah | 10:30am -10:50am |
+| Lacey | 11:00am -11:20am |
+| Qian | 11:30am -11:50am |
+| Mimi | 12:00pm -12:20pm |
 ---
 
 # **Instructor-Student Gut check**
