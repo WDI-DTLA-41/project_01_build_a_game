@@ -12,26 +12,34 @@ var gameBoard = document.querySelector('.gameBoard');
 var gameOver;
 var tempHand1;
 var tempHand2;
-var cards = [
+var cardsDefault = [
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 13-25
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 26-38
   2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51
 ];
 
-var cardImages =[
-
-
+var cardsPlaying = [
+  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12
+  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 13-25
+  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 26-38
+  2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51
 ];
+
+
+// var cardImages =[
+//     cards.
+
+// ];
 
 var connectBoard = function() {
       var inviscard;
-      for (var i = 0; i < cards.length; i++) {
+      for (var i = 0; i < cardsDefault.length; i++) {
 
         realCards = document.createElement('div');
         realCards.setAttribute('class', 'cardPosition');
         gameBoard.appendChild(realCards);
-        realCards.innerHTML = cards[i];
+        realCards.innerHTML = cardsDefault[i];
 
       }
 }
@@ -67,15 +75,26 @@ var startGame = function(){
   //cards = makeDeck();
   connectBoard();
   // cut deck in half
-  //shuffleArray(cards);
-  player1Deck = cards.splice(0, 26);
-  player2Deck = cards;
-  player1.innerHTML = '<img src="images/aceClub.png" alt="Ace of Clubs">';
-  player2.innerHTML = '<img src="images/acespades.png" alt="Ace of Spades">';
+  shuffleArray(cardsPlaying);
+  player1Deck = cardsPlaying.splice(0, 26);
+  player2Deck = cardsPlaying;
+  // turnCards();
+
   // testing smaller array
 
 }
 
+
+
+var turnCards = function() {
+    var num = 0;
+    var topCardP1 = player1Deck[num];
+    var topCardP2 = player2Deck[num];
+    player1.innerHTML = topCard;
+    player2.innerHTML = topCard;
+    num++;
+
+}
 // function to shuffle arrays numbers
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -86,6 +105,7 @@ function shuffleArray(array) {
     }
     return array;
 }
+
 
 // var shuffle = function (array) {
 //       array.sort(function(a, b) {
@@ -108,10 +128,10 @@ function compareCards() {
           // }
         //logic here to add card back
         // remove cards from players' hands
-        var removedCard1 = player1.shift();
-        var removedCard2 = player2.shift();
+        var removedCard1 = player1Deck.shift();
+        var removedCard2 = player2Deck.shift();
         // add both cards to bottom of player1 pile
-        player1.push(removedCard1, removedCard2);
+        player1Deck.push(removedCard1, removedCard2);
         isWar = false;
         return 'Winner is Player 1';
         debugger
