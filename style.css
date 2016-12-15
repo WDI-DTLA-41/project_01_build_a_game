@@ -13,11 +13,11 @@ div {
 }
 
 .card {
-border: 1px solid black;
-float: left;
-margin-right: 10px;
-height: 220px;
-width: 150px;
+  border: 1px solid black;
+  float: left;
+  margin-right: 10px;
+  height: 220px;
+  width: 150px;
 }
  .dealer {
   outline: 4px solid black;
@@ -33,4 +33,17 @@ span {
   height: 50px;
   width: 120px;
   position: relative;
+}
+#suit {
+  border: 1px solid black;
+  padding: 10px;
+  display:inline-block;
+}
+#value {
+  border: 1px solid red;
+  padding: 10px;
+  display: inline-block;
+}
+#playerscore {
+
 }
