@@ -1,7 +1,7 @@
 console.log('hello');
 var button = document.querySelector('button');
-var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
-// var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
+// var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
+var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
 // var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
 var word2 = ['C', 'O', 'M', 'P', 'U', 'T', 'E', 'R'];
 var word3 = ['T', 'E', 'A'];
@@ -74,7 +74,7 @@ function getLetterEnter(evt){
       placeholders.textContent = underscores.join(' ');
       if (isMatch.length === playWord.length){
         console.log(isMatch.length);
-        alert('You win!');
+        setTimeout(function(){alert('You win!')}, 200);
       }
       return;
     } else {
@@ -85,7 +85,7 @@ function getLetterEnter(evt){
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
       if (noMatch.length === 6 || noMatch.length === playWord.length) {
-      alert('Sorry, you lose!');
+      setTimeout(function(){alert('Sorry, you lose!')}, 200);
       }
 
       return;
