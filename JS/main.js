@@ -21,22 +21,22 @@ var randomGen = function() {
 var fourColorFlash = function () {
   sequence = randomGen();
   if (sequence === 1) {
-    greenBtn.style.backgroundColor = 'white';
+    greenBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'green';
     },250);
   } else if (sequence === 2) {
-    redBtn.style.backgroundColor = 'white';
+    redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'red';
     },250);
   } else if (sequence === 3) {
-    yellowBtn.style.backgroundColor = 'white';
+    yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'yellow';
     },250);
   } else {
-    blueBtn.style.backgroundColor = 'white';
+    blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'blue';
     },250);
@@ -49,24 +49,25 @@ var fourColorFlash = function () {
 // adding another color to the generator
 var addColorFlash = function () {
   addCounter();
+  praise();
   sequence = randomGen();
   if (sequence === 1) {
-    greenBtn.style.backgroundColor = 'white';
+    greenBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'green';
     },250);
   } else if (sequence === 2) {
-    redBtn.style.backgroundColor = 'white';
+    redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'red';
     },250);
   } else if (sequence === 3) {
-    yellowBtn.style.backgroundColor = 'white';
+    yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'yellow';
     },250);
   } else {
-    blueBtn.style.backgroundColor = 'white';
+    blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'blue';
     },250);
@@ -81,25 +82,25 @@ var addColorFlash = function () {
 
 var colorFlash = function (color) {
     if (color === 1) {
-      greenBtn.style.backgroundColor = 'white';
+      greenBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       greenBtn.style.backgroundColor = 'green';
       },250);
       console.log('1');
     } else if (color === 2) {
-      redBtn.style.backgroundColor = 'white';
+      redBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       redBtn.style.backgroundColor = 'red';
       },250);
       console.log('2');
     } else if (color === 3) {
-      yellowBtn.style.backgroundColor = 'white';
+      yellowBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       yellowBtn.style.backgroundColor = 'yellow';
       },250);
       console.log('3');
     } else if (color === 4) {
-      blueBtn.style.backgroundColor = 'white';
+      blueBtn.style.backgroundColor = 'black';
       setTimeout(function() {
       blueBtn.style.backgroundColor = 'blue';
       },250);
@@ -144,8 +145,8 @@ var clearSequence = function() {
 // gameOver function when userInput is incorrect
 var gameOver = function() {
   // playing gameOver audio file
-  // resetCounter();
-  // clearSequence();
+  resetCounter();
+  clearSequence();
   return console.log('Nice try! YOU LOSE SUCKA!');
 };
 
@@ -184,12 +185,24 @@ var checkInput = function() {
       }
 };
 
+// function to console.log('Great job')
+var praise = function() {
+  if ((counterVal % 11 === 0) && (counterVal % 5 === 0)) {
+    return console.log('Fuck Yea');
+  } else if (counterVal % 5 === 0) {
+    return console.log('Great Job');
+  } else if (counterVal % 3 === 0) {
+    return console.log('SCOOOOPPS!!!');
+  }
+};
+
+
+
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
 
 // add EventListener for userInputs
 btnContainer.addEventListener('click', handleUserInput);
-
 
 
 
