@@ -11,10 +11,15 @@ body {
   text-align: center;
   line-height: 50px;
   border-collapse: collapse;
-}
-.square:nth-child(2n) {
-  background-color: green;
-}
-.square:nth-child(2n+1) {
   background-color: grey;
+}
+.background {
+  background-color: brown;
+}
+.highlight {
+  background-color: lightgreen;
+}
+.king {
+  font-size: 18;
+  font-weight: bold;
 }
