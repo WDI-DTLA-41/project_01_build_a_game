@@ -1,5 +1,31 @@
 console.log('aloha, dakotah!')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ==================================================================
 // SHUFFLE CARDS AND DEAL OUT TO PLAYERS
 // ==================================================================
@@ -42,14 +68,18 @@ for (var i = 0; i < deck.length; i ++) {
   }
 }
 
-var inBattleA = [];
-var inBattleB = [];
+
+var inPlayA = [];
+var inPlayB = [];
+inWarA = inPlayA[inPlayA.length - 1]
+inWarB = inPlayB[inPlayB.length - 1]
 
 console.log("Beginning inHandA: " + inHandA);
 console.log("Beginning inHandB: " + inHandB);
 
 // save variable for war situation later
-var battleCard = inBattleA.concat(inBattleB);
+// var totalinPlayA = inPlayA.length
+// var totalinPlayB = inPlayB.length
 
 
 // ==================================================================
@@ -58,23 +88,24 @@ var battleCard = inBattleA.concat(inBattleB);
 
 
 var compare = function () {
-  if (inBattleA[0] === inBattleB[0]) {
+  if (inPlayA[inPlayA.length - 1] === inPlayB[inPlayB.length - 1]) {
+    console.log("WAR!");
     war();
     // compareWar();
-  } else if (inBattleA[0] > inBattleB[0] === true){
+  } else if (inPlayA[inPlayA.length - 1] > inPlayB[inPlayB.length - 1] === true){
     // a acquires b's card
-    inHandA.push(inBattleB.shift());
+    inHandA.push(inPlayB.shift());
     // used card and new card are pushed to
     // the back of a's card-stack array
-    inHandA.push(inBattleA.shift());
-    console.log("Player A wins!")
+    inHandA.push(inPlayA.shift());
+    console.log("Player A wins the battle!")
   } else {
     // b acquires a's card
-    inHandB.push(inBattleA.shift());
+    inHandB.push(inPlayA.shift());
     // used card and new card are pushed to
     // the back of b's card-stack array
-    inHandB.push(inBattleB.shift());
-    console.log("Player B wins!")
+    inHandB.push(inPlayB.shift());
+    console.log("Player B wins the battle!")
   }
 
   console.log("NEW inHandA: " + inHandA);
@@ -86,56 +117,74 @@ var compare = function () {
 // CREATE A WAR FUNCTION
 // ==================================================================
 
-// var compareWar = function () {
-//   if (inBattleA[4] !== inBattleB[4]) {
-//    if (inBattleA[4] > inBattleB[4] === true) {
-//     collectCardsA();
-//   } else {
-//     collectCardsB();
-//   }
-// }
+var compareWar = function () {
+  inWarA = inPlayA[inPlayA.length - 1]
+  inWarB = inPlayB[inPlayB.length - 1]
+  if (inWarA === inWarB) {
+    war();
+   } else if (inWarA > inWarB === true) {
+    collectCardsA();
+   } else {
+    collectCardsB();
+   }
+}
 
 var war = function () {
   for (var i = 0; i < 4; i ++) {
-    // battle();
-    // compareWar();
+    inPlayA.push(inHandA.shift());
+    inPlayB.push(inHandB.shift());
   }
 
-  console.log("A card at war: " + inBattleA[4]);
-  console.log("B card at war: " + inBattleB[4]);
-}
+  var inWarA = inPlayA[inPlayA.length - 1]
+  var inWarB = inPlayB[inPlayB.length - 1]
 
+  // player A's status
+  console.log("A's card at war: " + inWarA);
+  console.log("inPlayA: " + inPlayA);
+  console.log("inHandA: " + inHandA);
+  // player B's status
+  console.log("B's card at war: " + inWarB);
+  console.log("inPlayB: " + inPlayB);
+  console.log("inHandB: " + inHandB);
+
+  compareWar();
+}
 // var war2 = function () {
-//   var battleCard = inBattleA.concat(inBattleB);
+//   var battleCard = inPlayA.concat(inPlayB);
 //   for (var i = 0; i < (battleCard.length - 2); i ++){
 //     battle();
 //   }
 // }
 
+
 // ==================================================================
 // WHEN PLAYER WINS A WAR, COLLECT ALL CARDS IN PLAY
 // ==================================================================
 var collectCardsA = function () {
-  for ( var i = inBattleB.length - 1; i >= 0; i --){
-    inHandA.push(inBattleB.shift());
+  for ( var i = inPlayB.length - 1; i >= 0; i --){
+    inHandA.push(inPlayB.shift());
   }
-  for ( var i = inBattleA.length - 1; i >= 0; i --){
-    inHandA.push(inBattleA.shift());
+  for ( var i = inPlayA.length - 1; i >= 0; i --){
+    inHandA.push(inPlayA.shift());
   }
-  console.log("NEW inHandA: " + inHandA);
-  console.log("NEW inHandB: " + inHandB);
-}
 
-var collectCardsB = function () {
-  for ( var i = inBattleA.length - 1; i >= 0; i --){
-    inHandB.push(inBattleA.shift());
-  }
-  for ( var i = inBattleB.length - 1; i >= 0; i --){
-    inHandB.push(inBattleB.shift());
-  }
+  console.log("Player A wins the war!");
   // console.log("NEW inHandA: " + inHandA);
   // console.log("NEW inHandB: " + inHandB);
 }
+
+var collectCardsB = function () {
+  for ( var i = inPlayA.length - 1; i >= 0; i --){
+    inHandB.push(inPlayA.shift());
+  }
+  for ( var i = inPlayB.length - 1; i >= 0; i --){
+    inHandB.push(inPlayB.shift());
+  }
+  console.log("Player A wins the war!");
+  // console.log("NEW inHandA: " + inHandA);
+  // console.log("NEW inHandB: " + inHandB);
+}
+
 
 // ==================================================================
 // CREATE A BATTLE FUNCTION
@@ -149,50 +198,36 @@ var collectCardsB = function () {
 // pushes a card in play from each player's card stack
 var battle = function () {
 
-  inBattleA.push(inHandA.shift([0]));
+  inPlayA.push(inHandA.shift());
   // console.log("inHandA: " + inHandA);
-  console.log("inBattleA: " + inBattleA);
+  console.log("inPlayA: " + inPlayA);
+  console.log("inHandA: " + inHandA);
 
-  inBattleB.push(inHandB.shift([0]));
+  inPlayB.push(inHandB.shift());
   // console.log("inHandB: " + inHandB);
-  console.log("inBattleB: " + inBattleB);
+  console.log("inPlayB: " + inPlayB);
+  console.log("inHandB: " + inHandB);
 
-  compare();
 }
-
-
-// if (inHandA.length >= 1 && inHandB.length >= 1) {
-//    battle();
-//  } else if (inHandA.length >= 1 && inHandB.length < 1){
-//   console.log("Player A Conquers the World!")
-//  } else {
-//   console.log("Player B Conquers the World!");
-// }
-
-
-
 
 
 // ==================================================================
 // CREATE GAME FLOW/WINNING CONIDITION
 // ==================================================================
+
+
 var winner = function () {
-if (inHandA.length < 1) {
-  console.log("player B conquers the world!")
-  alert("player B conquers the world!")
+
+  if (inHandA.length < 1) {
+    console.log("player B conquers the world!")
+    alert("player B conquers the world!")
   } else if (inHandB.length < 1) {
-  console.log("player A conquers the world!")
-  alert("player A conquers the world!")
+    console.log("player A conquers the world!")
+    alert("player A conquers the world!")
   }
-  // else {
-  // while (inHandA.length >= 1 && inHandB.length >= 1) {
-  // battle();  // continue game play
-  // }
 }
 
-// while (inHandA.length >= 1 && inHandB.length >= 1) {
-  // battle();
-// }
+winner();
 
-// winner();
+
 
