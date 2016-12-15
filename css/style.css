@@ -5,6 +5,15 @@ body {
   margin: 100px;
 }
 
+.container {
+    float: left;
+    display: block;
+    margin: 50px 375px;
+    position: absolute;
+    width: 400px;
+    height: 300px;
+}
+
 #userName {
   display: block;
   margin: 0 auto;
@@ -76,3 +85,26 @@ h3 {
   margin: 24px auto -71px;
   color: red;
 }
+
+#sharkCage {
+  float: right;
+  width: 400px;
+  height: 300px;
+}
+
+#squatina-squatina {
+    width: inherit;
+    display: none;
+    position: absolute;
+    margin: 75px;
+}
+
+#cetorhinus-maximus {
+  width: inherit;
+  display: none;
+}
+
+
+
+
+
