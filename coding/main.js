@@ -25,6 +25,7 @@ var redPeace = document.getElementById('redPeace');
 var blackPeace = document.getElementById('blackPeace');
 
 
+
 inputPlayerOne.addEventListener('keyup', function(event) {
   if(event.keyCode === 13) {
     playerOneSpan.textContent = inputPlayerOne.value;
@@ -37,54 +38,45 @@ inputPlayerTwo.addEventListener('keyup', function(event) {
 });
 
 
-var selectedPeace = null;
-
-redPeace.addEventListener('click', function(event) {
-  redPeace.classList.add('activeRed');
-  blackPeace.classList.remove('activeBlack');
-  console.log('red clicked');
-  selectedPeace = event.target.style.backgroundColor;
-  console.log(event.target.style.backgroundColor);
-});
-
-blackPeace.addEventListener('click', function(event) {
-  blackPeace.classList.add('activeBlack');
-  redPeace.classList.remove('activeRed');
-  selectedPeace = event.target.style.backgroundColor;
-  console.log('black clicked')
-});
-
-  rowOne.addEventListener('click', function(event) {
-    console.log('clicked');
-    for(var i = 6; i >= 0; i--) {
-      if(ColumnOne[i].getAttribute('id') === 'backGroundColorOne'){
-        console.log('i worked');
-        ColumnOne[i].style.backgroundColor = selectedPeace;
-        break;
-      }
-    }
+// This event handler removes active from all peaces
+// and then sets the clicked on peace to active
+// also sets global variable selectedPeace to 'red' or 'black'
+var selectPeace = function(evt) {
+  // make sure no peace is active
+  var $peaces = document.querySelectorAll('.peace');
+  $peaces.forEach(function(peace) {
+    peace.classList.remove('active');
   });
-  rowTwo.addEventListener('click', function(event) {
-    console.log('clicked');
-    for(var i = 6; i >= 0; i--) {
-      if(ColumnTwo[i].getAttribute('id') === 'backGroundColorOne'){
-        console.log('i worked');
-        ColumnTwo[i].style.backgroundColor = selectedPeace;
-        break;
-      }
-    }
-  });
-  rowThree.addEventListener('click', function(event) {
-    console.log('clicked');
-    for(var i = 6; i >= 0; i--) {
-      if(ColumnThree[i].getAttribute('id') === 'backGroundColorOne'){
-        console.log('i worked');
-        ColumnThree[i].style.backgroundColor = selectedPeace;
-        break;
-      }
-    }
-  });
+  var $peace = evt.target // either redPeace or blackPeace;
+  $peace.classList.add('active');
+  if ( $peace.id === 'redPeace' ) {
+    selectedPeace = 'red';
+  } else {
+    selectedPeace = 'black';
+  }
+}
 
+// This event handler adds selected peace color class to
+// the lowest empty cell
+var addPeace = function(event) {
+  // clicking on top tr, so we need to get all the siblings
+  var column = event.target.parentElement.children;
+  for (var i = 7; i >= 0; i--) {
+    if ( column[i].classList.contains('empty') ) {
+      console.log('i worked');
+      column[i].classList.add(selectedPeace);
+      column[i].classList.remove('empty');
+      break;
+    }
+  }
+}
+
+redPeace.addEventListener('click', selectPeace);
+blackPeace.addEventListener('click', selectPeace);
+
+rowOne.addEventListener('click', addPeace);
+rowTwo.addEventListener('click', addPeace);
+rowThree.addEventListener('click', addPeace);
 
 
 

@@ -34,17 +34,19 @@ tr {
   margin: 3em 2em;
 }
 
-.activeRed {
-  border: 4px dashed black;
-  background-color: red;
+.active {
   width: 4em;
   height: 4em;
 }
-.activeBlack {
+
+.active.black {
   border: 4px dashed red;
   background-color: black;
-  width: 4em;
-  height: 4em;
+}
+/*if something has class="red active" */
+.active.red {
+  border: 4px dashed black;
+  background-color: red;
 }
 
 .trNumbers {
@@ -58,24 +60,24 @@ tr {
   height: 4.5em;
 }
 
-#backGroundColorOne{
+.empty {
   background-color: #ccc;
 }
-#redPeace {
-  width: 4em;
-  height: 4em;
-  border-radius: 50%;
-  margin: 0 auto;
-  display: inline-block;
+
+.red {
   background-color: red;
 }
-#blackPeace {
+
+.black {
+  background-color: black;
+}
+
+.peace {
   width: 4em;
   height: 4em;
   border-radius: 50%;
   margin: 0 auto;
   display: inline-block;
-  background-color: black;
 }
 
 #playerOne {
