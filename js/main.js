@@ -1,10 +1,10 @@
 console.log('hello');
 var button = document.querySelector('button');
-// var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
-var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
-// var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
-var word2 = ['C', 'O', 'M', 'P', 'U', 'T', 'E', 'R'];
-var word3 = ['T', 'E', 'A'];
+var word1 = ['C', 'O', 'F', 'F', 'E', 'E'];
+// var word1 = ['W', 'H', 'I', 'T', 'E', 'B', 'O', 'A', 'R', 'D'];
+var word2 = ['I', 'N', 'T', 'E', 'R', 'N', 'E', 'T'];
+var word3 = ['C', 'O', 'M', 'P', 'U', 'T', 'E', 'R'];
+// var word3 = ['T', 'E', 'A'];
 var skeleton = [
 document.querySelector('.head'),
 document.querySelector('.body'),
@@ -58,6 +58,7 @@ function getLetterEnter(evt){
 
  function gameLogic(){
   for (i = 0; i < playWord.length; i++){
+
     if (letter === ''){
     alert('Please enter a letter');
     return;
@@ -65,17 +66,24 @@ function getLetterEnter(evt){
     if (letter.length > 1) {
     alert('One at a time, please!');
     return;
-  } else if (playWord.includes(letter)){
+  }
+
+    else if (playWord.includes(letter)){
       console.log('yes');
       isMatch.push('match');
       index = playWord.indexOf(letter);
+      if (playWord[index] === playWord[index+1]){
+        underscores[index] = playWord[index];
+        underscores[index+1] = playWord[index];
+        placeholders.textContent = underscores.join(' ');
+      } else if (playWord.includes(letter) && playWord[i]!==playWord[i+1]){
 
       underscores[index] = playWord[index];
       placeholders.textContent = underscores.join(' ');
       if (isMatch.length === playWord.length){
         console.log(isMatch.length);
         setTimeout(function(){alert('You win!')}, 200);
-      }
+      }}
       return;
     } else {
       console.log('no');
