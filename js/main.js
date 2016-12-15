@@ -1,13 +1,19 @@
 console.log('aloha, dakotah!')
 
+var board = document.querySelector('.board');
+var btn = document.querySelector('.battle');
+var $inPlayCards = document.querySelectorAll('.card');
+var $inPlayA = document.querySelector('#a');
+var $inPlayB = document.querySelector('#b');
 
 
+var handleClick = function (evt) {
+  console.log(evt.target);
+  $inPlayA.innerHTML = "<img src='css/cards/ace-of-spades.png'>"
+  $inPlayB.innerHTML = "<img src='css/cards/10 of spades.png'>"
+}
 
-
-
-
-
-
+btn.addEventListener('click', handleClick);
 
 
 
@@ -31,7 +37,8 @@ console.log('aloha, dakotah!')
 // ==================================================================
 
 
-var deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+var deck = [
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
