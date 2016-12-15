@@ -12,12 +12,10 @@ var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
 var userInput = [];
 
-
 // random number generator bet
 var randomGen = function() {
   return Math.ceil(Math.random()*4);
 }
-
 
 // test function for all color changes
 var fourColorFlash = function () {
@@ -48,36 +46,35 @@ var fourColorFlash = function () {
   };
 
 
+// adding another color to the generator
+var addColorFlash = function () {
+  addCounter();
+  sequence = randomGen();
+  if (sequence === 1) {
+    greenBtn.style.backgroundColor = 'white';
+    setTimeout(function() {
+    greenBtn.style.backgroundColor = 'green';
+    },250);
+  } else if (sequence === 2) {
+    redBtn.style.backgroundColor = 'white';
+    setTimeout(function() {
+    redBtn.style.backgroundColor = 'red';
+    },250);
+  } else if (sequence === 3) {
+    yellowBtn.style.backgroundColor = 'white';
+    setTimeout(function() {
+    yellowBtn.style.backgroundColor = 'yellow';
+    },250);
+  } else {
+    blueBtn.style.backgroundColor = 'white';
+    setTimeout(function() {
+    blueBtn.style.backgroundColor = 'blue';
+    },250);
+  }
+  sequenceArr.push(sequence);
+  setTimeout(checkInput, 1000*sequenceArr.length);
+  };
 
-// var repeatColorFlash = function () {
-//   for(var i = 0; i < sequenceArr.length; i++) {
-//     if (sequenceArr[i] === 1) {
-//       greenBtn.style.backgroundColor = 'white';
-//       setTimeout(function() {
-//       greenBtn.style.backgroundColor = 'green';
-//       },250);
-//       console.log('1');
-//     } else if (sequenceArr[i] === 2) {
-//       redBtn.style.backgroundColor = 'white';
-//       setTimeout(function() {
-//       redBtn.style.backgroundColor = 'red';
-//       },250);
-//       console.log('2');
-//     } else if (sequenceArr[i] === 3) {
-//       yellowBtn.style.backgroundColor = 'white';
-//       setTimeout(function() {
-//       yellowBtn.style.backgroundColor = 'yellow';
-//       },250);
-//       console.log('3');
-//     } else if (sequenceArr[i] === 4) {
-//       blueBtn.style.backgroundColor = 'white';
-//       setTimeout(function() {
-//       blueBtn.style.backgroundColor = 'blue';
-//       },250);
-//       console.log('4');
-//     }
-//   }
-// }
 
 //////////////////////////////////////
 // testing to add to recursion function
@@ -131,7 +128,6 @@ var addCounter = function() {
   counter.textContent = counterVal;
 };
 
-
 // resets the Counter back to 0
 var resetCounter = function() {
   counterVal = 0;
@@ -148,16 +144,16 @@ var clearSequence = function() {
 // gameOver function when userInput is incorrect
 var gameOver = function() {
   // playing gameOver audio file
-  resetCounter();
-  clearSequence();
-  return console.log('Nice try!');
+  // resetCounter();
+  // clearSequence();
+  return console.log('Nice try! YOU LOSE SUCKA!');
 };
 
 
 // handle start game
 var handleStartGame = function() {
   addCounter();
-  timerId0 = setTimeout(fourColorFlash,1000);
+  setTimeout(fourColorFlash,1000);
 };
 
 
@@ -175,18 +171,18 @@ var handleUserInput = function(event) {
     }
 }
 
-
 // function to check if userInput equals sequence
 var checkInput = function() {
   if (_.isEqual(userInput,sequenceArr)) {
         console.log('true');
-        return
+        userInput = [];
+        setTimeout(recursiveLights(sequenceArr),1000);
+        setTimeout(addColorFlash,1000*sequenceArr.length);
       } else {
         gameOver();
         // return console.log("You lose!");
       }
 };
-
 
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
