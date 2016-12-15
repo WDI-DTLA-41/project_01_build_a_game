@@ -10,10 +10,11 @@ var counter = document.querySelector('#counter');
 var btnContainer = document.querySelector('#btn-container');
 var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
+var sequenceLast = null;
 var userInput = [];
 var hardMode = document.querySelector('#hardmode');
 var audioOne = document.querySelectorAll('audio');
-
+var replayBtn = document.querySelector('#replay');
 
 // random number generator (1-4)
 var randomGen = function() {
@@ -84,7 +85,8 @@ var addColorFlash = function () {
   }
   sequenceArr.push(sequence);
   setTimeout(checkInput, 1000*sequenceArr.length);
-  setTimeout(praise, 1000);
+  setTimeout(praise, 1500);
+  btnContainer.addEventListener('click',handleUserInput);
   };
 
 // function to flash the color of the sequenceArr
@@ -135,6 +137,11 @@ function recursiveLights(arr, i = 0) {
   }
 }
 
+// function to replay sequenceLast
+var handleReplay = function() {
+  recursiveLights(sequenceLast);
+};
+
 // adds to the counter for each function loop
 var addCounter = function() {
   counterVal += 1;
@@ -150,6 +157,7 @@ var resetCounter = function() {
 // clears the sequenceArr and userInput
 var clearSequence = function() {
   userInput = [];
+  sequenceLast = sequenceArr;
   sequenceArr = [];
 };
 
@@ -166,6 +174,7 @@ var gameOver = function() {
 // function to handle the game on click start button
 var handleStartGame = function() {
   addCounter();
+  btnContainer.addEventListener('click', handleUserInput);
   setTimeout(fourColorFlash,1000);
 };
 
@@ -174,12 +183,16 @@ var handleStartGame = function() {
 var handleUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
     if (userInputInt === greenBtn.dataset.number) {
+      audioOne[0].play();
       return userInput.push(1);
     } else if (userInputInt === redBtn.dataset.number) {
+      audioOne[4].play();
       return userInput.push(2);
     } else if (userInputInt === yellowBtn.dataset.number) {
+      audioOne[2].play();
       return userInput.push(3);
     } else {
+      audioOne[3].play();
       return userInput.push(4);
     }
 }
@@ -187,9 +200,10 @@ var handleUserInput = function(event) {
 // function to check if userInput equals sequenceArr
 // using underscore.js script
 var checkInput = function() {
+  btnContainer.removeEventListener('click', handleUserInput);
   if (_.isEqual(userInput,sequenceArr)) {
         userInput = [];
-        setTimeout(recursiveLights(sequenceArr),1000);
+        setTimeout(recursiveLights(sequenceArr),2000);
         setTimeout(addColorFlash,1000*sequenceArr.length);
       } else {
         gameOver();
@@ -201,7 +215,7 @@ var checkInput = function() {
 var praise = function() {
   if (counterVal % 35 === 0) {
     audioOne[8].play();
-  }  else if (counterVal % 11 === 0)  {
+  } else if (counterVal % 11 === 0)  {
     audioOne[7].play();
     return console.log('Fuck Yea');
   } else if (counterVal % 5 === 0) {
@@ -218,13 +232,11 @@ var handleHardMode = function() {
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
 
-// add EventListener for userInputs clicks
-btnContainer.addEventListener('click', handleUserInput);
-
 // add EventListener for Hard Mode button
 hardMode.addEventListener('click', handleHardMode);
 
-
+// add EventListener for Replay button
+replayBtn.addEventListener('click', handleReplay);
 
 
 

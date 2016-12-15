@@ -72,26 +72,32 @@ h1 {
 }
 
 #counter {
-  height:20px;
-  width: 40px;
-  background-color: black;
+  height:30px;
+  width: 50px;
+  background-color: white;
   color: rgb(252,90,184);
   display:left;
+  font-size: 25px;
 }
 
 #start {
   background-color: rgb(252,90,184);
   height: 20px;
   width: 60px;
-  border-radius: 10px;
 }
 
 #hardmode {
   background-color: rgb(252,90,184);
   height: 20px;
   width: 60px;
+  border-radius: 10px;
 }
 
+#replay {
+  background-color: rgb(252,90,184);
+  height: 20px;
+  width: 60px;
+}
 
 
 
