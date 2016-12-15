@@ -13,15 +13,6 @@ var sequenceArr = [];
 var userInput = [];
 var hardMode = document.querySelector('#hardmode');
 var audioOne = document.querySelectorAll('audio');
-var audioTwo = document.querySelectorAll('source');
-
-
-
-
-
-
-
-
 
 
 // random number generator (1-4)
@@ -219,17 +210,19 @@ var praise = function() {
   }
 };
 
+// handle to start the Hard Mode gameplay
+var handleHardMode = function() {
+  audioOne[9].play();
+}
+
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
 
 // add EventListener for userInputs clicks
 btnContainer.addEventListener('click', handleUserInput);
 
-var handleAudio = function() {
-  audioOne[1].play();
-}
-
-hardMode.addEventListener('click', handleAudio);
+// add EventListener for Hard Mode button
+hardMode.addEventListener('click', handleHardMode);
 
 
 

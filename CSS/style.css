@@ -2,6 +2,10 @@ body {
   background-color: black;
 }
 
+h1 {
+  color: white;
+}
+
 #game-container {
   background-color: black;
   height: 275px;
@@ -77,10 +81,15 @@ body {
 
 #start {
   background-color: rgb(252,90,184);
+  height: 20px;
+  width: 60px;
+  border-radius: 10px;
 }
 
 #hardmode {
   background-color: rgb(252,90,184);
+  height: 20px;
+  width: 60px;
 }
 
 
