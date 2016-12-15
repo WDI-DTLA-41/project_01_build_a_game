@@ -78,8 +78,7 @@ a {
   border-top:0;
   border-bottom:0;
   border-collapse: collapse;
-  float:left;
-  margin-left:194px;
+  margin:0 auto;
 }
 
 .standardPieceOne {
@@ -128,8 +127,8 @@ a {
   min-width:175px;
   min-height:180px;
   display:inline-block;
-  position:fixed;
-  margin-left:982px;
+  float:right;
+  margin-left:805px;
 }
 
 #wholePage {
