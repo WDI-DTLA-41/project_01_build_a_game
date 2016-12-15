@@ -1,12 +1,14 @@
 body {
-  height: 100vh;
+  height: 100%;
   /*background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.1));*/
   background: url(../assets/ocean.png);
+  margin: 100px;
 }
 
 #userName {
   display: block;
   margin: 0 auto;
+  text-align: center;
 }
 
 #input {
@@ -16,7 +18,7 @@ margin: 100px auto 0;
 
 #button {
   display: block;
-  margin: 100px auto 0;
+  margin: 25px auto 0;
   font-family: 'Julius Sans One', sans-serif;
 
 }
@@ -24,15 +26,25 @@ margin: 100px auto 0;
 h3 {
   color: white;
   font-family: 'Julius Sans One', sans-serif;
+  margin-bottom: auto;
 }
 
-.buttons {
+#text {
+  display: table;
   margin: 0 auto;
-  width: 120px;
-  margin: 20px auto;
 }
 
-#start, #guess {
+
+#start {
+  display: block;
+  margin: 25px auto 0;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+#guess {
+  font-family: 'Julius Sans One', sans-serif;
+  display: block;
+  margin: 25px auto 0;
   font-family: 'Julius Sans One', sans-serif;
 }
 
@@ -43,6 +55,9 @@ h3 {
   font-size: 32px;
   font-family: 'Julius Sans One', sans-serif;
   color: white;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
 
 }
 

@@ -67,7 +67,7 @@ function replaceDash(letter) {
       dashWord[i] = letter;
     }
   }
-  if (dashWord.join(" ") === sharks){
+  if (dashWord.join("") === sharks){
     winAlert();
   }
 }
@@ -90,7 +90,7 @@ start.addEventListener("click", function(){
   sharks = randomizeWords(sharkNames);
   letters = sharks.split('');
   dashWord = dashes(letters);
-  render(dashWord);
+  render(dashWord.join(''));
   console.log("start game");
   wrongLetters.value;
   wrong.length = 0;
@@ -102,15 +102,14 @@ guess.addEventListener("click", function(){
   if (checkLetter(letter)) {
     console.log("correct!");
     replaceDash(letter);
-    render(dashWord);
+    render(dashWord.join(''));
   } else {
     console.log("guess again");
     wrongGuess(letter);
-    add();
     lose();
     console.log(counter);
   }
-
+  input.value = '';
 });
 
 
