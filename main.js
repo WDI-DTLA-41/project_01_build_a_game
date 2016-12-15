@@ -11,13 +11,15 @@ var two = document.querySelector("#two");
 var three = document.querySelector("#three");
 
 // var for buttons
-var tryBtn = document.querySelector(".try");
+// var tryBtn = document.querySelector(".try");
+var plusOne = document.querySelector(".plus-one");
+var placeBet = document.querySelector(".place-bet");
 var spin = document.querySelector(".spin");
 var reset = document.querySelector(".reset");
 
 // ARRAY: Store classes of cards here
-// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
-var cards = ["darthvader"];
+var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+// var cards = ["darthvader"];
 
 // =============================================
 //    PLACING A BET
@@ -81,12 +83,8 @@ var stopReel = function() {
     var oneVal = slots[0].classList.value;
     var twoVal = slots[1].classList.value;
     var threeVal = slots[2].classList.value;
-    // console.log(oneVal);
-    // console.log(twoVal);
-    // console.log(threeVal);
-  }
-};
 
+  }
 // =============================================
 //    COMPARING THE SLOTS
 // =============================================
@@ -98,42 +96,48 @@ var stopReel = function() {
     // IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> WIN
     if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
       console.log("winner!");
-      setTimeout(function() {
-        revealQuote();
-      }, 3000);
-
       // SET CHARACTERS FROM THEME
         // IF ALL 3 ARE THE SAME CHARACTER
-        // APPEND H1 TO PAGE
+        // APPEND IMG TO THE DIVS
         // H1 TEXTCONTENT = QUOTE FROM MOVIE
+      setTimeout(function() {
+        revealQuoteWin();
+      }, 2800);
+
+      var revealQuoteWin = function() {
+        var quote = document.querySelector("h2");
+        quote.textContent = '"The force is strong with this one."';
+      }
     } else {
     // ELSE ==> YOU LOSE
-      // APPEND H1 TO PAGE
-      // H1 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
+      // APPEND H2 TO PAGE
+      // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
       console.log("you lose :(");
+
+      setTimeout(function() {
+        revealQuoteLose();
+      }, 2800);
+
+      var revealQuoteLose = function() {
+        var quote = document.querySelector("h2");
+        quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
+      }
     }
   }
   compareSlots();
 
-  var revealQuote = function() {
-    if (oneVal == "yoda" && twoVal == "yoda" && threeVal == "yoda") {
-      var quote = document.querySelector("h2");
-      quote.textContent = '"Do or do not, there is no try"';
-    }
-  }
-  // revealQuote();
-
-// };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**
+};
 spin.addEventListener("click", removeClasses);
 
 
 // =============================================
-//    PLAY AGAIN
+//    NEXT TURN
 // =============================================
 
-// Click PLAY AGAIN to reload the page
+// Click PLAY AGAIN to:
+  // REMOVE ID'S FROM
 var reloadPage = function(event) {
   location.reload();
 }
