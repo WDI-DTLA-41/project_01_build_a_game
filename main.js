@@ -1,5 +1,133 @@
-var checkWin = function(index){
-  console.log(index);
+var diagonalTest = function(target,rowNum,colNum){
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum-1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+2][colNum-2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+3][colNum-3].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal Down Left
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-2][colNum+2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-3][colNum+3].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal Up Right
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum-1].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+2][colNum-2].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal UpRight 1 DownLeft 2
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-2][colNum+2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum-1].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal UpRight 2 DownLeft 1
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+2][colNum+2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+3][colNum+3].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal Down Right
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum-1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-2][colNum-2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-3][colNum-3].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal Up Left
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum-1].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-2][colNum-2].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal DownRight 1 UpLeft 2
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+2][colNum+2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum-1].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Diagonal Down Right 2 UpLeft 1
+          }
+        }
+      }
+}
+
+var verticalTest = function(target,rowNum,colNum){
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-2][colNum].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-3][colNum].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Vertical Up
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+2][colNum].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+3][colNum].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); // Vertical Down
+          }
+        }
+      }
+
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+2][colNum].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); //Vertical Up 1 Down 2
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-1][colNum].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum-2][colNum].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum+1][colNum].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); //Vertical Up 2 Down 1
+          }
+        }
+      }
+}
+
+var horizontalTest = function(target,rowNum,colNum){
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum+2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum+3].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); //Horizontal right
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum-1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum-2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum-3].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); //Horizontal left
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum-1].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum-2].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); //Horizontal Right 1 Left 2
+          }
+        }
+      }
+      if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum+1].getAttribute('color')){
+        if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum+2].getAttribute('color')){
+          if(openBoard[rowNum][colNum].getAttribute('color') === openBoard[rowNum][colNum-1].getAttribute('color')){
+            alert('Congratulations '+ playerTurn() + ' You Won!!!'); //Horizontal Right 2 Left 1
+          }
+        }
+      }
+}
+
+var checkWin = function(target,rowNum,columnNum){
+  console.log(target);
+  console.log(rowNum);
+  console.log(columnNum);
+  var colNum = parseInt(columnNum);
+  horizontalTest(target,rowNum,colNum);
+  verticalTest(target,rowNum,colNum);
+  diagonalTest(target,rowNum,colNum);
 }
 
 var inputPiece = function(evtTarget){
@@ -8,18 +136,16 @@ var inputPiece = function(evtTarget){
   if (testTurn === player2){  //inversion of the testTurn toggle equality value
     for (var i = 5; i >= 0; i--){
       if (openBoard[i][columnNum].getAttribute('color') === ''){
-        console.log('i worked for red');
         openBoard[i][columnNum].setAttribute('color','red');
-        checkWin(openBoard[i][columnNum]);
+        checkWin(openBoard[i][columnNum],i,columnNum);
         break;
       }
     }
   } else if (testTurn === player1){ //Second half of testTurn Inversion equality value
       for (var j = 5; j >= 0; j--){
         if (openBoard[j][columnNum].getAttribute('color') === ''){
-          console.log('i worked for green');
           openBoard[j][columnNum].setAttribute('color','green');
-          checkWin(openBoard[j][columnNum]);
+          checkWin(openBoard[j][columnNum],j,columnNum);
           break;
         }
       }
