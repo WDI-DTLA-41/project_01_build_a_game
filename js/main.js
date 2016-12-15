@@ -76,8 +76,8 @@ function getLetterEnter(evt){
         underscores[index] = playWord[index];
         underscores[index+1] = playWord[index];
         placeholders.textContent = underscores.join(' ');
+        isMatch.push('match');
       } else if (playWord.includes(letter) && playWord[i]!==playWord[i+1]){
-
       underscores[index] = playWord[index];
       placeholders.textContent = underscores.join(' ');
       if (isMatch.length === playWord.length){
