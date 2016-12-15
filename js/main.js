@@ -9,7 +9,7 @@ var $inPlayB = document.querySelector('#b');
 
 var handleClick = function (evt) {
   console.log(evt.target);
-  $inPlayA.innerHTML = "<img src='css/cards/ace-of-spades.png'>"
+  $inPlayA.innerHTML = "<img src='css/cards/ace of spades.png'>"
   $inPlayB.innerHTML = "<img src='css/cards/10 of spades.png'>"
 }
 
@@ -38,10 +38,10 @@ btn.addEventListener('click', handleClick);
 
 
 var deck = [
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+            2, 3, 4, 5, 6, 7
+            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
 ];
 
 // shuffle the deck
@@ -84,10 +84,24 @@ inWarB = inPlayB[inPlayB.length - 1]
 console.log("Beginning inHandA: " + inHandA);
 console.log("Beginning inHandB: " + inHandB);
 
-// save variable for war situation later
-// var totalinPlayA = inPlayA.length
-// var totalinPlayB = inPlayB.length
 
+// ==================================================================
+// CREATE WINNING CONIDITION
+// ==================================================================
+
+//
+var winner = function () {
+
+  if (inHandA.length < 1) {
+    console.log("player B conquers the world!")
+    alert("player B conquers the world!")
+  } else if (inHandB.length < 1) {
+    console.log("player A conquers the world!")
+    alert("player A conquers the world!")
+  }
+}
+
+winner();
 
 // ==================================================================
 // COMPARE VALUES OF CARDS IN PLAY
@@ -146,13 +160,14 @@ var war = function () {
   var inWarB = inPlayB[inPlayB.length - 1]
 
   // player A's status
-  console.log("A's card at war: " + inWarA);
-  console.log("inPlayA: " + inPlayA);
   console.log("inHandA: " + inHandA);
+  console.log("inPlayA: " + inPlayA);
+  console.log("A's card at war: " + inWarA);
+
   // player B's status
-  console.log("B's card at war: " + inWarB);
-  console.log("inPlayB: " + inPlayB);
   console.log("inHandB: " + inHandB);
+  console.log("inPlayB: " + inPlayB);
+  console.log("B's card at war: " + inWarB);
 
   compareWar();
 }
@@ -187,7 +202,7 @@ var collectCardsB = function () {
   for ( var i = inPlayB.length - 1; i >= 0; i --){
     inHandB.push(inPlayB.shift());
   }
-  console.log("Player A wins the war!");
+  console.log("Player B wins the war!");
   // console.log("NEW inHandA: " + inHandA);
   // console.log("NEW inHandB: " + inHandB);
 }
@@ -206,35 +221,22 @@ var collectCardsB = function () {
 var battle = function () {
 
   inPlayA.push(inHandA.shift());
-  // console.log("inHandA: " + inHandA);
-  console.log("inPlayA: " + inPlayA);
   console.log("inHandA: " + inHandA);
+  console.log("inPlayA: " + inPlayA);
 
   inPlayB.push(inHandB.shift());
-  // console.log("inHandB: " + inHandB);
-  console.log("inPlayB: " + inPlayB);
   console.log("inHandB: " + inHandB);
+  console.log("inPlayB: " + inPlayB);
 
+  compare();
+  winner();
 }
 
 
-// ==================================================================
-// CREATE GAME FLOW/WINNING CONIDITION
-// ==================================================================
 
 
-var winner = function () {
 
-  if (inHandA.length < 1) {
-    console.log("player B conquers the world!")
-    alert("player B conquers the world!")
-  } else if (inHandB.length < 1) {
-    console.log("player A conquers the world!")
-    alert("player A conquers the world!")
-  }
-}
 
-winner();
 
 
 
