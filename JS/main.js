@@ -21,8 +21,8 @@ var randomGen = function() {
   return Math.ceil(Math.random()*4);
 }
 
-// function to flash color for randomGen number
-var fourColorFlash = function () {
+// function to start flash color for randomGen number
+var startColorFlash = function () {
   sequence = randomGen();
   if (sequence === 1) {
     audioOne[0].play();
@@ -84,14 +84,13 @@ var addColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
-  setTimeout(checkInput, 1000*sequenceArr.length);
+  setTimeout(checkInput, 1500*sequenceArr.length);
   setTimeout(praise, 1500);
-  btnContainer.addEventListener('click',handleUserInput);
   };
 
 // function to flash the color of the sequenceArr
 // to be called back in the recursiveLights function
-var colorFlash = function (color) {
+var replayColorFlash = function (color) {
     if (color === 1) {
       audioOne[0].play();
       greenBtn.style.backgroundColor = 'black';
@@ -129,7 +128,7 @@ function recursiveLights(arr, i = 0) {
   if (i === arr.length) { // if index/counter reaches length of array, end loop
     console.log('looped thru array');
   } else {
-    colorFlash(arr[i]);
+    replayColorFlash(arr[i]);
     i++;
     setTimeout(function() {
       recursiveLights(arr, i);
@@ -175,7 +174,7 @@ var gameOver = function() {
 var handleStartGame = function() {
   addCounter();
   btnContainer.addEventListener('click', handleUserInput);
-  setTimeout(fourColorFlash,1000);
+  setTimeout(startColorFlash,1000);
 };
 
 
@@ -200,10 +199,9 @@ var handleUserInput = function(event) {
 // function to check if userInput equals sequenceArr
 // using underscore.js script
 var checkInput = function() {
-  btnContainer.removeEventListener('click', handleUserInput);
   if (_.isEqual(userInput,sequenceArr)) {
         userInput = [];
-        setTimeout(recursiveLights(sequenceArr),2000);
+        setTimeout(recursiveLights(sequenceArr),3000);
         setTimeout(addColorFlash,1000*sequenceArr.length);
       } else {
         gameOver();
@@ -213,14 +211,14 @@ var checkInput = function() {
 
 // function to give praise for hitting certain levels
 var praise = function() {
-  if (counterVal % 35 === 0) {
+  if (counterVal === 35) {
     audioOne[8].play();
   } else if (counterVal % 11 === 0)  {
     audioOne[7].play();
-    return console.log('Fuck Yea');
+    return console.log('Marvelous');
   } else if (counterVal % 5 === 0) {
     audioOne[6].play();
-    return console.log('Great Job');
+    return console.log('!@#$ Yea');
   }
 };
 

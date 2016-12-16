@@ -1,9 +1,12 @@
 body {
   background-color: black;
+  margin: 40px;
 }
 
 h1 {
+  font-family:Arial;
   color: white;
+  font-size: 40px;
 }
 
 #game-container {
@@ -12,7 +15,7 @@ h1 {
   width: 275px;
   border-radius: 137px;
   border: 5px solid rgba(255,153,51,1);
-  margin: 40px;
+  margin: 50px 0 0 50px;
 }
 
 .colorbtn {
@@ -74,16 +77,24 @@ h1 {
 #counter {
   height:30px;
   width: 50px;
-  background-color: white;
+  background-color: black;
+  border: 1px solid rgb(252,90,184);
   color: rgb(252,90,184);
   display:left;
   font-size: 25px;
+  padding: 5px;
+}
+
+#selection-container {
+  margin-left: 100px;
 }
 
 #start {
   background-color: rgb(252,90,184);
   height: 20px;
   width: 60px;
+  border: black;
+  margin: 10px 0 0 0;
 }
 
 #hardmode {
@@ -91,12 +102,15 @@ h1 {
   height: 20px;
   width: 60px;
   border-radius: 10px;
+  border: black;
 }
 
 #replay {
   background-color: rgb(252,90,184);
   height: 20px;
   width: 60px;
+  border: black;
+  margin: 0 0 10px 0;
 }
 
 
