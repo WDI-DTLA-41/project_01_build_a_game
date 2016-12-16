@@ -20,10 +20,11 @@ var ColumnFour = document.querySelectorAll('.tdColumnFour');
 var ColumnFive = document.querySelectorAll('.tdColumnFive');
 var ColumnSix = document.querySelectorAll('.tdColumnSix');
 var ColumnSeven = document.querySelectorAll('.tdColumnSeven');
+var columns = document.querySelectorAll('.tdBoard')
 
 var redPeace = document.getElementById('redPeace');
 var blackPeace = document.getElementById('blackPeace');
-
+var resetButton = document.getElementById('reset');
 
 
 inputPlayerOne.addEventListener('keyup', function(event) {
@@ -71,12 +72,18 @@ var addPeace = function(event) {
   }
 }
 
+
+
 redPeace.addEventListener('click', selectPeace);
 blackPeace.addEventListener('click', selectPeace);
 
 rowOne.addEventListener('click', addPeace);
 rowTwo.addEventListener('click', addPeace);
 rowThree.addEventListener('click', addPeace);
+rowFour.addEventListener('click', addPeace);
+rowFive.addEventListener('click', addPeace);
+rowSix.addEventListener('click', addPeace);
+rowSeven.addEventListener('click', addPeace);
 
 
 
