@@ -98,10 +98,8 @@ spin.addEventListener("click", spinReel);
 var images = [];
 
 var stopReel = function() {
-
   // FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
   for (var i=0; i < slots.length; i++) {
-
     // RANDOMLY SELECTS A COLOR FROM ARRAY
     var randomSelect = function() {
       // RETURNS THE COLOR VALUE
@@ -118,6 +116,7 @@ var stopReel = function() {
       console.log(imgSrc);
       images.push(imgSrc);
       console.log(images);
+      return images;
     }, 1500);
 
     setTimeout(function(){
@@ -139,12 +138,56 @@ var stopReel = function() {
       images.push(imgSrc);
       console.log(images);
 
+      console.log(images[0]);
+      console.log(images[1]);
+      console.log(images[2]);
+
+      for (var j = 0; j < images.length; j++) {
+      console.log(images.length);
+        var compareSlots = function() {
+          // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
+          // compare the values for 3-way match
+          // IF ALL 3 MATCH ==> ** WIN **
+          if (images[0] === images[1] && images[0] === images[2] && images[1] === images[2]) {
+            console.log("winner!");
+            // return winner;
+            // SET CHARACTERS FROM THEME
+              // IF ALL 3 ARE THE SAME CHARACTER
+              // APPEND IMG TO THE DIVS
+              // H1 TEXTCONTENT = QUOTE FROM MOVIE
+            setTimeout(function() {
+              revealQuoteWin();
+            }, 1000);
+
+            var revealQuoteWin = function() {
+              quote.textContent = '"The Force is strong with this one."';
+            }
+
+            setTimeout(addScore, 5000);
+
+          } else {
+          // ELSE ==> YOU LOSE
+            // APPEND H2 TO PAGE
+            // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
+            console.log("you lose :(");
+            setTimeout(function() {
+              revealQuoteLose();
+            }, 1000);
+
+            var revealQuoteLose = function() {
+              quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
+            }
+          }
+
+            setTimeout(minusScore, 5000);
+          }
+          compareSlots();
+      }
     }, 4000);
-
-    compareSlots();
-
+    // compareSlots();
+    return;
   }
-  console.log(images);
+};
     // STORES COLOR VALUE INTO VARIABLE
 
     // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
@@ -154,51 +197,12 @@ var stopReel = function() {
     // var oneVal = slots[0].classList.value;
     // var twoVal = slots[1].classList.value;
     // var threeVal = slots[2].classList.value;
-}
 
 // =============================================
 //    4. COMPARING THE SLOTS
 // =============================================
 
-  var compareSlots = function() {
-    // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
-    // compare the values for 3-way match
 
-    // IF ALL 3 MATCH ==> ** WIN **
-    if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
-      console.log("winner!");
-      // SET CHARACTERS FROM THEME
-        // IF ALL 3 ARE THE SAME CHARACTER
-        // APPEND IMG TO THE DIVS
-        // H1 TEXTCONTENT = QUOTE FROM MOVIE
-      setTimeout(function() {
-        revealQuoteWin();
-      }, 5000);
-
-      var revealQuoteWin = function() {
-        quote.textContent = '"The Force is strong with this one."';
-      }
-
-      setTimeout(addScore, 5000);
-
-    } else {
-    // ELSE ==> YOU LOSE
-      // APPEND H2 TO PAGE
-      // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
-      console.log("you lose :(");
-
-      setTimeout(function() {
-        revealQuoteLose();
-      }, 5000);
-
-      var revealQuoteLose = function() {
-        quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
-      }
-
-      setTimeout(minusScore, 5000);
-    }
-  compareSlots();
-  }
 // };
 
 // =============================================
