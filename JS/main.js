@@ -17,11 +17,17 @@ var audioOne = document.querySelectorAll('audio');
 var replayBtn = document.querySelector('#replay');
 
 // random number generator (1-4)
+/**
+*
+*/
 var randomGen = function() {
   return Math.ceil(Math.random()*4);
 }
 
 // function to start flash color for randomGen number
+/**
+*
+*/
 var startColorFlash = function () {
   sequence = randomGen();
   if (sequence === 1) {
@@ -55,6 +61,9 @@ var startColorFlash = function () {
 
 
 // adding another color to the sequenceArr
+/**
+*
+*/
 var addColorFlash = function () {
   addCounter();
   sequence = randomGen();
@@ -90,6 +99,9 @@ var addColorFlash = function () {
 
 // function to flash the color of the sequenceArr
 // to be called back in the recursiveLights function
+/**
+*
+*/
 var replayColorFlash = function (color) {
     if (color === 1) {
       audioOne[0].play();
@@ -123,6 +135,9 @@ var replayColorFlash = function (color) {
 }
 
 // recursiveLights for replaying the sequences
+/**
+*
+*/
 function recursiveLights(arr, i = 0) {
   console.log(arr[i]) // log element at index i of arr
   if (i === arr.length) { // if index/counter reaches length of array, end loop
@@ -137,23 +152,35 @@ function recursiveLights(arr, i = 0) {
 }
 
 // function to replay sequenceLast
+/**
+*
+*/
 var handleReplay = function() {
   recursiveLights(sequenceLast);
 };
 
 // adds to the counter for each function loop
+/**
+*
+*/
 var addCounter = function() {
   counterVal += 1;
   counter.textContent = counterVal;
 };
 
 // resets the Counter back to 0
+/**
+*
+*/
 var resetCounter = function() {
   counterVal = 0;
   counter.textContent = 0;
 };
 
 // clears the sequenceArr and userInput
+/**
+*
+*/
 var clearSequence = function() {
   userInput = [];
   sequenceLast = sequenceArr;
@@ -162,6 +189,9 @@ var clearSequence = function() {
 
 // gameOver function when userInput is incorrect
 // maybe add audio file
+/**
+*
+*/
 var gameOver = function() {
   resetCounter();
   clearSequence();
@@ -171,6 +201,9 @@ var gameOver = function() {
 
 
 // function to handle the game on click start button
+/**
+*
+*/
 var handleStartGame = function() {
   addCounter();
   btnContainer.addEventListener('click', handleUserInput);
@@ -179,6 +212,9 @@ var handleStartGame = function() {
 
 
 // handle to convert userInput to a number in the sequence
+/**
+*
+*/
 var handleUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
     if (userInputInt === greenBtn.dataset.number) {
@@ -198,6 +234,9 @@ var handleUserInput = function(event) {
 
 // function to check if userInput equals sequenceArr
 // using underscore.js script
+/**
+*
+*/
 var checkInput = function() {
   if (_.isEqual(userInput,sequenceArr)) {
         userInput = [];
@@ -210,6 +249,11 @@ var checkInput = function() {
 };
 
 // function to give praise for hitting certain levels
+
+/**
+* Plays audio files for reaching levels
+* @return {Boolean} if counterVal is true or false
+*/
 var praise = function() {
   if (counterVal === 35) {
     audioOne[8].play();
@@ -223,26 +267,44 @@ var praise = function() {
 };
 
 // handle to start the Hard Mode gameplay
+/**
+*
+*/
 var handleHardMode = function() {
   audioOne[9].play();
 }
 
-var handleColor = function () {
-  this.style
-}
+/**
+*
+*/
+// var handleColor = function () {
+//   this.style
+// }
 
 
 // add EventListener for startBtn to start game
+/**
+*
+*/
 startBtn.addEventListener('click',handleStartGame);
 
 // add EventListener for Hard Mode button
+/**
+*
+*/
 hardMode.addEventListener('click', handleHardMode);
 
 // add EventListener for Replay button
+/**
+*
+*/
 replayBtn.addEventListener('click', handleReplay);
 
 // remove color style on click
-btnContainer.addEventListener('click', handleColor)
+/**
+*
+*/
+// btnContainer.addEventListener('click', handleColor)
 
 
 
