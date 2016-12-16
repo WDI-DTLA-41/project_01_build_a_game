@@ -89,7 +89,7 @@ function getLetterEnter(evt){
     if (letter.length > 1) {
     alert('One at a time, please!');
     return;
-  } else if (guessed.includes(letter)){
+  } else if (guessed.includes(letter) || underscores.includes(letter)){
     alert('You already guessed that letter!');
     return;
     } else if (playWord.includes(letter)){
@@ -124,6 +124,8 @@ function getLetterEnter(evt){
       noMatch.push(1);
       if (noMatch.length === 6 || noMatch.length === playWord.length) {
       setTimeout(function(){alert('Sorry, you lose!')}, 200);
+      underscores = playWord;
+      placeholders.textContent = underscores;
       }
 
       }
