@@ -71,6 +71,22 @@ function getLetter(){
   letter = document.querySelector('input').value;
   letter = letter.toUpperCase();
   document.querySelector('input').value = '';
+  if (!letter.match(/[a-z]/i)){
+    alert('Alphabet characters only!');
+    return false;
+  }
+  if (letter === ''){
+    alert('Please enter a letter');
+    return false;
+  }
+  if (letter.length > 1) {
+    alert('One at a time, please!');
+    return false;
+  }
+  if (guessed.includes(letter) || underscores.includes(letter)){
+    alert('You already guessed that letter!');
+    return false;
+  }
   gameLogic();
 }
 
@@ -82,66 +98,37 @@ function getLetterEnter(evt){
 }
 
 //this runs the game
- function gameLogic(){
-  for (i = 0; i < playWord.length; i++){
-    if (!letter.match(/[a-z]/i)){
-      alert('Alphabet characters only!');
-      return;
-    } else
-    if (letter === ''){
-    alert('Please enter a letter');
-    return;
-  } else
-    if (letter.length > 1) {
-    alert('One at a time, please!');
-    return;
-  } else if (guessed.includes(letter) || underscores.includes(letter)){
-    alert('You already guessed that letter!');
-    return;
-    } else if (playWord.includes(letter)){
-    console.log('yes');
-    isMatch.push('match');
-    index = playWord.indexOf(letter);
-      if (playWord[index] === playWord[index+1]){
-        underscores[index] = playWord[index];
-        underscores[index+1] = playWord[index];
-        placeholders.textContent = underscores.join(' ');
+function gameLogic() {
+  if ( playWord.includes(letter)) {
+    for (var i = 0; i < playWord.length; i++){
+      if (letter === playWord[i]) {
+        console.log('yes');
         isMatch.push('match');
-          if (isMatch.length === playWord.length){
-        console.log(isMatch.length);
-        setTimeout(function(){alert('You win!')}, 200);
-      }
-    } else if (playWord.includes(letter) && playWord[i]!==playWord[i+1]){
-      underscores[index] = playWord[index];
-      placeholders.textContent = underscores.join(' ');
-        if (isMatch.length === playWord.length){
-        console.log(isMatch.length);
-        setTimeout(function(){alert('You win!')}, 200);
+        underscores[i] = letter;
+        placeholders.textContent = underscores.join(' ');
       }
     }
-    return;
-    } else {
-      console.log('no');
-      if (!guessed.includes(letter)){
+  } else {
+    console.log('no');
+    if (!guessed.includes(letter)) {
       guessed.push(letter);
       skeleton[j].style.visibility = "visible";
-      j= j + 1;
+      j = j + 1;
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
       if (noMatch.length === 6) {
-      setTimeout(function(){alert('Sorry, you lose!')}, 400);
-      scream.play();
-      underscores = playWord;
-      placeholders.textContent = underscores;
+        setTimeout(function(){alert('Sorry, you lose!')}, 600);
+        scream.play();
+        underscores = playWord;
+        placeholders.textContent = underscores;
       }
-
-      }
-
-      return;
+    }
   }
- }
+  if (isMatch.length === playWord.length){
+    console.log(isMatch.length, 'won!');
+    setTimeout(function(){alert('You win!')}, 200);
+  }
 }
-
 
 
 
