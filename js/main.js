@@ -117,7 +117,7 @@ function gameLogic() {
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
       if (noMatch.length === 6) {
-        setTimeout(function(){alert('Sorry, you lose!')}, 600);
+        setTimeout(function(){alert('Sorry, you lose!')}, 900);
         scream.play();
         underscores = playWord;
         placeholders.textContent = underscores;
