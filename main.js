@@ -33,8 +33,8 @@ var totalScore = document.querySelector(".total-score");
 // ARRAY: Store classes of cards here
 // =============================================
 
-// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
-var cards = ["darthvader"];
+var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+// var cards = ["darthvader"];
 
 
 // =============================================
