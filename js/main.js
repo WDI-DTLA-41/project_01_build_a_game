@@ -4,7 +4,7 @@ var players = [{color: 'red', isKing: false}, {color: 'black', isKing: false}];
 var currentPlayer = players[0].color;
 var selectedPiece = false;
 var highlighted;
-var selectedPos;
+var lastClickedPos;
 var removedBlack = [];
 var removedRed = [];
 
@@ -20,33 +20,33 @@ function changePlayer(){
     currentPlayer = players[0].color;
   }
 }
-
-
+/**
+* Function handles the mouse 'click' event
+*
+*/
 function handleClick(evt){
-  var position = this.dataset;
+  var clickedPos = this.dataset;
   var target;
 
   if(!selectedPiece){
     // select piece if belongs current player
-    if(board[position.row][position.col].color===currentPlayer){
-      console.log('Selected Piece ' + position.row + ':' + position.col);
+    if(board[clickedPos.row][clickedPos.col].color===currentPlayer){
+      console.log('Selected Piece ' + clickedPos.row + ':' + clickedPos.col);
       selectedPiece = !selectedPiece;
       highlighted = this.classList.add('highlight');
-      selectedPos = position;
-
-
+      lastClickedPos = clickedPos;
     }
   }
   else {
-    console.log('targeted ' + position.row + ':' + position.col);
+    console.log('targeted ' + clickedPos.row + ':' + clickedPos.col);
     selectedPiece = !selectedPiece;
     highlighted = document.querySelector('.highlight');
     highlighted.classList.remove('highlight');
     // 2nd click, click square to set piece if legal
-    if(isValidMove(position)){
+    if(isValidMove(clickedPos)){
       changePlayer();
-      changeBoard(position);
-      checkKing(position);
+      changeBoard(clickedPos);
+      checkKing(clickedPos);
       renderBoard();
     } else {
       // invalid move so do nothing?
@@ -82,10 +82,10 @@ function isValidMove(position){
 function isEmpty(position){
   switch(currentPlayer){
     case 'red':
-      if(board[selectedPos.row][selectedPos.col].isKing){
+      if(board[lastClickedPos.row][lastClickedPos.col].isKing){
         return isMoveUpDown(position);
       } else {
-        if(isJump(position, selectedPos)){
+        if(isJump(position, lastClickedPos)){
           return true;
         } else {
           return isMoveUp(position);
@@ -93,10 +93,10 @@ function isEmpty(position){
       }
       break;
     case 'black':
-      if(board[selectedPos.row][selectedPos.col].isKing){
+      if(board[lastClickedPos.row][lastClickedPos.col].isKing){
         return isMoveUpDown(position);
       } else {
-        if(isJump(position, selectedPos)){
+        if(isJump(position, lastClickedPos)){
           return true;
         } else {
           return isMoveDown(position);
@@ -110,73 +110,79 @@ function isEmpty(position){
 function isJump(target, previous){
   switch(currentPlayer){
     case 'red':
-    console.log('red isJumping?');
       // target is 2 spaces away, check both middle squares if occupied by opposite piece
       if(previous.row-target.row === 2 && Math.abs(previous.col - target.col) === 2){
         console.log('Red isJumping');
         console.log(target, previous);
         // if jumping to the top right
         if(previous.col - target.col < 0){
-          console.log(board[target.row+1][target.col-1]);
-          if(board[target.row+1][target.col-1].color === 'black'){
+          if(board[parseInt(target.row)+1][parseInt(target.col)-1].color === 'black'){
             console.log('jumped top left');
-            removePiece('black', target.row+1, target.col-1);
+            removePiece('black', parseInt(target.row)+1, parseInt(target.col)-1);
             return true;
           }
         }
         // if jumping to the top left
         if(previous.col - target.col > 0){
-          console.log(board[3][4].color); // 'black'
-          if(board[parseInt(target.row + 1)][parseInt(target.col + 1)].color === 'black'){
+          if(board[parseInt(target.row) + 1][parseInt(target.col) + 1].color === 'black'){
             console.log('jumped top left');
-            removePiece('black', target.row+1, target.col+1)
+            removePiece('black', parseInt(target.row)+1, parseInt(target.col)+1)
             return true;
           }
         }
       }
       break;
     case 'black':
-    console.log('black isJumping?');
     // if target spaces is 2 squares away diagonally
       if(previous.row-target.row === (-2) && Math.abs(previous.col - target.col) === 2){
         console.log('Black isJumping');
         // if jumping to bottom left
         if(previous.col - target.col > 0){
-          if(board[target.row-1][target.col+1].color === 'red'){
+          if(board[parseInt(target.row)-1][parseInt(target.col)+1].color === 'red'){
             console.log('jumped bottom left');
-            removePiece('red', target.row-1, target.col+1);
+            removePiece('red', parseInt(target.row)-1, parseInt(target.col)+1);
             return true;
           }
         }
         // if jumping to bottom right
         if(previous.col - target.col < 0){
-          if(board[target.row-1][target.col-1].color === 'red'){
+          if(board[parseInt(target.row)-1][parseInt(target.col)-1].color === 'red'){
             console.log('jumped bottom right');
-            removePiece('red', target.row-1, target.col-1);
+            removePiece('red', parseInt(target.row)-1, parseInt(target.col)-1);
             return true;
           }
         }
       }
   }
 }
+/**
+* Removes a player piece from the board/array in position board[row][col]
+* @param {string} player - 'red' or 'black' player
+* @param {Number} row - piece row value
+* @param {Number} col - piece col value
+*/
 function removePiece(player, row, col){
   switch(player){
     case 'red':
       // add to array
-      removedBlack.push(board[row][col]);
+      removedRed.push(board[parseInt(row)][parseInt(col)]);
       // remove from board
-      board[row][col] = '';
+      board[row][col] = {};
       break;
     case 'black':
       // add to array
-      removedRed.push(board[row][col]);
+      removedBlack.push(board[parseInt(row)][parseInt(col)]);
       // remove from board
-      board[row][col] = '';
+      board[row][col] = {};
   }
 }
-// returns true if piece can move up and down to position
+/**
+* Checks if position is a valid move for a King Checkers piece
+* @param {Object} position - contains data for row and column position with .row and .col
+* @return {Boolean} true - if position is 1 space away and to the left or right (four corners); false otherwise
+*/
 function isMoveUpDown(position){
-  if(Math.abs(selectedPos.row-position.row)===1 && Math.abs(selectedPos.col-position.col)===1){
+  if(Math.abs(lastClickedPos.row-position.row)===1 && Math.abs(lastClickedPos.col-position.col)===1){
     return true;
   } else {
     return false;
@@ -184,7 +190,7 @@ function isMoveUpDown(position){
 }
 // returns true if selected red can move up to target position
 function isMoveUp(position){
-  if(selectedPos.row-position.row===1 && Math.abs(selectedPos.col-position.col)===1){
+  if(lastClickedPos.row-position.row===1 && Math.abs(lastClickedPos.col-position.col)===1){
     return true;
   } else {
     return false;
@@ -192,7 +198,7 @@ function isMoveUp(position){
 }
 // returns true if selected black can move down to target position
 function isMoveDown(position){
-  if(selectedPos.row-position.row===(-1) && Math.abs(selectedPos.col-position.col)===1){
+  if(lastClickedPos.row-position.row===(-1) && Math.abs(lastClickedPos.col-position.col)===1){
     return true;
   } else {
     return false;
@@ -201,8 +207,8 @@ function isMoveDown(position){
 // updates array
 function changeBoard(position){
   // remove selectedPos from its location and add it to position
-  board[position.row][position.col] = board[selectedPos.row][selectedPos.col];
-  board[selectedPos.row][selectedPos.col] = '';
+  board[position.row][position.col] = board[lastClickedPos.row][lastClickedPos.col];
+  board[lastClickedPos.row][lastClickedPos.col] = '';
 }
 // adds listeners to all squares
 function addEventListeners(){
@@ -215,7 +221,7 @@ function addEventListeners(){
 function setBoard(length){
   for(var i=0; i<length; i++){
     for(var j=0; j<length; j++){
-      board[i].push('');
+      board[i].push({});
     }
   }
 }
