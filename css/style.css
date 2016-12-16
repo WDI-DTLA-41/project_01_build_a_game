@@ -20,6 +20,7 @@ body {
   background-color: lightgreen;
 }
 .king {
-  font-size: 18;
+  font-size: 30;
   font-weight: bold;
+  font-style: italic;
 }
