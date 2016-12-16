@@ -39,8 +39,15 @@ p {
   font-weight: bold;
   font-family: arial;
 }
+/*
+div {
+  text-align: center;
+}*/
 
-
+button {
+    display: block;
+    margin: 30px auto;
+}
 
 
 
