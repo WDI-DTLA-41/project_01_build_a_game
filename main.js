@@ -36,11 +36,6 @@ var totalScore = document.querySelector(".total-score");
 // var cards = ["darthvader"];
 var cards = ["assets/darthvader.jpg"]
 
-// for (var key in cards) {
-// console.log(cards[1]);
-// console.log(cards.key);
-// console.log(cards.darthVader);
-// }
 
 // =============================================
 //    1. PLACE A BET
@@ -68,8 +63,6 @@ var addOne = function(event) {
 // RUN WHEN BET +1 BUTTON IS PRESSED
 plusOne.addEventListener("click", addOne);
 
-// placeBet();
-
 // =============================================
 //    2. "SPIN" THE REEL
 // =============================================
@@ -85,45 +78,8 @@ var spinReel = function(event) {
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
-
-// ATTEMPS TO DETECT END OF CSS ANIMATION EVENT
-  // function whichAnimationEvent() {
-  //   var a;
-  //   var el = document.createElement("fakeelement");
-  //   var animations = {
-  //     'animation':'animationend',
-  //     'OAnimation':'oAnimationEnd',
-  //     'MozAnimation':'animationend',
-  //     'WebkitAnimation':'webkitAnimationEnd'
-  //   }
-
-  //   for (a in animations) {
-  //     if(el.style[a] !== undefined){
-  //       return animations[a];
-  //     }
-  //   }
-
-  //   var animationEvent = whichAnimationEvent();
-  //   animationEvent && el.addEventListener(animationEvent, function() {
-  //     console.log("animation complete!");
-  //   });
-
-  // }
-
-  // debugger;
   // setTimeout(stopReel, 3500);
   // setTimeout(stopReel, 3000);
-
-// TESTS APPENDING IMAGE TO SLOT DIVS
-//   function testImage() {
-//     // for (var i=0; i < slots.length; i++) {
-//     // var div = document.getElementsByTagName("div");
-//     var img = document.createElement("IMG");
-//     img.setAttribute("src", "assets/darthvader.jpg");
-//     one.appendChild(img);
-//   }
-// // }
-//   testImage();
 
   stopReel();
 };
@@ -135,9 +91,11 @@ spin.addEventListener("click", spinReel);
 //    3. RANDOMLY SELECTS CLASSES FOR SLOTS
 // =============================================
 
-var oneVal;
-var twoVal;
-var threeVal;
+// var oneVal;
+// var twoVal;
+// var threeVal;
+
+var images = [];
 
 var stopReel = function() {
 
@@ -148,75 +106,55 @@ var stopReel = function() {
     var randomSelect = function() {
       // RETURNS THE COLOR VALUE
       return cards[Math.floor(Math.random() * cards.length)];
-      }
+    }
 
     var selected = randomSelect();
-    console.log(randomSelect());
-    console.log(selected);
-
-    // var img = document.createElement("IMG");
-    // img.setAttribute("src", selected);
-    // slots[0].appendChild(img);
 
     setTimeout(function(){
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
       slots[0].appendChild(img);
+      var imgSrc = img.src;
+      console.log(imgSrc);
+      images.push(imgSrc);
+      console.log(images);
     }, 1500);
 
     setTimeout(function(){
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
       slots[1].appendChild(img);
+      var imgSrc = img.src;
+      console.log(imgSrc);
+      images.push(imgSrc);
+      console.log(images);
     }, 2500);
 
     setTimeout(function(){
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
       slots[2].appendChild(img);
+      var imgSrc = img.src;
+      console.log(imgSrc);
+      images.push(imgSrc);
+      console.log(images);
+
     }, 4000);
 
-      // TESTS: FOR ... IN LOOP FOR OBJECT
-      // for (key in cards) {
-      //   var randomSelect = function() {
-      //   var i;
-      //   console.log(cards[i]);
-      //   console.log(cards.key);
-      //   var random = cards[Math.floor(Math.random() * cards.length)];
-      //   return random;
-        // console.log(random);
-    }
-    // STORES COLOR VALUE INTO VARIABLE
+    compareSlots();
 
+  }
+  console.log(images);
+    // STORES COLOR VALUE INTO VARIABLE
 
     // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
       // slots[i].classList.add(selected);
 
-
-    // slots[i].innerHTML = '<img src="' + selected + '">';
-
-    // *** SETTIMEOUT NEEDS TO GO HERE ***
-    // var recursiveClasses = function(arr, i=0) {
-    //   setTimeout(function(){
-    //     if (i === arr.length) {
-    //       console.log("loop finished");
-    //     } else {
-    //       addClass(arr[i]);
-    //       i++;
-    //       setTimeout(function() {
-    //         recursiveClasses(arr, i);
-    //       }, 1000)
-    //     };
-    //   }, 1000);
-    // };
-
-    // console.log(slots[i].classList);
-
     // STORE CLASSES AS VALUES INTO VARIABLES
-    var oneVal = slots[0].classList.value;
-    var twoVal = slots[1].classList.value;
-    var threeVal = slots[2].classList.value;
-  }
+    // var oneVal = slots[0].classList.value;
+    // var twoVal = slots[1].classList.value;
+    // var threeVal = slots[2].classList.value;
+}
 
 // =============================================
 //    4. COMPARING THE SLOTS
