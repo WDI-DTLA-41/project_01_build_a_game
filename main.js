@@ -111,12 +111,12 @@ var stopReel = function() {
     setTimeout(function(){
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
-      img.setAttribute("id", "imgOne");
       slots[0].appendChild(img);
       var imgSrc = img.src;
       console.log(imgSrc);
       images.push(imgSrc);
       console.log(images);
+      return images;
     }, 1500);
 
     setTimeout(function(){
@@ -158,8 +158,9 @@ var stopReel = function() {
             var revealQuoteWin = function() {
               quote.textContent = '"The Force is strong with this one."';
             }
-
+            // addScore();
             setTimeout(addScore, 1000);
+            return;
 
           } else {
           // ELSE ==> YOU LOSE
@@ -174,10 +175,11 @@ var stopReel = function() {
               quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
             }
           }
+          // minusScore();
             setTimeout(minusScore, 1000);
           }
           compareSlots();
-          return;
+            return;
       }
     }, 4000);
     // compareSlots();
@@ -262,9 +264,6 @@ var minusScore = function() {
 // Click PLAY AGAIN to:
 var newTurn = function(event) {
 
-  // RESETS THE IMAGES ARRAY
-  var images = [];
-
   // RESETS H2 QUOTE
   quote.textContent = '"The Force, it\'s calling to you."';
 
@@ -272,13 +271,6 @@ var newTurn = function(event) {
   one.classList = "";
   two.classList = "";
   three.classList = "";
-
-  // REMOVES IMAGES FROM DIVS
-  function removeImg(imageID) {
-    var divOne = document.getElementById("#one");
-    var imgOne = document.getElementById("#imgOne");
-    imgOne.divOne.removeChild(imgOne);
-  } removeImg();
 
   // RESETS DEFAULT IMAGE OF SLOTS
   one.setAttribute("class", "default");
