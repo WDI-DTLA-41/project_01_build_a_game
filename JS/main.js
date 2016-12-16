@@ -12,7 +12,7 @@ var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
 var sequenceLast = null;
 var userInput = [];
-var hardMode = document.querySelector('#hardmode');
+var hardBtn = document.querySelector('#hardmode');
 var audioOne = document.querySelectorAll('audio');
 var replayBtn = document.querySelector('#replay');
 var col1 = document.querySelector('#col-1');
@@ -280,7 +280,6 @@ var handleHardMode = function() {
 */
 var handleCursor = function (event) {
   event.target.style.cursor = 'pointer'
-  // setTimeout()
 }
 
 var handleRemoveCursor = function (event) {
@@ -297,7 +296,7 @@ startBtn.addEventListener('click',handleStartGame);
 /**
 *
 */
-hardMode.addEventListener('click', handleHardMode);
+hardBtn.addEventListener('click', handleHardMode);
 
 // add EventListener for Replay button
 /**
@@ -305,7 +304,6 @@ hardMode.addEventListener('click', handleHardMode);
 */
 replayBtn.addEventListener('click', handleReplay);
 
-// remove color style on click
 /**
 *
 */
@@ -317,17 +315,12 @@ yellowBtn.addEventListener('mouseover', handleCursor);
 yellowBtn.addEventListener('mouseout', handleRemoveCursor);
 blueBtn.addEventListener('mouseover', handleCursor);
 blueBtn.addEventListener('mouseout', handleRemoveCursor);
-
-
-
-
-
-
-
-
-
-
-
+replayBtn.addEventListener('mouseover', handleCursor);
+replayBtn.addEventListener('mouseout', handleRemoveCursor);
+startBtn.addEventListener('mouseover', handleCursor);
+startBtn.addEventListener('mouseout', handleRemoveCursor);
+hardBtn.addEventListener('mouseover', handleCursor);
+hardBtn.addEventListener('mouseout', handleRemoveCursor);
 
 
 
