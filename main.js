@@ -49,57 +49,55 @@ shuffleDeck();
 
 
 var deal = function(){
-  // take two things out
+  // take two things out - to playerOne
   hit(playerOne);
   hit(playerOne);
+  // gives dealer one card
   var card = deck.pop()
   hit(dealer);
+  // get playerOne score total
   playerScore = getValues(playerOne);
   console.log("player score is " + playerScore);
+  // get dealers score total
   dealerScore = getValues(dealer);
   console.log("dealer score is " + dealerScore)
  // if over 21 game over
     if(playerScore === 21) {
       console.log("Blackjack, Wou Win!");
-    }
-    if(dealerScore === 21){
+      }if(dealerScore === 21){
       console.log("Dealer has 21, you lose");
-      if (dealerScore === 21 && playerScore === 21) {
+      } if (dealerScore === 21 && playerScore === 21) {
         console.log(" You Push, No Winner");
-      }
     }
   // else get another card
-}
+    }
+    // gives playerOne one more card
 var hit = function (player) {
     var card = deck.pop()
     player.push(card);
 }
-
-var dealerHit = function() {
+  // gives dealer one more card
+var dealerHit = function (player) {
   var card = deck.pop()
   dealer.push(card);
-  // console.log('dealer hits');
+  //  dealer array gets another card but score doesnt update total
+  console.log('dealer hits');
   if(dealerScore <= 16) {
-  dealerHit();
+
   } else if(dealerScore >= 17) {
-  dealerStay();
+
   }
 }
 // get dealer score
 
 var dealerStay = function() {
-  if(playerScore > dealerScore) {
-    console.log("You Win!");
-  } else if(playerScore < dealerScore) {
-    console.log("You Lose");
-  } else if(playerScore === dealerScore) {
-    console.log("Push it real good.");
-  }
-}
 
+}
+// add score totals
 var getValues = function(cards) {
   var sum = 0;
   for( var i = 0; i < cards.length; i++) {
+    // loops through all cards in the area, getting each value and adding
     var val = cards[i].value;
     if(val === "Jack") {
       val = 10;
@@ -119,20 +117,31 @@ var getValues = function(cards) {
   return sum;
   console.log('working');
 }
-
+// displays scores in spans
 function displayValues(sum) {
   playerScoreEl.textContent = sum;
   dealer
   dealerScoreEl.textContent = dealerScore;
 
 }
+
 // conditions for the win
+function findWinner() {
+    if(playerScore > dealerScore) {
+    console.log("You Win!");
+  } else if(playerScore < dealerScore) {
+    console.log("You Lose");
+  } else if(playerScore === dealerScore) {
+    console.log("Push it real good.");
+  }
+}
 
 var dealButton = document.querySelector('#deal');
 dealButton.addEventListener('click', function(event) {
 // newSpan.textContent = getValues(playerOne);
   deal();
   // console.log('deal');
+  // creates a new div that will be a card
   var newDiv = document.createElement('div');
   newDiv.classList.add('card');
   var newDiv = document.createElement('div');
@@ -159,8 +168,8 @@ var hitButton = document.querySelector('.hit');
 hitButton.addEventListener('click', function(){
     hit(playerOne);
     var newDiv = document.createElement('div');
-  newDiv.classList.add('card');
-  document.body.appendChild(newDiv);
+    newDiv.classList.add('card');
+    document.body.appendChild(newDiv);
     console.log('hit');
     playerScore = getValues(playerOne);
     console.log(playerScore);
