@@ -142,6 +142,10 @@ var stopReel = function() {
       console.log(images[1]);
       console.log(images[2]);
 
+// =============================================
+//    4. COMPARING THE SLOTS
+// =============================================
+
       for (var j = 0; j < images.length; j++) {
       console.log(images.length);
         var compareSlots = function() {
@@ -186,20 +190,6 @@ var stopReel = function() {
     return;
   }
 };
-    // STORES COLOR VALUE INTO VARIABLE
-
-    // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
-      // slots[i].classList.add(selected);
-
-    // STORE CLASSES AS VALUES INTO VARIABLES
-    // var oneVal = slots[0].classList.value;
-    // var twoVal = slots[1].classList.value;
-    // var threeVal = slots[2].classList.value;
-
-// =============================================
-//    4. COMPARING THE SLOTS
-// =============================================
-
 
 // };
 
@@ -263,6 +253,8 @@ var minusScore = function() {
 
 // Click PLAY AGAIN to:
 var newTurn = function(event) {
+
+  images = [];
 
   // RESETS H2 QUOTE
   quote.textContent = '"The Force, it\'s calling to you."';
