@@ -71,6 +71,10 @@ tr {
   display: inline-block;
 }
 
+#reset {
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
 #playerOne {
   font-size: 1.5em;
   text-align: center;

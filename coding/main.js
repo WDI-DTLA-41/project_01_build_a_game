@@ -20,7 +20,6 @@ var ColumnFour = document.querySelectorAll('.tdColumnFour');
 var ColumnFive = document.querySelectorAll('.tdColumnFive');
 var ColumnSix = document.querySelectorAll('.tdColumnSix');
 var ColumnSeven = document.querySelectorAll('.tdColumnSeven');
-var columns = document.querySelectorAll('.tdBoard')
 
 var redPeace = document.getElementById('redPeace');
 var blackPeace = document.getElementById('blackPeace');
@@ -72,7 +71,15 @@ var addPeace = function(event) {
   }
 }
 
-
+resetButton.addEventListener('click', function() {
+    var columns = document.querySelectorAll('.tdBoard')
+    for (var i = 0; 1 <= columns.length; i++) {
+            columns[i].classList.add('empty');
+            columns[i].classList.remove('red');
+            columns[i].classList.add('empty');
+            columns[i].classList.remove('black');
+         };
+    });
 
 redPeace.addEventListener('click', selectPeace);
 blackPeace.addEventListener('click', selectPeace);
@@ -84,6 +91,7 @@ rowFour.addEventListener('click', addPeace);
 rowFive.addEventListener('click', addPeace);
 rowSix.addEventListener('click', addPeace);
 rowSeven.addEventListener('click', addPeace);
+
 
 
 
