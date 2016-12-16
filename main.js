@@ -101,7 +101,7 @@ var handleUserSequence = function(event){
     if(sequenceMatch()){
       generateSimonSequence();
     } else {
-      alert("Wah wah. Wrong move! Play again?")
+      alert("Wah wah. Wrong move! Hit restart on the page to play again!")
     }
     ;
   };
