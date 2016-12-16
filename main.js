@@ -10,8 +10,10 @@ var dealer = [];
 
 var playerScore = 0;
 var dealerScore = 0;
+
 var playerScoreEl = document.querySelector('#playerscore');
   playerScoreEl.textContent = playerScore;
+
 var dealerScoreEl = document.querySelector('#dealerscore');
     dealerScoreEl.textContent = dealerScore;
 
@@ -49,9 +51,9 @@ var deal = function(){
   hit(playerOne);
   var card = deck.pop()
   hit(dealer);
-  var playerScore = getValues(playerOne);
+  playerScore = getValues(playerOne);
   console.log("player score is " + playerScore);
-  var dealerScore = getValues(dealer);
+  dealerScore = getValues(dealer);
   console.log("dealer score is " + dealerScore)
  // if over 21 game over
     if(playerScore === 21) {
@@ -70,8 +72,11 @@ var hit = function (player) {
 var dealerHit = function() {
   var card = deck.pop()
   dealer.push(card);
+  // console.log('dealer hits');
 }
+dealerHit();
 // get dealer score
+
 var getValues = function(cards) {
   var sum = 0;
   for( var i = 0; i < cards.length; i++) {
@@ -97,6 +102,7 @@ var getValues = function(cards) {
 
 function displayValues(sum) {
   playerScoreEl.textContent = sum;
+  dealer
 
 }
 // conditions for the win
