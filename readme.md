@@ -16,7 +16,7 @@
 - [x] Each slot to return a random image
 - [x] Basic game rules: All three match == win 
 - [ ] Apply a theme (Star Wars)
-- [ ] Betting & Point Tracker
+- [x] Betting & Point Tracker
 - [ ] Mobile
 - [ ] Player 2
 
@@ -26,16 +26,17 @@
 ## Overview
 
 **SLOT WARS**
-- A Star Wars [?] themed slot machine game
+- A Star Wars themed slot machine game
 
 **Technologies Used**
 - Built with HTML, CSS, and JavaScript
 
 **Getting Started** 
-- Press the SPIN button to start the game
+- Press "Bet +1" to set your bet total 
+- Press the "SPIN!"" button to spin the reels
 - Three matching slots = WIN
-- Press Play Again to reset bet total and start another turn
-- See what happens when you click the TRY button
+- Press "Play Again" to reset bet total and start another turn
+- Press "Start Over" to reset the game
 
 **Next Steps**
 - Add Betting & Point Counter
@@ -44,10 +45,10 @@
 - Add Player 2 Option
 
 **A working game, built by An**
-- :octocat: [GitHub](http://github.com/SecretAgentAn)
+- :octocat: [GitHub: secretagentan](http://github.com/SecretAgentAn)
 
 **Hosted on the internet**
-- [Link](http://)
+- [SlotWars](https://secretagentan.github.io/project_01_build_a_game/)
 
 
 
