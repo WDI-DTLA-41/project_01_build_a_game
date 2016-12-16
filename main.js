@@ -12,15 +12,14 @@ var three = document.querySelector("#three");
 // var for buttons
 var plusOne = document.querySelector(".plus-one");
 var placeBet = document.querySelector(".place-bet");
-var spin = document.querySelector(".spin");
 var playAgain = document.querySelector(".play-again");
 var reset = document.querySelector(".reset");
 
 // var for h2 header quote
 var quote = document.querySelector("h2");
 
-// var slots = document.getElementsByTagName("div");
-var slots = document.querySelectorAll("div");
+var slots = document.getElementsByTagName("div");
+// var slots = document.querySelectorAll("div");
 
 // var for bet counter
 var totalBet = document.querySelector(".total-bet");
@@ -33,13 +32,25 @@ var totalScore = document.querySelector(".total-score");
 // ARRAY: Store classes of cards here
 // =============================================
 
-var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
+// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
 // var cards = ["darthvader"];
+var cards = ["assets/darthvader.jpg"]
 
+// for (var key in cards) {
+// console.log(cards[1]);
+// console.log(cards.key);
+// console.log(cards.darthVader);
+// }
 
 // =============================================
 //    1. PLACE A BET
 // =============================================
+
+/**
+ * Adds 1 to bet total
+ * @param {Event} event - represents click event that calls on the function
+ * @return {Number} - Sum of total bet plus 1
+*/
 
 var currentBet;
 
@@ -63,6 +74,8 @@ plusOne.addEventListener("click", addOne);
 //    2. "SPIN" THE REEL
 // =============================================
 
+var spin = document.querySelector(".spin");
+
 var spinReel = function(event) {
   // spin.removeEventListener("click", spinReel);
   one.removeAttribute("class", "default");
@@ -72,13 +85,49 @@ var spinReel = function(event) {
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
+
+// ATTEMPS TO DETECT END OF CSS ANIMATION EVENT
+  // function whichAnimationEvent() {
+  //   var a;
+  //   var el = document.createElement("fakeelement");
+  //   var animations = {
+  //     'animation':'animationend',
+  //     'OAnimation':'oAnimationEnd',
+  //     'MozAnimation':'animationend',
+  //     'WebkitAnimation':'webkitAnimationEnd'
+  //   }
+
+  //   for (a in animations) {
+  //     if(el.style[a] !== undefined){
+  //       return animations[a];
+  //     }
+  //   }
+
+  //   var animationEvent = whichAnimationEvent();
+  //   animationEvent && el.addEventListener(animationEvent, function() {
+  //     console.log("animation complete!");
+  //   });
+
+  // }
+
   // debugger;
   // setTimeout(stopReel, 3500);
-  // setTimeout(stopReel, 1000);
+  // setTimeout(stopReel, 3000);
+
+// TESTS APPENDING IMAGE TO SLOT DIVS
+//   function testImage() {
+//     // for (var i=0; i < slots.length; i++) {
+//     // var div = document.getElementsByTagName("div");
+//     var img = document.createElement("IMG");
+//     img.setAttribute("src", "assets/darthvader.jpg");
+//     one.appendChild(img);
+//   }
+// // }
+//   testImage();
+
   stopReel();
 };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
-  // **EVENT LISTENER ON BUTTON**
 spin.addEventListener("click", spinReel);
 
 
@@ -99,16 +148,52 @@ var stopReel = function() {
     var randomSelect = function() {
       // RETURNS THE COLOR VALUE
       return cards[Math.floor(Math.random() * cards.length)];
-    }
+      }
 
-    // STORES COLOR VALUE INTO VARIABLE
     var selected = randomSelect();
+    console.log(randomSelect());
+    console.log(selected);
+
+    // var img = document.createElement("IMG");
+    // img.setAttribute("src", selected);
+    // slots[0].appendChild(img);
+
+    setTimeout(function(){
+      var img = document.createElement("IMG");
+      img.setAttribute("src", selected);
+      slots[0].appendChild(img);
+    }, 1500);
+
+    setTimeout(function(){
+      var img = document.createElement("IMG");
+      img.setAttribute("src", selected);
+      slots[1].appendChild(img);
+    }, 2500);
+
+    setTimeout(function(){
+      var img = document.createElement("IMG");
+      img.setAttribute("src", selected);
+      slots[2].appendChild(img);
+    }, 4000);
+
+      // TESTS: FOR ... IN LOOP FOR OBJECT
+      // for (key in cards) {
+      //   var randomSelect = function() {
+      //   var i;
+      //   console.log(cards[i]);
+      //   console.log(cards.key);
+      //   var random = cards[Math.floor(Math.random() * cards.length)];
+      //   return random;
+        // console.log(random);
+    }
+    // STORES COLOR VALUE INTO VARIABLE
+
 
     // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
-    var addClass = function() {
-      slots[i].classList.add(selected);
-    }
-    addClass();
+      // slots[i].classList.add(selected);
+
+
+    // slots[i].innerHTML = '<img src="' + selected + '">';
 
     // *** SETTIMEOUT NEEDS TO GO HERE ***
     // var recursiveClasses = function(arr, i=0) {
@@ -141,7 +226,7 @@ var stopReel = function() {
     // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
     // compare the values for 3-way match
 
-    // IF ALL 3 MATCH (1 == 2 && 1 == 3 && 2 == 3) ==> ** WIN **
+    // IF ALL 3 MATCH ==> ** WIN **
     if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
       console.log("winner!");
       // SET CHARACTERS FROM THEME
@@ -174,10 +259,9 @@ var stopReel = function() {
 
       setTimeout(minusScore, 5000);
     }
-  }
   compareSlots();
-};
-
+  }
+// };
 
 // =============================================
 //    5. TOTAL SCORE
@@ -196,23 +280,15 @@ var addScore = function() {
   // CONVERT THAT SCORE SPAN ELEMENT TEXT ==> INTEGER
   var scoreInt = parseInt(scoreSpan.textContent);
 
-// IF ROUND === **WIN**
-// if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
+  // IF ROUND === **WIN**
   // SCORE FOR THE ROUND = 100 PTS
   var roundScore = 100;
 
   // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
-  // console.log(betInt);
-  // console.log(roundScore);
-  // console.log(betInt * roundScore);
-
   var totalRoundScore = betInt * roundScore;
-  // LOG TOTAL ROUND SCORE
-  // console.log(totalRoundScore);
 
   // CONVERT TOTAL ROUND SCORE ==> INTEGER
   var totalRoundScoreInt = parseInt(totalRoundScore);
-  // console.log(totalRoundScoreInt);
 
   // ADD THAT TO THE CURRENT TOTAL SCORE
   scoreSpan.textContent = scoreInt + totalRoundScoreInt;
@@ -227,20 +303,14 @@ var minusScore = function() {
   // CONVERT THAT SCORE SPAN ELEMENT TEXT ==> INTEGER
   var scoreInt = parseInt(scoreSpan.textContent);
 
-// IF ROUND === **LOSE**
-// if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
-  // SCORE FOR THE ROUND = 100 PTS
+  // IF ROUND === **LOSE**
   var roundScore = -100;
 
   // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
-
   var totalRoundScore = betInt * roundScore;
-  // LOG TOTAL ROUND SCORE
-  console.log(totalRoundScore);
 
   // CONVERT TOTAL ROUND SCORE ==> INTEGER
   var totalRoundScoreInt = parseInt(totalRoundScore);
-  console.log(totalRoundScoreInt);
 
   // ADD THAT TO THE CURRENT TOTAL SCORE
   scoreSpan.textContent = scoreInt + totalRoundScoreInt;
@@ -255,22 +325,24 @@ var minusScore = function() {
 var newTurn = function(event) {
 
   // RESETS H2 QUOTE
-  quote.textContent = '"The Force, it\'s calling to you. Just let it in."';
+  quote.textContent = '"The Force, it\'s calling to you."';
 
   // RESETS CLASSES OF SLOT DIVS
   one.classList = "";
   two.classList = "";
   three.classList = "";
+
   // RESETS DEFAULT IMAGE OF SLOTS
   one.setAttribute("class", "default");
   two.setAttribute("class", "default");
   three.setAttribute("class", "default");
+
   // REMOVES SLOT ANIMATION ID'S
   one.removeAttribute("id", "spin-one");
   two.removeAttribute("id", "spin-two");
   three.removeAttribute("id", "spin-three");
 
-  // RESETS BET COUNTER TO $1
+  // RESETS BET COUNTER TO 1
   totalBet.textContent = 1;
 }
 playAgain.addEventListener("click", newTurn);
