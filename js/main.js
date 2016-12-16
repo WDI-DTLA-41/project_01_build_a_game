@@ -90,11 +90,12 @@ function getLetterEnter(evt){
     alert('One at a time, please!');
     return;
   } else if (guessed.includes(letter)){
-      alert('You already guessed that letter!');
+    alert('You already guessed that letter!');
+    return;
     } else if (playWord.includes(letter)){
-      console.log('yes');
-      isMatch.push('match');
-      index = playWord.indexOf(letter);
+    console.log('yes');
+    isMatch.push('match');
+    index = playWord.indexOf(letter);
       if (playWord[index] === playWord[index+1]){
         underscores[index] = playWord[index];
         underscores[index+1] = playWord[index];
@@ -104,25 +105,25 @@ function getLetterEnter(evt){
         console.log(isMatch.length);
         setTimeout(function(){alert('You win!')}, 200);
       }
-      } else if (playWord.includes(letter) && playWord[i]!==playWord[i+1]){
+    } else if (playWord.includes(letter) && playWord[i]!==playWord[i+1]){
       underscores[index] = playWord[index];
       placeholders.textContent = underscores.join(' ');
         if (isMatch.length === playWord.length){
         console.log(isMatch.length);
         setTimeout(function(){alert('You win!')}, 200);
       }
-      }
-      return;
+    }
+    return;
     } else {
       console.log('no');
       if (!guessed.includes(letter)){
       guessed.push(letter);
       skeleton[j].style.visibility = "visible";
+      j= j + 1;
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
       if (noMatch.length === 6 || noMatch.length === playWord.length) {
       setTimeout(function(){alert('Sorry, you lose!')}, 200);
-      j= j + 1;
       }
 
       }
