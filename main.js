@@ -5,7 +5,9 @@ var $blue = document.querySelector('#blue');
 var $green = document.querySelector('#green');
 var simonSequence = [];
 var simonGeneratorIndex = [$red, $green, $yellow, $blue];
+var consoleSequence = [];
 var userSequence = [];
+var colorClickCount = 0; //checks simonSequence at currentcolor idx
 var sequenceLength = 1;
 var $streak = document.querySelector('#streak');
 var streak = 0;
@@ -32,7 +34,6 @@ var generateSimonSequence = function(){
 
 // generates a more readable simonSequence for developer reading console.log
 var consoleSimonSequence = function(){
-  var consoleSequence = [];
   simonSequence.map(function(e){
     debugger
     consoleSequence.push(e.getAttribute('id'));
@@ -72,50 +73,53 @@ var lightEmAndDimEm = function(arr, i=0){
 // check if user == simon
 // need live feed on user sequence
 // -- user needs to be notified on first wrong input, not after whole sequence is attempted
-var sequenceMatch = function(){
-  for(var i = 0; i<simonSequence.length; i++){
-    if (simonSequence[i].getAttribute('id') !== userSequence[i]) {
-      streak = 0;
-      $streak.textContent = streak;
-      sequenceLength = 1;
-      userSequence = [];
-      simonSequence = [];
-      generateSimonSequence();
-      return false;
-    };
-  };
-  streak++;
-  $streak.textContent = streak;
-  if(record < streak){
-    record = streak;
-    $record.textContent = record;
-  }
+// var sequenceMatch = function(){ // <-- this version can only be used when suquence lengths are equal!
+  // for(var i = 0; i<simonSequence.length; i++){
+  //   if (simonSequence[i].getAttribute('id') !== userSequence[i]) {
+  //     streak = 0;
+  //     $streak.textContent = streak;
+  //     sequenceLength = 1;
+  //     userSequence = [];
+  //     simonSequence = [];
+  //     consoleSequence = [];
+  //     generateSimonSequence();
+  //     return false;
+  //   };
+  // };
+  // streak++;
+  // $streak.textContent = streak;
+  // if(record < streak){
+  //   record = streak;
+  //   $record.textContent = record;
+  // }
   // if (sequenceLength===31){
-    sequenceLength++;
+    // sequenceLength++;
   // }else {
   //   alert("You win!");
 
   // };
-  return true;
-}
+//   return true;
+// }
 
 // then find a way to make Simon's play initiate after user hits start button
 $start.addEventListener('click', generateSimonSequence);
 
+
+/**
+  * builds and analyzes user's inputted array versus the computer-built array
+  * @param {Object} event - represents element that is clicked on
+  * @return {Object}
+*/
 var handleUserSequence = function(event){
   userSequence.push(event.target.getAttribute('id'));
-  console.log('user sequence: ', userSequence);
   if(simonSequence.length === userSequence.length){
-    // colorUnClickable();
     if(sequenceMatch()){
       generateSimonSequence();
     } else {
       alert("Wah wah. Wrong move! Let's play again!")
-    }
-    ;
+    };
   };
 };
-
 
 // colorClickable and colorUnClickable is SUPPOSED to disable pushing to
 // userSequence array during simonSequence flashing BUT
