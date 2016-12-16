@@ -1,24 +1,26 @@
 console.log('aloha, dakotah!')
 
 var board = document.querySelector('.board');
-var btn = document.querySelector('.battle');
+var battleBtn = document.querySelector('.battle');
+var dealBtn = document.querySelector('.deal');
 var $inPlayCards = document.querySelectorAll('.card');
 var $inPlayA = document.querySelector('#a');
 var $inPlayB = document.querySelector('#b');
 
 
+
 var handleClick = function (evt) {
   console.log(evt.target);
-  $inPlayA.innerHTML = "<img src='css/cards/ace of spades.png'>"
-  $inPlayB.innerHTML = "<img src='css/cards/10 of spades.png'>"
+  // $inPlayA.innerHTML = "<img src='css/cards/ace of spades.png'>"
+  // $inPlayB.innerHTML = "<img src='css/cards/10 of spades.png'>"
+
 }
 
-btn.addEventListener('click', handleClick);
 
 
 
-
-
+// values: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+// suits: a, c, d, h
 
 
 
@@ -38,8 +40,8 @@ btn.addEventListener('click', handleClick);
 
 
 var deck = [
-            2, 3, 4, 5, 6, 7
-            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8,
+            2, 3, 4, 5, 6, 7, 8
             // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
             // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
 ];
@@ -60,19 +62,25 @@ var shuffle = function (deck) {
   return deck;
 }
 
-deck = shuffle(deck)
+// deck = shuffle(deck)
 console.log(deck);
+
 
 //deal the cards out
 var inHandA = [];
 var inHandB = [];
 
-for (var i = 0; i < deck.length; i ++) {
-  if (i % 2 === 0) {
-    inHandA.push(deck[i]);
-  } else {
-    inHandB.push(deck[i]);
+var deal = function () {
+  for (var i = 0; i < deck.length; i ++) {
+    if (i % 2 === 0) {
+      inHandA.push(deck[i]);
+    } else {
+      inHandB.push(deck[i]);
+    }
   }
+
+  console.log("Beginning inHandA: " + inHandA);
+  console.log("Beginning inHandB: " + inHandB);
 }
 
 
@@ -81,8 +89,7 @@ var inPlayB = [];
 inWarA = inPlayA[inPlayA.length - 1]
 inWarB = inPlayB[inPlayB.length - 1]
 
-console.log("Beginning inHandA: " + inHandA);
-console.log("Beginning inHandB: " + inHandB);
+
 
 
 // ==================================================================
@@ -101,7 +108,6 @@ var winner = function () {
   }
 }
 
-winner();
 
 // ==================================================================
 // COMPARE VALUES OF CARDS IN PLAY
@@ -112,7 +118,6 @@ var compare = function () {
   if (inPlayA[inPlayA.length - 1] === inPlayB[inPlayB.length - 1]) {
     console.log("WAR!");
     war();
-    // compareWar();
   } else if (inPlayA[inPlayA.length - 1] > inPlayB[inPlayB.length - 1] === true){
     // a acquires b's card
     inHandA.push(inPlayB.shift());
@@ -138,6 +143,7 @@ var compare = function () {
 // CREATE A WAR FUNCTION
 // ==================================================================
 
+
 var compareWar = function () {
   inWarA = inPlayA[inPlayA.length - 1]
   inWarB = inPlayB[inPlayB.length - 1]
@@ -151,6 +157,7 @@ var compareWar = function () {
 }
 
 var war = function () {
+
   for (var i = 0; i < 4; i ++) {
     inPlayA.push(inHandA.shift());
     inPlayB.push(inHandB.shift());
@@ -162,21 +169,16 @@ var war = function () {
   // player A's status
   console.log("inHandA: " + inHandA);
   console.log("inPlayA: " + inPlayA);
-  console.log("A's card at war: " + inWarA);
+  console.log("inWarA: " + inWarA);
 
   // player B's status
   console.log("inHandB: " + inHandB);
   console.log("inPlayB: " + inPlayB);
-  console.log("B's card at war: " + inWarB);
+  console.log("inWarB: " + inWarB);
 
   compareWar();
 }
-// var war2 = function () {
-//   var battleCard = inPlayA.concat(inPlayB);
-//   for (var i = 0; i < (battleCard.length - 2); i ++){
-//     battle();
-//   }
-// }
+
 
 
 // ==================================================================
@@ -191,8 +193,8 @@ var collectCardsA = function () {
   }
 
   console.log("Player A wins the war!");
-  // console.log("NEW inHandA: " + inHandA);
-  // console.log("NEW inHandB: " + inHandB);
+  console.log("NEW inHandA: " + inHandA);
+  console.log("NEW inHandB: " + inHandB);
 }
 
 var collectCardsB = function () {
@@ -203,8 +205,8 @@ var collectCardsB = function () {
     inHandB.push(inPlayB.shift());
   }
   console.log("Player B wins the war!");
-  // console.log("NEW inHandA: " + inHandA);
-  // console.log("NEW inHandB: " + inHandB);
+  console.log("NEW inHandA: " + inHandA);
+  console.log("NEW inHandB: " + inHandB);
 }
 
 
@@ -218,6 +220,8 @@ var collectCardsB = function () {
 // the last card pushed inPlay then enters
 
 // pushes a card in play from each player's card stack
+
+
 var battle = function () {
 
   inPlayA.push(inHandA.shift());
@@ -236,7 +240,7 @@ var battle = function () {
 
 
 
-
-
+dealBtn.addEventListener('click', deal)
+battleBtn.addEventListener('click', battle)
 
 
