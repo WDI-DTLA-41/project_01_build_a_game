@@ -7,89 +7,84 @@ h1 {
   text-align: center;
 }
 
-
-div {
-  height: 150px;
-  width: 150px;
-  padding: 10px;
-}
-
 .hide {
   display:none;
 }
 
 .gamePiece {
   float:left;
+  height: 400px;
+  width: 400px;
+}
+
+.color {
+  display: inline-block;
+  /*position: absolute;*/
+  height: 40%;
+  width: 40%;
+  padding: 10px;
 }
 
 .records {
   float:right;
 }
 
+/* RED DIV */
 #red {
   background: rgba(255, 0, 0, 0.4);
   border-radius: 100% 0 0 0;
 }
-
 #red.light {
   background: rgb(255, 0, 0);
 }
-
 #red:active {
   background: rgb(255, 0, 0);
 }
-
 #red:hover {
   cursor: pointer;
 }
 
+/*GREEN DIV*/
 #green {
   background: rgba(0, 255, 0, 0.4);
   border-radius: 0 100% 0 0;
 }
-
 #green.light {
   background: rgb(0, 255, 0);
 }
-
 #green:active {
   background: rgb(0, 255, 0);
 }
-
 #green:hover {
   cursor: pointer;
 }
 
+/*BLUE DIV*/
 #blue {
   background: rgba(0, 97, 255, 0.4);
   border-radius: 0 0 0 100%;
 }
-
 #blue.light {
   background: rgb(0, 97, 255);
 }
-
 #blue:active {
   background: rgb(0, 97, 255);
 }
-
 #blue:hover {
   cursor: pointer;
 }
 
+/*YELLOW DIV*/
 #yellow {
   background: rgba(255, 255, 0, 0.4);
   border-radius: 0 0 100% 0;
 }
-
 #yellow.light {
   background: rgb(255, 255, 0);
 }
-
 #yellow:active {
   background: rgb(255, 255, 0);
 }
-
 #yellow:hover {
   cursor: pointer;
 }

@@ -1,4 +1,4 @@
-var $gamePiece = document.querySelector('.gamePiece');
+var $color = document.querySelectorAll('.color');
 var $red = document.querySelector('#red');
 var $yellow = document.querySelector('#yellow');
 var $blue = document.querySelector('#blue');
@@ -18,15 +18,27 @@ var $restart = document.querySelector('#restart');
 
 // find a way to make Simon play his sequence
 var generateSimonSequence = function(){
+  // colorUnClickable();
   userSequence = [];
   var randomColor = Math.floor(Math.random() * 4);
   simonSequence.push(simonGeneratorIndex[randomColor]);
-  console.log('simon sequence: ', simonSequence);
+  console.log('simonSequence: ', consoleSimonSequence());
   lightEmAndDimEm(simonSequence);
   $start.classList.add("hide");
   $restart.classList.remove("hide");
+  colorClickable();
 };
 
+
+// generates a more readable simonSequence for developer reading console.log
+var consoleSimonSequence = function(){
+  var consoleSequence = [];
+  simonSequence.map(function(e){
+    debugger
+    consoleSequence.push(e.getAttribute('id'));
+  });
+  return consoleSequence;
+}
 
 var lightIt = function(n){
   simonSequence[n].classList.add('light');
@@ -41,9 +53,11 @@ var dimIt = function(n){
 
 
 var lightEmAndDimEm = function(arr, i=0){
+  colorUnClickable();
   setTimeout(function(){
   if(i===arr.length){
-    // console.log("Loop finished!");
+    console.log("simonSequence flashing complete");
+    colorClickable();
   } else {
     lightIt(i);
     dimIt(i);
@@ -54,12 +68,6 @@ var lightEmAndDimEm = function(arr, i=0){
   };
 }, 1000);
 };
-// maybe need to use setInterval that can iterate through simon sequence
-// setInterval so every second, a new color is passed in to a setTimout and clearTimeout
-// setInterval can take a fxn. Make it take a function that takes a new elem from
-// simonsequence, make it light, clearTimout after a var==1000 every var=1000
-
-
 
 // check if user == simon
 // need live feed on user sequence
@@ -98,24 +106,36 @@ var handleUserSequence = function(event){
   userSequence.push(event.target.getAttribute('id'));
   console.log('user sequence: ', userSequence);
   if(simonSequence.length === userSequence.length){
+    // colorUnClickable();
     if(sequenceMatch()){
       generateSimonSequence();
     } else {
-      alert("Wah wah. Wrong move! Hit restart on the page to play again!")
+      alert("Wah wah. Wrong move! Let's play again!")
     }
     ;
   };
 };
 
-  // $start.setAttribute('visibility', 'hidden');
-  // $restart.setAttribute('visility', 'visible');
 
-$gamePiece.addEventListener('click', handleUserSequence);
+// colorClickable and colorUnClickable should fix bug
+// that previous allowed user to click during simonSequence flashing
+var colorClickable = function() {
+  for (var i = 0; i<$color.length; i++){
+  $color[i].addEventListener('click', handleUserSequence);
+  };
+};
+
+var colorUnClickable = function(){
+  for (var i = 0; i<$color.length; i++){
+    $color[i].removeEventListener('click', handleUserSequence);
+  };
+};
+
 
 $restart.addEventListener('click', function(){
   streak=0;
   simonSequence = [];
-  userSequence = [];
+  // userSequence = [];
   generateSimonSequence();
 })
 
