@@ -50,6 +50,10 @@ var $start = document.querySelector('#start');
 var $play = document.querySelector('#play');
 
 // stop button on html page
+ /**
+  Remove the stop button, instead, add gameover()
+ **/
+
 var $stop = document.querySelector('#stop');
 
 
@@ -86,19 +90,25 @@ var startGame = function(){
 
 }
 
-
+/**
+ * Shows first two cards in play
+ * and compares the value of first number of other
+ */
 var turnCards = function() {
     var topCardP1 = player1Deck[num];
     var topCardP2 = player2Deck[num];
-    // if (topCardP1 === undefined){
-    //       alert('Player 2 won!');
-    // } else if (topCardP2 === undefined) {
-    //         alert('Player 1 won!');
-    // } now RESET game
     player1.innerHTML = topCardP1;
     player2.innerHTML = topCardP2;
     num = num + 1;
     compareCards(topCardP1, topCardP2);
+    if (topCardP1 === undefined){
+        alert('Player 2 wins! GAME OVER');
+        //connectBoard();
+    } else if (topCardP2 === undefined) {
+        alert('Player 1 wins! GAME OVER');
+        //connectBoard();
+    }
+
 
 }
 // function to shuffle arrays numbers
@@ -125,7 +135,7 @@ function shuffleArray(array) {
 // function to compare first two cards
 // maybe give the cards to compare cards first...
 function compareCards(compareCardP1, compareCardP2) {
-  //debugger
+
   if (compareCardP1 > compareCardP2) {
 
         //logic here to add card back
@@ -153,8 +163,6 @@ function compareCards(compareCardP1, compareCardP2) {
         // add both cards to bottom of player 2 pile
         player2Deck.push(removedCard1,removedCard2);
         // helper to visualize
-        // console.log(cardsSplitHalf1);
-        // console.log(cardsSplitHalf2);
         isWar = false;
         return 'Winner is Player 2';
 
@@ -162,36 +170,47 @@ function compareCards(compareCardP1, compareCardP2) {
    } else if (compareCardP1 === compareCardP2){
 
           // cards match
-          console.log('Declare War');
+          // War function
+          alert('Declare War');
 
-
-
+          //This logic needs to work
           warCardsRemoved();
-          if (compareCardP1 < compareCardP2) {
+
+          console.log(player1Deck);
+          console.log(player2Deck);
+
+
+
+          if (tempHand1[0] > tempHand2[0]) {
               var removedCard1 = player1Deck.shift();
               var removedCard2 = player2Deck.shift();
-              // add both cards to bottom of player1 pile
-              player1Deck.push(removedCard1, removedCard2);
-              player1Deck.push(removedCard1, removedCard2);
               // player 1 wins 'WAR' and gets all 8 cards
+
+              console.log(tempHand1);
+              console.log(tempHand2);
+
               player1Deck.concat(tempHand1, tempHand2);
+              console.log(player1Deck + '-player1 Deck');
               player1Deck.push(removedCard1, removedCard2);
               //resets war flag to off
               isWar = false;
-              return 'Winner is Player 1';
+              alert('Player 1 is WINNER of WAR!');
 
 
-          } else {
+          } else if (tempHand1[0] < tempHand2[0]){
               var removedCard1 = player1Deck.shift();
               var removedCard2 = player2Deck.shift();
               // add both cards to bottom of player 2 pile
               player2Deck.push(removedCard1, removedCard2);
               // player 2 wins 'WAR' and gets all 8 cards
+              console.log(tempHand1);
+              console.log(tempHand2);
               player2Deck.concat(tempHand1, tempHand2);
+              console.log(player2Deck+ '-player2 Deck');
               player2Deck.push(removedCard1, removedCard2);
               //resets war flag to off
               isWar = false;
-              return 'Winner is Player 2';
+              alert('Player 2 is WINNER of WAR!');
           }
 }
 }
@@ -203,121 +222,24 @@ function compareCards(compareCardP1, compareCardP2) {
 // function of War comparison
 // var war = function () {
 
-//         //player1[3] vs player2[3];
-//         warCardsRemoved();
-
-
-// }
 // start button
 $start.addEventListener('click', startGame);
 // Play button
 $stop.removeEventListener('click',compareCards);
 
-
-// make stuff show?
-
-// 1 - query dome for image tag
-      // var image = document.querySelector('img');
-
-      // // 2 - declare func expreess
-      // var handleMouseOver = function(event){
-      //     // add css class to it drilling down to element.
-      //     console.log('mouseover');
-      //     event.target //target represents the image
-      //     event.target.classList //look at mdn element.clss list (gives names of all clases)
-      //         // can add class, delete a class, remove it
-      //     event.target.classList.add('active'); //
-      //     console.log('mouseover');
-      //   }
-      //   image.addEventListener('mouseover', handleMouseOver);
-
-      // var cardPlay1 = document.querySelector('#player1');
-      // function cardShow() {
-      //   card
-
-      // }
-
-      // cardPlay1 = function('click', cardShow);
-
-
-      // var getValues = function() {
-      //     expName.value;
-      //     expAmount.value;
-      //     // can return as array or object **object is better**
-      //     // the || 0 (or zero), puts a zero if no amt is entered on page
-      //     // instead of NaN
-      //     var val = parseFloat(expAmount.value) || 0;
-      //     return {
-      //         name: expName.value,
-      //         amount: val
-      //     }
-      // }
-// ==================image to show?
-// 1 - query dome for image tag
-// var showCard = document.querySelector('#players');
-// var image = document.querySelector('img');
-// // 2 - declare func expreess
-// var showCard = function(event){
-//     // add css class to it drilling down to element.
-//     console.log('show my card');
-//     event.target; //target represents the image
-//     event.target.classList.toggle('img'); //look at mdn element.clss list (gives names of all clases)
-//         // can add class, delete a class, remove it
-//   //event.target.classList.add('active'); //
-//     //console.log('mouseover');
-//   }
-//   image.addEventListener('click', showCard);
-
-
-//var image = document.querySelector('img');
-// 2 - declare func expreess
-//use remove class and mouseout
-
-// var handleMouseOut = function(event){
-//   event.target.classList.remove('active');
-// }
-//  image.addEventListener('mouseout', handleMouseOver);
-
-//============end image
-
-
 // subtract 10 cards from deck (loser of war)
 /// this is how we could put cards for war in a holding tank first
 
 var warCardsRemoved = function() {
-
-
       tempHand1 = player1Deck.slice(0, 4);  // this removes first 4 cards
       tempHand2 = player2Deck.slice(0, 4);  // this removes first 4 cards
-      var compare1 = tempHand1[0];    // compares 1st card
-      var compare2 = tempHand2[0];    // compares 1st card
+      // below code is above added at Line 179
+      // var compareCardP1 = tempHand1[0];    // compares 1st card
+      // var compareCardP2 = tempHand2[0];    // compares 1st card
       //player1.concat(tempHand1, tempHand2); // this adds 8 cards to winner
 }
 // var startWar = function () {
 //     // run func to hold out cards 3 facedown, 1 up
-
-//     warCardsRemoved();
-//     //debugger
-//     // if (player1[0] > player2[0]) {
-//     //    player1.push(removedCard1, removedCard2);
-//     //    // player 1 wins 'WAR' and gets all 8 cards
-//     //    player1.concat(tempHand1, tempHand2);
-//     //    player1.push(removedCard1, removedCard2);
-//     //    //resets war flag to off
-//     //    isWar = false;
-//     //    //compareCards();
-
-//     //   } else  {
-//     //   //debugger
-//     //    player2.push(removedCard1, removedCard2);
-//     //    // player 1 wins 'WAR' and gets all 8 cards
-//     //    player2.concat(tempHand1, tempHand2);
-//     //    player2.push(removedCard1, removedCard2);
-//     //    //resets war flag to off
-//     //    isWar = false;
-//     //    //compareCards();
-//     // }
-// }
 
 
 gameOver = function () {
