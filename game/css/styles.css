@@ -3,11 +3,26 @@ html, body {
   margin: 0;
 }
 
-.container {
+.wrapper {
   background: #076324;
+  background-image: url("../assets/45-degree-fabric-light.png");
   /*width: 100%;*/
   min-height: 100%;
+  position: relative;
+  display: block;
 }
+
+/*.container:after {
+  content: '';
+  background: url(assets/felt.png) repeat;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  opacity: .7;
+  z-index: -1;
+}*/
 
 h1 {
   margin-top: 0px;
