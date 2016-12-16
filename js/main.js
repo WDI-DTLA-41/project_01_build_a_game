@@ -129,7 +129,7 @@ function getLetterEnter(evt){
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
       if (noMatch.length === 6) {
-      setTimeout(function(){alert('Sorry, you lose!')}, 200);
+      setTimeout(function(){alert('Sorry, you lose!')}, 400);
       scream.play();
       underscores = playWord;
       placeholders.textContent = underscores;
