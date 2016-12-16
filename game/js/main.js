@@ -82,31 +82,45 @@ function createDeck() {
 
 function shuffleDeck() {
   return shuffledDeck = _.shuffle(deck);
+  // return shuffledDeck = shuffledDeck;
 }
 
 var currentPlayer; //= players[0];
 
 function nextTurn() {
+  var lastCardHand = currentPlayer.hand.length - 1;
+  displayCards(lastCardHand);
+  // console.log(currentPlayer);
   if (currentPlayer && currentPlayer.name === 'player') {
     currentPlayer = players[1];
   } else {
     currentPlayer = players[0];
   }
+  // debugger;
 }
 
 //IMAGES
 
-function displayCards() {
+function displayCards(i) {
   var img = document.createElement('img');
-  var currentCard = currentPlayer.hand[0];
+  var currentCard = currentPlayer.hand[i];
   var currentName = currentCard.name;
   var currentSuit = currentCard.suits;
+  // debugger;
   var strSrc = 'assets/cards/' + currentName + '_of_' + currentSuit + '.png';
   img.src = strSrc;
-  var location = document.querySelector('.card');
-  location.appendChild(img);
-  // debugger;
+  if (currentPlayer.name === 'dealer') {
+    var cardClass = img.setAttribute('class', 'dealer-' + i);
+    var location = document.querySelector('.dealer-cards');
+    location.appendChild(img);
+    // debugger;
+  } else {
+    var cardClass = img.setAttribute('class', 'player-' + i);
+    var location = document.querySelector('.player-cards');
+    location.appendChild(img);
+  }
 }
+
 
 
 
@@ -157,6 +171,9 @@ function dealerHit() {
 
 $hitButton.addEventListener('click', hit);
 
+/**
+  * Ends current player turn and begins next action
+  */
 function stay() {
   //end player turn
   $stayButton.removeEventListener('click', stay);
@@ -224,20 +241,23 @@ function findScore(user) { //experiment passing object through
   //     user.score = user.score + user.hand[x].value;
   //   }
   // }
-    while (user.score > 21) {
+    if (user.score > 21) {
       // if (user.hand.find(findAce)) {
       //   return false;
       // }
       if (user.hand.find(findAce)) {
-      var changedAce = user.hand.find(findAce);
-      console.log('Whoah, there\'s an Ace');
-      //if so, change value of ace to 1
-      changedAce.value = 1;
-      //update score
-      user.score = null;
-      for (var x = 0; x < user.hand.length; x++) {
-      user.score = user.score + user.hand[x].value;
-      }
+        var changedAce = user.hand.find(findAce);
+        console.log('Whoah, there\'s an Ace');
+        //if so, change value of ace to 1
+        changedAce.value = 1;
+        //update score
+        user.score = null;
+        for (var x = 0; x < user.hand.length; x++) {
+        user.score = user.score + user.hand[x].value;
+       }
+      // else {
+      //   return false;
+      // }
     }
   }
   console.log(capFirstLetter(user.name) + ' score:' + ' ' + user.score);

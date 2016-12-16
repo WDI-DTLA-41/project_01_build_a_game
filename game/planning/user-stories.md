@@ -6,11 +6,9 @@
   * Scoring
   * Hit
   * Stay
-  * Keep track of $$$
   * Display current hand total
 * 1 deck / shuffle after every round
 * 1 player vs dealer
-* Basic payout 1:1
 
 
 ## Features
@@ -27,6 +25,8 @@
 * Double bet
 * Replay same bet
 * Different payout for natural 'Blackjack' on deal (3:2)
+* Keep track of $$$
+* Basic payout 1:1
 
 ## Completed
 

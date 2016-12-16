@@ -60,26 +60,45 @@ h1 {
   width: 400px;
   height: 200px;
   border-bottom: 30px solid #663300;
-  position: relative;
-  top: -645px;
-  left: 35%;
+  position: absolute;
+  /*top: -645px;*/
+  top: -105px;
+  left: 205px;
   /*margin: 0 auto;*/
-  background: #ff6961;
+  background: #36454f;
   /*float: right;*/
   /*display: inline-block;*/
 }
 
 
-.card {
-/*  background: white;
-  width: 90px;
-  height: 135px;
-  display: block;
-  border: 1px solid black;
-  border-radius: 5px;
-  text-align: center;
-  /*vertical-align: middle;*/
-  /*line-height: 150px;*/
-  /*position: relative;*/
-  /*margin: 0 auto;*/
+.dealer-cards {
+  position: absolute;
+  top: 20px;
+}
+
+.dealer-0 {
+  position: relative;
+  left: 352px;
+}
+
+.dealer-1 {
+  position: relative;
+  left: 332px;
+  top: -105px;
+}
+
+.player-cards {
+  position: relative;
+  top: 340px;
+}
+
+.player-0 {
+  position: relative;
+/*  left: -5px;*/
+}
+
+.player-1 {
+  position: relative;
+  top: -175px;
+  left: 20px;
 }
