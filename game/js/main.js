@@ -57,7 +57,7 @@ var players = [
 
 var value = [2,3,4,5,6,7,8,9,10,10,10,10,11],
     suits = ['diamonds', 'clubs', 'hearts', 'spades'],
-    names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'],
+    names = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'],
     isFaceUp = [true];
 
 // var value = [5,7,11, 11, 11],
@@ -93,6 +93,22 @@ function nextTurn() {
     currentPlayer = players[0];
   }
 }
+
+//IMAGES
+
+function displayCards() {
+  var img = document.createElement('img');
+  var currentCard = currentPlayer.hand[0];
+  var currentName = currentCard.name;
+  var currentSuit = currentCard.suits;
+  var strSrc = 'assets/cards/' + currentName + '_of_' + currentSuit + '.png';
+  img.src = strSrc;
+  var location = document.querySelector('.card');
+  location.appendChild(img);
+  // debugger;
+}
+
+
 
 //GAMEPLAY
 
@@ -209,9 +225,10 @@ function findScore(user) { //experiment passing object through
   //   }
   // }
     while (user.score > 21) {
-      if (!user.hand.find(findAce)) {
-        // return false;
-      }
+      // if (user.hand.find(findAce)) {
+      //   return false;
+      // }
+      if (user.hand.find(findAce)) {
       var changedAce = user.hand.find(findAce);
       console.log('Whoah, there\'s an Ace');
       //if so, change value of ace to 1
@@ -220,6 +237,7 @@ function findScore(user) { //experiment passing object through
       user.score = null;
       for (var x = 0; x < user.hand.length; x++) {
       user.score = user.score + user.hand[x].value;
+      }
     }
   }
   console.log(capFirstLetter(user.name) + ' score:' + ' ' + user.score);
