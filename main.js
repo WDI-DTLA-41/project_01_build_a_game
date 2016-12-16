@@ -19,6 +19,9 @@ var reset = document.querySelector(".reset");
 // var for h2 header quote
 var quote = document.querySelector("h2");
 
+// var slots = document.getElementsByTagName("div");
+var slots = document.querySelectorAll("div");
+
 // var for bet counter
 var totalBet = document.querySelector(".total-bet");
 
@@ -26,9 +29,13 @@ var totalBet = document.querySelector(".total-bet");
 var totalScore = document.querySelector(".total-score");
 // var totalScoreVal = parseInt(totalScore.textContent);
 
+// =============================================
 // ARRAY: Store classes of cards here
+// =============================================
+
 // var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
 var cards = ["darthvader"];
+
 
 // =============================================
 //    1. PLACE A BET
@@ -49,7 +56,6 @@ var addOne = function(event) {
 }
 // RUN WHEN BET +1 BUTTON IS PRESSED
 plusOne.addEventListener("click", addOne);
-console.log(currentBet);
 
 // placeBet();
 
@@ -59,24 +65,26 @@ console.log(currentBet);
 
 var spinReel = function(event) {
   // spin.removeEventListener("click", spinReel);
-
+  one.removeAttribute("class", "default");
+  two.removeAttribute("class", "default");
+  three.removeAttribute("class", "default");
   // ADDS CSS ANIMATION ID TO EACH SLOT
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
   // debugger;
-  setTimeout(stopReel, 3500);
-  // setTimeout(stopReel,2000);
+  // setTimeout(stopReel, 3500);
+  // setTimeout(stopReel, 1000);
+  stopReel();
 };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
   // **EVENT LISTENER ON BUTTON**
 spin.addEventListener("click", spinReel);
+
+
 // =============================================
 //    3. RANDOMLY SELECTS CLASSES FOR SLOTS
 // =============================================
-
-// var slots = document.getElementsByTagName("div");
-var slots = document.querySelectorAll("div");
 
 var oneVal;
 var twoVal;
@@ -90,7 +98,6 @@ var stopReel = function() {
     // RANDOMLY SELECTS A COLOR FROM ARRAY
     var randomSelect = function() {
       // RETURNS THE COLOR VALUE
-
       return cards[Math.floor(Math.random() * cards.length)];
     }
 
@@ -98,9 +105,27 @@ var stopReel = function() {
     var selected = randomSelect();
 
     // SETS THE SELECTED COLOR VALUE AS A CLASS TO CHANGE SLOT COLOR
-    slots[i].classList.add(selected);
-    // console.log(slots[i].classList);
+    var addClass = function() {
+      slots[i].classList.add(selected);
+    }
+    addClass();
 
+    // *** SETTIMEOUT NEEDS TO GO HERE ***
+    // var recursiveClasses = function(arr, i=0) {
+    //   setTimeout(function(){
+    //     if (i === arr.length) {
+    //       console.log("loop finished");
+    //     } else {
+    //       addClass(arr[i]);
+    //       i++;
+    //       setTimeout(function() {
+    //         recursiveClasses(arr, i);
+    //       }, 1000)
+    //     };
+    //   }, 1000);
+    // };
+
+    // console.log(slots[i].classList);
 
     // STORE CLASSES AS VALUES INTO VARIABLES
     var oneVal = slots[0].classList.value;
@@ -125,13 +150,13 @@ var stopReel = function() {
         // H1 TEXTCONTENT = QUOTE FROM MOVIE
       setTimeout(function() {
         revealQuoteWin();
-      }, 2800);
+      }, 5000);
 
       var revealQuoteWin = function() {
-        quote.textContent = '"The force is strong with this one."';
+        quote.textContent = '"The Force is strong with this one."';
       }
 
-      addScore();
+      setTimeout(addScore, 5000);
 
     } else {
     // ELSE ==> YOU LOSE
@@ -141,13 +166,13 @@ var stopReel = function() {
 
       setTimeout(function() {
         revealQuoteLose();
-      }, 2800);
+      }, 5000);
 
       var revealQuoteLose = function() {
         quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
       }
 
-      minusScore();
+      setTimeout(minusScore, 5000);
     }
   }
   compareSlots();
@@ -165,37 +190,33 @@ var betSpan = document.querySelector("span.total-bet");
 var scoreSpan = document.querySelector("span.total-score");
 
 var addScore = function() {
+  // CONVERT THAT SPAN ELEMENT TEXT ==> INTEGER
+  var betInt = parseInt(betSpan.textContent);
 
-    // CONVERT THAT SPAN ELEMENT TEXT ==> INTEGER
-    var betInt = parseInt(betSpan.textContent);
+  // CONVERT THAT SCORE SPAN ELEMENT TEXT ==> INTEGER
+  var scoreInt = parseInt(scoreSpan.textContent);
 
-    // CONVERT THAT SCORE SPAN ELEMENT TEXT ==> INTEGER
-    var scoreInt = parseInt(scoreSpan.textContent);
+// IF ROUND === **WIN**
+// if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
+  // SCORE FOR THE ROUND = 100 PTS
+  var roundScore = 100;
 
-  // IF ROUND === **WIN**
-  // if (oneVal === twoVal && oneVal === threeVal && twoVal === threeVal) {
-    // SCORE FOR THE ROUND = 100 PTS
-    var roundScore = 100;
+  // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
+  // console.log(betInt);
+  // console.log(roundScore);
+  // console.log(betInt * roundScore);
 
-    // MULTIPLY THE ROUND SCORE BY THE BET TOTAL
-    console.log(betInt);
-    console.log(roundScore);
-    console.log(betInt * roundScore);
+  var totalRoundScore = betInt * roundScore;
+  // LOG TOTAL ROUND SCORE
+  // console.log(totalRoundScore);
 
-    var totalRoundScore = betInt * roundScore;
-    // LOG TOTAL ROUND SCORE
-    console.log(totalRoundScore);
+  // CONVERT TOTAL ROUND SCORE ==> INTEGER
+  var totalRoundScoreInt = parseInt(totalRoundScore);
+  // console.log(totalRoundScoreInt);
 
-    // CONVERT TOTAL ROUND SCORE ==> INTEGER
-    var totalRoundScoreInt = parseInt(totalRoundScore);
-    console.log(totalRoundScoreInt);
-
-    // ADD THAT TO THE CURRENT TOTAL SCORE
-
-    scoreSpan.textContent = scoreInt + totalRoundScoreInt;
-
-    console.log(scoreSpan);
-  }
+  // ADD THAT TO THE CURRENT TOTAL SCORE
+  scoreSpan.textContent = scoreInt + totalRoundScoreInt;
+}
 // };
 
 var minusScore = function() {
@@ -222,10 +243,7 @@ var minusScore = function() {
   console.log(totalRoundScoreInt);
 
   // ADD THAT TO THE CURRENT TOTAL SCORE
-
   scoreSpan.textContent = scoreInt + totalRoundScoreInt;
-
-  console.log(scoreSpan);
 };
 
 
@@ -243,7 +261,10 @@ var newTurn = function(event) {
   one.classList = "";
   two.classList = "";
   three.classList = "";
-
+  // RESETS DEFAULT IMAGE OF SLOTS
+  one.setAttribute("class", "default");
+  two.setAttribute("class", "default");
+  three.setAttribute("class", "default");
   // REMOVES SLOT ANIMATION ID'S
   one.removeAttribute("id", "spin-one");
   two.removeAttribute("id", "spin-two");
