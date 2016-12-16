@@ -6,13 +6,12 @@ var dealerHand = [];
 var dealerBoard = [];
 
 //deck
-// var deck = [
-//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-//             ];
-
+var deck = [
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+            ];
 
 //console.log(deck);
 
@@ -80,14 +79,13 @@ var compare = function(){
 var war = function(){
   if (playerBoard === dealerBoard){
     console.log('War!');
-    playerBoard = playerHand.splice(0,4);
-  //dealerHand.splice(0,3);
+  playerHand.splice(0, 3);
+  dealerHand.splice(0,3);
   }
-}
 
   //using splice to take four cards
   //compare the last element of the array
-
+}
 
 // if dealerBoard or playerBoard === 'undefined', game should lose
 
