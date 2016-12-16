@@ -117,8 +117,9 @@ var handleUserSequence = function(event){
 };
 
 
-// colorClickable and colorUnClickable should fix bug
-// that previous allowed user to click during simonSequence flashing
+// colorClickable and colorUnClickable is SUPPOSED to disable pushing to
+// userSequence array during simonSequence flashing BUT
+// for some reason doesn't stop clicks from setting off flashing and throwing off LightEmAndDimEm
 var colorClickable = function() {
   for (var i = 0; i<$color.length; i++){
   $color[i].addEventListener('click', handleUserSequence);
