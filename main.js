@@ -143,12 +143,15 @@ dealButton.addEventListener('click', function(event) {
   // console.log('deal');
   // creates a new div that will be a card
   var newDiv = document.createElement('div');
+  // add class to the new card
   newDiv.classList.add('card');
   var newDiv = document.createElement('div');
   newDiv.classList.add('card');
+  // stick the card to the DOM
   document.body.appendChild(newDiv);
   document.body.appendChild(newDiv);
 
+// gets score for playerOne
    playerScore = getValues(playerOne);
     if(playerScore === 21) {
       console.log("You Got 21!");
