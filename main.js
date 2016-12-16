@@ -96,6 +96,8 @@ spin.addEventListener("click", spinReel);
 // var threeVal;
 
 var images = [];
+var removeImg;
+var img;
 
 var stopReel = function() {
   // FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
@@ -111,32 +113,31 @@ var stopReel = function() {
     setTimeout(function(){
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
+      img.setAttribute("class", "remove-this");
       slots[0].appendChild(img);
       var imgSrc = img.src;
-      console.log(imgSrc);
       images.push(imgSrc);
-      console.log(images);
-      return images;
+      console.log(img.classList);
+      return img.classList;
     }, 1500);
 
     setTimeout(function(){
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
+      img.setAttribute("class", "remove-this-2");
       slots[1].appendChild(img);
       var imgSrc = img.src;
-      console.log(imgSrc);
       images.push(imgSrc);
-      console.log(images);
+      return img.classList;
     }, 2500);
 
     setTimeout(function(){
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
+      img.setAttribute("class", "remove-this-3");
       slots[2].appendChild(img);
       var imgSrc = img.src;
-      console.log(imgSrc);
       images.push(imgSrc);
-      console.log(images);
 
       console.log(images[0]);
       console.log(images[1]);
@@ -183,8 +184,11 @@ var stopReel = function() {
             setTimeout(minusScore, 1000);
           }
           compareSlots();
-            return;
+          return;
       }
+
+      return img.classList;
+
     }, 4000);
     // compareSlots();
     return;
@@ -254,6 +258,7 @@ var minusScore = function() {
 // Click PLAY AGAIN to:
 var newTurn = function(event) {
 
+  // EMPTIES THE ARRAY
   images = [];
 
   // RESETS H2 QUOTE
@@ -273,6 +278,18 @@ var newTurn = function(event) {
   one.removeAttribute("id", "spin-one");
   two.removeAttribute("id", "spin-two");
   three.removeAttribute("id", "spin-three");
+
+  // REMOVES DYNAMICALLY CREATED IMG'S IN SLOT DIVS
+  function removeImgs() {
+    var div = document.querySelector(".default");
+    var img1 = document.querySelector(".remove-this");
+    var img2 = document.querySelector(".remove-this-2");
+    var img3 = document.querySelector(".remove-this-3");
+    img1.parentNode.removeChild(img1);
+    img2.parentNode.removeChild(img2);
+    img3.parentNode.removeChild(img3);
+  }
+  removeImgs();
 
   // RESETS BET COUNTER TO 1
   totalBet.textContent = 1;
