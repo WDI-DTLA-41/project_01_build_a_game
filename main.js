@@ -12,6 +12,10 @@ var gameBoard = document.querySelector('.gameBoard');
 var gameOver;
 var tempHand1;
 var tempHand2;
+var showImg;
+
+
+
 var cardsDefault = [
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 13-25
@@ -29,13 +33,15 @@ var cardsPlaying = [
 
 var connectBoard = function() {
       var inviscard;
-      for (var i = 0; i < cardsDefault.length; i++) {
+      // for (var i = 0; i < cardsDefault.length; i++) {
+      for (var i = 0; i < cardsPlaying.length; i++) {
 
         realCards = document.createElement('div');
         realCards.setAttribute('class', 'cardPosition');
         gameBoard.appendChild(realCards);
-
       }
+
+
 }
 // start button on html page
 var $start = document.querySelector('#start');
@@ -68,6 +74,8 @@ var startGame = function(){
 
   //cards = makeDeck();
   connectBoard();
+   showImg = document.querySelectorAll('.gameBoard>div');
+   showImg[0].appendChild.innerHTML = '<img src="images/2clubs.jpg">';
   // cut deck in half
   shuffleArray(cardsPlaying);
   player1Deck = cardsPlaying.splice(0, 26);
@@ -204,7 +212,6 @@ function compareCards(compareCardP1, compareCardP2) {
 $start.addEventListener('click', startGame);
 // Play button
 $stop.removeEventListener('click',compareCards);
-
 
 
 // make stuff show?
