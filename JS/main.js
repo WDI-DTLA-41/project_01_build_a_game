@@ -15,7 +15,8 @@ var userInput = [];
 var hardMode = document.querySelector('#hardmode');
 var audioOne = document.querySelectorAll('audio');
 var replayBtn = document.querySelector('#replay');
-
+var col1 = document.querySelector('#col-1');
+var col2 = document.querySelector('#col-2');
 // random number generator (1-4)
 /**
 *
@@ -277,10 +278,14 @@ var handleHardMode = function() {
 /**
 *
 */
-// var handleColor = function () {
-//   this.style
-// }
+var handleCursor = function (event) {
+  event.target.style.cursor = 'pointer'
+  // setTimeout()
+}
 
+var handleRemoveCursor = function (event) {
+  event.target.style.cursor = '';
+}
 
 // add EventListener for startBtn to start game
 /**
@@ -304,10 +309,14 @@ replayBtn.addEventListener('click', handleReplay);
 /**
 *
 */
-// btnContainer.addEventListener('click', handleColor)
-
-
-
+greenBtn.addEventListener('mouseover', handleCursor);
+greenBtn.addEventListener('mouseout', handleRemoveCursor);
+redBtn.addEventListener('mouseover', handleCursor);
+redBtn.addEventListener('mouseout', handleRemoveCursor);
+yellowBtn.addEventListener('mouseover', handleCursor);
+yellowBtn.addEventListener('mouseout', handleRemoveCursor);
+blueBtn.addEventListener('mouseover', handleCursor);
+blueBtn.addEventListener('mouseout', handleRemoveCursor);
 
 
 

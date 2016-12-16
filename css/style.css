@@ -19,6 +19,19 @@ h1 {
   margin: 50px 0 0 75px;
 }
 
+.colorbtn {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  left: 100px;
+  top: 100px;
+}
+
+.colorbtn:active {
+
+}
+
+
 #btn-container {
   position: relative;
   right: 50px;
@@ -33,24 +46,12 @@ h1 {
   float:left;
 }
 
-.colorbtn {
-  height: 100px;
-  width: 100px;
-  position: relative;
-  left: 100px;
-  top: 100px;
-}
-
 #green {
   background-color: rgb(193,253,51);
   position: relative;
   left: 75px;
   top: 75px;
   border-radius: 100px 0 0 0;
-}
-
-div .colorbtn:hover {
-  border: 2px solid white;
 }
 
 #red {
@@ -113,9 +114,8 @@ div .colorbtn:hover {
   margin: 0 0 0 20px;
 }
 
-.blackout {
-  visibility: hidden;
-}
+
+
 
 
 
