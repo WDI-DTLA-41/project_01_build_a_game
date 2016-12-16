@@ -11,58 +11,66 @@ var boxes = [];
 var playerOne = {
   name:   null,
   boxes:    [],
-  number: 'one'
+  number: 'one',
+  first: null,
+  second: null,
+  third: null,
+  fourth: null
   }
 var playerTwo = {
   name:   null,
   boxes:    [],
-  number: 'two'
+  number: 'two',
+  first: null,
+  second: null,
+  third: null,
+  fourth: null
 };
 
-var currentPlayer = playerTwo;
+var currentPlayer = playerOne;
 
 var nextTurn = function() {
   //change who currentPlayer points at
-  if (currentPlayer === playerOne) {
-    currentPlayer = playerTwo;
+  if (currentPlayer === playerTwo) {
+    currentPlayer = playerOne;
     input1.style.color = 'black';
     input2.style.color = 'pink';
   } else {
-    currentPlayer = playerOne;
+    currentPlayer = playerTwo;
     input2.style.color = 'black';
     input1.style.color = 'lightblue';
-
   }
 };
 
 input1.addEventListener('keyup', function(e) {
   if ( e.keyCode === 13 ) {
+    input1.style.color = 'lightblue';
     input2.focus();
     playerOne.name = e.target.value;
   }
 })
 input2.addEventListener('keyup', function(e) {
   if ( e.keyCode === 13 ) {
+    input2.style.color = 'pink';
     playerTwo.name = e.target.value;
     input2.blur();
-    nextTurn();
   }
 })
 
 
 
 // via http://stackoverflow.com/questions/37010277/cannot-push-element-to-array-after-using-queryselectorall
-bars.forEach.call(document.querySelectorAll('.bar'), function(e){
+bars.forEach.call(document.querySelectorAll('.bar'), function(e) {
         bars.push(e);
 });
-boxes.forEach.call(document.querySelectorAll('.box'), function(e){
+boxes.forEach.call(document.querySelectorAll('.box'), function(e) {
         boxes.push(e);
 });
 
 
 
 board.addEventListener('click', function(e){
-  if (e.target.classList.contains('h') || e.target.classList.contains('v')){
+  if ( e.target.classList.contains('h') || e.target.classList.contains('v') ) {
     e.target.classList.add('clicked-bar');
     nextTurn();
   }
@@ -71,77 +79,107 @@ board.addEventListener('click', function(e){
 
 
 board.addEventListener('click', function(e){
-  // this.number = currentPlayer;
-  if ( currentPlayer === playerOne &&
-    bars[0].classList.contains('clicked-bar') &&
-    bars[2].classList.contains('clicked-bar') &&
-    bars[3].classList.contains('clicked-bar') &&
-    bars[5].classList.contains('clicked-bar') ) {
-      playerOne.boxes.push(1);
-      boxes[0].style.background = 'lightblue';
-  };
-  if ( currentPlayer === playerOne &&
-    bars[1].classList.contains('clicked-bar') &&
-    bars[3].classList.contains('clicked-bar') &&
-    bars[4].classList.contains('clicked-bar') &&
-    bars[6].classList.contains('clicked-bar') ) {
-      playerOne.boxes.push(1);
-      boxes[1].style.background = 'lightblue';
-  };
-  if ( currentPlayer === playerOne &&
-    bars[5].classList.contains('clicked-bar') &&
-    bars[7].classList.contains('clicked-bar') &&
-    bars[8].classList.contains('clicked-bar') &&
-    bars[10].classList.contains('clicked-bar') ) {
-      playerOne.boxes.push(1);
-      boxes[2].style.background = 'lightblue';
-  };
-  if ( currentPlayer === playerOne &&
-    bars[6].classList.contains('clicked-bar') &&
-    bars[8].classList.contains('clicked-bar') &&
-    bars[9].classList.contains('clicked-bar') &&
-    bars[11].classList.contains('clicked-bar') ) {
-      playerOne.boxes.push(1);
-      boxes[3].style.background = 'lightblue';
-  };
-
-
-  if ( currentPlayer === playerTwo &&
-    bars[0].classList.contains('clicked-bar') &&
-    bars[2].classList.contains('clicked-bar') &&
-    bars[3].classList.contains('clicked-bar') &&
-    bars[5].classList.contains('clicked-bar') ) {
-      playerTwo.boxes.push(1);
-      boxes[0].style.background = 'pink';
-  };
-  if ( currentPlayer === playerTwo &&
-    bars[1].classList.contains('clicked-bar') &&
-    bars[3].classList.contains('clicked-bar') &&
-    bars[4].classList.contains('clicked-bar') &&
-    bars[6].classList.contains('clicked-bar') ) {
-      playerTwo.boxes.push(1);
-      boxes[1].style.background = 'pink';
-  };
-  if ( currentPlayer === playerTwo &&
-    bars[5].classList.contains('clicked-bar') &&
-    bars[7].classList.contains('clicked-bar') &&
-    bars[8].classList.contains('clicked-bar') &&
-    bars[10].classList.contains('clicked-bar') ) {
-      playerTwo.boxes.push(1);
-      boxes[2].style.background = 'pink';
-  };
-  if ( currentPlayer === playerTwo &&
-    bars[6].classList.contains('clicked-bar') &&
-    bars[8].classList.contains('clicked-bar') &&
-    bars[9].classList.contains('clicked-bar') &&
-    bars[11].classList.contains('clicked-bar') ) {
-      playerTwo.boxes.push(1);
-      boxes[3].style.background = 'pink';
-  };
-  if (playerOne.score === true){
-    updateScore();
+  if ( currentPlayer === playerOne ) {
+    if ( bars[0].classList.contains('clicked-bar') &&
+      bars[2].classList.contains('clicked-bar') &&
+      bars[3].classList.contains('clicked-bar') &&
+      bars[5].classList.contains('clicked-bar') ) {
+        if ( !playerTwo.first ){
+          playerOne.boxes.push(1);
+          playerOne.first = 'playerOne';
+          boxes[0].style.background = 'lightblue';
+          nextTurn()
+        }
+    }
+    if ( bars[1].classList.contains('clicked-bar') &&
+      bars[3].classList.contains('clicked-bar') &&
+      bars[4].classList.contains('clicked-bar') &&
+      bars[6].classList.contains('clicked-bar') ) {
+        if ( !playerTwo.second ){
+          playerOne.boxes.push(1);
+          playerOne.second = 'playerOne';
+          boxes[1].style.background = 'lightblue';
+          nextTurn()
+        }
+    };
+    if ( bars[5].classList.contains('clicked-bar') &&
+      bars[7].classList.contains('clicked-bar') &&
+      bars[8].classList.contains('clicked-bar') &&
+      bars[10].classList.contains('clicked-bar') ) {
+        if ( !playerTwo.third ){
+          playerOne.boxes.push(1);
+          playerOne.third = 'playerOne';
+          boxes[2].style.background = 'lightblue';
+          nextTurn()
+        }
+    };
+    if ( bars[6].classList.contains('clicked-bar') &&
+      bars[8].classList.contains('clicked-bar') &&
+      bars[9].classList.contains('clicked-bar') &&
+      bars[11].classList.contains('clicked-bar') ) {
+        if ( !playerTwo.fourth ){
+          playerOne.boxes.push(1);
+          playerOne.fourth = 'playerOne';
+          boxes[3].style.background = 'lightblue';
+          nextTurn()
+        }
+    };
+    if (playerOne.score === true){
+      updateScore();
+    }
   }
-});
+
+
+  if ( currentPlayer === playerTwo ) {
+    if ( bars[0].classList.contains('clicked-bar') &&
+      bars[2].classList.contains('clicked-bar') &&
+      bars[3].classList.contains('clicked-bar') &&
+      bars[5].classList.contains('clicked-bar') ) {
+        if ( !playerOne.first ){
+          playerTwo.boxes.push(1);
+          playerTwo.first = 'playerTwo';
+          boxes[0].style.background = 'pink';
+          nextTurn();
+        }
+    }
+    if ( bars[1].classList.contains('clicked-bar') &&
+      bars[3].classList.contains('clicked-bar') &&
+      bars[4].classList.contains('clicked-bar') &&
+      bars[6].classList.contains('clicked-bar') ) {
+        if ( !playerOne.second ){
+          playerTwo.boxes.push(1);
+          playerTwo.second = 'playerTwo';
+          boxes[1].style.background = 'pink';
+          nextTurn();
+        }
+    };
+    if ( bars[5].classList.contains('clicked-bar') &&
+      bars[7].classList.contains('clicked-bar') &&
+      bars[8].classList.contains('clicked-bar') &&
+      bars[10].classList.contains('clicked-bar') ) {
+         if ( !playerOne.third ){
+          playerTwo.boxes.push(1);
+          playerTwo.third = 'playerTwo';
+          boxes[2].style.background = 'pink';
+          nextTurn();
+        }
+    };
+    if ( bars[6].classList.contains('clicked-bar') &&
+      bars[8].classList.contains('clicked-bar') &&
+      bars[9].classList.contains('clicked-bar') &&
+      bars[11].classList.contains('clicked-bar') ) {
+        if ( !playerOne.fourth ){
+          playerTwo.boxes.push(1);
+          playerTwo.fourth = 'playerTwo';
+          boxes[3].style.background = 'pink';
+          nextTurn();
+        }
+    };
+    if (playerTwo.score === true){
+      updateScore();
+    }
+  }
+})
 
 var updateScore = function() {
   var sum = playerOne.boxes.reduce(function(a,b){
