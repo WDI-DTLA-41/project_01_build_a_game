@@ -1,29 +1,34 @@
-var board  = document.querySelector('.board');
-var boxes  = document.querySelectorAll('.box');
-var input1 = document.querySelector('.p1');
-var input2 = document.querySelector('.p2');
-var $divs  = document.querySelectorAll('.divs');
+var board   = document.querySelector('.board');
+var input1  = document.querySelector('.p1');
+var input2  = document.querySelector('.p2');
 var p1score = document.querySelector('p1-score');
 var p2score = document.querySelector('p2-score');
-var bars  = [];
-var boxes = [];
+
+var $divs  = document.querySelectorAll('.divs');
+var $boxes = [];
+var bars   = [];
+
+var boxOne   = [];
+var boxTwo   = [];
+var boxThree = [];
+var boxFour  = [];
 
 var playerOne = {
   name:   null,
   boxes:    [],
-  number: 'one',
-  first: null,
+  number:'one',
+  first:  null,
   second: null,
-  third: null,
+  third:  null,
   fourth: null
   }
 var playerTwo = {
   name:   null,
   boxes:    [],
-  number: 'two',
-  first: null,
+  number:'two',
+  first:  null,
   second: null,
-  third: null,
+  third:  null,
   fourth: null
 };
 
@@ -63,22 +68,27 @@ input2.addEventListener('keyup', function(e) {
 bars.forEach.call(document.querySelectorAll('.bar'), function(e) {
         bars.push(e);
 });
-boxes.forEach.call(document.querySelectorAll('.box'), function(e) {
-        boxes.push(e);
+$boxes.forEach.call(document.querySelectorAll('.box'), function(e) {
+        $boxes.push(e);
 });
 
 
-
-board.addEventListener('click', function(e){
+/**
+ * checks if a vertical or horixontal bar is clicked, based on class names.
+ * adds 'clicked-bar' class to event target.
+ * invokes funciton nextTurn() if a bar is clicked.
+ * @param {Object} e - event object
+ */
+function barClassAdder(e){
   if ( e.target.classList.contains('h') || e.target.classList.contains('v') ) {
     e.target.classList.add('clicked-bar');
     nextTurn();
   }
-});
+}
 
 
 
-board.addEventListener('click', function(e){
+function boxChecker(e){
   if ( currentPlayer === playerOne ) {
     if ( bars[0].classList.contains('clicked-bar') &&
       bars[2].classList.contains('clicked-bar') &&
@@ -87,7 +97,7 @@ board.addEventListener('click', function(e){
         if ( !playerTwo.first ){
           playerOne.boxes.push(1);
           playerOne.first = 'playerOne';
-          boxes[0].style.background = 'lightblue';
+          $boxes[0].style.background = 'lightblue';
           nextTurn()
         }
     }
@@ -98,7 +108,7 @@ board.addEventListener('click', function(e){
         if ( !playerTwo.second ){
           playerOne.boxes.push(1);
           playerOne.second = 'playerOne';
-          boxes[1].style.background = 'lightblue';
+          $boxes[1].style.background = 'lightblue';
           nextTurn()
         }
     };
@@ -109,7 +119,7 @@ board.addEventListener('click', function(e){
         if ( !playerTwo.third ){
           playerOne.boxes.push(1);
           playerOne.third = 'playerOne';
-          boxes[2].style.background = 'lightblue';
+          $boxes[2].style.background = 'lightblue';
           nextTurn()
         }
     };
@@ -120,7 +130,7 @@ board.addEventListener('click', function(e){
         if ( !playerTwo.fourth ){
           playerOne.boxes.push(1);
           playerOne.fourth = 'playerOne';
-          boxes[3].style.background = 'lightblue';
+          $boxes[3].style.background = 'lightblue';
           nextTurn()
         }
     };
@@ -138,7 +148,7 @@ board.addEventListener('click', function(e){
         if ( !playerOne.first ){
           playerTwo.boxes.push(1);
           playerTwo.first = 'playerTwo';
-          boxes[0].style.background = 'pink';
+          $boxes[0].style.background = 'pink';
           nextTurn();
         }
     }
@@ -149,7 +159,7 @@ board.addEventListener('click', function(e){
         if ( !playerOne.second ){
           playerTwo.boxes.push(1);
           playerTwo.second = 'playerTwo';
-          boxes[1].style.background = 'pink';
+          $boxes[1].style.background = 'pink';
           nextTurn();
         }
     };
@@ -160,7 +170,7 @@ board.addEventListener('click', function(e){
          if ( !playerOne.third ){
           playerTwo.boxes.push(1);
           playerTwo.third = 'playerTwo';
-          boxes[2].style.background = 'pink';
+          $boxes[2].style.background = 'pink';
           nextTurn();
         }
     };
@@ -171,7 +181,7 @@ board.addEventListener('click', function(e){
         if ( !playerOne.fourth ){
           playerTwo.boxes.push(1);
           playerTwo.fourth = 'playerTwo';
-          boxes[3].style.background = 'pink';
+          $boxes[3].style.background = 'pink';
           nextTurn();
         }
     };
@@ -179,7 +189,11 @@ board.addEventListener('click', function(e){
       updateScore();
     }
   }
-})
+}
+
+board.addEventListener('click', barClassAdder)
+board.addEventListener('click', boxChecker)
+
 
 var updateScore = function() {
   var sum = playerOne.boxes.reduce(function(a,b){
