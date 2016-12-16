@@ -70,7 +70,13 @@ function replaceDash(letter) {
   }
   if (dashWord.join("") === sharks){
     winAlert();
+    showShark();
   }
+}
+
+var showShark = function() {
+  var image = document.getElementsByClassName('squatina-squatina');
+  image.classList.toggle('squatina-squatina', sharks === image)
 }
 
 // render to browser

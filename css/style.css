@@ -86,6 +86,17 @@ h3 {
   color: red;
 }
 
+.gallowBox {
+  float: left;
+  width: 400px;
+  height: 300px;
+  margin-left: 50px;
+}
+
+.gallows {
+  height: 500px;
+}
+
 #sharkCage {
   float: right;
   width: 400px;
