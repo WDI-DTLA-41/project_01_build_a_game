@@ -1,18 +1,20 @@
 var gameWinner = function() {
-    playerTurn();
     testTurn = playerTurn();
-    setTimeout(function(){alert('Congratulations '+ playerTurn() + ' You Won!!!');},500);
     if(testTurn === 'Player 1'){
+      setTimeout(function(){alert('Congratulations Player 1 You Won!!!');},500);
       pOneWin = pOneWin + 1;
       pTwoLoss = pTwoLoss + 1;
     } else if(testTurn === 'Player 2'){
+        setTimeout(function(){alert('Congratulations Player 2 You Won!!!');},500);
         pTwoWin = pTwoWin + 1;
-        pTwoLoss = pTwoLoss + 1;
+        pOneLoss = pOneLoss + 1;
       }
     player1WinTally.textContent = pOneWin;
     player1LossTally.textContent = pOneLoss;
     player2WinTally.textContent = pTwoWin;
     player2LossTally.textContent = pTwoLoss;
+    setTimeout(function(){resetGame();},2500);
+
 }
 
 var diagonalTest = function(target,rowNum,colNum){
@@ -129,9 +131,9 @@ var horizontalTest = function(target,rowNum,colNum){
 }
 
 var checkWin = function(target,rowNum,columnNum){
-  console.log(target);
-  console.log(rowNum);
-  console.log(columnNum);
+  //console.log(target);
+  //console.log(rowNum);
+  //console.log(columnNum);
   var colNum = parseInt(columnNum);
   horizontalTest(target,rowNum,colNum);
   verticalTest(target,rowNum,colNum);
@@ -139,8 +141,8 @@ var checkWin = function(target,rowNum,columnNum){
 }
 
 var inputPiece = function(evtTarget){
-  //console.log(evtTarget.dataset.column);
   var columnNum = evtTarget.dataset.column;
+  turnResult.textContent = playerTurn();
   if (testTurn === player2){  //inversion of the testTurn toggle equality value
     for (var i = 5; i >= 0; i--){
       if (openBoard[i][columnNum].getAttribute('color') === ''){
@@ -162,10 +164,12 @@ var inputPiece = function(evtTarget){
 }
 
 var playerTurn = function(){
-    num++;
+  setTimeout(function(){},100000);
   if (num % 2 === 0){
+        num++;
     return player1;
   } else if (num % 2 !== 0){
+        num++;
       return player2;
   }
 }
@@ -173,7 +177,7 @@ var playerTurn = function(){
 var gameFunc = function(){
       if (event.target.getAttribute('class') === 'standardPieceOne'){
         testTurn = playerTurn();
-        turnResult.textContent = testTurn;
+        turnResult.textContent = playerTurn();
         if(testTurn === 'Player 1'){
           //I am the result of player 1's click.
           for(var i = 0; i < 7; i++){
@@ -217,7 +221,7 @@ var resetTournament = function(){
 }
 
 var resetGame = function(){
-      num = 1;
+      num = 0;
       for (var i = 0; i < tablePiece.length; i++){
         tablePiece[i].setAttribute('color','');
       }
@@ -230,23 +234,20 @@ var resetGame = function(){
 }
 
 var startTournament = function(){
-      num = 1;
       for(var i = 0; i < 7; i++){
         standardPieceOne[i].setAttribute('id','player1Hov');
       }
-      testTurn = playerTurn();
-      turnResult.textContent = testTurn;
+      //testTurn = playerTurn();
+      turnResult.textContent = playerTurn();
       pieceTitle.textContent = 'Move Select Below';
       moveSelectTable.addEventListener('click', gameFunc);
 }
 
 var startGame = function(){
-      num = 1;
       for(var i = 0; i < 7; i++){
         standardPieceOne[i].setAttribute('id','player1Hov');
       }
-      testTurn = playerTurn();
-      turnResult.textContent = testTurn;
+      turnResult.textContent = playerTurn();
       pieceTitle.textContent = 'Move Select Below';
       moveSelectTable.addEventListener('click', gameFunc);
       player1WinTally.textContent = pOneWin;
@@ -258,6 +259,7 @@ var startGame = function(){
 var buttonLogic = function(){
   if(event.target.getAttribute('id') === 'startGameButton'){
     startGame();
+
   }
   if(event.target.getAttribute('id') === 'startTournamentButton'){
     startTournament();
@@ -297,7 +299,7 @@ var gameButton = document.querySelector('.gameButton');
 var startBtn = document.querySelector('#startGameButton');
 var turnResult = document.querySelector('#turnResult');
 var gameBoard = document.querySelector('.gameBoard');
-var num = 1;
+var num = 0;
 var player1 = 'Player 1';
 var player2 = 'Player 2';
 var player1WinTally = document.querySelector('#player1WinTally');
