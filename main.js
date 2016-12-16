@@ -1,33 +1,51 @@
-var board = document.querySelector('.board');
-var boxes = document.querySelectorAll('.box');
+var board  = document.querySelector('.board');
+var boxes  = document.querySelectorAll('.box');
 var input1 = document.querySelector('.p1');
 var input2 = document.querySelector('.p2');
-var $divs = document.querySelectorAll('.divs');
-
-var bars = [];
+var $divs  = document.querySelectorAll('.divs');
+var p1score = document.querySelector('p1-score');
+var p2score = document.querySelector('p2-score');
+var bars  = [];
 var boxes = [];
 
-
-var players = [
-  {
-    name: null
-  },
-  {
-    name: null
+var playerOne = {
+  name:   null,
+  boxes:    [],
+  number: 'one'
   }
-];
+var playerTwo = {
+  name:   null,
+  boxes:    [],
+  number: 'two'
+};
 
+var currentPlayer = playerTwo;
 
+var nextTurn = function() {
+  //change who currentPlayer points at
+  if (currentPlayer === playerOne) {
+    currentPlayer = playerTwo;
+    input1.style.color = 'black';
+    input2.style.color = 'pink';
+  } else {
+    currentPlayer = playerOne;
+    input2.style.color = 'black';
+    input1.style.color = 'lightblue';
 
-input1.addEventListener('keyup', e => {
+  }
+};
+
+input1.addEventListener('keyup', function(e) {
   if ( e.keyCode === 13 ) {
     input2.focus();
-    players[0].name = e.target.value;
+    playerOne.name = e.target.value;
   }
 })
-input2.addEventListener('keyup', e => {
+input2.addEventListener('keyup', function(e) {
   if ( e.keyCode === 13 ) {
-    players[1].name = e.target.value;
+    playerTwo.name = e.target.value;
+    input2.blur();
+    nextTurn();
   }
 })
 
@@ -41,31 +59,94 @@ boxes.forEach.call(document.querySelectorAll('.box'), function(e){
         boxes.push(e);
 });
 
+
+
 board.addEventListener('click', function(e){
   if (e.target.classList.contains('h') || e.target.classList.contains('v')){
     e.target.classList.add('clicked-bar');
+    nextTurn();
   }
 });
 
+
+
 board.addEventListener('click', function(e){
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[0].classList.contains('clicked-bar') && bars[2].classList.contains('clicked-bar') &&
-        bars[3].classList.contains('clicked-bar') && bars[5].classList.contains('clicked-bar') ) {
-          boxes[0].classList.add('player1');
+  // this.number = currentPlayer;
+  if ( currentPlayer === playerOne &&
+    bars[0].classList.contains('clicked-bar') &&
+    bars[2].classList.contains('clicked-bar') &&
+    bars[3].classList.contains('clicked-bar') &&
+    bars[5].classList.contains('clicked-bar') ) {
+      playerOne.boxes.push(1);
+      boxes[0].style.background = 'lightblue';
   };
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[1].classList.contains('clicked-bar') && bars[3].classList.contains('clicked-bar') &&
-        bars[4].classList.contains('clicked-bar') && bars[6].classList.contains('clicked-bar') ) {
-          boxes[1].classList.add('player1');
+  if ( currentPlayer === playerOne &&
+    bars[1].classList.contains('clicked-bar') &&
+    bars[3].classList.contains('clicked-bar') &&
+    bars[4].classList.contains('clicked-bar') &&
+    bars[6].classList.contains('clicked-bar') ) {
+      playerOne.boxes.push(1);
+      boxes[1].style.background = 'lightblue';
   };
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[5].classList.contains('clicked-bar') && bars[7].classList.contains('clicked-bar') &&
-        bars[8].classList.contains('clicked-bar') && bars[10].classList.contains('clicked-bar') ) {
-          boxes[2].classList.add('player1');
+  if ( currentPlayer === playerOne &&
+    bars[5].classList.contains('clicked-bar') &&
+    bars[7].classList.contains('clicked-bar') &&
+    bars[8].classList.contains('clicked-bar') &&
+    bars[10].classList.contains('clicked-bar') ) {
+      playerOne.boxes.push(1);
+      boxes[2].style.background = 'lightblue';
   };
-  if ( (e.target.classList.contains('h') || e.target.classList.contains('v') ) &&
-        bars[6].classList.contains('clicked-bar') && bars[8].classList.contains('clicked-bar') &&
-        bars[9].classList.contains('clicked-bar') && bars[11].classList.contains('clicked-bar') ) {
-          boxes[3].classList.add('player1');
+  if ( currentPlayer === playerOne &&
+    bars[6].classList.contains('clicked-bar') &&
+    bars[8].classList.contains('clicked-bar') &&
+    bars[9].classList.contains('clicked-bar') &&
+    bars[11].classList.contains('clicked-bar') ) {
+      playerOne.boxes.push(1);
+      boxes[3].style.background = 'lightblue';
   };
+
+
+  if ( currentPlayer === playerTwo &&
+    bars[0].classList.contains('clicked-bar') &&
+    bars[2].classList.contains('clicked-bar') &&
+    bars[3].classList.contains('clicked-bar') &&
+    bars[5].classList.contains('clicked-bar') ) {
+      playerTwo.boxes.push(1);
+      boxes[0].style.background = 'pink';
+  };
+  if ( currentPlayer === playerTwo &&
+    bars[1].classList.contains('clicked-bar') &&
+    bars[3].classList.contains('clicked-bar') &&
+    bars[4].classList.contains('clicked-bar') &&
+    bars[6].classList.contains('clicked-bar') ) {
+      playerTwo.boxes.push(1);
+      boxes[1].style.background = 'pink';
+  };
+  if ( currentPlayer === playerTwo &&
+    bars[5].classList.contains('clicked-bar') &&
+    bars[7].classList.contains('clicked-bar') &&
+    bars[8].classList.contains('clicked-bar') &&
+    bars[10].classList.contains('clicked-bar') ) {
+      playerTwo.boxes.push(1);
+      boxes[2].style.background = 'pink';
+  };
+  if ( currentPlayer === playerTwo &&
+    bars[6].classList.contains('clicked-bar') &&
+    bars[8].classList.contains('clicked-bar') &&
+    bars[9].classList.contains('clicked-bar') &&
+    bars[11].classList.contains('clicked-bar') ) {
+      playerTwo.boxes.push(1);
+      boxes[3].style.background = 'pink';
+  };
+  if (playerOne.score === true){
+    updateScore();
+  }
 });
+
+var updateScore = function() {
+  var sum = playerOne.boxes.reduce(function(a,b){
+    return a + b;
+  })
+  p1score.textContent = sum;
+
+}

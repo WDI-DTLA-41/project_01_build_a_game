@@ -53,16 +53,16 @@ h1 {
 .clicked-bar {
   background: black;
 }
-.player1 {
+.player-one {
   background: pink;
 }
-.player2 {
+.player-two {
   background: lightblue;
 }
 input {
   text-align: center;
   font-family: 'Space Mono', monospace;
-  width: 75px;
+  width: 90px;
 }
 .new-game {
   display: inline-block;
