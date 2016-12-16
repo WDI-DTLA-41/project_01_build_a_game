@@ -7,6 +7,38 @@ var $startButton = document.querySelector('[name="start"]'),
 
 var deck = [],
     shuffledDeck= [];
+    // shuffledDeck= [
+    // {
+    //   value: 11,
+    //   suits: 'hearts',
+    //   name: 'ace',
+    //   isFaceUp: true
+    // },
+    // {
+    //   value: 3,
+    //   suits: 'hearts',
+    //   name: 'three',
+    //   isFaceUp: true
+    // },
+    // {
+    //   value: 11,
+    //   suits: 'hearts',
+    //   name: 'ace',
+    //   isFaceUp: true
+    // },
+    // {
+    //   value: 2,
+    //   suits: 'hearts',
+    //   name: 'two',
+    //   isFaceUp: true
+    // },
+    // {
+    //   value: 11,
+    //   suits: 'hearts',
+    //   name: 'ace',
+    //   isFaceUp: true
+    // },
+    // ];
 
 var players = [
   {
@@ -28,6 +60,13 @@ var value = [2,3,4,5,6,7,8,9,10,10,10,10,11],
     names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'],
     isFaceUp = [true];
 
+// var value = [5,7,11, 11, 11],
+//     suits = ['diamonds', 'clubs', 'hearts', 'spades'],
+//     names = ['five', 'seven', 'ace', 'ace', 'ace'],
+//     isFaceUp = [true];
+
+
+// commented for testing
 function createDeck() {
   for (var i = 0; i < value.length; i++) {
     for (var j = 0; j < suits.length; j++) {
@@ -158,18 +197,38 @@ function findScore(user) { //experiment passing object through
     user.score = user.score + user.hand[x].value;
   }
   //check if userscore > 21 && user.hand.value contains 11
-  if (user.score > 21 && user.hand[user.hand.length-1].value === 11) {
-    console.log('Whoah, there\'s an Ace');
-    //if so, change value of ace to 1
-    user.hand[user.hand.length-1].value = 1;
-    //update score
-    user.score = null;
-    for (var x = 0; x < user.hand.length; x++) {
+//check entire hand to see if any ace has been dealt, not just last value
+  // if (user.score > 21 && user.hand.contains.value === 11) {
+  //   console.log('Whoah, there\'s an Ace');
+  //   //if so, change value of ace to 1
+  //   user.hand[user.hand.length-1].value = 1;
+  //   //update score
+  //   user.score = null;
+  //   for (var x = 0; x < user.hand.length; x++) {
+  //     user.score = user.score + user.hand[x].value;
+  //   }
+  // }
+    while (user.score > 21) {
+      if (!user.hand.find(findAce)) {
+        // return false;
+      }
+      var changedAce = user.hand.find(findAce);
+      console.log('Whoah, there\'s an Ace');
+      //if so, change value of ace to 1
+      changedAce.value = 1;
+      //update score
+      user.score = null;
+      for (var x = 0; x < user.hand.length; x++) {
       user.score = user.score + user.hand[x].value;
     }
   }
   console.log(capFirstLetter(user.name) + ' score:' + ' ' + user.score);
   return user.score;
+}
+
+//FIND FIRST ACE
+function findAce(ace) {
+  return ace.value === 11;
 }
 
 //Winner
