@@ -76,7 +76,7 @@ function replaceDash(letter) {
 
 var showShark = function() {
   var image = document.getElementsByClassName('squatina-squatina');
-  image.classList.toggle('squatina-squatina', sharks === image)
+  image.classList.toggle('squatina-squatina')
 }
 
 // render to browser
