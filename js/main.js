@@ -3,35 +3,49 @@ console.log('aloha, dakotah!')
 var board = document.querySelector('.board');
 var battleBtn = document.querySelector('.battle');
 var dealBtn = document.querySelector('.deal');
+var shuffleBtn = document.querySelector('.shuffle');
+var resetBtn = document.querySelector('.reset');
 var $inPlayCards = document.querySelectorAll('.card');
 var $inPlayA = document.querySelector('#a');
 var $inPlayB = document.querySelector('#b');
 
 
 
-var handleClick = function (evt) {
-  console.log(evt.target);
+// var handleClick = function (evt) {
+  // console.log(evt.target);
   // $inPlayA.innerHTML = "<img src='css/cards/ace of spades.png'>"
   // $inPlayB.innerHTML = "<img src='css/cards/10 of spades.png'>"
 
-}
-
+// }
 
 
 
 // values: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-// suits: a, c, d, h
+// suits: c, d, h, s
 
 
 
+// name = ["c", "d", "h", "s"];
+// value = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k", "a"];
 
+var cardRank = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+var cardName = [2, 3, 4, 5, 6, 7, 8, 9, 10, "j", "q", "k", "a"];
+var cardSuit = ["c", "d", "h", "s"];
+var deck = [];
+var card;
 
-
-
-
-
-
-
+var createDeck = function(){
+  for (var i = 0; i < cardRank.length; i++) {
+  for (var j = 0; j < cardSuit.length; j++) {
+    card = {
+      value: cardRank[i],
+      suit: cardSuit[j]
+    };
+      deck.push(card);
+    }
+  }
+}
+createDeck();
 
 
 // ==================================================================
@@ -39,32 +53,48 @@ var handleClick = function (evt) {
 // ==================================================================
 
 
-var deck = [
-            2, 3, 4, 5, 6, 7, 8,
-            2, 3, 4, 5, 6, 7, 8
-            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-];
+// var deck = [
+//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+//             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+// ];
 
-// shuffle the deck
-var shuffle = function (deck) {
-  var currentIndex = deck.length, temporaryValue, randomIndex;
-  // while there are still cards prsent in currentDeck
-  while (0 !== currentIndex) {
-    // pick a remaining card
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    // swap it with the current card
-    temporaryValue = deck[currentIndex];
-    deck[currentIndex] = deck[randomIndex];
-    deck[randomIndex] = temporaryValue;
-  }
-  return deck;
-}
+// console.log(deck);
+
+// // shuffle the deck
+// var shuffle = function (deck) {
+//   var currentIndex = deck.length, temporaryValue, randomIndex;
+//   // while there are still cards prsent in currentDeck
+//   while (0 !== currentIndex) {
+//     // pick a remaining card
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex -= 1;
+//     // swap it with the current card
+//     temporaryValue = deck[currentIndex];
+//     deck[currentIndex] = deck[randomIndex];
+//     deck[randomIndex] = temporaryValue;
+//   }
+//   return deck;
+// }
 
 // deck = shuffle(deck)
-console.log(deck);
+// console.log(deck);
 
+// _.shuffle(deck);
+
+var shuffle = function(deck){
+  var n = deck.length, j, temp;
+  // console.log(n);
+while(--n > 0) {
+  j = Math.floor(Math.random() * (n));
+  temp = deck[j];
+  deck[j] = deck[n];
+  deck[n] = temp;
+  }
+  console.log('Shuffled deck: ', deck);
+  return deck;
+ }
 
 //deal the cards out
 var inHandA = [];
@@ -78,7 +108,6 @@ var deal = function () {
       inHandB.push(deck[i]);
     }
   }
-
   console.log("Beginning inHandA: " + inHandA);
   console.log("Beginning inHandB: " + inHandB);
 }
@@ -93,7 +122,7 @@ inWarB = inPlayB[inPlayB.length - 1]
 
 
 // ==================================================================
-// CREATE WINNING CONIDITION
+// CREATE WINNING CONIDITION / FUNCTION TO RESET THE DECK
 // ==================================================================
 
 //
@@ -108,6 +137,13 @@ var winner = function () {
   }
 }
 
+var reset = function () {
+  inHandA = [];
+  inHandB = [];
+  console.log(inHandA);
+  console.log(inHandB);
+  console.log(deck);
+}
 
 // ==================================================================
 // COMPARE VALUES OF CARDS IN PLAY
@@ -157,7 +193,7 @@ var compareWar = function () {
 }
 
 var war = function () {
-
+  console.log("War!");
   for (var i = 0; i < 4; i ++) {
     inPlayA.push(inHandA.shift());
     inPlayB.push(inHandB.shift());
@@ -193,8 +229,8 @@ var collectCardsA = function () {
   }
 
   console.log("Player A wins the war!");
-  console.log("NEW inHandA: " + inHandA);
-  console.log("NEW inHandB: " + inHandB);
+  // console.log("NEW inHandA: " + inHandA);
+  // console.log("NEW inHandB: " + inHandB);
 }
 
 var collectCardsB = function () {
@@ -205,8 +241,8 @@ var collectCardsB = function () {
     inHandB.push(inPlayB.shift());
   }
   console.log("Player B wins the war!");
-  console.log("NEW inHandA: " + inHandA);
-  console.log("NEW inHandB: " + inHandB);
+  // console.log("NEW inHandA: " + inHandA);
+  // console.log("NEW inHandB: " + inHandB);
 }
 
 
@@ -232,15 +268,16 @@ var battle = function () {
   console.log("inHandB: " + inHandB);
   console.log("inPlayB: " + inPlayB);
 
-  compare();
-  winner();
+  // compare();
+  // winner();
 }
 
 
 
 
-
+shuffleBtn.addEventListener('click', shuffle(deck))
 dealBtn.addEventListener('click', deal)
 battleBtn.addEventListener('click', battle)
+// resetBtn.addEventListener('click', reset)
 
 
