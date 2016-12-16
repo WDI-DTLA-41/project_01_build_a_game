@@ -1,7 +1,7 @@
 console.log('aloha, dakotah!')
 // buttons
 var battleBtn = document.querySelector('.battle');
-var warBtn = document.querySelector('.war');
+var warBtn = document.querySelector('.hidden');
 var dealBtn = document.querySelector('.deal');
 var shuffleBtn = document.querySelector('.shuffle');
 var resetBtn = document.querySelector('.reset');
@@ -165,10 +165,12 @@ var reset = function () {
 */
 var compare = function () {
   if (inPlayA[inPlayA.length - 1] === inPlayB[inPlayB.length - 1]) {
-    document.createElement('button');
-
     // war();
-  } else if (inPlayA[inPlayA.length - 1] > inPlayB[inPlayB.length - 1] === true){
+    battleBtn.classList.remove('battle');
+    battleBtn.classList.add('hidden');
+    warBtn.classList.remove('hidden');
+    warBtn.classList.add('war');
+  } else if (inPlayA[inPlayA.length - 1] > inPlayB[inPlayB.length - 1]){
     // a acquires b's card
     inHandA.push(inPlayB.shift());
     // used card and new card are pushed to
@@ -199,11 +201,16 @@ var compareWar = function () {
   inWarB = inPlayB[inPlayB.length - 1]
   if (inWarA === inWarB) {
     war();
-   } else if (inWarA > inWarB === true) {
+   } else if (inWarA > inWarB) {
     collectCardsA();
    } else {
     collectCardsB();
    }
+
+  battleBtn.classList.remove('hidden');
+  battleBtn.classList.add('battle');
+  warBtn.classList.remove('war');
+  warBtn.classList.add('hidden');
 }
 
 var war = function () {
