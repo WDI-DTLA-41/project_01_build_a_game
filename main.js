@@ -1,3 +1,22 @@
+var resetScore = function(){
+  pOneWin = 0;
+  pOneLoss = 0;
+  pTwoWin = 0;
+  pTwoLoss = 0;
+  ptOneWin = 0;
+  ptOneLoss = 0;
+  ptTwoWin = 0;
+  ptTwoLoss = 0;
+  player1WinTally.textContent = pOneWin;
+  player1LossTally.textContent = pOneLoss;
+  player2WinTally.textContent = pTwoWin;
+  player2LossTally.textContent = pTwoLoss;
+  player1TournamentWinTally.textContent = ptOneWin;
+  player1TournamentLossTally.textContent = ptOneLoss;
+  player2TournamentWinTally.textContent = ptTwoWin;
+  player2TournamentLossTally.textContent = ptTwoLoss;
+}
+
 var gameWinner = function() {
     testTurn = playerTurn();
     if(testTurn === 'Player 1'){
@@ -186,9 +205,6 @@ var horizontalRight2Left1 = function(target,rowNum,colNum){
 }
 
 var checkWin = function(target,rowNum,columnNum){
-  //console.log(target);
-  //console.log(rowNum);
-  //console.log(columnNum);
   var colNum = parseInt(columnNum);
   verticalUp(target,rowNum,colNum);
   verticalDown(target,rowNum,colNum);
@@ -230,7 +246,6 @@ var inputPiece = function(evtTarget){
 }
 
 var playerTurn = function(){
-  setTimeout(function(){},100000);
   if (num % 2 === 0){
         num++;
     return player1;
@@ -300,13 +315,11 @@ var resetGame = function(){
 }
 
 var startTournament = function(){
-      for(var i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','player1Hov');
-      }
-      //testTurn = playerTurn();
-      turnResult.textContent = playerTurn();
-      pieceTitle.textContent = 'Move Select Below';
-      moveSelectTable.addEventListener('click', gameFunc);
+      startGame();
+      player1TournamentWinTally.textContent = ptOneWin;
+      player1TournamentLossTally.textContent = ptOneLoss;
+      player2TournamentWinTally.textContent = ptTwoWin;
+      player2TournamentLossTally.textContent = ptTwoLoss;
 }
 
 var startGame = function(){
@@ -333,8 +346,11 @@ var buttonLogic = function(){
   if(event.target.getAttribute('id') === 'resetGameButton'){
     resetGame();
   }
-  if(event.target.getAttribute('id') === 'resestTournamentButton'){
+  if(event.target.getAttribute('id') === 'resetTournamentButton'){
     resetTournament();
+  }
+  if(event.target.getAttribute('id') === 'clearScore'){
+    resetScore();
   }
 }
 
@@ -380,6 +396,10 @@ var pOneWin = 0;
 var pOneLoss = 0;
 var pTwoWin = 0;
 var pTwoLoss = 0;
+var ptOneWin = 0;
+var ptOneLoss = 0;
+var ptTwoWin = 0;
+var ptTwoLoss = 0;
 
 createBoard();
 var tablePiece = document.querySelectorAll('table>tr>td>div');
