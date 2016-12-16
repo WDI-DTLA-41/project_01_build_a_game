@@ -9,10 +9,11 @@ var playerOne = [];
 var dealer = [];
 
 var playerScore = 0;
-
-var newSpan = document.querySelector('#playerscore');
-  newSpan.textContent = playerScore;
-
+var dealerScore = 0;
+var playerScoreEl = document.querySelector('#playerscore');
+  playerScoreEl.textContent = playerScore;
+var dealerScoreEl = document.querySelector('#dealerscore');
+    dealerScoreEl.textContent = dealerScore;
 
 
 // make deck
@@ -44,10 +45,10 @@ shuffleDeck();
 
 var deal = function(){
   // take two things out
-  hit();
-  hit();
+  hit(playerOne);
+  hit(playerOne);
   var card = deck.pop()
-  dealer.push(card);
+  hit(dealer);
   var playerScore = getValues(playerOne);
   console.log("player score is " + playerScore);
   var dealerScore = getValues(dealer);
@@ -61,9 +62,14 @@ var deal = function(){
     }
   // else get another card
 }
-var hit = function () {
+var hit = function (player) {
     var card = deck.pop()
-    playerOne.push(card);
+    player.push(card);
+}
+
+var dealerHit = function() {
+  var card = deck.pop()
+  dealer.push(card);
 }
 // get dealer score
 var getValues = function(cards) {
@@ -84,13 +90,48 @@ var getValues = function(cards) {
     }
     sum += val
   }
+  displayValues(sum);
   return sum;
   console.log('working');
 }
 
+function displayValues(sum) {
+  playerScoreEl.textContent = sum;
+
+}
 // conditions for the win
 // how to set dealerScore
-// if (playerScore > dealerScore) {
+
+
+
+
+var stayButton = document.querySelector('#stay');
+stayButton.addEventListener('click', function (){
+  //  Dealer plays.
+  // if score >= 17 stay
+  // else, while score < 17 => hit
+  console.log('dealers turn');
+
+});
+
+
+var dealButton = document.querySelector('#deal');
+dealButton.addEventListener('click', function() {
+// newSpan.textContent = getValues(playerOne);
+  deal();
+  console.log('deal');
+  var newDiv = document.createElement('div');
+  newDiv.classList.add('card');
+  var newDiv = document.createElement('div');
+  newDiv.classList.add('card');
+  document.body.appendChild(newDiv);
+  document.body.appendChild(newDiv);
+
+   playerScore = getValues(playerOne);
+    if(playerScore === 21) {
+      console.log("You Got 21!");
+    }
+//       if (playerScore > dealerScore) {
 //   console.log("You Win!");
 // } else if(dealerScore > playerScore) {
 //   console.log('You lose.');
@@ -99,39 +140,11 @@ var getValues = function(cards) {
 // } else {
 //   console.log("No one planned for this");
 // }
-
-
-
-var stayButton = document.querySelector('#stay');
-stayButton.addEventListener('click', function (){
-  //  Dealer plays.
-  console.log('dealers turn');
-});
-
-
-var dealButton = document.querySelector('#deal');
-dealButton.addEventListener('click', function() {
-// newSpan.textContent = getValues(playerOne);
-
-  deal();
-  console.log('deal');
-  var newDiv = document.createElement('div');
-  newDiv.classList.add('card');
-  var newDiv = document.createElement('div');
-  newDiv.classList.add('card');
-
-  document.body.appendChild(newDiv);
-  document.body.appendChild(newDiv);
-
-   playerScore = getValues(playerOne);
-    if(playerScore === 21) {
-      console.log("You Got 21!");
-    }
 });
 
 var hitButton = document.querySelector('.hit');
 hitButton.addEventListener('click', function(){
-    hit();
+    hit(playerOne);
     var newDiv = document.createElement('div');
   newDiv.classList.add('card');
   document.body.appendChild(newDiv);
