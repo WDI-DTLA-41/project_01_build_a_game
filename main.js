@@ -5,6 +5,7 @@ var p1score = document.querySelector('.p1-score');
 var p2score = document.querySelector('.p2-score');
 var button = document.querySelector('button');
 var $divs  = document.querySelectorAll('.divs');
+var $winText = document.querySelector('h1');
 var $boxes = [];
 var bars   = [];
 
@@ -205,47 +206,20 @@ var updateScore = function() {
     return a + b;
   });
   p2score.textContent = sum2;
-  if (sum1 === 3) {
-    alert(playerOne.name + ' wins!')
+  if (sum1 === 3 && sum2 === 1) {
+    $winText.textContent = playerOne.name + ' wins!';
   }
-  if (sum2 === 3) {
-    alert(playerTwo.name + ' wins!')
-  }
-  if (sum1 === 2 && sum1 == 2) {
-    alert("it's a tie!")
+  if (sum2 === 3 && sum1 === 1) {
+    $winText.textContent = playerTwo.name + ' wins!';
+      }
+  if (sum1 === 2 && sum2 === 2) {
+    $winText.textContent = "it's a tie!";
   }
 }
 
 function newGame() {
-
-  currentPlayer = playerOne;
-  $boxes = [];
-  bars   = [];
-
-  p1boxes = [0,0,0,0];
-  p2boxes = [0,0,0,0];
-
-
-  var playerOne = {
-    name:   null,
-    boxes:    [],
-    number:'one',
-    first:  null,
-    second: null,
-    third:  null,
-    fourth: null
-    }
-  var playerTwo = {
-    name:   null,
-    boxes:    [],
-    number:'two',
-    first:  null,
-    second: null,
-    third:  null,
-    fourth: null
-  };
+  window.location.reload(true);
 }
-
 button.addEventListener('click', newGame)
 board.addEventListener('click', barClassAdder)
 board.addEventListener('click', boxChecker)
