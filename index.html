@@ -13,6 +13,7 @@
   </div> -->
 
   <button id="deal">Deal</button>
+
   <button class="hit">Hit</button>
   <button id="stay">Stay</button>
   <div id="scorebox">SCORE
@@ -21,6 +22,14 @@
   </div>
 
 
+  <script type ="text/javascript">
+      var dealButton = document.getElementById('deal')
+      dealButton.addEventListener('click', hideshow, false);
+            function hideshow () {
+              document.getElementById('deal').style.display = 'inline';
+                this.style.display = 'none'
+            }
+            </script>
 
   <script src="https://cdn.jsdelivr.net/lodash/4.16.3/lodash.min.js"></script>
   <script src="main.js"></script>

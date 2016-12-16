@@ -19,6 +19,9 @@ var dealerScoreEl = document.querySelector('#dealerscore');
 
 
 // make deck
+/**
+* makes a deck of cards
+*/
 var makeDeck = function() {
   for(var i = 0; i < suits.length; i++) {
    var suit = suits[i];
@@ -60,7 +63,10 @@ var deal = function(){
       console.log("Blackjack, Wou Win!");
     }
     if(dealerScore === 21){
-      console.log("Dealer has 21.");
+      console.log("Dealer has 21, you lose");
+      if (dealerScore === 21 && playerScore === 21) {
+        console.log(" You Push, No Winner");
+      }
     }
   // else get another card
 }
@@ -73,9 +79,23 @@ var dealerHit = function() {
   var card = deck.pop()
   dealer.push(card);
   // console.log('dealer hits');
+  if(dealerScore <= 16) {
+  dealerHit();
+  } else if(dealerScore >= 17) {
+  dealerStay();
+  }
 }
-dealerHit();
 // get dealer score
+
+var dealerStay = function() {
+  if(playerScore > dealerScore) {
+    console.log("You Win!");
+  } else if(playerScore < dealerScore) {
+    console.log("You Lose");
+  } else if(playerScore === dealerScore) {
+    console.log("Push it real good.");
+  }
+}
 
 var getValues = function(cards) {
   var sum = 0;
@@ -103,29 +123,16 @@ var getValues = function(cards) {
 function displayValues(sum) {
   playerScoreEl.textContent = sum;
   dealer
+  dealerScoreEl.textContent = dealerScore;
 
 }
 // conditions for the win
-// how to set dealerScore
-
-
-
-
-var stayButton = document.querySelector('#stay');
-stayButton.addEventListener('click', function (){
-  //  Dealer plays.
-  // if score >= 17 stay
-  // else, while score < 17 => hit
-  console.log('dealers turn');
-
-});
-
 
 var dealButton = document.querySelector('#deal');
-dealButton.addEventListener('click', function() {
+dealButton.addEventListener('click', function(event) {
 // newSpan.textContent = getValues(playerOne);
   deal();
-  console.log('deal');
+  // console.log('deal');
   var newDiv = document.createElement('div');
   newDiv.classList.add('card');
   var newDiv = document.createElement('div');
@@ -161,4 +168,13 @@ hitButton.addEventListener('click', function(){
       console.log("You Busted");
 
     }
+});
+
+var stayButton = document.querySelector('#stay');
+stayButton.addEventListener('click', function (){
+  //  Dealer plays.
+  // if score >= 17 stay
+  // else, while score < 17 => hit
+  console.log('dealers turn');
+
 });

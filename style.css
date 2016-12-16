@@ -28,6 +28,9 @@ div {
 span {
   font-size: 29px;
 }
+#deal {
+  display: inline;
+}
 #scorebox {
   top: 240px;
   height: 80px;
