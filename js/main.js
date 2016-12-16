@@ -32,7 +32,7 @@ var sharks = randomizeWords(sharkNames);
 
 
 // convert word to individual letters
-var letters = sharks.split(" ");
+var letters = sharks.split("");
 
 
 // convert split up word to equivalent number of dashes
@@ -70,14 +70,14 @@ function replaceDash(letter) {
   }
   if (dashWord.join("") === sharks){
     winAlert();
-    showShark();
+    // showShark();
   }
 }
 
-var showShark = function() {
-  var image = document.getElementsByClassName('squatina-squatina');
-  image.classList.toggle('squatina-squatina')
-}
+// var showShark = function() {
+//   var image = document.getElementsByClassName('squatina-squatina');
+//   image.classList.toggle('squatina-squatina')
+// }
 
 // render to browser
 function render(x) {
@@ -144,7 +144,7 @@ function wrongGuess(letter) {
 
 function winAlert() {
   var alert = document.getElementById("alert");
-  alert.textContent = "You Win!";
+  alert.textContent = "You Survived!";
 };
 
 var counter = 0;

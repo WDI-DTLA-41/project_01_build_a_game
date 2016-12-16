@@ -23,6 +23,7 @@ body {
 #input {
 display: block;
 margin: 100px auto 0;
+text-align: center;
 }
 
 #button {
@@ -61,13 +62,9 @@ h3 {
   width: 100%;
   margin: 20px auto;
   text-align: center;
-  font-size: 32px;
+  font-size: 30px;
   font-family: 'Julius Sans One', sans-serif;
   color: white;
-  transition: height .5s;
-  -webkit-transition: height .5s;
-  -moz-transition: height .5s;
-
 }
 
 #usedLtr {
@@ -80,10 +77,11 @@ h3 {
 }
 
 #alert {
-  font-size: 40px;
-  width: 75px;
+  font-size: 50px;
+  text-align: center;
   margin: 24px auto -71px;
   color: red;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .gallowBox {
@@ -94,7 +92,65 @@ h3 {
 }
 
 .gallows {
-  height: 500px;
+  height: 580px;
+}
+
+.deadShark {
+  position: absolute;
+  width: 175px;
+  margin-left: 145px;
+  margin-top: 90px;
+}
+
+#lTail {
+  display: inline-block;
+    width: 70px;
+    margin-right: -4px;
+}
+
+#rTail {
+display: inline-block;
+    width: 70px;
+    margin-Left: 20px;
+
+}
+
+#lPelvic {
+display: inline-block;
+    width: 70px;
+    margin-top: -1px;
+}
+
+#rPelvic {
+display: inline-block;
+    width: 70px;
+    margin-top: -3px;
+    margin-left: 16px;
+}
+
+#lBody {
+display: inline-block;
+    width: 70px;
+    margin-top: -3px;
+}
+
+#rBody {
+display: inline-block;
+    width: 70px;
+    margin-top: -4px;
+    margin-left: 16px;
+}
+
+#lHead {
+display: inline-block;
+    width: 70px;
+
+}
+
+#rHead {
+display: inline-block;
+    width: 70px;
+    margin-left: 16px;
 }
 
 #sharkCage {
