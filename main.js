@@ -54,8 +54,13 @@ var $play = document.querySelector('#play');
   Remove the stop button, instead, add gameover()
  **/
 
-var $stop = document.querySelector('#stop');
-
+var $reset = document.querySelector('#reset');
+var resetGame = function() {
+      cardsPlaying = cardsDefault;
+      player1.innerHTML = "";
+      player2.innerHTML = "";
+      startGame();
+}
 
 
 
@@ -75,8 +80,8 @@ var makeDeck = function() {
 }
 
 var startGame = function(){
-
-  //cards = makeDeck();
+  alert('The game is starting, press Play');
+  //cards
   connectBoard();
    showImg = document.querySelectorAll('.gameBoard>div');
    showImg[0].appendChild.innerHTML = '<img src="images/2clubs.jpg">';
@@ -103,9 +108,11 @@ var turnCards = function() {
     compareCards(topCardP1, topCardP2);
     if (topCardP1 === undefined){
         alert('Player 2 wins! GAME OVER');
+        resetGame();
         //connectBoard();
     } else if (topCardP2 === undefined) {
         alert('Player 1 wins! GAME OVER');
+        resetGame();
         //connectBoard();
     }
 
@@ -179,8 +186,6 @@ function compareCards(compareCardP1, compareCardP2) {
           console.log(player1Deck);
           console.log(player2Deck);
 
-
-
           if (tempHand1[0] > tempHand2[0]) {
               var removedCard1 = player1Deck.shift();
               var removedCard2 = player2Deck.shift();
@@ -225,7 +230,7 @@ function compareCards(compareCardP1, compareCardP2) {
 // start button
 $start.addEventListener('click', startGame);
 // Play button
-$stop.removeEventListener('click',compareCards);
+$reset.addEventListener('click',resetGame);
 
 // subtract 10 cards from deck (loser of war)
 /// this is how we could put cards for war in a holding tank first
@@ -233,13 +238,14 @@ $stop.removeEventListener('click',compareCards);
 var warCardsRemoved = function() {
       tempHand1 = player1Deck.slice(0, 4);  // this removes first 4 cards
       tempHand2 = player2Deck.slice(0, 4);  // this removes first 4 cards
+      player1.innerHTML = tempHand1[0];
+      player2.innerHTML = tempHand2[0];
       // below code is above added at Line 179
       // var compareCardP1 = tempHand1[0];    // compares 1st card
       // var compareCardP2 = tempHand2[0];    // compares 1st card
       //player1.concat(tempHand1, tempHand2); // this adds 8 cards to winner
 }
-// var startWar = function () {
-//     // run func to hold out cards 3 facedown, 1 up
+
 
 
 gameOver = function () {
