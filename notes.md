@@ -133,5 +133,47 @@ objects
 
 user.hand[].name
 
+If user's score is less than 21
+add new card value to player score
+if player's score is over 21
+check each card in player's hand
+if a card is an ace(1), change its value to 1 & change its name to aceused
+check total 
+if score over 21, search for ace
+if a card is an ace(2), change its value to 1 and change its name to aceused
+check total
+if score over 21, search for an ace
+if a card is an ace(3), change its value to 1 and change its name to aceused
+check total
+if score over 21, search for an ace
+if card is an ace(4), keep value to 11
+
+var calculateHandOf = function(user) {
+    if (user.score < 21) {
+        user.score = user.score + user.hand[user.hand.length-1].value;
+    }
+    if (user.score > 21) {
+        for (var i = 0; i < user.hand.length; i++) {
+            if (user.hand[i].name == "ace") {
+                user.hand[i].name = "aceused";
+                user.hand[i].value = 1;
+            }
+        }
+    }
+}
+
+// if (user.score > 21) {
+    for (var i = 0; i < user.hand.length; i++) {
+      if (user.hand[i].name === "ace" && aces > 1) {
+        console.log('Ace value converting to 1 from 11');
+        // user.hand[i].value = 1;  //caused problem in 2 ace situation
+        user.score = user.score - 10;
+        aces = aces + 1;
+        user.hand[i].name = "aceused";
+      }
+    }
+  // }
+
+  
 
 

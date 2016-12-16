@@ -2,11 +2,13 @@
 var deck;
 var suits = ['hearts', 'clubs', 'spades', 'diamonds'];
 var cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+// var cardValues = [11, 7, 7, 11, 11];
 var names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
-var dealerHand = []; // not req after using player & dealer
-var playerHand = []; // not req after using player & dealer
-var dealerScore = null; //
-var playerScore = null; //
+// var names = ['ace', 'seven', 'seven', 'ace', 'ace'];
+// var dealerHand = []; // not req after using player & dealer
+// var playerHand = []; // not req after using player & dealer
+// var dealerScore = null; //
+// var playerScore = null; //
 
 var dealer = {
   score: 0,
@@ -83,9 +85,9 @@ var dealCards = function() {
   // playerScore = playerHand[0].value + playerHand[1].value;
 
   //add auto-win conditions here(21)
-
   console.log('Dealer Score Is:' + dealer.score);
   console.log('Player Score Is:' + player.score);
+  dealScoreCompare();
 };
 
 
@@ -99,20 +101,26 @@ var dealCards = function() {
 //   playerScore = playerScore + playerHand[playerHand.length-1].value;
 // }
 
-
-// haven't found a case where converting ace from 11 to 1 breaks
 // takes an object(player or dealer) and calculates the scores for that 'user'[parameter]
+// while loop checks for aces to convert to value 1 if user score over 21
 var calculateHandOf = function(user) {
   user.score = user.score + user.hand[user.hand.length-1].value;
-  if (user.score > 21) {
-    for (var i = 0; i < user.hand.length; i++) {
-      if (user.hand[i].name == "ace") {
-        console.log('Ace value converting to 1 from 11');
-        user.hand[i].value = 1;
-        user.score = user.score - 10;
-      }
+  while(user.score > 21) {
+    if (!user.hand.find(findAce)) {
+      return false;
     }
+    var changedAce = user.hand.find(findAce);
+     changedAce.value = 1;
+     user.score = null;
+     for (var x = 0; x < user.hand.length; x++) {
+      user.score = user.score+user.hand[x].value;
+     }
   }
+  return user.score;
+};
+
+var findAce = function (ace){
+  return ace.value === 11;
 };
 
 var playerHit = function(result) {
@@ -141,9 +149,10 @@ var dealerTurn = function(result) {
   if (dealer.score > 21) {
     console.log('Dealer Went BUST! You Win!');
     return dealer.score;
-    //also need to compare with user
+    // dealer loses automatically if user has stayed
   } else if (dealer.score === 21) {
       console.log('Dealer Hits BlackJack. Sorry!');
+      endScoreCompare();
       return dealer.score;
       //also need to compare with user
   } else if (dealer.score < 17){
@@ -155,8 +164,10 @@ var dealerTurn = function(result) {
     //make dealer draw another card
   } else {
     console.log('Dealer Score is: ' + dealer.score);
+    endScoreCompare();
     return dealer.score;
   }
+
 }
 
 //function to reset score (called: at the beginning of a new hand)
@@ -168,9 +179,34 @@ var resetHands = function() {
 };
 
 // function to compare dealer score with player's score
-var scoreCompare = function(result) {
+var dealScoreCompare = function(result) {
+  if (dealer.score === 21 && player.score === 21) {
+    console.log("It's a push!");
+    return result;
+  } else if (dealer.score === 21 && player.score < 21) {
+    console.log("Dealer Hits Blackjack. Sorry, You Lose! Try Again")
+    return result;
+  } else if (player.score === 21 && dealer.score < 21) {
+    console.log("You Hit Blackjack! You Win! Play Again")
+    return result;
+  }
+};
 
-}
+
+
+var endScoreCompare = function(result) {
+  if (dealer.score === player.score)
+  {
+    console.log("It's a push!");
+    return result;
+  } else if (dealer.score > player.score) {
+    console.log("Dealer Wins :( Try Again!");
+    return result;
+  } else if (dealer.score < player.score) {
+    console.log("You Beat The Dealer! Moneybags!");
+    return result;
+  }
+};
 
 // dealerTurn not perfect
 // var dealerTurn = function(result) {
