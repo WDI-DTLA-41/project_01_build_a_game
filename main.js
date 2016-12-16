@@ -1,10 +1,10 @@
 var $gamePiece = document.querySelector('.gamePiece');
-var red = document.querySelector('#red');
-var yellow = document.querySelector('#yellow');
-var blue = document.querySelector('#blue');
-var green = document.querySelector('#green');
+var $red = document.querySelector('#red');
+var $yellow = document.querySelector('#yellow');
+var $blue = document.querySelector('#blue');
+var $green = document.querySelector('#green');
 var simonSequence = [];
-var simonGeneratorIndex = [red, green, yellow, blue];
+var simonGeneratorIndex = [$red, $green, $yellow, $blue];
 var userSequence = [];
 var sequenceLength = 1;
 var $streak = document.querySelector('#streak');
@@ -13,7 +13,7 @@ var $record = document.querySelector('#record');
 var record = 0;
 var $start = document.querySelector('#start');
 var $restart = document.querySelector('#restart');
-var colorToLight;
+// var colorToLight;
 // = [{}];
 
 // find a way to make Simon play his sequence
@@ -99,8 +99,11 @@ var handleUserSequence = function(event){
   console.log('user sequence: ', userSequence);
   if(simonSequence.length === userSequence.length){
     if(sequenceMatch()){
-    generateSimonSequence();
-    };
+      generateSimonSequence();
+    } else {
+      alert("Wah wah. Wrong move! Play again?")
+    }
+    ;
   };
 };
 
