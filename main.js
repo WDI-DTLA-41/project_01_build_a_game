@@ -63,22 +63,6 @@ var resetGame = function() {
 }
 
 
-
-//shuffle(deckOfCards);
-var makeDeck = function() {
-  // organize cards function. Ace is #14
-  // each row represents card suit
-  // var cards = [
-  //   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12 CLUBS
-  //   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 13-25 SPADES
-  //   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 26-38 DIAMONDS
-  //   2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51 HEARTS
-  // ];
-
-  //shuffleArray(cards);
-  return cards;
-}
-
 var startGame = function(){
   alert('The game is starting, press Play');
   //cards
@@ -157,12 +141,6 @@ function compareCards(compareCardP1, compareCardP2) {
 
     } else if (compareCardP1 < compareCardP2) {
 
-          // If WAR flag is on, do this, if off, fall through
-          // if (isWar !== false) {
-          //     console.log("At war");
-          //     startWar();
-          // }
-
         //logic here to add card back
         // remove cards from players' hands
         var removedCard1 = player1Deck.shift();
@@ -177,7 +155,7 @@ function compareCards(compareCardP1, compareCardP2) {
    } else if (compareCardP1 === compareCardP2){
 
           // cards match
-          // War function
+          // Alert War
           alert('Declare War');
 
           //This logic needs to work
@@ -217,15 +195,8 @@ function compareCards(compareCardP1, compareCardP2) {
               isWar = false;
               alert('Player 2 is WINNER of WAR!');
           }
+    }
 }
-}
-
-
-
-// war might actually be part of compareCards
-// and we just use isWar to change variables
-// function of War comparison
-// var war = function () {
 
 // start button
 $start.addEventListener('click', startGame);
@@ -240,10 +211,6 @@ var warCardsRemoved = function() {
       tempHand2 = player2Deck.slice(0, 4);  // this removes first 4 cards
       player1.innerHTML = tempHand1[0];
       player2.innerHTML = tempHand2[0];
-      // below code is above added at Line 179
-      // var compareCardP1 = tempHand1[0];    // compares 1st card
-      // var compareCardP2 = tempHand2[0];    // compares 1st card
-      //player1.concat(tempHand1, tempHand2); // this adds 8 cards to winner
 }
 
 
