@@ -43,6 +43,8 @@ var randomNumber = function() {
   number = Math.floor(Math.random()*10)
 }
 
+var scream = new Audio("assets/scream.wav");
+
 //this chooses a random word
 function getWord(){
   randomNumber();
@@ -128,6 +130,7 @@ function getLetterEnter(evt){
       noMatch.push(1);
       if (noMatch.length === 6) {
       setTimeout(function(){alert('Sorry, you lose!')}, 200);
+      scream.play();
       underscores = playWord;
       placeholders.textContent = underscores;
       }
