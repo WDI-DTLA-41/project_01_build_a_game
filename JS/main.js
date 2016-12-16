@@ -227,6 +227,11 @@ var handleHardMode = function() {
   audioOne[9].play();
 }
 
+var handleColor = function () {
+  this.style
+}
+
+
 // add EventListener for startBtn to start game
 startBtn.addEventListener('click',handleStartGame);
 
@@ -236,7 +241,8 @@ hardMode.addEventListener('click', handleHardMode);
 // add EventListener for Replay button
 replayBtn.addEventListener('click', handleReplay);
 
-
+// remove color style on click
+btnContainer.addEventListener('click', handleColor)
 
 
 
