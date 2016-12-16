@@ -1,0 +1,49 @@
+body {
+  background: black;
+}
+
+.board {
+  width: 100%;
+  /*margin: 0 auto;*/
+  background: blue;
+  text-align: center;
+}
+
+.dealarea {
+  background: red;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.userarea {
+  background: green;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.userinputs {
+  background: teal;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.newhand {
+  margin: 0 auto;
+  display: block;
+}
+
+.deal {
+  margin: 0 auto;
+  display: block;
+}
+
+.hit {
+  margin: 0 auto;
+  display: block;
+}
+
+.stay {
+  margin: 0 auto;
+  display: block;
+}
