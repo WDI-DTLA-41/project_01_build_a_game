@@ -60,7 +60,11 @@ for (x = 0; x < words.length; x++){
 button.removeEventListener('click', getWord);
 }
 
-//this grabs the input value
+/**
+  * User inputs a letter guess into input field
+  * This function gets that letter and assigns it to variable letter
+  * then converts it to uppercase
+  */
 function getLetter(){
   letter = document.querySelector('input').value;
   letter = letter.toUpperCase();
@@ -122,7 +126,7 @@ function getLetterEnter(evt){
       j= j + 1;
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
-      if (noMatch.length === 6 || noMatch.length === playWord.length) {
+      if (noMatch.length === 6) {
       setTimeout(function(){alert('Sorry, you lose!')}, 200);
       underscores = playWord;
       placeholders.textContent = underscores;
