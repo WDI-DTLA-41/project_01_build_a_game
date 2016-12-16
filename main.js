@@ -1,17 +1,16 @@
 var board   = document.querySelector('.board');
 var input1  = document.querySelector('.p1');
 var input2  = document.querySelector('.p2');
-var p1score = document.querySelector('p1-score');
-var p2score = document.querySelector('p2-score');
-
+var p1score = document.querySelector('.p1-score');
+var p2score = document.querySelector('.p2-score');
+var button = document.querySelector('button');
 var $divs  = document.querySelectorAll('.divs');
 var $boxes = [];
 var bars   = [];
 
-var boxOne   = [];
-var boxTwo   = [];
-var boxThree = [];
-var boxFour  = [];
+var p1boxes = [0,0,0,0];
+var p2boxes = [0,0,0,0];
+
 
 var playerOne = {
   name:   null,
@@ -83,6 +82,7 @@ function barClassAdder(e){
   if ( e.target.classList.contains('h') || e.target.classList.contains('v') ) {
     e.target.classList.add('clicked-bar');
     nextTurn();
+    // updateScore();
   }
 }
 
@@ -94,49 +94,51 @@ function boxChecker(e){
       bars[2].classList.contains('clicked-bar') &&
       bars[3].classList.contains('clicked-bar') &&
       bars[5].classList.contains('clicked-bar') ) {
-        if ( !playerTwo.first ){
-          playerOne.boxes.push(1);
+        if ( playerTwo.first === null && p1boxes[0] === 0 ){
+          p1boxes[0] = 1;
           playerOne.first = 'playerOne';
           $boxes[0].style.background = 'lightblue';
           nextTurn()
+          // updateScore();
         }
     }
     if ( bars[1].classList.contains('clicked-bar') &&
       bars[3].classList.contains('clicked-bar') &&
       bars[4].classList.contains('clicked-bar') &&
       bars[6].classList.contains('clicked-bar') ) {
-        if ( !playerTwo.second ){
-          playerOne.boxes.push(1);
+        if ( playerTwo.second === null && p1boxes[1] === 0 ){
+          p1boxes[1] = 1;
           playerOne.second = 'playerOne';
           $boxes[1].style.background = 'lightblue';
           nextTurn()
+          // updateScore();
         }
     };
     if ( bars[5].classList.contains('clicked-bar') &&
       bars[7].classList.contains('clicked-bar') &&
       bars[8].classList.contains('clicked-bar') &&
       bars[10].classList.contains('clicked-bar') ) {
-        if ( !playerTwo.third ){
-          playerOne.boxes.push(1);
+        if ( playerTwo.third === null && p1boxes[2] === 0 ){
+          p1boxes[2] = 1;
           playerOne.third = 'playerOne';
           $boxes[2].style.background = 'lightblue';
           nextTurn()
+          // updateScore();
         }
     };
     if ( bars[6].classList.contains('clicked-bar') &&
       bars[8].classList.contains('clicked-bar') &&
       bars[9].classList.contains('clicked-bar') &&
       bars[11].classList.contains('clicked-bar') ) {
-        if ( !playerTwo.fourth ){
-          playerOne.boxes.push(1);
+        if ( playerTwo.fourth === null && p1boxes[3] === 0 ){
+          p1boxes[3] = 1;
           playerOne.fourth = 'playerOne';
           $boxes[3].style.background = 'lightblue';
           nextTurn()
+          // updateScore();
         }
     };
-    if (playerOne.score === true){
-      updateScore();
-    }
+    // updateScore();
   }
 
 
@@ -145,60 +147,112 @@ function boxChecker(e){
       bars[2].classList.contains('clicked-bar') &&
       bars[3].classList.contains('clicked-bar') &&
       bars[5].classList.contains('clicked-bar') ) {
-        if ( !playerOne.first ){
-          playerTwo.boxes.push(1);
+        if ( playerOne.first === null && p2boxes[0] === 0){
+          p2boxes[0] = 1;
           playerTwo.first = 'playerTwo';
           $boxes[0].style.background = 'pink';
           nextTurn();
+          // updateScore();
         }
     }
     if ( bars[1].classList.contains('clicked-bar') &&
       bars[3].classList.contains('clicked-bar') &&
       bars[4].classList.contains('clicked-bar') &&
       bars[6].classList.contains('clicked-bar') ) {
-        if ( !playerOne.second ){
-          playerTwo.boxes.push(1);
+        if ( playerOne.second === null && p2boxes[1] === 0 ){
+          p2boxes[1] = 1;
           playerTwo.second = 'playerTwo';
           $boxes[1].style.background = 'pink';
           nextTurn();
+          // updateScore();
         }
     };
     if ( bars[5].classList.contains('clicked-bar') &&
       bars[7].classList.contains('clicked-bar') &&
       bars[8].classList.contains('clicked-bar') &&
       bars[10].classList.contains('clicked-bar') ) {
-         if ( !playerOne.third ){
-          playerTwo.boxes.push(1);
+         if ( playerOne.third === null && p2boxes[2] === 0 ){
+          p2boxes[2] = 1;
           playerTwo.third = 'playerTwo';
           $boxes[2].style.background = 'pink';
           nextTurn();
+          // updateScore();
         }
     };
     if ( bars[6].classList.contains('clicked-bar') &&
       bars[8].classList.contains('clicked-bar') &&
       bars[9].classList.contains('clicked-bar') &&
       bars[11].classList.contains('clicked-bar') ) {
-        if ( !playerOne.fourth ){
-          playerTwo.boxes.push(1);
+        if ( playerOne.fourth === null && p2boxes[3] === 0 ){
+          p2boxes[3] = 1;
           playerTwo.fourth = 'playerTwo';
           $boxes[3].style.background = 'pink';
           nextTurn();
+          // updateScore();
         }
     };
-    if (playerTwo.score === true){
-      updateScore();
-    }
+  }
+  updateScore();
+}
+
+var updateScore = function() {
+
+  var sum1 = p1boxes.reduce(function(a,b){
+    return a + b;
+  });
+  p1score.textContent = sum1;
+  var sum2 = p2boxes.reduce(function(a,b){
+    return a + b;
+  });
+  p2score.textContent = sum2;
+  if (sum1 === 3) {
+    alert(playerOne.name + ' wins!')
+  }
+  if (sum2 === 3) {
+    alert(playerTwo.name + ' wins!')
+  }
+  if (sum1 === 2 && sum1 == 2) {
+    alert("it's a tie!")
   }
 }
 
+function newGame() {
+
+  currentPlayer = playerOne;
+  $boxes = [];
+  bars   = [];
+
+  p1boxes = [0,0,0,0];
+  p2boxes = [0,0,0,0];
+
+
+  var playerOne = {
+    name:   null,
+    boxes:    [],
+    number:'one',
+    first:  null,
+    second: null,
+    third:  null,
+    fourth: null
+    }
+  var playerTwo = {
+    name:   null,
+    boxes:    [],
+    number:'two',
+    first:  null,
+    second: null,
+    third:  null,
+    fourth: null
+  };
+}
+
+button.addEventListener('click', newGame)
 board.addEventListener('click', barClassAdder)
 board.addEventListener('click', boxChecker)
 
 
-var updateScore = function() {
-  var sum = playerOne.boxes.reduce(function(a,b){
-    return a + b;
-  })
-  p1score.textContent = sum;
 
-}
+
+
+
+
