@@ -256,5 +256,14 @@ Array[5]
 Features:
 deck shouldn't shuffle after every hand 
 
+var card = {
+//   name: 'fillmurray.com',
+//   size: '100/100',
+// }
 
+// var img = document.createElement('img');
+// img.src = 'http://' + card.name + '/' + card.size;
+// document.body.append(img);
 
+Image width-height ratio
+.688

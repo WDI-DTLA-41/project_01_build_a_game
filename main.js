@@ -1,9 +1,10 @@
 // create a deck of cards
 var deck;
-var suits = ['♥', '♣', '♠', '♦'];
+// var suits = ['♥', '♣', '♠', '♦'];
+var suits = ['hearts', 'clubs', 'spades', 'diamonds'];
 var cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
 // var cardValues = [11, 7, 7, 11, 11];
-var names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
+var names = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'];
 // var names = ['ace', 'seven', 'seven', 'ace', 'ace'];
 // var dealerHand = []; // not req after using player & dealer
 // var playerHand = []; // not req after using player & dealer
@@ -24,7 +25,8 @@ var $newHand = document.querySelector('.newhand');
 var $deal = document.querySelector('.deal');
 var $hit = document.querySelector('.hit');
 var $stay = document.querySelector('.stay');
-
+var $userArea = document.querySelector('.userarea');
+var $dealArea = document.querySelector('.dealarea');
 
 //setting only New Hand button visible initially
 $deal.style.visibility='hidden';
@@ -86,8 +88,12 @@ var shuffleDeck = function(array) {
 var dealCards = function() {
   deck = shuffleDeck(deck);
   for (var i = 0; i < 2; i++) {
-    player.hand[i] = deck.pop();
     dealer.hand[i] = deck.pop();
+    cardPrintDealer(dealer.hand[i]);
+
+    player.hand[i] = deck.pop();
+    cardPrintPlayer(player.hand[i]);
+
     calculateHandOf(dealer);
     calculateHandOf(player);
     //display 1st dealer card here
@@ -209,6 +215,30 @@ var dealScoreCompare = function(result) {
     return result;
   }
 };
+
+// function to render DEALER cards to html
+var cardPrintDealer = function(user) {
+  var img = document.createElement('img');
+  // img.setAttribute("class", "card");
+  // img.src = '/playing_cards' + card.name + '/' + card.size;
+  img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
+  img.style.height = "101.7px";
+  img.style.width = "70px";
+
+  $dealArea.appendChild(img);
+}
+
+// function to render PLAYER cards to html
+var cardPrintPlayer = function(user) {
+  var img = document.createElement('img');
+  // img.setAttribute("class", "card");
+  // img.src = '/playing_cards' + card.name + '/' + card.size;
+  img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
+  img.style.height = "101.7px";
+  img.style.width = "70px";
+
+  $userArea.appendChild(img);
+}
 
 
 
