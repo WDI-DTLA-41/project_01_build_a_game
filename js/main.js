@@ -97,7 +97,7 @@ var addColorFlash = function () {
   }
   sequenceArr.push(sequence);
   setTimeout(playerTurn, 500*sequenceArr.length);
-  setTimeout(checkInput, 1250*sequenceArr.length);
+  setTimeout(checkInput, 1375*sequenceArr.length);
   setTimeout(praise, 500);
   };
 
@@ -245,7 +245,7 @@ var checkInput = function() {
   if (_.isEqual(userInput,sequenceArr)) {
         userInput = [];
         setTimeout(recursiveLights(sequenceArr),3000);
-        setTimeout(addColorFlash,1000*sequenceArr.length);
+        setTimeout(addColorFlash,1250*sequenceArr.length);
       } else {
         gameOver();
         // return console.log("You lose!");
