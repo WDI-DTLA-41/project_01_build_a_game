@@ -13,6 +13,8 @@ var noMatch = [];
 var isMatch = [];
 var array = []
 var number;
+var win = document.querySelector('.win');
+var lose = document.querySelector('.lose');
 var words = [
 'BONES',
 'CREEPY',
@@ -44,6 +46,8 @@ var randomNumber = function() {
 }
 
 var scream = new Audio("assets/scream.wav");
+var laugh = new Audio("assets/laugh.wav");
+var thunder = new Audio("assets/thunder.wav")
 
 //this chooses a random word
 function getWord(){
@@ -117,7 +121,7 @@ function gameLogic() {
       guessedBox.innerHTML = 'Guessed:<br>' + guessed;
       noMatch.push(1);
       if (noMatch.length === 6) {
-        setTimeout(function(){alert('Sorry, you lose!')}, 900);
+        lose.style.visibility = "visible";
         scream.play();
         underscores = playWord;
         placeholders.textContent = underscores;
@@ -126,7 +130,8 @@ function gameLogic() {
   }
   if (isMatch.length === playWord.length){
     console.log(isMatch.length, 'won!');
-    setTimeout(function(){alert('You win!')}, 200);
+    laugh.play();
+    win.style.visibility = "visible";
   }
 }
 
@@ -143,16 +148,15 @@ function reset(evt) {
   noMatch = [];
   guessed = [];
   isMatch = [];
+  lose.style.visibility = "hidden";
+  win.style.visibility = "hidden";
   j = 0;
   button.addEventListener('click', getWord);
 }
-
-
-
 
 
 button.addEventListener('click', getWord);
 submit.addEventListener('click', getLetter);
 document.querySelector('input').addEventListener('keyup', getLetterEnter);
 resetButton.addEventListener('click', reset)
-
+thunder.play()

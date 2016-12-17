@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Trade+Winds" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 <body>
 <h1>Hangman</h1>
@@ -21,9 +22,17 @@
 <div class="bodyparts rightarm"><img src="assets/skeleton-right-arm.png"></div>
 <div class="bodyparts leftleg"><img src="assets/skeleton-left-leg.png"></div>
 <div class="bodyparts rightleg"><img src="assets/skeleton-right-leg.png"></div>
+<div class="spider animated slideInDown"><img src="assets/spider.jpg"></div>
 <div class="guessed">Guessed:</div>
 <div class="placeholders"></div>
-
+<div class="lose">
+Sorry, you lose!
+<p>Click RESET to play again</p>
+</div>
+<div class="win">
+You win!
+<p>Click RESET to play again</p>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>
