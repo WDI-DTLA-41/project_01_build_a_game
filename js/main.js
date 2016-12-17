@@ -15,9 +15,10 @@ var userInput = [];
 var hardBtn = document.querySelector('#hardmode');
 var audioOne = document.querySelectorAll('audio');
 var replayBtn = document.querySelector('#replay');
-var col1 = document.querySelector('#col-1');
-var col2 = document.querySelector('#col-2');
-var tar = null;
+var btnTar = null;
+var praiseTag = document.querySelector('#praise');
+
+
 // random number generator (1-4)
 /**
 *
@@ -245,7 +246,7 @@ var checkInput = function() {
   if (_.isEqual(userInput,sequenceArr)) {
         userInput = [];
         setTimeout(recursiveLights(sequenceArr),3000);
-        setTimeout(addColorFlash,1250*sequenceArr.length);
+        setTimeout(addColorFlash,1000*sequenceArr.length);
       } else {
         gameOver();
         // return console.log("You lose!");
@@ -261,18 +262,20 @@ var checkInput = function() {
 var praise = function() {
   if (counterVal === 35) {
     audioOne[8].play();
+    return praiseTag.innerHTML = 'Thank you! But our princess is in another castle';
   } else if (counterVal % 11 === 0)  {
     audioOne[7].play();
-    return console.log('Marvelous');
+    return praiseTag.innerHTML = 'Marvelous';
   } else if (counterVal % 5 === 0) {
     audioOne[6].play();
-    return console.log('!@#$ Yea');
+    return praiseTag.innerHTML = '!@#$ Yea';
   }
 };
 
 var playerTurn = function() {
   console.log('Your Turn!');
 }
+
 // handle to start the Hard Mode gameplay
 /**
 *
@@ -288,23 +291,22 @@ var handleCursor = function (event) {
   event.target.style.cursor = 'pointer';
 }
 
+
 var handleRemoveCursor = function (event) {
   event.target.style.cursor = '';
 }
 
+
 var handleRemoveColor = function(event) {
-  tar = event.target;
-  tar.style.background = 'transparent';
+  btnTar = event.target;
+  btnTar.style.background = 'transparent';
   setTimeout(handleReturnColor,250);
 }
 
+
 var handleReturnColor = function() {
-    tar.style.background = '';
+    btnTar.style.background = '';
 }
-// event.target.style.background = 'transparent';
-// event.target.style.background = ''
-
-
 
 // add EventListener for startBtn to start game
 /**
@@ -347,4 +349,4 @@ hardBtn.addEventListener('mouseover', handleCursor);
 hardBtn.addEventListener('mouseout', handleRemoveCursor);
 
 
-
+// hi

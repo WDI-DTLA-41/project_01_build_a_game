@@ -15,9 +15,8 @@ var userInput = [];
 var hardBtn = document.querySelector('#hardmode');
 var audioOne = document.querySelectorAll('audio');
 var replayBtn = document.querySelector('#replay');
-var col1 = document.querySelector('#col-1');
-var col2 = document.querySelector('#col-2');
-var tar = null;
+var btnTar = null;
+var praiseTag = document.querySelector('p');
 // random number generator (1-4)
 /**
 *
@@ -96,7 +95,7 @@ var addColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
-  setTimeout(playerTurn, 500*sequenceArr.length);
+  setTimeout(playerTurn, 500);
   setTimeout(checkInput, 1375*sequenceArr.length);
   setTimeout(praise, 500);
   };
@@ -211,7 +210,7 @@ var gameOver = function() {
 var handleStartGame = function() {
   addCounter();
   btnContainer.addEventListener('click', handleUserInput);
-  setTimeout(startColorFlash,1000);
+  setTimeout(startColorFlash,2000);
 };
 
 
@@ -245,7 +244,7 @@ var checkInput = function() {
   if (_.isEqual(userInput,sequenceArr)) {
         userInput = [];
         setTimeout(recursiveLights(sequenceArr),3000);
-        setTimeout(addColorFlash,1250*sequenceArr.length);
+        setTimeout(addColorFlash,1000*sequenceArr.length);
       } else {
         gameOver();
         // return console.log("You lose!");
@@ -261,18 +260,33 @@ var checkInput = function() {
 var praise = function() {
   if (counterVal === 35) {
     audioOne[8].play();
+    praiseTag.textContent = 'Thank you! But the princess is in another castle.';
+    return setTimeout(clearPraiseTag,2000);
   } else if (counterVal % 11 === 0)  {
     audioOne[7].play();
-    return console.log('Marvelous');
+    praiseTag.textContent = 'Marvelous!';
+    return setTimeout(clearPraiseTag,2000);
   } else if (counterVal % 5 === 0) {
     audioOne[6].play();
-    return console.log('!@#$ Yea');
+    praiseTag.textContent = '!@#$ Yea!';
+    return setTimeout(clearPraiseTag,2000);
   }
 };
 
+
 var playerTurn = function() {
-  console.log('Your Turn!');
+  praiseTag.textContent = 'Your Turn!';
+  return setTimeout(clearPraiseTag,1000*sequenceArr.length);
 }
+
+
+var clearPraiseTag = function() {
+  return praiseTag.textContent = '';
+}
+
+
+
+
 // handle to start the Hard Mode gameplay
 /**
 *
@@ -293,16 +307,14 @@ var handleRemoveCursor = function (event) {
 }
 
 var handleRemoveColor = function(event) {
-  tar = event.target;
-  tar.style.background = 'transparent';
+  btnTar = event.target;
+  btnTar.style.background = 'transparent';
   setTimeout(handleReturnColor,250);
 }
 
 var handleReturnColor = function() {
-    tar.style.background = '';
+    btnTar.style.background = '';
 }
-// event.target.style.background = 'transparent';
-// event.target.style.background = ''
 
 
 
@@ -345,6 +357,9 @@ startBtn.addEventListener('mouseover', handleCursor);
 startBtn.addEventListener('mouseout', handleRemoveCursor);
 hardBtn.addEventListener('mouseover', handleCursor);
 hardBtn.addEventListener('mouseout', handleRemoveCursor);
+
+
+// hi
 
 
 

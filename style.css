@@ -10,6 +10,13 @@ h1 {
   margin: 0 0 20px 110px;
 }
 
+p {
+  font-family:Arial;
+  font-size: 40px;
+  color: rgb(252,90,184);
+  float: right;
+}
+
 #game-container {
   background-color: black;
   height: 275px;
@@ -113,7 +120,7 @@ h1 {
 }
 
 
-lost
+
 
 
 
