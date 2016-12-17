@@ -1,6 +1,6 @@
 // create a deck of cards
 var deck;
-var suits = ['hearts', 'clubs', 'spades', 'diamonds'];
+var suits = ['♥', '♣', '♠', '♦'];
 var cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
 // var cardValues = [11, 7, 7, 11, 11];
 var names = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
@@ -25,9 +25,17 @@ var $deal = document.querySelector('.deal');
 var $hit = document.querySelector('.hit');
 var $stay = document.querySelector('.stay');
 
-// function to make a deck of cards
 
+//setting only New Hand button visible initially
+$deal.style.visibility='hidden';
+$hit.style.visibility='hidden';
+$stay.style.visibility='hidden';
+
+
+
+// function to make a deck of cards
 var makeDeck = function() {
+  resetHands();
   deck = [];
   for (var i = 0; i < suits.length; i++) {
     for (var j = 0; j < names.length; j++) {
@@ -39,6 +47,9 @@ var makeDeck = function() {
     };
   };
   console.log(deck); //logs created deck
+  $deal.style.visibility='visible';
+  $newHand.style.visibility='hidden';
+
 };
 
 // var card = {
@@ -69,37 +80,29 @@ var shuffleDeck = function(array) {
 };
 
 
-//function to deal cards & calculate initial score at the beginning of the game
+/**
+  * Deals Blackjack hands from a deck, resets hands from previous deal & shuffles deck before dealing
+*/
 var dealCards = function() {
-  resetHands();
   deck = shuffleDeck(deck);
   for (var i = 0; i < 2; i++) {
-    dealer.hand[i] = deck.pop();
     player.hand[i] = deck.pop();
+    dealer.hand[i] = deck.pop();
     calculateHandOf(dealer);
     calculateHandOf(player);
+    //display 1st dealer card here
   }
 
-  // Replaced hard coding with dealerCal & playerCal above
-  // dealerScore = dealerHand[0].value + dealerHand[1].value;
-  // playerScore = playerHand[0].value + playerHand[1].value;
-
-  //add auto-win conditions here(21)
   console.log('Dealer Score Is:' + dealer.score);
   console.log('Player Score Is:' + player.score);
   dealScoreCompare();
+  $deal.style.visibility='hidden';
+  $hit.style.visibility='visible';
+  $stay.style.visibility='visible';
+
 };
 
 
-// //using a function to calculate dealer score
-// var dealerCal = function() {
-//   dealerScore = dealerScore + dealerHand[dealerHand.length-1].value;
-// };
-
-// //using a function to calculate player score
-// var playerCal = function() {
-//   playerScore = playerScore + playerHand[playerHand.length-1].value;
-// }
 
 // takes an object(player or dealer) and calculates the scores for that 'user'[parameter]
 // while loop checks for aces to convert to value 1 if user score over 21
@@ -125,13 +128,14 @@ var findAce = function (ace){
 
 var playerHit = function(result) {
   player.hand[player.hand.length] = deck.pop();
-  // calculateHandOf(player); // NOTE will require refactoring playerHand code to use player.hand
   calculateHandOf(player);
-  // playerScore = playerScore + playerHand[2].value; //redundant
   console.log("Player's new score is" + player.score);
   if(player.score === 21) {
-    return console.log('BLACKJACK!');
+    return console.log('You hit 21!! You might wanna stay');
   } else if (player.score > 21){
+    $hit.style.visibility='hidden';
+    $stay.style.visibility='hidden';
+    $newHand.style.visibility='visible';
     return console.log('you went BUST');
   } else {
     return player.score;
@@ -146,15 +150,20 @@ var playerStay = function() {
 
 
 var dealerTurn = function(result) {
+  $deal.style.visibility='hidden';
+  $hit.style.visibility='hidden';
+  $stay.style.visibility='hidden';
+  $newHand.style.visibility='hidden';
   if (dealer.score > 21) {
     console.log('Dealer Went BUST! You Win!');
+    $newHand.style.visibility='visible';
     return dealer.score;
     // dealer loses automatically if user has stayed
   } else if (dealer.score === 21) {
-      console.log('Dealer Hits BlackJack. Sorry!');
+      console.log('Dealer Hits BlackJack, check user score...');
       endScoreCompare();
+      $newHand.style.visibility='visible';
       return dealer.score;
-      //also need to compare with user
   } else if (dealer.score < 17){
     dealer.hand[dealer.hand.length] = deck.pop();
     console.log(dealer.hand[dealer.hand.length-1]);
@@ -165,6 +174,7 @@ var dealerTurn = function(result) {
   } else {
     console.log('Dealer Score is: ' + dealer.score);
     endScoreCompare();
+    $newHand.style.visibility='visible';
     return dealer.score;
   }
 
@@ -182,9 +192,17 @@ var resetHands = function() {
 var dealScoreCompare = function(result) {
   if (dealer.score === 21 && player.score === 21) {
     console.log("It's a push!");
+    $deal.style.visibility='hidden';
+    $hit.style.visibility='hidden';
+    $stay.style.visibility='hidden';
+    $newHand.style.visibility='visible';
     return result;
   } else if (dealer.score === 21 && player.score < 21) {
     console.log("Dealer Hits Blackjack. Sorry, You Lose! Try Again")
+    $deal.style.visibility='hidden';
+    $hit.style.visibility='hidden';
+    $stay.style.visibility='hidden';
+    $newHand.style.visibility='visible';
     return result;
   } else if (player.score === 21 && dealer.score < 21) {
     console.log("You Hit Blackjack! You Win! Play Again")
@@ -208,28 +226,10 @@ var endScoreCompare = function(result) {
   }
 };
 
-// dealerTurn not perfect
-// var dealerTurn = function(result) {
-//   if (dealer.score === 21) {
-//     console.log('Dealer Hits BlackJack. Sorry!');
-//     return dealer.score;
-//     //also need to compare with user
-//   } else if (dealer.score < 17) {
-//     dealer.hand[dealer.hand.length] = deck.pop();
-//     calculateHandOf(dealer)
-//     console.log('Dealer Score is Currently' + dealer.score);
-//     //make dealer draw another card
-//   } else {
-//     console.log('Dealer Score is: ' + dealer.score);
-//     return dealer.score;
-//   }
-// }
-
 
 $newHand.addEventListener('click', makeDeck);
-$newHand.addEventListener('click', resetHands);
-$hit.addEventListener('click', playerHit);
 $deal.addEventListener('click', dealCards);
+$hit.addEventListener('click', playerHit);
 $stay.addEventListener('click', playerStay);
 
 

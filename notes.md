@@ -158,8 +158,9 @@ var calculateHandOf = function(user) {
                 user.hand[i].name = "aceused";
                 user.hand[i].value = 1;
             }
+        
         }
-    }
+    }1) 
 }
 
 // if (user.score > 21) {
@@ -174,6 +175,86 @@ var calculateHandOf = function(user) {
     }
   // }
 
-  
+
+toggle button javascript (value on and value off)
+wikihow toggle html display with javascript
+
+♣ Clubs
+♦ Diamonds
+♥ Hearts
+♠ Spades
+
+
+1) Card display:
+a) on dealCards - 
+    1 face up 1 face down for dealer
+    2 face up for player
+b) on playerHit - 
+    1 face up
+c) on dealerTurn
+    if dealer.score < 17
+
+2) Button Display: DONE
+a) At beginning:
+    New Hand
+
+b) After New Hand:
+    Deal Cards
+
+c) After Deal Cards:
+    Hit
+    Stay
+
+d) After Stay:
+    New Hand
+     
+
+var calculateHandOf = function(user) {
+  user.score = user.score + user.hand[user.hand.length-1].value;
+  while(user.score > 21) {
+    if (!user.hand.find(findAce)) {
+      return false;
+    }
+    var changedAce = user.hand.find(findAce);
+     changedAce.value = 1;
+     user.score = null;
+     for (var x = 0; x < user.hand.length; x++) {
+      user.score = user.score+user.hand[x].value;
+     }
+  }
+  return user.score;
+};
+
+
+Button visibility for reference
+  $deal.style.visibility='hidden';
+  $hit.style.visibility='visible';
+  $stay.style.visibility='visible';
+  $newHand.style.visibility='visible';
+
+Dealer with 2 aces scenario which worked:
+Dealer Score Is:16
+main.js:97 Player Score Is:14
+main.js:132 Player's new score is17
+main.js:146 You Stay! Dealer's Turn
+main.js:169 Object {suit: "♣", name: "nine", value: 9}
+main.js:171 Dealer Score is Currently 15
+main.js:169 Object {suit: "♠", name: "ace", value: 11}
+main.js:171 Dealer Score is Currently 16
+main.js:169 Object {suit: "♣", name: "four", value: 4}
+main.js:171 Dealer Score is Currently 20
+main.js:175 Dealer Score is: 20
+main.js:213 Dealer Wins :( Try Again!
+dealer.hand
+Array[5]
+0: Objectname: "ace"suit: "♣"value: 1
+1: Objectname: "five"suit: "♣"value: 5
+2: Objectname: "nine"suit: "♣"value: 9
+3: Objectname: "ace"suit: "♠"value: 1
+4: Objectname: "four"suit: "♣"value: 4
+
+Features:
+deck shouldn't shuffle after every hand 
+
 
 

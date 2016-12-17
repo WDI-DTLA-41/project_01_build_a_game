@@ -4,7 +4,7 @@ body {
 
 .board {
   width: 100%;
-  /*margin: 0 auto;*/
+  margin: 0 auto;
   background: blue;
   text-align: center;
 }
@@ -12,13 +12,13 @@ body {
 .dealarea {
   background: red;
   width: 100%;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
 .userarea {
   background: green;
   width: 100%;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
 .userinputs {
@@ -47,3 +47,19 @@ body {
   margin: 0 auto;
   display: block;
 }
+
+.card {
+  display:inline-block;
+  text-align:center;
+  margin:5px;
+  padding:15px;
+  vertical-align: center;
+  line-height: 70px;
+  width:50px;
+  height:70px;
+  font-size:22px;
+  background-color:#999999;
+  border: solid 1px black;
+}
+
+
