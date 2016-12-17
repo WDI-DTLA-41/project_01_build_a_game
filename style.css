@@ -7,7 +7,7 @@ h1 {
   font-family:Arial;
   color: white;
   font-size: 40px;
-  margin: 0 0 20px 110px;
+  margin: 0 0 20px 103px;
 }
 
 p {
@@ -92,7 +92,7 @@ p {
 }
 
 .level {
-  font-size: 25px;
+  font-size: 20px;
   color: rgb(252,90,184);
 }
 #selection-container {
@@ -122,7 +122,6 @@ p {
   border: black;
   margin: 0 0 0 20px;
 }
-
 
 
 
