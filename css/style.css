@@ -1,5 +1,4 @@
 body {
-background-image: url(../css/p-table.jpg);
 font-family: 'Knewave', cursive;
 }
 
@@ -8,11 +7,40 @@ font-size: 45px;
 text-shadow: 2px 2px 8px white;
 }
 
-#startBtn{
+.board {
+    background-color: #00a000;
+    border: solid 3px white;
+    border-radius: 30px;
+    color: white;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.card{
+width: 100px;
+height: 140px;
+border: 1px solid #ddd;
+border-radius: 10px;
+position: absolute;
+background-color: white;
+background-image: url('../css/back_card.png');
+background-size: contain;
+background-repeat: no-repeat;
+cursor: pointer;
+text-align: center;
+}
+
+.card.red {
+color:red;
+}
+
+
+#deal-button {
   border-radius: 15px;
   background: #73AD21;
   height: 40px;
   width: 100px;
+  font-size: 20px;
 
 }
 

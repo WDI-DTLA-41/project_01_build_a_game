@@ -10,25 +10,246 @@
 
 <body>
   <h1>WAR</h1>
-  <button id="startBtn">Start Game</button>
 
 
   <div class="board">
-    <div class="row1">
-      <div class="card" data-row="0" data-col="0"></div>
-      <div class="card" data-row="0" data-col="1"></div>
-    </div>
+    <div id="play-board">
+     <button id="deal-button">Deal</button>
+     <button type='button' onclick='shufle_cards()'>Shuffle</button>
+      <div id="dealer" class="avatar">
+      </div>
+      <div id="player" class="avatar">
+      </div>
 
-    <div class="row2>">
-      <div class="card" data-row="1" data-col="0"></div>
-      <div class="card" data-row="1" data-col="1"></div>
+        <!-- CARDS -->
+        <div class='card'>
+          <span data-value='A' data-title='A ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='2' data-title='2 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='3' data-title='3 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='4' data-title='4 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='5' data-title='5 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='6' data-title='6 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='7' data-title='7 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='8' data-title='8 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='9' data-title='9 ♣'></span>
+          </div>
+
+          <div class='card' >
+          <span data-value='10' data-title='10 ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='J' data-title='J ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='Q' data-title='Q ♣'></span>
+          </div>
+
+          <div class='card'>
+          <span data-value='K' data-title='K ♣'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='A' data-title='A ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='2' data-title='2 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='3' data-title='3 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='4' data-title='4 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='5' data-title='5 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='6' data-title='6 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='7' data-title='7 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='8' data-title='8 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='9' data-title='9 ♦'></span>
+          </div>
+
+          <div class='card red' >
+          <span data-value='10' data-title='10 ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='J' data-title='J ♦'></span>
+          </div>
+
+
+          <div class='card red'>
+          <span data-value='Q' data-title='Q ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='K' data-title='K ♦'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='A' data-title='A ♥'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='2' data-title='2 ♥'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='3' data-title='3 ♥'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='4' data-title='4 ♥'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='5' data-title='5 ♥'></span>
+          </div>
+
+          <div class='card red'>
+          <span data-value='6' data-title='6 ♥'></span>
+          </div>
+
+         <div class='card red'>
+        <span data-value='7' data-title='7 ♥'></span>
+        </div>
+
+        <div class='card red'>
+        <span data-value='8' data-title='8 ♥'></span>
+        </div>
+
+        <div class='card red'>
+        <span data-value='9' data-title='9 ♥'></span>
+        </div>
+
+        <div class='card red' >
+        <span data-value='10' data-title='10 ♥'></span>
+        </div>
+
+        <div class='card red'>
+        <span data-value='J' data-title='J ♥'></span>
+        </div>
+
+        <div class='card red'>
+        <span data-value='Q' data-title='Q ♥'></span>
+        </div>
+
+        <div class='card red'>
+        <span data-value='K' data-title='K ♥'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='A' data-title='A ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='2' data-title='2 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='3' data-title='3 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='4' data-title='4 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='5' data-title='5 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='6' data-title='6 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='7' data-title='7 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='8' data-title='8 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='9' data-title='9 ♠'></span>
+        </div>
+
+        <div class='card' >
+        <span data-value='10' data-title='10 ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='J' data-title='J ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='Q' data-title='Q ♠'></span>
+        </div>
+
+        <div class='card'>
+        <span data-value='K' data-title='K ♠'></span>
+        </div>
+      </div>
+
     </div>
   </div>
 
 
-<script src="main.js"></script>
+<script src="testMain.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 </body>
 </html>
 
 
+ <!-- <div class="row1">
+       <div class="card" data-row="0" data-col="0"></div>
+       <div class="card" data-row="0" data-col="1"></div>
+      </div>
+
+    <div class="row2>">
+      <div class="card" data-row="1" data-col="0"></div>
+      <div class="card" data-row="1" data-col="1"></div>
+    </div>
+    </div>
+  </div> -->

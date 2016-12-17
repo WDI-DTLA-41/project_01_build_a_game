@@ -1,4 +1,4 @@
-console.log('meow');
+');
 
 var playerHand = [];
 var playerBoard = [];
@@ -7,16 +7,30 @@ var dealerBoard = [];
 var tempPlayCard = null;
 var tempDealCard = null;
 
-//deck
-var deck = [
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-            ];
 
+var cardValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+var cardSuit = ["Spades", "Hearts", "Clubs", "Diamonds"];
+var cardName = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"];
+var deck = [];
+var card;
 
+var createDeck = function(){
+  // loops through 2 - Ace
+  for (var i = 0; i < cardName.length; i++) {
+    // loops spades - diamonds
+  for (var j = 0; j < cardSuit.length; j++) {
+    card = {
+      name: cardName[i],
+      suit: cardSuit[j]
+    };
+      deck.push(card);
+    }
+  }
+}
+createDeck();
+console.log(deck);
 
+// va
 
 //console.log(deck);
 
@@ -146,11 +160,6 @@ var winner = function(){
 // if dealerBoard or playerBoard === 'undefined', game should lose
 
 // start.addEventListener('click', );
-
-
-
-
-
 
 
 

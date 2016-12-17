@@ -12,27 +12,26 @@ Your app must:
 ### Data Model (Things we want to keep track of)
 - Dealers hand
 - Players hand
-- Deck (make an array)
+- Deck
   + card value and suite
   + 52 card deck, no Jokers
   + Ace is 1 or 11
 
 ###MVP - Game Behaivor
-- Initialize the game ('start' button)
-- Shuffle the cards (array) upon starting the game
-- Deal
-  + one card for player and dealer
-- Draw
-  + One face down-card and one face-up card
-- Hit
-  + add sum of cards
-  + check to see the winner
-- Stand
-  + add sum of cards
-  + check to see the winner
-- Check the values of dealer's hand and players hand
+- Battle: 1:1 cards
+- Compare Battle: 1:1
+- War! 4:4 cards
+- Compare War!
+- War!onWar!
+- Compare War!onWar!
 
-- Win / Loss window
+### What If's:
+- playerHand and dealerHand is 'undefined'? Shuffle playerWins/dealerWins back to playerHand/dealerHand
+- same as above for War! + War! on War!
+
+### Win / Loss
+- if player has entire 52 cards === win
+- if dealer has entire 52 cards === win
 
 
 Icebox
