@@ -59,7 +59,7 @@ var startColorFlash = function () {
   }
   sequenceArr.push(sequence);
   setTimeout(playerTurn, 500);
-  setTimeout(checkInput, 3000);
+  setTimeout(checkInput, 2000);
   };
 
 
@@ -97,8 +97,8 @@ var addColorFlash = function () {
   }
   sequenceArr.push(sequence);
   setTimeout(playerTurn, 500*sequenceArr.length);
-  setTimeout(checkInput, 1250*sequenceArr.length);
-  setTimeout(praise, 500);
+  setTimeout(checkInput, 1500*sequenceArr.length);
+  setTimeout(praise, 250);
   };
 
 // function to flash the color of the sequenceArr
@@ -346,5 +346,5 @@ startBtn.addEventListener('mouseout', handleRemoveCursor);
 hardBtn.addEventListener('mouseover', handleCursor);
 hardBtn.addEventListener('mouseout', handleRemoveCursor);
 
-
+// hi
 
