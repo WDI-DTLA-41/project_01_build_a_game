@@ -27,11 +27,6 @@ h1 {
   top: 100px;
 }
 
-.colorbtn:active {
-
-}
-
-
 #btn-container {
   position: relative;
   right: 50px;
@@ -48,7 +43,6 @@ h1 {
 
 #green {
   background-color: rgb(193,253,51);
-  position: relative;
   left: 75px;
   top: 75px;
   border-radius: 100px 0 0 0;
@@ -113,6 +107,9 @@ h1 {
   border: black;
   margin: 0 0 0 20px;
 }
+
+
+lost
 
 
 

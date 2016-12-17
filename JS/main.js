@@ -17,6 +17,7 @@ var audioOne = document.querySelectorAll('audio');
 var replayBtn = document.querySelector('#replay');
 var col1 = document.querySelector('#col-1');
 var col2 = document.querySelector('#col-2');
+var tar = null;
 // random number generator (1-4)
 /**
 *
@@ -57,6 +58,7 @@ var startColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
+  setTimeout(playerTurn, 500);
   setTimeout(checkInput, 2000);
   };
 
@@ -94,8 +96,9 @@ var addColorFlash = function () {
     },250);
   }
   sequenceArr.push(sequence);
-  setTimeout(checkInput, 1500*sequenceArr.length);
-  setTimeout(praise, 1500);
+  setTimeout(playerTurn, 500*sequenceArr.length);
+  setTimeout(checkInput, 1250*sequenceArr.length);
+  setTimeout(praise, 500);
   };
 
 // function to flash the color of the sequenceArr
@@ -267,6 +270,9 @@ var praise = function() {
   }
 };
 
+var playerTurn = function() {
+  console.log('Your Turn!');
+}
 // handle to start the Hard Mode gameplay
 /**
 *
@@ -279,12 +285,26 @@ var handleHardMode = function() {
 *
 */
 var handleCursor = function (event) {
-  event.target.style.cursor = 'pointer'
+  event.target.style.cursor = 'pointer';
 }
 
 var handleRemoveCursor = function (event) {
   event.target.style.cursor = '';
 }
+
+var handleRemoveColor = function(event) {
+  tar = event.target;
+  tar.style.background = 'transparent';
+  setTimeout(handleReturnColor,250);
+}
+
+var handleReturnColor = function() {
+    tar.style.background = '';
+}
+// event.target.style.background = 'transparent';
+// event.target.style.background = ''
+
+
 
 // add EventListener for startBtn to start game
 /**
@@ -309,12 +329,16 @@ replayBtn.addEventListener('click', handleReplay);
 */
 greenBtn.addEventListener('mouseover', handleCursor);
 greenBtn.addEventListener('mouseout', handleRemoveCursor);
+greenBtn.addEventListener('click', handleRemoveColor);
 redBtn.addEventListener('mouseover', handleCursor);
 redBtn.addEventListener('mouseout', handleRemoveCursor);
+redBtn.addEventListener('click', handleRemoveColor)
 yellowBtn.addEventListener('mouseover', handleCursor);
 yellowBtn.addEventListener('mouseout', handleRemoveCursor);
+yellowBtn.addEventListener('click', handleRemoveColor)
 blueBtn.addEventListener('mouseover', handleCursor);
 blueBtn.addEventListener('mouseout', handleRemoveCursor);
+blueBtn.addEventListener('click', handleRemoveColor)
 replayBtn.addEventListener('mouseover', handleCursor);
 replayBtn.addEventListener('mouseout', handleRemoveCursor);
 startBtn.addEventListener('mouseover', handleCursor);
