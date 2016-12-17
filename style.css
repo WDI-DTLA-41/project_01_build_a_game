@@ -21,6 +21,7 @@ body {
 }
 h1 {
   font-family: starwars, Arial, sans-serif;
+  color: gold;
   font-size: 5em;
   margin: 10px;
 }
