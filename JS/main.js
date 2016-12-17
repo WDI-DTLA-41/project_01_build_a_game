@@ -107,35 +107,35 @@ var addColorFlash = function () {
 *
 */
 var replayColorFlash = function (color) {
-    if (color === 1) {
-      audioOne[0].play();
-      greenBtn.style.backgroundColor = 'black';
-      setTimeout(function() {
-      greenBtn.style.backgroundColor = 'rgb(193,253,51)';
-      },250);
-      console.log('1');
-    } else if (color === 2) {
-      audioOne[4].play();
-      redBtn.style.backgroundColor = 'black';
-      setTimeout(function() {
-      redBtn.style.backgroundColor = 'rgb(252,90,184)';
-      },250);
-      console.log('2');
-    } else if (color === 3) {
-      audioOne[2].play();
-      yellowBtn.style.backgroundColor = 'black';
-      setTimeout(function() {
-      yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
-      },250);
-      console.log('3');
-    } else if (color === 4) {
-      audioOne[3].play();
-      blueBtn.style.backgroundColor = 'black';
-      setTimeout(function() {
-      blueBtn.style.backgroundColor = 'rgb(13,213,252)';
-      },250);
-      console.log('4');
-    }
+  if (color === 1) {
+    audioOne[0].play();
+    greenBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    },250);
+    console.log('1');
+  } else if (color === 2) {
+    audioOne[4].play();
+    redBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    },250);
+    console.log('2');
+  } else if (color === 3) {
+    audioOne[2].play();
+    yellowBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    },250);
+    console.log('3');
+  } else if (color === 4) {
+    audioOne[3].play();
+    blueBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    },250);
+    console.log('4');
+  }
 }
 
 // recursiveLights for replaying the sequences
