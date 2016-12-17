@@ -9,6 +9,13 @@ body {
   color: white;
   font-size: 20px;
 }
+.hidden {
+  display: none;
+}
+.play-button {
+/*  display: inline-block;
+*/  width: 100px;
+}
 #container {
   margin: 0 auto;
 }
@@ -78,6 +85,7 @@ button {
   border-radius: 10px;
   background: black;
   color: white;
+  width: 100px;
 }
 .bet, .plus-one {
   display: inline;

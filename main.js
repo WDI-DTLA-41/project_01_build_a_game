@@ -70,6 +70,9 @@ plusOne.addEventListener("click", addOne);
 var spin = document.querySelector(".spin");
 
 var spinReel = function(event) {
+  spin.classList.add("hidden");
+  playAgain.classList.remove("hidden");
+
   // spin.removeEventListener("click", spinReel);
   one.removeAttribute("class", "default");
   two.removeAttribute("class", "default");
@@ -257,6 +260,9 @@ var minusScore = function() {
 
 // Click PLAY AGAIN to:
 var newTurn = function(event) {
+
+  playAgain.classList.add("hidden");
+  spin.classList.remove("hidden");
 
   // EMPTIES THE ARRAY
   images = [];
