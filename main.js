@@ -246,12 +246,12 @@ function warCardsRemoved() {
 
 
 
-gameOver = function () {
-do {
-    player1Deck[i] < player1Deck.length;
-    i++;
-}
-while (i < 1);
-}
+// gameOver = function () {
+// do {
+//     player1Deck[i] < player1Deck.length;
+//     i++;
+// }
+// while (i < 1);
+// }
 
 
