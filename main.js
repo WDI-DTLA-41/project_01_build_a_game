@@ -199,7 +199,8 @@ var gameOver = function() {
   resetCounter();
   clearSequence();
   audioOne[1].play();
-  return console.log('Nice try! YOU LOSE SUCKA!');
+  praiseTag.textContent = "Don't you want a rematch?";;
+  return setTimeout(clearPraiseTag,4000);
 };
 
 
@@ -260,16 +261,16 @@ var checkInput = function() {
 var praise = function() {
   if (counterVal === 35) {
     audioOne[8].play();
-    praiseTag.textContent = 'Thank you! But the princess is in another castle.';
-    return setTimeout(clearPraiseTag,2000);
+    praiseTag.textContent = 'Thank you! But our princess is in another castle!';
+    return setTimeout(clearPraiseTag,3000);
   } else if (counterVal % 11 === 0)  {
     audioOne[7].play();
     praiseTag.textContent = 'Marvelous!';
-    return setTimeout(clearPraiseTag,2000);
+    return setTimeout(clearPraiseTag,3000);
   } else if (counterVal % 5 === 0) {
     audioOne[6].play();
     praiseTag.textContent = '!@#$ Yea!';
-    return setTimeout(clearPraiseTag,2000);
+    return setTimeout(clearPraiseTag,3000);
   }
 };
 
@@ -283,7 +284,6 @@ var playerTurn = function() {
 var clearPraiseTag = function() {
   return praiseTag.textContent = '';
 }
-
 
 
 
