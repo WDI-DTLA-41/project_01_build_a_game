@@ -7,19 +7,28 @@
 </head>
 <body>
   <h1>War</h1>
-    <h2>Directions</h2>
-      <p>The objective of the game is to conquer your opponent by collecting all of the cards in the deck.</p>
+  <!-- <h2></h2> -->
+    <div class="deck"></div>
 
-    <div class="board">
-      <div class="card" id="a" data-card="a"></div>
-      <div class="card" id="b" data-card="b"></div>
+    <div class="players">
+      <div id="inHandA"></div>
+      <div class="faceDown" id="inPlayA"></div>
     </div>
 
-    <button class="shuffle">Shuffle</button>
-    <button class="deal">Deal</button>
-    <button class="battle">Battle</button>
-    <button class="hidden">War</button>
-    <button class="reset">Reset</button>
+    <div class="players">
+      <div class="faceDown" id="inPlayB"></div>
+      <div id="inHandB"></div>
+    </div>
+
+    <div class="buttons">
+        <button class="shuffle">Shuffle</button>
+        <button class="deal">Deal</button>
+        <button class="push">Push</button>
+        <button class="battle">Battle</button>
+        <button class="war">War</button>
+        <button class="reset">Reset</button>
+    </div>
+
 
 <script src="js/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>

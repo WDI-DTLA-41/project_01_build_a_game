@@ -1,23 +1,21 @@
 console.log('aloha, dakotah!')
 // buttons
-var battleBtn = document.querySelector('.battle');
-var warBtn = document.querySelector('.hidden');
 var dealBtn = document.querySelector('.deal');
 var shuffleBtn = document.querySelector('.shuffle');
+var pushBtn = document.querySelector('.push');
+pushBtn.classList.add('hidden');
+var battleBtn = document.querySelector('.battle');
+battleBtn.classList.add('hidden');
+var warBtn = document.querySelector('.war');
+warBtn.classList.add('hidden');
 var resetBtn = document.querySelector('.reset');
+resetBtn.classList.add('hidden');
 // possible DOM elements
-var board = document.querySelector('.board');
-var $inPlayCards = document.querySelectorAll('.card');
-var $inPlayA = document.querySelector('#a');
-var $inPlayB = document.querySelector('#b');
-
-
-// var handleClick = function (evt) {
-  // console.log(evt.target);
-  // $inPlayA.innerHTML = "<img src='css/cards/ace of spades.png'>"
-  // $inPlayB.innerHTML = "<img src='css/cards/10 of spades.png'>"
-
-// }
+var $deck = document.querySelector('.deck');
+var $inHandA = document.querySelector('#inHandA');
+var $inHandB = document.querySelector('#inHandB');
+var $inPlayA = document.querySelector('#inPlayA');
+var $inPlayB = document.querySelector('#inPlayB');
 
 // ====================================================================
 // ====================================================================
@@ -34,9 +32,10 @@ var $inPlayB = document.querySelector('#b');
 // name = ["c", "d", "h", "s"];
 // value = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k", "a"];
 
-// var cardRank = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-// var cardName = [2, 3, 4, 5, 6, 7, 8, 9, 10, "j", "q", "k", "a"];
+// var cardRank = [2, 3, 4];
+// var cardName = [2, 3, 4];
 // var cardSuit = ["c", "d", "h", "s"];
+// var cardImage = [];
 // var deck = [];
 // var card;
 // var img;
@@ -44,11 +43,14 @@ var $inPlayB = document.querySelector('#b');
 // var createDeck = function(){
 //   for (var i = 0; i < cardRank.length; i++) {
 //   for (var j = 0; j < cardSuit.length; j++) {
-//     card = {
-//       value: cardRank[i],
-//       suit: cardSuit[j]
-//     };
-//       deck.push(card);
+//   for (var k = 0; k < cardImage.length; k++) {
+//      card = {
+//        value: cardRank[i],
+//        suit: cardSuit[j],
+//        image: cardImage[k]
+//      };
+//        deck.push(card);
+//      }
 //     }
 //   }
 // }
@@ -73,20 +75,25 @@ var $inPlayB = document.querySelector('#b');
 // =====================================================================
 // START WITH A SIMPLE DECK, SHUFFLE THE VALUES, AND DEAL OUT TO PLAYERS
 // =====================================================================
-
-
 var deck = [
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7,
+            2, 3, 4, 5, 6, 7
             // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
             // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-];
+  ];
+console.log("Unshuffled deck: " + deck);
+
+function stringDeck () {
+  $deck.textContent = deck.toString();
+  $deck.setAttribute('contenteditable', 'true');
+}
+stringDeck();
 
 
-console.log("Deck: " + deck);
 
 // shuffle the deck
-var shuffle = function (deck) {
+var shuffle = function () {
+  deck;
   var currentIndex = deck.length, temporaryValue, randomIndex;
   // while there are still cards prsent in currentDeck
   while (0 !== currentIndex) {
@@ -98,13 +105,16 @@ var shuffle = function (deck) {
     deck[currentIndex] = deck[randomIndex];
     deck[randomIndex] = temporaryValue;
   }
-  return deck;
+  // return deck;
+  stringDeck();
   console.log("Shuffled deck: " + deck);
+  shuffleBtn.classList.add('hidden');
+  // shuffleBtn.removeEventListener('click', shuffle);
 }
+shuffleBtn.addEventListener('click', shuffle)
 
 // deck = shuffle(deck);
 // console.log("Shuffled deck: " + deck);
-
 
 
 //deal the cards out
@@ -112,16 +122,26 @@ var inHandA = [];
 var inHandB = [];
 
 var deal = function () {
+  $deck.textContent = " "
   for (var i = 0; i < deck.length; i ++) {
     if (i % 2 === 0) {
       inHandA.push(deck[i]);
+
     } else {
       inHandB.push(deck[i]);
     }
   }
+  // dealBtn.removeEventListener('click', deal);
+  $inHandA.textContent = inHandA.toString();
+  $inHandB.textContent = inHandB.toString();
   console.log("Beginning inHandA: " + inHandA);
   console.log("Beginning inHandB: " + inHandB);
+  dealBtn.classList.add('hidden');
+  pushBtn.classList.remove('hidden');
+  battleBtn.classList.remove('hidden');
+  resetBtn.classList.remove('hidden');
 }
+dealBtn.addEventListener('click', deal);
 
 var inPlayA = [];
 var inPlayB = [];
@@ -139,37 +159,68 @@ inWarB = inPlayB[inPlayB.length - 1]
 var winner = function () {
 
   if (inHandA.length < 1) {
+    pushBtn.classList.add('hidden');
+    battleBtn.classList.add('hidden');
+    warBtn.classList.add('hidden');
     console.log("player B conquers the world!")
     alert("player B conquers the world!")
   } else if (inHandB.length < 1) {
+    pushBtn.classList.add('hidden');
+    battleBtn.classList.add('hidden');
+    warBtn.classList.add('hidden');
     console.log("player A conquers the world!")
+    document.createElement
     alert("player A conquers the world!")
   }
 }
 
 var reset = function () {
+  deck = inHandA.concat(inHandB);
+  $deck.textContent = deck;
+  console.log("deck: " + deck);
+
   inHandA = [];
+    $inHandA.textContent = " "
+    console.log("inHandA: " + inHandA);
+
+    $inPlayA.classList.remove('faceUp');
+    $inPlayA.classList.add('faceDown');
+    $inPlayA.textContent = " ";
+
   inHandB = [];
-  console.log(inHandA);
-  console.log(inHandB);
-  console.log(deck);
+    $inHandB.textContent = " ";
+    console.log("inHandB: " + inHandB);
+
+    $inPlayB.classList.remove('faceUp');
+    $inPlayB.classList.add('faceDown');
+    $inPlayB.textContent = " ";
+
+  // displays pre-game event buttons
+  shuffleBtn.classList.remove('hidden');
+  dealBtn.classList.remove('hidden');
+
+  // hides in-game event buttons
+  pushBtn.classList.add('hidden');
+  battleBtn.classList.add('hidden');
+  warBtn.classList.add('hidden');
+  resetBtn.classList.add('hidden');
+
 }
+
+resetBtn.addEventListener('click', reset)
+
 
 // ==================================================================
 // COMPARE VALUES OF CARDS IN PLAY
 // ==================================================================
-
-/**
-  * Compares the value of player cards that are in play. If equality, the players enter war.
-  * If inequality, the player with higher card collects both cards in play and adds them to their hand.
-*/
-var compare = function () {
+var battle = function () {
   if (inPlayA[inPlayA.length - 1] === inPlayB[inPlayB.length - 1]) {
-    // war();
-    battleBtn.classList.remove('battle');
+    console.log("WAR!");
+    alert("WAR!")
+    pushBtn.classList.add('hidden')
     battleBtn.classList.add('hidden');
     warBtn.classList.remove('hidden');
-    warBtn.classList.add('war');
+    // war();
   } else if (inPlayA[inPlayA.length - 1] > inPlayB[inPlayB.length - 1]){
     // a acquires b's card
     inHandA.push(inPlayB.shift());
@@ -186,8 +237,13 @@ var compare = function () {
     console.log("Player B wins the battle!")
   }
 
+  clearBattle();
+  pushBtn.classList.remove('hidden');
+
   console.log("NEW inHandA: " + inHandA);
   console.log("NEW inHandB: " + inHandB);
+
+  winner();
 };
 
 
@@ -207,28 +263,28 @@ var compareWar = function () {
     collectCardsB();
    }
 
-  battleBtn.classList.remove('hidden');
-  battleBtn.classList.add('battle');
-  warBtn.classList.remove('war');
+  clearBattle ()
   warBtn.classList.add('hidden');
+  battleBtn.classList.remove('hidden');
+
+  // player A's status
+  console.log("inHandA: " + inHandA);
+  // player B's status
+  console.log("inHandB: " + inHandB);
+
+  winner();
 }
 
 var war = function () {
-  function stringInWar () {
-  $inPlayA.textContent = inWarA.toString();
-  $inPlayB.textContent = inWarB.toString();
-  }
+  inPlayA = inPlayA.concat(inHandA.splice(0,4));
+  inWarA = inPlayA[inPlayA.length - 1]
+    $inPlayA.classList.add('faceUp');
 
-  console.log("WAR!");
-  for (var i = 0; i < 4; i ++) {
-    inPlayA.push(inHandA.shift());
-    inPlayB.push(inHandB.shift());
-  }
+  inPlayB = inPlayB.concat(inHandB.splice(0,4));
+  inWarB = inPlayB[inPlayB.length - 1]
+    $inPlayB.classList.add('faceUp');
 
-  var inWarA = inPlayA[inPlayA.length - 1]
-  var inWarB = inPlayB[inPlayB.length - 1]
   stringInWar ();
-
 
   // player A's status
   console.log("inHandA: " + inHandA);
@@ -277,50 +333,62 @@ var collectCardsB = function () {
 // ==================================================================
 // CREATE A BATTLE FUNCTION
 // ==================================================================
-// card values are compared. player with higher value
-// collects both cards in play.
-// if both cards are equal, the next four cards from
-// each player's stack are pushed into their inPlay array.
-// the last card pushed inPlay then enters
+var pushIn = function () {
 
-// pushes a card in play from each player's card stack
-
-
-var battle = function () {
   inPlayA.push(inHandA.shift());
-  stringInPlayA();
+    stringInPlayA();
+    // $inPlayA.classList.remove('faceDown');
+    $inPlayA.classList.add('faceUp');
   console.log("inHandA: " + inHandA);
   console.log("inPlayA: " + inPlayA);
 
   inPlayB.push(inHandB.shift());
-  stringInPlayB();
+    stringInPlayB();
+    // $inPlayB.classList.remove('faceDown');
+    $inPlayB.classList.add('faceUp');
   console.log("inPlayB: " + inPlayB);
   console.log("inHandB: " + inHandB);
-
-  compare();
-  winner();
+  pushBtn.classList.add('hidden');
 }
 
+// ==================================================================
+// EVENT LISTENERS FOR IN-GAME BUTTONS
+// ==================================================================
+pushBtn.addEventListener('click', pushIn)
+battleBtn.addEventListener('click', battle)
+warBtn.addEventListener('click', war)
+
+
+// ==================================================================
+// ADD/CLEAR CONTENT FUNCTIONS
+// ==================================================================
 function stringInPlayA () {
   $inPlayA.textContent = inPlayA.toString();
 }
-
-// function stringInWarA () {
-//   $inPlayA.textContent = inWarA.toString();
-// }
 
 function stringInPlayB () {
   $inPlayB.textContent = inPlayB.toString();
 }
 
+function stringInWar () {
+  $inPlayA.textContent = inWarA.toString();
+  $inPlayB.textContent = inWarB.toString();
+  }
+
+// function stringInWarA () {
+//   $inPlayA.textContent = inWarA.toString();
+// }
 // function stringInWarB () {
 //   $inPlayB.textContent = inWarB.toString();
 // }
 
-shuffleBtn.addEventListener('click', shuffle(deck))
-dealBtn.addEventListener('click', deal)
-battleBtn.addEventListener('click', battle)
-warBtn.addEventListener('click', war)
-resetBtn.addEventListener('click', reset)
-
-
+function clearBattle () {
+  $inPlayA.classList.remove('faceUp');
+  $inPlayB.classList.remove('faceUp');
+  $inPlayA.textContent = " ";
+  $inPlayB.textContent = " ";
+  // $inPlayA.classList.add('faceDown');
+  // $inPlayB.classList.add('faceDown');
+  $inHandA.textContent = inHandA.toString();
+  $inHandB.textContent = inHandB.toString();
+}

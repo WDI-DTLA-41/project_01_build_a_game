@@ -1,24 +1,46 @@
-.board {
-  display:inline-block;
-  height: 400px;
-  width: 600px;
-  background-color: green;
-  border: 5px solid brown;
-  border-radius: 10px;
+body {
+  background: green;
   text-align: center;
 }
 
-.card {
-  height: 200px;
-  width: 150px;
+.faceDown {
+  height: 150px;
+  width: 112.5px;
   background-color: red;
   border: 1px solid black;
   border-radius: 10px;
-  display: inline-block;
-  margin: 40px;
-  vertical-align: center;
+  display: block;
+  margin: 50px auto;
 }
 
+.faceUp {
+  height: 150px;
+  width: 112.5px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: block;
+  font-size: 36px;
+  color: red;
+  margin: 50px auto;
+}
+
+.deck {
+  color: white;
+  font-size: 16px;
+  width: 394px;
+  height: 32px;
+  margin: auto;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.players {
+  width: 400px;
+  margin: auto;
+}
 
 img {
   height: 100%;
@@ -27,4 +49,22 @@ img {
 
 .hidden{
   display: none;
+}
+
+#inHandA, #inHandB {
+  color: white;
+  height: 32px;
+  /*height: 100%;*/
+}
+
+#inHandA::first-word {
+  color: yellow;
+}
+
+#inHandB::first-word {
+  color: orange;
+}
+
+.inPlayRed {
+  color: red;
 }
