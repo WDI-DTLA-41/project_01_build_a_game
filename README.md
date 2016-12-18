@@ -4,7 +4,7 @@
 
 1. Deck of cards is shuffled and divided in two piles (26 cards for two players).
 2. One card is pulled from each pile and put face up.
-3. The highest card wins. __Note: Ace is highest
+3. The highest card wins. **Note:** Ace is highest
 4. Winning player adds cards to their pile.
 5. If cards pulled match, WAR is declared and four card are drawn.
 6. Three cards are face down, 4th card is face up and played.
