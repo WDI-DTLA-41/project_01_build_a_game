@@ -186,6 +186,10 @@ wikihow toggle html display with javascript
 
 
 1) Card display:
+    cardPrintDealer(dealer.hand[i]);
+    cardPrintPlayer(player.hand[i]);
+ 
+
 a) on dealCards - 
     1 face up 1 face down for dealer
     2 face up for player
