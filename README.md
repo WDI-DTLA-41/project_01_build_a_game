@@ -2,12 +2,13 @@
 
 ### Rules of the Game
 
-Game: War
+** Game: War
 
-Deck of cards are shuffled and divided in two (26 each player).
+- [x] Deck of cards are shuffled and divided in two (26 each player).
 One card is pulled and put face down.
 Highest number of cards wins.
 Winning player claims cards.
+
 If cards pulled match, WAR is declared and four card are drawn.
      - Three cards are face down, 4th card is face up and played.
      - Winner of highest card pulled, wins all 10 cards and cards 
