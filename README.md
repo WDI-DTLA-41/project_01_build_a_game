@@ -1,12 +1,12 @@
 
 ##The Game of War##
 
-###To get started:
-###Push the 'Start' button. This triggers the 'shuffling' of the deck and splitting cards.
-###Player is promted to push the 'Play' button and the game begins.
-###Push 'Play' until cards match triggering 'WAR'
-###Game is over once one player has all cards.
-###The 'Reset' button can be pushed to start the game over.
+__To get started:__
+- Push the 'Start' button. This triggers the 'shuffling' of the deck and splitting cards.
+- Player is prompted to push the 'Play' button and the game begins.
+- Push 'Play' until cards match triggering 'WAR'
+- Game is over once one player has all cards.
+- The 'Reset' button can be pushed to start the game over.
 
 ####Rules of the Game###
 1. Deck of cards is shuffled and divided in two piles (26 cards for two players).
