@@ -58,28 +58,12 @@ var connectBoard = function() {
       }
 }
 
-/**
- * Calculates area
- * @param {Number}  w - represents width
- * @param {Number} h - represents height
- * @return {Number} Sum of w and h
- */
 // start button on html page
 var $start = document.querySelector('#start');
 
 // play button on html page
 var $play = document.querySelector('#play');
-// $play.addEventListener('click', console.log('test'));
-/**
- * Reset button calls Start Game function
- */
-var $reset = document.querySelector('#reset');
-var resetGame = function() {
-      cardsPlaying = cardsDefault;
-      player1.innerHTML = "";
-      player2.innerHTML = "";
-      startGame();
-}
+
 
 /**
  * Start Game calls 'connectBoard' and 'shuffleDeck' functions
@@ -100,30 +84,48 @@ var startGame = function(){
   player2Deck = cardsPlaying;
   // turnCards();
   $play.addEventListener('click', turnCards);
+
 }
+
+
+/**
+ * Reset button calls Start Game function
+ */
+var $reset = document.querySelector('#reset');
+var resetGame = function() {
+  debugger
+      cardsPlaying = cardsDefault;
+      player1.innerHTML = "";
+      player2.innerHTML = "";
+      startGame();
+}
+
+
 
 /* Card is visible on page
  * Shows first two cards in play
  * and compares the value of first number of other
- * @param {Number}  w - represents width
- * @param {Number} h - represents height
- * @return {Number} Sum of w and h
  */
 var turnCards = function() {
+
     var topCardP1 = player1Deck[num];
     var topCardP2 = player2Deck[num];
     player1.innerHTML = topCardP1;
     player2.innerHTML = topCardP2;
     // num = num + 1;
+
     compareCards(topCardP1, topCardP2);
+
     if (topCardP1 === undefined){
+        document.querySelector('#message').innerHTML = "Player 1 cards = 0, Player 2 WINS GAME";
         alert('Player 2 wins!' + topCard2 + ' vs.  ' + topCard1 + 'GAME OVER');
         resetGame();
         //connectBoard();
     } else if (topCardP2 === undefined) {
+        document.querySelector('#message').innerHTML = "Player 2 cards = 0, Player 1 WINS GAME";
         alert('Player 1 wins!' + topCard1 + ' vs.  ' + topCard2 +  'GAME OVER');
         resetGame();
-        //connectBoard();
+
     }
 }
 
@@ -150,7 +152,6 @@ function shuffleArray(array) {
  * @param {compareCardP2} Player 2 card
  * @return {winner of card} Winner of card played in regular play or who wins War cards (10 total)
  */
-
 function compareCards(compareCardP1, compareCardP2) {
   console.log('Player1 cards: ' + player1Deck);
   console.log('Player1 deck length: ' + player1Deck.length);
@@ -191,21 +192,14 @@ function compareCards(compareCardP1, compareCardP2) {
 
    } else {
 
-          player1.innerHTML = player1Deck[0];
-          player2.innerHTML = player2Deck[0];
-          // cards match - War is played
-          alert('Declare War! ' + compareCardP1 + " vs. " + compareCardP2);
-
+          //document.querySelector('#message').textContent = "Cards Match - WAR!";
           // 4 cards from each deck held in temp area for winner
           warCardsRemoved();
 
+          // cards match - War is played
+          alert('Declare War! ' + compareCardP1 + " vs. " + compareCardP2);
           console.log(player1Deck);
           console.log(player2Deck);
-          var message = function() {
-
-
-          }
-          tempHand1[3].textContent
 
           if (tempHand1[3] > tempHand2[3]) {
               var removedCard1 = player1Deck.shift();
@@ -219,7 +213,7 @@ function compareCards(compareCardP1, compareCardP2) {
               console.log(player1Deck + ' concatanated player1 Deck');
               player1Deck.push(removedCard1, removedCard2);
               console.log(player1Deck + ' player1Decked pushed')
-              console.log('player12 deck: ' + player2Deck)
+              console.log('player1 deck: ' + player2Deck)
               // console.log('Player 2 ')
               alert('Player 1 is WINNER of WAR! ' + tempHand1[3] + ' vs. ' + tempHand2[3]);
 
@@ -251,6 +245,7 @@ $reset.addEventListener('click',resetGame);
  * Removes 4 cards from each hand into temporary area when WAR
  */
 function warCardsRemoved() {
+      document.querySelector('#message').textContent = "Cards Match - WAR!";
       tempHand1 = player1Deck.splice(0, 4);  // this removes first 4 cards
       tempHand2 = player2Deck.splice(0, 4);  // this removes first 4 cards
       player1.innerHTML = tempHand1[0];
