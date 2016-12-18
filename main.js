@@ -91,7 +91,9 @@ var spinReel = function(event) {
   // setTimeout(stopReel, 3500);
   // setTimeout(stopReel, 3000);
 
-  stopReel();
+  setTimeout(stopReelOne, 1500);
+  setTimeout(stopReelTwo, 2500);
+  setTimeout(stopReelThree, 3500);
 };
 // WHEN PLAYER PUSHES BUTTON TO SPIN
 spin.addEventListener("click", spinReel);
@@ -109,104 +111,108 @@ var images = [];
 var removeImg;
 var img;
 
-var stopReel = function() {
-  // FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
-  for (var i=0; i < slots.length; i++) {
+// FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
+for (var i=0; i < slots.length; i++) {
+
+  var stopReelOne = function() {
     // RANDOMLY SELECTS A COLOR FROM ARRAY
+    var randomSelect = function() {
+      // RETURNS THE COLOR VALUE
+      return cards[Math.floor(Math.random() * cards.length)];
+    }
+    var selected = randomSelect();
 
-    if (i = 0) {
-
-      var randomSelect = function() {
-        // RETURNS THE COLOR VALUE
-        return cards[Math.floor(Math.random() * cards.length)];
-      }
-      var selected = randomSelect();
-
-    setTimeout(function(){
-      // randomSelect();
-      var img = document.createElement("IMG");
-      img.setAttribute("src", selected);
-      img.setAttribute("class", "remove-this");
-      slots[0].appendChild(img);
-      var imgSrc = img.src;
-      images.push(imgSrc);
-      return img.classList;
-    }, 1500);
-
-    };
+    var img = document.createElement("IMG");
+    img.setAttribute("src", selected);
+    img.setAttribute("class", "remove-this-1");
+    slots[0].appendChild(img);
+    var imgSrc = img.src;
+    images.push(imgSrc);
+    return img.classList;
   }
-}
 
-//     setTimeout(function(){
-//       var img = document.createElement("IMG");
-//       img.setAttribute("src", selected);
-//       img.setAttribute("class", "remove-this-2");
-//       slots[1].appendChild(img);
-//       var imgSrc = img.src;
-//       images.push(imgSrc);
-//       return img.classList;
-//     }, 2500);
+  var stopReelTwo = function() {
+    // RANDOMLY SELECTS A COLOR FROM ARRAY
+    var randomSelect = function() {
+      // RETURNS THE COLOR VALUE
+      return cards[Math.floor(Math.random() * cards.length)];
+    }
+    var selected = randomSelect();
 
-//     setTimeout(function(){
-//       var img = document.createElement("IMG");
-//       img.setAttribute("src", selected);
-//       img.setAttribute("class", "remove-this-3");
-//       slots[2].appendChild(img);
-//       var imgSrc = img.src;
-//       images.push(imgSrc);
+    var img = document.createElement("IMG");
+    img.setAttribute("src", selected);
+    img.setAttribute("class", "remove-this-2");
+    slots[1].appendChild(img);
+    var imgSrc = img.src;
+    images.push(imgSrc);
+    return img.classList;
+  }
+
+  var stopReelThree = function() {
+    // RANDOMLY SELECTS A COLOR FROM ARRAY
+    var randomSelect = function() {
+      // RETURNS THE COLOR VALUE
+      return cards[Math.floor(Math.random() * cards.length)];
+    }
+    var selected = randomSelect();
+
+    var img = document.createElement("IMG");
+    img.setAttribute("src", selected);
+    img.setAttribute("class", "remove-this-3");
+    slots[2].appendChild(img);
+    var imgSrc = img.src;
+    images.push(imgSrc);
+
+    console.log(images);
 
 // // =============================================
 // //    4. COMPARING THE SLOTS
 // // =============================================
 
-//       for (var j = 0; j < images.length; j++) {
-//         var compareSlots = function() {
-//           // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
-//           // compare the values for 3-way match
-//           // IF ALL 3 MATCH ==> ** WIN **
-//           if (images[0] === images[1] && images[0] === images[2] && images[1] === images[2]) {
-//             console.log("winner!");
+    for (var j = 0; j < images.length; j++) {
+      var compareSlots = function() {
+        // IF ALL 3 MATCH ==> ** WIN **
+        if (images[0]===images[1] && images[0]===images[2] && images[1]===images[2]) {
+          console.log("winner!");
 
-//             setTimeout(function() {
-//               revealQuoteWin();
-//             }, 1000);
+          setTimeout(function() {
+            revealQuoteWin();
+          }, 1000);
 
-//             var revealQuoteWin = function() {
-//               quote.textContent = '"The Force is strong with this one."';
-//             }
-//             // addScore();
-//             setTimeout(addScore, 1000);
-//             return;
+          var revealQuoteWin = function() {
+            quote.textContent = '"The Force is strong with this one."';
+          }
+          // addScore();
+          setTimeout(addScore, 1000);
+          return;
 
-//           } else {
-//           // ELSE ==> YOU LOSE
-//             // APPEND H2 TO PAGE
-//             // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
-//             console.log("you lose :(");
-//             setTimeout(function() {
-//               revealQuoteLose();
-//             }, 1000);
+        } else {
+        // ELSE ==> YOU LOSE
+          // APPEND H2 TO PAGE
+          // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
+          console.log("you lose :(");
+          setTimeout(function() {
+            revealQuoteLose();
+          }, 1000);
 
-//             var revealQuoteLose = function() {
-//               quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
-//             }
-//           }
-//           // minusScore();
-//             setTimeout(minusScore, 1000);
-//           }
-//           compareSlots();
-//           return;
-//       }
+          var revealQuoteLose = function() {
+            quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
+          }
+        }
+        // minusScore();
+          setTimeout(minusScore, 1000);
+        }
+        compareSlots();
+        return;
+    }
+  compareSlots();
+  return img.classList;
+  }
+    // return;
+};
 
-//       return img.classList;
+// }
 
-//     }, 4000);
-//     // compareSlots();
-//     return;
-//   }
-// };
-
-// };
 
 // =============================================
 //    5. TOTAL SCORE
@@ -297,7 +303,7 @@ var newTurn = function(event) {
   // REMOVES DYNAMICALLY CREATED IMG'S IN SLOT DIVS
   function removeImgs() {
     var div = document.querySelector(".default");
-    var img1 = document.querySelector(".remove-this");
+    var img1 = document.querySelector(".remove-this-1");
     var img2 = document.querySelector(".remove-this-2");
     var img3 = document.querySelector(".remove-this-3");
     img1.parentNode.removeChild(img1);
