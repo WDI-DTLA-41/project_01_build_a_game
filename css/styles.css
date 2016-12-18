@@ -9,34 +9,38 @@ body {
   width: 100%;
   height: auto;
 }
+
+p, span {
+  display: inline-block;
+  padding: 0px 40px 0px 40px;
+  margin: 0px auto;
+  text-align: left;
+}
+
 /* background of cards */
 #container {
-    border: 2px solid black;
-    background: #001947;
-    border-radius: 5px;
-    positon: block;
-    width: 400px;
-    height: 300px;
-    padding: 10px;
+  border: 2px solid black;
+  background: #001947;
+  border-radius: 5px;
+  position: block;
+  width: 400px;
+  height: 350px;
+  padding: 10px;
 
 }
+
 /* start button id */
 #start {
 
 }
 /* class to center element */
 .center {
-    color: #fff;
-    margin: 10px auto;
-    width: 100%;
-    text-align: center;
-    height: auto;
+  color: #fff;
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+  height: auto;
 }
-/*.cardPosition {
-    text-align: center;
-    vertical-align: middle;
-    margin: 0 auto;
-}*/
 /* background of buttons */
 #wrapper {
   width: 100%;
@@ -49,57 +53,35 @@ body {
 }
 /* button itself */
 button {
-    width: 130px;
-    height: 30px;
-    margin-top:5px;
-    position: relative;
-    font-size: 14px;
-    color: #ffffff;
-    background: #000;
-    border-radius: 7px;
+  width: 130px;
+  height: 30px;
+  margin-top:5px;
+  position: relative;
+  font-size: 14px;
+  color: #ffffff;
+  background: #000;
+  border-radius: 7px;
 
 }
 
-/* player card stack */
-/*.pile1 {
-    background: pink;
-    border: 1px solid black;
-    z-index: -1;
-
-}*/
-/*#invisible {
-  display: none;
-}
-*/
 img {
-    width: inherit;
+  width: inherit;
 }
-/*.cardPlayer1 {
-    background: blue;
-
-}
-.cardPlayer2 {
-
-    background: red;
-}*/
-
-
-
 
 /* container behind playing cards */
 .player{
-    background: #ff0000;
-    text-align: center;
-    width: 100px;
-    height: 150px;
-    font-size: 30px;
-    color: #000;
-    padding: 25px 5px 5px 10px;
-    margin: 20px 15px 5px 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-    position: block;
-    display: inline-block;
+  background: #ff0000;
+  text-align: center;
+  width: 100px;
+  height: 150px;
+  font-size: 30px;
+  color: #000;
+  padding: 25px 5px 5px 10px;
+  margin: 20px 15px 5px 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: block;
+  display: inline-block;
 
 }
 /* ids for playing cards */
@@ -107,3 +89,123 @@ img {
 }
 #player2{
 }
+/* small screen*/
+@media screen and (min-width: 150px) and (max-width: 500px){
+
+/* background of cards */
+#container {
+  border: 2px solid black;
+  background: #001947;
+  border-radius: 5px;
+  position: block;
+  width: 100%;
+  height: inherit;
+  padding: 2px;
+
+}
+h1 {
+  font-size: 1.5em;
+
+}
+p, span {
+  font-size: 12px;
+  display: inline-block;
+  padding: 0px 20px 0px 20px;
+  margin: 0px auto;
+  text-align: left;
+}
+/* class to center element */
+.center {
+  font-size: 100%;
+  color: #fff;
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+  height: auto;
+}
+/* user message */
+#message {
+
+}
+/* box behind buttons */
+#wrapper {
+  width: 100%;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 20px;
+  padding: 1px 0px 1px 1px;
+  background-color: #FFC21C;
+  border: 1px solid black;
+}
+
+/* container behind playing cards */
+.player{
+  background: #ff0000;
+  text-align: center;
+  width: 60px;
+  height: 100px;
+  font-size: 18px;
+  color: #000;
+  padding: 15px 2px 2px 2px;
+  margin: 5px 10px 10px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  /*position: block;*/
+  display: inline-block;
+
+}
+/* button itself */
+button {
+  font-size: 100%;
+  width: 50%;
+  margin:5px 5px 1px 1px;
+  font-size: 12px;
+  color: #ffffff;
+  background: #000;
+  border-radius: 7px;
+
+}
+
+}/* end small screen*/
+
+
+
+/* medium screen */
+@media screen and (min-width: 501px) and (max-width: 800px) {
+
+#wrapper {
+  width: 100%;
+  border: 1px solid black;
+  text-align: center;
+  background-color: #FFC21C;
+  border: 1px solid black;
+}
+
+/* class to center element */
+.center {
+  color: #fff;
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+  height: auto;
+}
+
+/* button itself */
+button {
+  width: 130px;
+  height: 30px;
+  margin-top:5px;
+  position: relative;
+  font-size: 14px;
+  color: #ffffff;
+  background: #000;
+  border-radius: 7px;
+
+} /* end media query Medium screen */
+
+
+
+
+
+
+
