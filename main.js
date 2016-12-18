@@ -93,7 +93,7 @@ var startGame = function(){
  */
 var $reset = document.querySelector('#reset');
 var resetGame = function() {
-  debugger
+
       cardsPlaying = cardsDefault;
       player1.innerHTML = "";
       player2.innerHTML = "";
@@ -115,17 +115,9 @@ var turnCards = function() {
     // num = num + 1;
 
     compareCards(topCardP1, topCardP2);
-
-    if (topCardP1 === undefined){
-        document.querySelector('#message').innerHTML = "Player 1 cards = 0, Player 2 WINS GAME";
-        alert('Player 2 wins!' + topCard2 + ' vs.  ' + topCard1 + 'GAME OVER');
-        resetGame();
-        //connectBoard();
-    } else if (topCardP2 === undefined) {
-        document.querySelector('#message').innerHTML = "Player 2 cards = 0, Player 1 WINS GAME";
-        alert('Player 1 wins!' + topCard1 + ' vs.  ' + topCard2 +  'GAME OVER');
-        resetGame();
-
+    if (topCardP1 === topCardP2) {
+        player1.innerHTML = topCardP1;
+        player2.innerHTML = topCardP2;
     }
 }
 
@@ -135,8 +127,9 @@ var turnCards = function() {
  * @param {array}  shuffles array numbers
  * @return {array} shuffles numbers
  */
-// function to shuffle arrays numbers
+
 function shuffleArray(array) {
+
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
@@ -153,87 +146,97 @@ function shuffleArray(array) {
  * @return {winner of card} Winner of card played in regular play or who wins War cards (10 total)
  */
 function compareCards(compareCardP1, compareCardP2) {
-  console.log('Player1 cards: ' + player1Deck);
-  console.log('Player1 deck length: ' + player1Deck.length);
-  console.log('Player2 cards: ' + player2Deck);
-  console.log('Player2 deck length: ' + player2Deck.length);
-  console.log('total cards in play: ' + (player2Deck.length + player1Deck.length));
+  // console.log('Player1 cards: ' + player1Deck);
+  // console.log('Player1 deck length: ' + player1Deck.length);
+  // console.log('Player2 cards: ' + player2Deck);
+  // console.log('Player2 deck length: ' + player2Deck.length);
+  // console.log('total cards in play: ' + (player2Deck.length + player1Deck.length));
 
-  if (compareCardP1 > compareCardP2) {
+      if (compareCardP1 > compareCardP2) {
 
-        //logic here to add card back
-        // remove cards from players' hands
-        var removedCard1 = player1Deck.shift();
-        var removedCard2 = player2Deck.shift();
-        console.log('P1 WON - Moved 2 cards to beginning of deck ' + player1Deck);
-        // add both cards to bottom of player1 pile
-        player1Deck.push(removedCard1, removedCard2);
-        console.log('P1 - pushed card ' + player1Deck);
-        console.log('P2 cards ' + player2Deck);
-        // isWar = false;
-        return 'Winner is Player 1';
-
-
-    } else if (compareCardP1 < compareCardP2) {
-
-        //logic here to add card back
-        // remove cards from players' hands
-        var removedCard1 = player1Deck.shift();
-        var removedCard2 = player2Deck.shift();
-        console.log('P2 WON - Moved 2 cards to beginning of deck ' + player2Deck);
-        // add both cards to bottom of player 2 pile
-        player2Deck.push(removedCard1,removedCard2);
-        console.log('P2 - pushed card ' + player2Deck);
-        console.log('P1 cards ' + player1Deck);
-        // helper to visualize
-        // isWar = false;
-        return 'Winner is Player 2';
-
-
-   } else {
-
-          //document.querySelector('#message').textContent = "Cards Match - WAR!";
-          // 4 cards from each deck held in temp area for winner
-          warCardsRemoved();
-
-          // cards match - War is played
-          alert('Declare War! ' + compareCardP1 + " vs. " + compareCardP2);
-          console.log(player1Deck);
-          console.log(player2Deck);
-
-          if (tempHand1[3] > tempHand2[3]) {
+              //logic here to add card back
+              // remove cards from players' hands
               var removedCard1 = player1Deck.shift();
               var removedCard2 = player2Deck.shift();
-              // player 1 wins 'WAR' and gets all 8 cards
-
-              console.log('P1 wins War cards ' + tempHand1 + tempHand1[3]);
-              console.log('P1 wins War cards ' + tempHand2) + tempHand2[3];
-
-              player1Deck = player1Deck.concat(tempHand1, tempHand2);
-              console.log(player1Deck + ' concatanated player1 Deck');
+              //alert('Player 1 wins cards');
+              console.log('P1 WON - Moved 2 cards to beginning of deck ' + player1Deck);
+              // add both cards to bottom of player1 pile
               player1Deck.push(removedCard1, removedCard2);
-              console.log(player1Deck + ' player1Decked pushed')
-              console.log('player1 deck: ' + player2Deck)
-              // console.log('Player 2 ')
-              alert('Player 1 is WINNER of WAR! ' + tempHand1[3] + ' vs. ' + tempHand2[3]);
+              console.log('P1 - pushed card ' + player1Deck);
+              console.log('P2 cards ' + player2Deck);
+              // isWar = false;
+              return 'Winner is Player 1';
 
+          } else if (compareCardP1 < compareCardP2) {
 
-          } else {
+              //logic here to add card back
+              // remove cards from players' hands
               var removedCard1 = player1Deck.shift();
               var removedCard2 = player2Deck.shift();
+              console.log('P2 WON - Moved 2 cards to beginning of deck ' + player2Deck);
+              //alert('Player 2 wins cards');
               // add both cards to bottom of player 2 pile
-              // player2Deck.push(removedCard1, removedCard2);
-              // player 2 wins 'WAR' and gets all 8 cards
-              console.log('tempHand1: ' + tempHand1);
-              console.log('tempHand2: ' + tempHand2);
-              player2Deck = player2Deck.concat(tempHand1, tempHand2);
-              console.log(player2Deck + ' player2 Deck');
-              player2Deck.push(removedCard1, removedCard2);
-              alert('Player 2 is WINNER of WAR! ' + tempHand2[3] + ' vs. ' + tempHand1[3]);
-          }
-    }
-}
+              player2Deck.push(removedCard1,removedCard2);
+              console.log('P2 - pushed card ' + player2Deck);
+              console.log('P1 cards ' + player1Deck);
+              // helper to visualize
+              // isWar = false;
+              return 'Winner is Player 2';
 
+
+         } else if (compareCardP1 === compareCardP2) {
+
+
+                //document.querySelector('#players');
+
+                //document.querySelector('#message').textContent = "Cards Match - WAR!";
+                // 4 cards from each deck held in temp area for winner
+                warCardsRemoved();
+
+                // cards match - War is played
+                alert('Declare War! ' + compareCardP1 + " vs. " + compareCardP2);
+
+                console.log(player1Deck);
+                console.log(player2Deck);
+
+                if (tempHand1[3] > tempHand2[3]) {
+                    var removedCard1 = player1Deck.shift();
+                    var removedCard2 = player2Deck.shift();
+                    // player 1 wins 'WAR' and gets all 8 cards
+
+                    player1.innerHTML = tempHand1[0];
+                    player2.innerHTML = tempHand2[0];
+                    //console.log('P1 wins War cards ' + tempHand1 + tempHand1[3]);
+                    //console.log('P1 wins War cards ' + tempHand2) + tempHand2[3];
+
+                    player1Deck = player1Deck.concat(tempHand1, tempHand2);
+                    console.log(player1Deck + ' concatanated player1 Deck');
+                    player1Deck.push(removedCard1, removedCard2);
+                    console.log(player1Deck + ' player1Decked pushed')
+                    console.log('player1 deck: ' + player2Deck)
+                    // console.log('Player 2 ')
+                    alert('Player 1 is WINNER of WAR! ' + tempHand1[3] + ' vs. ' + tempHand2[3]);
+
+
+                } else {
+
+                    var removedCard1 = player1Deck.shift();
+                    var removedCard2 = player2Deck.shift();
+                    // add both cards to bottom of player 2 pile
+                    // player2Deck.push(removedCard1, removedCard2);
+                    // player 2 wins 'WAR' and gets all 8 cards
+                    console.log('tempHand1: ' + tempHand1);
+                    console.log('tempHand2: ' + tempHand2);
+                    player2Deck = player2Deck.concat(tempHand1, tempHand2);
+                    console.log(player2Deck + ' player2 Deck');
+                    player2Deck.push(removedCard1, removedCard2);
+                    alert('Player 2 is WINNER of WAR! ' + tempHand2[3] + ' vs. ' + tempHand1[3]);
+                }
+          }
+
+
+
+}
 
 /**
  * Event Listeners for Start and Reset button
@@ -245,13 +248,32 @@ $reset.addEventListener('click',resetGame);
  * Removes 4 cards from each hand into temporary area when WAR
  */
 function warCardsRemoved() {
-      document.querySelector('#message').textContent = "Cards Match - WAR!";
+      // var topCardP1 = player1Deck[num];
+      // var topCardP2 = player2Deck[num];
+      // player1.innerHTML = topCardP1;
+      // player2.innerHTML = topCardP2;
+
+      //document.querySelector('#message').textContent = "Cards Match - WAR!";
       tempHand1 = player1Deck.splice(0, 4);  // this removes first 4 cards
       tempHand2 = player2Deck.splice(0, 4);  // this removes first 4 cards
       player1.innerHTML = tempHand1[0];
       player2.innerHTML = tempHand2[0];
       console.log('In warCardsRemoved func ' + tempHand1);
       console.log('In warCardsRemoved func ' + tempHand2);
+}
+
+var gameOver = function () {
+    if (topCardP1 === undefined){
+              //.querySelector('#message').innerHTML = "Player 1 has no cards left, ' Player 2 WINS GAME";
+              alert('Player 2 wins!' + topCardP2 + ' vs.  ' + topCardP1 + 'GAME OVER');
+              resetGame();
+              //connectBoard();
+          } else {
+              //document.querySelector('#message').innerHTML = "Player 2 has no cards left Player 1 WINS GAME";
+              alert('Player 1 wins!' + topCardP1 + ' vs.  ' + topCardP2 +  'GAME OVER');
+              resetGame();
+
+    }
 }
 
 
