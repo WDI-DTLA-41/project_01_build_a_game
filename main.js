@@ -80,7 +80,7 @@ var startHardGameFlash = function () {
     },100);
   }
   sequenceArr.push(sequence);
-  setTimeout(playerTurn, 500);
+  setTimeout(playerTurn, 250);
   setTimeout(hardCheckInput, 2000);
 };
 
@@ -144,7 +144,7 @@ var hardAddColorFlash = function () {
     },100);
   }
   sequenceArr.push(sequence);
-  setTimeout(playerTurn, 500);
+  setTimeout(playerTurn, 250);
   setTimeout(hardCheckInput, 1000*sequenceArr.length);
   };
 
@@ -253,8 +253,8 @@ var clearSequence = function() {
 *
 */
 var gameOver = function() {
-  btnContainer.removeEventListener('click', handleUserInput)
-  btnContainer.removeEventListener('click', handleHardUserInput)
+  btnContainer.removeEventListener('click', handleUserInput);
+  btnContainer.removeEventListener('click', handleHardUserInput);
   resetCounter();
   clearSequence();
   audioOne[1].play();
@@ -308,7 +308,7 @@ var praise = function() {
 
 var playerTurn = function() {
   praiseTag.textContent = 'YOUR TURN!';
-  return setTimeout(clearPraiseTag,1000*sequenceArr.length);
+  return setTimeout(clearPraiseTag,500*sequenceArr.length);
 }
 
 var clearPraiseTag = function() {
