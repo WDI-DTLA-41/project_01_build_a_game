@@ -13,17 +13,29 @@
 
 
   <div class="board">
-    <div id="play-board">
-     <button id="deal-button">Deal</button>
-     <button type='button' onclick='shufle_cards()'>Shuffle</button>
-      <div id="dealer" class="avatar">
+    <div class="scoreBoard" data-row="0" data-col="2">
+          <p>You: <span class="playerScore"></span></p>
+          <p>Dealer: <span class="dealerScore"></span></p>
+    </div>
+    <div class="row1">
+       <div class="playerHand" data-row="0" data-col="0"></div>
+       <div class="playerCard" data-row="0" data-col="1"><span class="playerScore"></span></div>
+    </div>
+
+      <div class="row2>">
+        <div class="dealerHand" data-row="1" data-col="0"></div>
+        <div class="dealerCard" data-row="1" data-col="2"><span class="dealerScore"></span></div>
       </div>
-      <div id="player" class="avatar">
-      </div>
+  </div>
+
+
 
         <!-- CARDS -->
-        <div class='card'>
-          <span data-value='A' data-title='A ♣'></span>
+        <!--  <div id='complete-deck'>
+
+          <div class="card d9 bottom" style="left: 257.7px; top: 252px; z-index: 1;">
+            <div class="facedown"></div>
+            <div class="faceup"></div>
           </div>
 
           <div class='card'>
@@ -152,8 +164,8 @@
           </div>
 
          <div class='card red'>
-        <span data-value='7' data-title='7 ♥'></span>
-        </div>
+         <span data-value='7' data-title='7 ♥'></span>
+         </div>
 
         <div class='card red'>
         <span data-value='8' data-title='8 ♥'></span>
@@ -229,9 +241,12 @@
 
         <div class='card'>
         <span data-value='K' data-title='K ♠'></span>
-        </div>
+        </div> -->
+
       </div>
 
+      </div>
+      </div>
     </div>
   </div>
 
@@ -242,14 +257,4 @@
 </html>
 
 
- <!-- <div class="row1">
-       <div class="card" data-row="0" data-col="0"></div>
-       <div class="card" data-row="0" data-col="1"></div>
-      </div>
 
-    <div class="row2>">
-      <div class="card" data-row="1" data-col="0"></div>
-      <div class="card" data-row="1" data-col="1"></div>
-    </div>
-    </div>
-  </div> -->

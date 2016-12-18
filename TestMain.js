@@ -3,11 +3,12 @@ var playerHand = [];
 var playerCard = [];
 var dealerHand = [];
 var dealerCard = [];
-var playerWins = [];
-var dealerWins = [];
 var tempPlayCard = null;
-var tempDealCard = null;
-
+var tempDealCard = null
+var wPlayer = [];
+var wDealer = [];
+var wwPlayer = [];
+var wwDealer = [];
 
 var deck = [
             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
@@ -21,13 +22,12 @@ var deck = [
 
 
 /**
-* Shuffles deck of cards - moves around 1 random card in the deck
-* @param {String} deck - array of 52 cards
-* while there remains elements to shuffle
-* j = pick a remaining element
+* Function shuffles deck of cards by moving around 1 random card in the deck
+* @param {String} deck = 52 cards
+* j = a remaining element
 * temp = temporary holder
-* swap it with the current element
-* return deck
+* this function shuffles the deck parameter
+* deck is returned
 */
 var shuffle = function(deck){
   var n = deck.length, j, temp;
@@ -39,12 +39,14 @@ while(--n > 0) {
   deck[n] = temp;
   }
   console.log('shuffed deck: ', deck);
-  return deck;
 }
-// deck = shuffle(deck);
-//console.log(deck);
 
-//deal cards
+
+/**
+* Function deals deck into two stacks, 26 cards for each
+* @param {String} deck = 52 cards
+* pushes stack of 26 cards to players hand and dealers hand
+*/
 var deal = function(deck){
   for (var i = 0; i < deck.length; i++){
     if(i % 2 === 0){
@@ -56,18 +58,15 @@ var deal = function(deck){
   console.log('playerHand: ', playerHand);
   console.log('dealerHand: ', dealerHand);
 }
-// console.log(playerHand);
-// console.log(dealerHand);
 
 
-//battle
 var battle = function(){
   playerCard = playerHand.shift();
   dealerCard = dealerHand.shift();
   console.log('playerCard: ', playerCard);
   console.log('dealerCard: ', dealerCard);
-compare();
-winner();
+  compare();
+  winner();
 }
 
 // console.log(battle);
@@ -81,13 +80,17 @@ var compare = function(){
     compareWar();
   } else if (playerCard > dealerCard) {
     console.log('player won this hand');
-    playerWins.push(playerCard, dealerCard);
+    playerHand.push(playerCard, dealerCard);
   } else {
     console.log('dealer won this hand');
-    dealerWins.push(dealerCard, playerCard);
-
-  };
+    dealerHand.push(dealerCard, playerCard);
+  }
 }
+
+/**
+* Function initializes 'war mode'
+* player and dealer draws top four cards from their hand and sets it on the board
+*/
 
 //war!
  function war(){
@@ -108,18 +111,23 @@ function compareWar(){
     warOnWar();
   } else if (playerCard[3] > dealerCard[3]){
     console.log('player won this war');
-    var concatPWins = playerCard.concat(dealerCard);
-    console.log (concatPWins);
-    playerWins = playerWins.concat(concatPWins);
-    playerWins.push(tempPlayCard, tempDealCard);
-    console.log(playerWins);
+    //creating a variable for war-on-war
+    wPlayer = playerCard.concat(dealerCard);
+    playerHand = playerHand.concat(wPlayer);
+    //console.log(wPlayer);
+    // playerHand = playerHand.concat(playerCard, dealerCard);
+    playerHand.push(tempPlayCard, tempDealCard);
+    //console.log('Player holds: ' + playerHand);
   } else if (dealerCard[3] > playerCard[3]) {
     console.log('dealer won this war');
-    var concatDWins = dealerCard.concat(playerCard);
-    console.log(concatDWins);
-    dealerWins = dealerWins.concat(concatDWins);
-    dealerWins.push(tempDealCard, tempPlayCard);
-    console.log(dealerWins);
+    wDealer = dealerCard.concat(playerCard);
+    dealerHand = dealerHand.concat(wDealer);
+    //console.log(wDealer);
+    //creating new var for war-on-war
+    //dealerHand = dealerHand.concat(dealerCard, playerCard);
+    dealerHand.push(tempDealCard, tempPlayCard);
+    //console.log('Dealer holds: ' + dealerHand);
+    winner();
     }
    }
 
@@ -127,41 +135,44 @@ var warOnWar = function(){
     if (playerCard[3] === dealerCard[3]){
     console.log('War! on War!');
     } else if (playerCard[3] > dealerCard[3]){
-    var newConcatPWins = playerCard.concat(dealerCard);
-    console.log ("War! on War!" + newConcatPWins);
-    playerWins = playerWins.concat(newConcatPWins);
-    console.log(playerWins);
+    wwPlayer = playerCard.concat(dealerCard);
+    console.log ("War! on War!" + wwPlayer);
+    playerHand = playerHand.concat(wPlayer, wwPlayer);
+    console.log(playerHand);
     } else if (dealerCard[3] > playerCard[3]) {
     console.log('dealer won this war');
-    var newConcatDWins = dealerCard.concat(playerCard);
-    console.log("War! on War!" + newConcatDWins);
-    dealerWins = dealerWins.concat(newConcatDWins);
-    console.log(dealerWins);
+    wwDealer = dealerCard.concat(playerCard);
+    console.log("War! on War!" + wwDealer);
+    dealerHand = dealerHand.concat(wDealer, wwDealer);
+    console.log(dealerHand);
+    winner();
     }
    }
 
 
-
-
-//   var shuffleWins = function() {
-//     if (playerHand.length === 0) {
-//     playerHand = playerHand.concat(playerWins);
-//     shuffle();
-//     } else if (dealerHand.length === 0) {
-//     dealerHand = dealerHand.concat(dealerWins);
-//     shuffle();
-//     }
-// }
-
-
-var isEmpty = function() {
-  if (playerHand.length < 1) {
-
-   console.log('Dealer wins the game!');
+var winner = function(){
+  if (playerHand.length < 1){
+    console.log('Dealer wins the game!');
   } else if (dealerHand.length < 1) {
     console.log('Player wins the game!');
   }
 }
+
+//stacks cards
+// function stackCards(margin){
+//   var left = 0;
+//   var step = margin;
+//   var i = 0;
+//   $('.card').each(function(){
+//     $(this).css({'z-index' : i});
+//     $(this).css({'margin-left':left+'px'});
+//     $(this).css({'margin-top':0+'px'});
+//     left = left + step;
+//     i++;
+//   });
+// }
+
+
 
 //ACTION: function to add wins/loss of both player and dealer
 

@@ -40,7 +40,7 @@ while(--n > 0) {
   deck[n] = temp;
   }
   console.log('shuffed deck: ', deck);
-  return deck;
+
 }
 // deck = shuffle(deck);
 //console.log(deck);
