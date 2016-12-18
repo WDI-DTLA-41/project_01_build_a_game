@@ -11,17 +11,90 @@ img {
   margin: 0 auto;
   display: block;
   border-radius: 5px;
+}
 
+[name="deal"] {
+  border-radius: 50%;
+}
+
+.round{
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border: 2px solid #f5f5f5;
+  border-radius: 50%;
+  color: #f5f5f5;
+  text-align: center;
+  text-decoration: none;
+  background: #464646;
+  box-shadow: 0 0 3px gray;
+  font-size: 30px;
+  font-weight: 800;
+  z-index: 10;
+}
+
+.deal-button {
+  z-index: 5;
+  left: -50px;
+  opacity: 0;
+  transition: .5s ease;
+  animation-delay: 0s;
+}
+
+.hit-button {
+  z-index: 5;
+  left: -140px;
+  top: 200px;
+  opacity: 0;
+  transition: .5s ease;
+  animation-delay: .33s;
+}
+
+.stay-button {
+  top: 395px;
+  left: -50px;
+  opacity: 0;
+  transition: .5s ease;
+  animation-delay: .66s;
+}
+
+.round:hover {
+  background: #262626;
+  cursor: pointer;
+  color: red;
+}
+
+.dealer-description {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 50px;
+  position: absolute;
+  color: white;
+  z-index: 4;
+  transform: rotate(-25deg);
+  left: 1120px; /*real position 120px*/
+  opacity: 0;
+  transition: 1.5s ease;
+}
+
+.player-description {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 50px;
+  position: absolute;
+  color: white;
+  z-index: 4;
+  transform: rotate(-25deg);
+  left: -520px; /*real position 480px*/
+  top: 400px;
+  opacity: 0;
+  transition: 1.5s ease;
 }
 
 .wrapper {
- /* background: #076324;
- background-image: url("../assets/45-degree-fabric-light.png");
-  /*width: 100%;*/
   min-height: 100%;
   position: relative;
   display: block;
-  /*background: #000000;*/
 }
 
 /*.container:after {
@@ -36,8 +109,18 @@ img {
   z-index: -1;
 }*/
 
-h1 {
+.header {
   margin-top: 0px;
+  font-family: 'Monoton', cursive;
+  font-size: 50px;
+  color: black;
+  /*margin: 0 auto;*/
+  /*text-align: center;*/
+  z-index: 100;
+}
+
+.head-wrap {
+  z-index: 100;
 }
 
 .circle {
@@ -62,7 +145,7 @@ h1 {
   border-bottom: 30px solid #663300;
   position: absolute;
   /*top: -645px;*/
-  top: -105px;
+  top: -115px;
   left: 205px;
   /*margin: 0 auto;*/
   background: #36454f;
@@ -70,6 +153,40 @@ h1 {
   /*display: inline-block;*/
 }
 
+/*original*/
+/*.player-score {
+  position: absolute;
+  font-size: 30px;
+  top: 300px;
+  left: 310px;
+  color: gold;
+}*/
+
+.player-score {
+  position: absolute;
+  font-size: 40px;
+  top: -75px;
+  left: 80px;
+  color: gold;
+}
+
+/*original*/
+/*.dealer-score {
+  position: absolute;
+  font-size: 30px;
+  color: gold;
+  top: 167px;
+  left: 460px;
+}*/
+
+.dealer-score {
+  position: absolute;
+  font-size: 40px;
+  color: gold;
+  top: 87px;
+  left: 90px;
+  /*visibility: hidden;*/
+}
 
 .dealer-cards {
   position: absolute;
@@ -79,12 +196,40 @@ h1 {
 .dealer-0 {
   position: relative;
   left: 352px;
+  /*visibility: hidden;*/
+  opacity: 1;
+  transition: all 3s ease;
+  z-index: 0;
 }
+
+.dealer-back {
+  position: absolute;
+  left: 352px;
+  top: 20px;
+  z-index: 1;
+  opacity: 0;
+}
+
 
 .dealer-1 {
   position: relative;
   left: 332px;
   top: -105px;
+  z-index: 2;
+}
+
+.dealer-2 {
+  position: relative;
+  left: 312px;
+  top: -210px;
+  z-index: 2;
+}
+
+.dealer-3 {
+  position: relative;
+  left: 292px;
+  top: -315px;
+  z-index: 2;
 }
 
 .player-cards {
@@ -95,10 +240,29 @@ h1 {
 .player-0 {
   position: relative;
 /*  left: -5px;*/
+/*transition: opacity 1s;*/
 }
 
 .player-1 {
   position: relative;
   top: -175px;
   left: 20px;
+}
+
+.player-2 {
+  position: relative;
+  left: 40px;
+  top: -350px;
+}
+
+.player-3 {
+  position: relative;
+  left: 60px;
+  top: -525px;
+}
+
+.player-4 {
+  position: relative;
+  left: 80px;
+  top: -700px;
 }

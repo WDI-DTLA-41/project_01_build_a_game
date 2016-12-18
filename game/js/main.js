@@ -1,10 +1,16 @@
 console.log('ha');
 
 var $startButton = document.querySelector('[name="start"]'),
-    $dealButton = document.querySelector('[name="deal"]'),
-    $hitButton = document.querySelector('[name="hit"]'),
-    $stayButton = document.querySelector('[name="stay"]');
-
+    $dealButton = document.querySelector('.deal-button'),
+    $hitButton = document.querySelector('.hit-button'),
+    $stayButton = document.querySelector('.stay-button'),
+    $dealerScore = document.querySelector('.dealer-score'),
+    $playerScore = document.querySelector('.player-score'),
+    $dealerDesc = document.querySelector('.dealer-description'),
+    $playerDesc = document.querySelector('.player-description'),
+    $playerCards = document.querySelector('.player-cards'),
+    $dealerCards = document.querySelector('.dealer-cards'),
+    $dealerBack = document.querySelector('.dealer-back');
 var deck = [],
     shuffledDeck= [];
     // shuffledDeck= [
@@ -88,8 +94,8 @@ function shuffleDeck() {
 var currentPlayer; //= players[0];
 
 function nextTurn() {
-  var lastCardHand = currentPlayer.hand.length - 1;
-  displayCards(lastCardHand);
+  // var lastCardHand = currentPlayer.hand.length - 1;
+  // displayCards(lastCardHand);
   // console.log(currentPlayer);
   if (currentPlayer && currentPlayer.name === 'player') {
     currentPlayer = players[1];
@@ -103,6 +109,7 @@ function nextTurn() {
 
 function displayCards(i) {
   var img = document.createElement('img');
+  // img.style.opacity = 1;
   var currentCard = currentPlayer.hand[i];
   var currentName = currentCard.name;
   var currentSuit = currentCard.suits;
@@ -110,17 +117,51 @@ function displayCards(i) {
   var strSrc = 'assets/cards/' + currentName + '_of_' + currentSuit + '.png';
   img.src = strSrc;
   if (currentPlayer.name === 'dealer') {
-    var cardClass = img.setAttribute('class', 'dealer-' + i);
+    img.setAttribute('class', 'dealer-' + i);
+    // img.setAttribute('class', 'dealt-cards');
     var location = document.querySelector('.dealer-cards');
     location.appendChild(img);
     // debugger;
   } else {
-    var cardClass = img.setAttribute('class', 'player-' + i);
-    var location = document.querySelector('.player-cards');
-    location.appendChild(img);
+    img.setAttribute('class', 'player-' + i);
+    // img.setAttribute('class', 'dealt-cards');
+    $playerCards.appendChild(img);
   }
 }
 
+function removeCards() {
+  $playerCards.innerHTML = '';
+  $dealerCards.innerHTML = '';
+}
+
+function dealerBackOne() {
+  $dealerBack.style.opacity = '1';
+}
+
+function dealerBackZero() {
+  $dealerBack.style.opacity = '0';
+}
+
+//DISPLAY SCORE
+
+function displayText() {
+  $dealerDesc.style.opacity = '1';
+  $dealerDesc.style.left = '120px';
+  // $dealerDesc.style.position = 'relative';
+  $playerDesc.style.opacity = '1';
+  $playerDesc.style.left = '480px';
+}
+
+//ANIMATIONS
+
+function displayStuff() {
+  $dealButton.style.opacity = '1';
+  $hitButton.style.opacity = '1';
+  $stayButton.style.opacity = '1';
+  $dealButton.classList.add('animated', 'bounceInLeft');
+  $hitButton.classList.add('animated', 'bounceInLeft');
+  $stayButton.classList.add('animated', 'bounceInLeft');
+}
 
 
 
@@ -128,6 +169,8 @@ function displayCards(i) {
 
 function startGame() {
   createDeck();
+  displayText();
+  displayStuff();
   console.log('Game started... good luck.');
   $startButton.removeEventListener('click', startGame);
 }
@@ -136,13 +179,18 @@ $startButton.addEventListener('click', startGame);
 
 function dealCards() { //try to pass in a player object??
   currentPlayer = players[0];
+  removeCards();
   shuffleDeck();
   for (var i = 0; i < (players.length * 2); i++) {
     currentPlayer.hand.push(shuffledDeck.shift());
     console.log(capFirstLetter(currentPlayer.name) + ' drew a ' +
       capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].name) + ' of ' + capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].suits));
     findScore(currentPlayer);
+    var lastCardHand = currentPlayer.hand.length - 1;
+    displayCards(lastCardHand);
+    dealerBackOne();
     nextTurn();
+    // setTimeout(nextTurn, 100);
   }
   console.log(capFirstLetter(currentPlayer.name) + '\'s' + ' turn.');
   $dealButton.removeEventListener('click', dealCards);
@@ -154,6 +202,8 @@ $dealButton.addEventListener('click', dealCards);
 function hit() {
   var card = shuffledDeck.shift();
   currentPlayer.hand.push(card);
+  displayCards(currentPlayer.hand.length-1);
+  // debugger;
   console.log(capFirstLetter(currentPlayer.name) + ' drew a ' +
     currentPlayer.hand[currentPlayer.hand.length-1].name + ' of ' + capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].suits));
   findScore(currentPlayer);
@@ -165,6 +215,8 @@ function dealerHit() {
   players[players.length-1].hand.push(card);
   console.log(capFirstLetter(players[players.length-1].name) + ' drew a ' +
     players[players.length-1].hand[players[players.length-1].hand.length-1].name + ' of ' + capFirstLetter(players[players.length-1].hand[players[players.length-1].hand.length-1].suits));
+  var lastCardHand = currentPlayer.hand.length - 1;
+  displayCards(lastCardHand);
   findScore(players[players.length-1]);
   testBust();
 }
@@ -178,6 +230,7 @@ function stay() {
   //end player turn
   $stayButton.removeEventListener('click', stay);
   nextTurn();
+  dealerBackZero();
   console.log(capFirstLetter(currentPlayer.name) + '\'s' + ' turn.');
   if (currentPlayer && currentPlayer.name === 'dealer') {
     dealerGamePlay();
@@ -261,6 +314,13 @@ function findScore(user) { //experiment passing object through
     }
   }
   console.log(capFirstLetter(user.name) + ' score:' + ' ' + user.score);
+
+  if (user.name === 'dealer') {
+    $dealerScore.textContent = user.score;
+  } else {
+    $playerScore.textContent = user.score;
+  }
+
   return user.score;
 }
 
@@ -274,12 +334,15 @@ function findAce(ace) {
 function onDealWinner() {
   if (players[0].score === 21 && players[players.length - 1].score != 21) {
     console.log('Blackjack! Player Wins!');
+    dealerBackZero();
     startNextRound();
   } if (players[players.length - 1].score === 21 && players[0].score != 21) {
       console.log('Sorry, dealer wins. Better luck next time...');
+      dealerBackZero();
       startNextRound();
     } if (players[0].score === 21 && players[players.length - 1].score === 21) {
         console.log('Push... nobody wins.')
+        dealerBackZero();
         startNextRound();
         $dealButton.addEventListener('click', dealCards);
       } else {
@@ -291,9 +354,11 @@ function onDealWinner() {
 function testBust() {
     if (players[0].score > 21) {
       console.log('BUST, dealer wins. Better luck next time...');
+      dealerBackZero();
       startNextRound();
     } if (players[1].score > 21) {
         console.log('Dealer BUST! You win!');
+        dealerBackZero();
         startNextRound();
     } else {
         return false;
@@ -303,13 +368,16 @@ function testBust() {
 function findWinner() {  //how to notate compare against "other" player
   if (players[0].score === players[players.length - 1].score) {
     console.log('Push... nobody wins.')
+    dealerBackZero();
     startNextRound();
     return false;
   } if ((players[1].score > players[0].score) && players[1].score <= 21) {
         console.log('Dealer wins. Better luck next time...')
+        dealerBackZero();
         startNextRound();
     } else {
       console.log('You win!!!');
+      dealerBackZero();
       startNextRound();
     }
 }
