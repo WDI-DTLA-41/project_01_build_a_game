@@ -34,7 +34,11 @@ var totalScore = document.querySelector(".total-score");
 
 // var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
 // var cards = ["darthvader"];
-var cards = ["assets/darthvader.jpg"]
+var cards = [
+  "assets/darthvader2.jpg",
+  "assets/yoda.jpg",
+  "assets/luke.jpg"
+  ]
 
 
 // =============================================
@@ -109,14 +113,17 @@ var stopReel = function() {
   // FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
   for (var i=0; i < slots.length; i++) {
     // RANDOMLY SELECTS A COLOR FROM ARRAY
-    var randomSelect = function() {
-      // RETURNS THE COLOR VALUE
-      return cards[Math.floor(Math.random() * cards.length)];
-    }
 
-    var selected = randomSelect();
+    for (i = 0) {
+
+      var randomSelect = function() {
+        // RETURNS THE COLOR VALUE
+        return cards[Math.floor(Math.random() * cards.length)];
+      }
+      var selected = randomSelect();
 
     setTimeout(function(){
+      // randomSelect();
       var img = document.createElement("IMG");
       img.setAttribute("src", selected);
       img.setAttribute("class", "remove-this");
@@ -125,6 +132,10 @@ var stopReel = function() {
       images.push(imgSrc);
       return img.classList;
     }, 1500);
+
+    };
+  }
+}
 
     setTimeout(function(){
       var img = document.createElement("IMG");

@@ -5,33 +5,49 @@
 body {
   height: 1000vm;
   font-family: 'Open Sans', sans-serif;
-  background: black;
+  background-image: url("assets/bg_space.jpg");
   color: white;
   font-size: 20px;
 }
 #container {
   margin: 0 auto;
   height: 100%;
-  width: 50%;
+  width: 60%;
+  border-left: 1px solid silver;
+  border-right: 1px solid silver;
+  background-color: black;
 }
-h1 {
-  font-family: starwars, Arial, sans-serif;
+/*==================================
+/* OUTLINED HEADER TEXT
+/* Resource: http://stackoverflow.com/questions/4919076/outline-effect-to-text*/
+/*==================================*/
+svg {
+  font: bold 54px "starwars", "Arial", "sans-serif";
+  width: 117%;
+  height: 140px;
+  /*margin-left: 4px;*/
+}
+text {
+  fill: none;
+  stroke: gold;
+  stroke-width: .01px;
+  stroke-linejoin: round;
   text-align: center;
-  color: gold;
-  font-size: 6em;
-  margin: 10px;
 }
 h2 {
   font-weight: 300;
   font-size: 1.5em;
   font-style: italic;
   height: 30px;
-  padding: 10px;
-  text-align: center;
+/*  padding: 10px;
+*/  text-align: center;
 }
 .scoreboard {
   /*float: right;*/
   margin-left: 50px;
+}
+.total-score {
+  color: gold;
 }
 p {
   font-size: 1.2em;
@@ -65,14 +81,15 @@ img {
   padding: 20px;
 }
 button {
+  background-image: url("assets/bg_space.jpg");
   display: inline;
   margin: 16px;
   width: 140px;
-  padding: 10px;
+  height: 60px;
+  /*padding: 10px;*/
   border-radius: 10px;
-  background: black;
   color: white;
-  font-size: .6em;
+  font-size: .9em;
 }
 .bet, .plus-one {
   display: inline;
@@ -98,6 +115,7 @@ button {
 .bobafett {
   background: cadetblue;
 }*/
+
 /*==================================
 /* "REEL SPIN" ANIMATION
 /* Resource: http://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_count2
