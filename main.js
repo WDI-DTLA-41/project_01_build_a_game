@@ -50,6 +50,7 @@ var cards = ["assets/darthvader.jpg"]
 var currentBet;
 
 var addOne = function(event) {
+  event.preventDefault();
 // Add 1 to the value in span.total-bet
   console.log(totalBet.textContent);
   // CONVERT TEXT IN totalBet PLACEHOLDER TO NUMBER
@@ -70,6 +71,8 @@ plusOne.addEventListener("click", addOne);
 var spin = document.querySelector(".spin");
 
 var spinReel = function(event) {
+  event.preventDefault();
+
   spin.classList.add("hidden");
   playAgain.classList.remove("hidden");
 
@@ -120,7 +123,6 @@ var stopReel = function() {
       slots[0].appendChild(img);
       var imgSrc = img.src;
       images.push(imgSrc);
-      console.log(img.classList);
       return img.classList;
     }, 1500);
 
@@ -142,16 +144,11 @@ var stopReel = function() {
       var imgSrc = img.src;
       images.push(imgSrc);
 
-      console.log(images[0]);
-      console.log(images[1]);
-      console.log(images[2]);
-
 // =============================================
 //    4. COMPARING THE SLOTS
 // =============================================
 
       for (var j = 0; j < images.length; j++) {
-      console.log(images.length);
         var compareSlots = function() {
           // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
           // compare the values for 3-way match
@@ -260,6 +257,7 @@ var minusScore = function() {
 
 // Click PLAY AGAIN to:
 var newTurn = function(event) {
+  event.preventDefault();
 
   playAgain.classList.add("hidden");
   spin.classList.remove("hidden");

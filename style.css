@@ -9,41 +9,43 @@ body {
   color: white;
   font-size: 20px;
 }
-.hidden {
-  display: none;
-}
-.play-button {
-/*  display: inline-block;
-*/  width: 100px;
-}
 #container {
   margin: 0 auto;
+  height: 100%;
+  width: 50%;
 }
 h1 {
   font-family: starwars, Arial, sans-serif;
+  text-align: center;
   color: gold;
-  font-size: 5em;
+  font-size: 6em;
   margin: 10px;
 }
 h2 {
   font-weight: 300;
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-style: italic;
   height: 30px;
   padding: 10px;
+  text-align: center;
+}
+.scoreboard {
+  /*float: right;*/
+  margin-left: 50px;
+}
+p {
+  font-size: 1.2em;
 }
 div {
-  /*z-index: -1;*/
   background-color: white;
   display: inline-block;
   height: 300px;
   width: 200px;
   border-radius: 10px;
-  margin: 10px;
+  margin: 5px;
   color: black;
 }
 .default {
-  /*content: "<img src='assets/stormtrooper.jpg'>";*/
   background-image: url("assets/stormtrooper.jpg");
 }
 img {
@@ -52,17 +54,34 @@ img {
   border-radius: 10px;
   position: absolute;
 }
-.darthvader {
-/*  background-image: url("assets/darthvader.jpg");
-*/  /*display: inline-block;*/
-  /*z-index: -10;*/
-  /*opacity: 0.8;*/
-  height: 300px;
-  width: 200px;
-  background-color: red;
+.slots {
+  width: 90%;
+  margin: 0 auto;
 }
-.darthvader::after {
-  background-image: url("assets/darthvader.jpg");
+.play {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+}
+button {
+  display: inline;
+  margin: 16px;
+  width: 140px;
+  padding: 10px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  font-size: .6em;
+}
+.bet, .plus-one {
+  display: inline;
+}
+.hidden {
+  display: none;
+}
+/*.darthvader {
+  background-color: red;
 }
 .hansolo {
   background: blue;
@@ -78,23 +97,7 @@ img {
 }
 .bobafett {
   background: cadetblue;
-}
-button {
-  display: inline;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  background: black;
-  color: white;
-  width: 100px;
-}
-.bet, .plus-one {
-  display: inline;
-}
-.play {
-  display: block;
-}
-
+}*/
 /*==================================
 /* "REEL SPIN" ANIMATION
 /* Resource: http://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_count2
