@@ -1,7 +1,14 @@
 
 ##The Game of War##
-###Rules of the Game###
 
+###To get started:
+###Push the 'Start' button. This triggers the 'shuffling' of the deck and splitting cards.
+###Player is promted to push the 'Play' button and the game begins.
+###Push 'Play' until cards match triggering 'WAR'
+###Game is over once one player has all cards.
+###The 'Reset' button can be pushed to start the game over.
+
+####Rules of the Game###
 1. Deck of cards is shuffled and divided in two piles (26 cards for two players).
 2. One card is pulled from each pile and put face up.
 3. The highest card wins. **Note:** Ace is highest
