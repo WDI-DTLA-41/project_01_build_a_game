@@ -15,18 +15,13 @@ renderBoard();
 // toggles current currentPlayer between red and black
 function changePlayer(){
   if(currentPlayer==='red'){
-    currentPlayer = players[1].color;
+    currentPlayer = 'black';
   } else {
-    currentPlayer = players[0].color;
+    currentPlayer = 'red';
   }
 }
-/**
-* Function handles the mouse 'click' event
-*
-*/
 function handleClick(evt){
-  var clickedPos = this.dataset;
-  var target;
+  var clickedPos = {row: parseInt(this.dataset.row), col: parseInt(this.dataset.col)};
 
   if(!selectedPiece){
     // select piece if belongs current player
@@ -43,7 +38,7 @@ function handleClick(evt){
     highlighted = document.querySelector('.highlight');
     highlighted.classList.remove('highlight');
     // 2nd click, click square to set piece if legal
-    if(isValidMove(clickedPos)){
+    if(isPositionEmpty(clickedPos)){
       changePlayer();
       changeBoard(clickedPos);
       checkKing(clickedPos);
@@ -54,142 +49,118 @@ function handleClick(evt){
     }
   }
 }
-function checkKing(position){
-  switch(board[position.row][position.col].color){
-    case 'red':
-      if(position.row === '0'){
-        board[position.row][position.col].isKing = 'true';
-      }
-      break;
-    case 'black':
-      if(position.row === '7'){
-        board[position.row][position.col].isKing = 'true';
-      }
-      break;
-  }
-}
-function isValidMove(position){
-  // if target position is empty
-  if(typeof board[position.row][position.col].color==='undefined'){
-    return isEmpty(position);
-  }
-  else {
-    // square position is occupied
-    console.log('Position is occupied');
+function isPositionEmpty(target){
+  if(typeof board[target.row][target.col].color==='undefined'){
+    return isValidMove(target);
+  } else {
     return false;
   }
 }
-function isEmpty(position){
-  switch(currentPlayer){
-    case 'red':
-      if(board[lastClickedPos.row][lastClickedPos.col].isKing){
-        return isMoveUpDown(position);
-      } else {
-        if(isJump(position, lastClickedPos)){
-          return true;
-        } else {
-          return isMoveUp(position);
-        }
-      }
-      break;
-    case 'black':
-      if(board[lastClickedPos.row][lastClickedPos.col].isKing){
-        return isMoveUpDown(position);
-      } else {
-        if(isJump(position, lastClickedPos)){
-          return true;
-        } else {
-          return isMoveDown(position);
-        }
-      }
-      break;
-    default:
-      return false;
+function isValidMove(targetPosition){
+  if(board[lastClickedPos.row][lastClickedPos.col].isKing){
+    if(canKingJump(lastClickedPos, targetPosition)){
+      return true;
+    } else {
+      return canKingMove(targetPosition);
+    }
+  } else {
+    if(canJump(lastClickedPos, targetPosition)){
+      return true;
+    } else {
+      return canMoveUpOrDown(targetPosition);
+    }
   }
 }
-function isJump(target, previous){
-  switch(currentPlayer){
-    case 'red':
-      // target is 2 spaces away, check both middle squares if occupied by opposite piece
-      if(previous.row-target.row === 2 && Math.abs(previous.col - target.col) === 2){
-        console.log('Red isJumping');
-        console.log(target, previous);
-        // if jumping to the top right
-        if(previous.col - target.col < 0){
-          if(board[parseInt(target.row)+1][parseInt(target.col)-1].color === 'black'){
-            console.log('jumped top left');
-            removePiece('black', parseInt(target.row)+1, parseInt(target.col)-1);
-            return true;
-          }
-        }
-        // if jumping to the top left
-        if(previous.col - target.col > 0){
-          if(board[parseInt(target.row) + 1][parseInt(target.col) + 1].color === 'black'){
-            console.log('jumped top left');
-            removePiece('black', parseInt(target.row)+1, parseInt(target.col)+1)
-            return true;
-          }
-        }
-      }
-      break;
-    case 'black':
-    // if target spaces is 2 squares away diagonally
-      if(previous.row-target.row === (-2) && Math.abs(previous.col - target.col) === 2){
-        console.log('Black isJumping');
-        // if jumping to bottom left
-        if(previous.col - target.col > 0){
-          if(board[parseInt(target.row)-1][parseInt(target.col)+1].color === 'red'){
-            console.log('jumped bottom left');
-            removePiece('red', parseInt(target.row)-1, parseInt(target.col)+1);
-            return true;
-          }
-        }
-        // if jumping to bottom right
-        if(previous.col - target.col < 0){
-          if(board[parseInt(target.row)-1][parseInt(target.col)-1].color === 'red'){
-            console.log('jumped bottom right');
-            removePiece('red', parseInt(target.row)-1, parseInt(target.col)-1);
-            return true;
-          }
-        }
-      }
+function canKingJump(previous, target){
+  if(Math.abs(previous.row-target.row) === 2 && Math.abs(previous.col - target.col) === 2){
+    return (canJumpUp(previous, target) || canJumpDown(previous, target))
   }
+}
+function canJump(previous, target){
+  if(currentPlayer==='red'){
+    return canJumpUp(previous, target);
+  } else {
+    return canJumpDown(previous, target);
+  }
+}
+function canJumpUp(previous, target){
+  var targetCol;
+  if(currentPlayer==='red'){
+    jumpedPlayer = 'black';
+  } else {
+    jumpedPlayer = 'red';
+  }
+  if(previous.row-target.row === 2 && Math.abs(previous.col - target.col) === 2){
+    if(previous.col - target.col > 0){
+      targetCol = target.col+1;
+    } else if(previous.col - target.col < 0){
+      targetCol = target.col-1;
+    }
+    if(board[target.row+1][targetCol].color === jumpedPlayer){
+      removePiece(jumpedPlayer, target.row+1, targetCol);
+      return true;
+    }
+  }
+  return false;
+}
+function canJumpDown(previous, target){
+  var targetCol;
+  if(currentPlayer==='red'){
+    jumpedPlayer = 'black';
+  } else {
+    jumpedPlayer = 'red';
+  }
+  if(previous.row-target.row === (-2) && Math.abs(previous.col - target.col) === 2){
+    if(previous.col - target.col > 0){
+      targetCol = target.col+1;
+    } else if(previous.col - target.col < 0){
+      targetCol = target.col-1;
+    }
+    if(board[target.row-1][targetCol].color === jumpedPlayer){
+      removePiece(jumpedPlayer, target.row-1, targetCol);
+      return true;
+    }
+  }
+  return false;
 }
 /**
 * Removes a player piece from the board/array in position board[row][col]
+* and adds to array of removed pieces of that player
+* then call function to check for win condition
 * @param {string} player - 'red' or 'black' player
 * @param {Number} row - piece row value
 * @param {Number} col - piece col value
 */
 function removePiece(player, row, col){
-  switch(player){
-    case 'red':
-      // add to array
-      removedRed.push(board[parseInt(row)][parseInt(col)]);
-      // remove from board
-      board[row][col] = {};
-      break;
-    case 'black':
-      // add to array
-      removedBlack.push(board[parseInt(row)][parseInt(col)]);
-      // remove from board
-      board[row][col] = {};
+  if(player==='red'){
+      removedRed.push(board[row][col]);
+      board[row][col] = '';
+  } else {
+    removedBlack.push(board[row][col]);
+    board[row][col] = '';
   }
 }
 /**
 * Checks if position is a valid move for a King Checkers piece
 * @param {Object} position - contains data for row and column position with .row and .col
-* @return {Boolean} true - if position is 1 space away and to the left or right (four corners); false otherwise
+* @return {Boolean} true - if position is 1 space away diagonally (any four corners); false otherwise
 */
-function isMoveUpDown(position){
+function canKingMove(position){
   if(Math.abs(lastClickedPos.row-position.row)===1 && Math.abs(lastClickedPos.col-position.col)===1){
     return true;
   } else {
     return false;
   }
 }
+function canMoveUpOrDown(targetPosition){
+  if(currentPlayer==='red'){
+    return canMoveUp(targetPosition);
+  } else {
+    return canMoveDown(targetPosition);
+  }
+}
 // returns true if selected red can move up to target position
-function isMoveUp(position){
+function canMoveUp(position){
   if(lastClickedPos.row-position.row===1 && Math.abs(lastClickedPos.col-position.col)===1){
     return true;
   } else {
@@ -197,12 +168,27 @@ function isMoveUp(position){
   }
 }
 // returns true if selected black can move down to target position
-function isMoveDown(position){
+function canMoveDown(position){
   if(lastClickedPos.row-position.row===(-1) && Math.abs(lastClickedPos.col-position.col)===1){
     return true;
   } else {
     return false;
   }
+}
+function checkKing(position){
+  return (isRedKing(position) || isBlackKing(position));
+}
+function isRedKing(position){
+  if(board[position.row][position.col].color === 'red' && position.row === 0){
+    board[position.row][position.col].isKing = 'true';
+  }
+  return false;
+}
+function isBlackKing(position){
+  if(board[position.row][position.col].color === 'black' && position.row === 7){
+    board[position.row][position.col].isKing = 'true';
+  }
+  return false;
 }
 // updates array
 function changeBoard(position){
