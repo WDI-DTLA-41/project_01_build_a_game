@@ -1,4 +1,4 @@
-console.log('beep boop beep');
+// console.log('beep boop beep');
 
 // querySelectors for the Buttons
 var greenBtn = document.querySelector('#green');
@@ -56,6 +56,34 @@ var startColorFlash = function () {
   setTimeout(checkInput, 3000);
   };
 
+var startHardGameFlash = function () {
+  sequence = randomGen();
+  if (sequence === 1) {
+    greenBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    },100);
+  } else if (sequence === 2) {
+    redBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    },100);
+  } else if (sequence === 3) {
+    yellowBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    },100);
+  } else {
+    blueBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    },100);
+  }
+  sequenceArr.push(sequence);
+  setTimeout(playerTurn, 500);
+  setTimeout(hardCheckInput, 2000);
+};
+
 // adding another color to the sequenceArr
 var addColorFlash = function () {
   addCounter();
@@ -91,6 +119,35 @@ var addColorFlash = function () {
   setTimeout(praise, 500);
   };
 
+var hardAddColorFlash = function () {
+  addCounter();
+  sequence = randomGen();
+  if (sequence === 1) {
+    greenBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    },100);
+  } else if (sequence === 2) {
+    redBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    },100);
+  } else if (sequence === 3) {
+    yellowBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    },100);
+  } else {
+    blueBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    },100);
+  }
+  sequenceArr.push(sequence);
+  setTimeout(playerTurn, 500);
+  setTimeout(hardCheckInput, 1000*sequenceArr.length);
+  };
+
 // function to flash the color of the sequenceArr
 // to be called back in the recursiveLights function
 var replayColorFlash = function (color) {
@@ -100,34 +157,55 @@ var replayColorFlash = function (color) {
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'rgb(193,253,51)';
     },250);
-    console.log('1');
   } else if (color === 2) {
     audioOne[4].play();
     redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'rgb(252,90,184)';
     },250);
-    console.log('2');
   } else if (color === 3) {
     audioOne[2].play();
     yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
     },250);
-    console.log('3');
   } else if (color === 4) {
     audioOne[3].play();
     blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
     },250);
-    console.log('4');
   }
 }
 
+var replayHardColorFlash = function (color) {
+  if (color === 1) {
+    greenBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    },100);
+  } else if (color === 2) {
+    redBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    },100);
+  } else if (color === 3) {
+    yellowBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    },100);
+  } else if (color === 4) {
+    blueBtn.style.backgroundColor = 'black';
+    setTimeout(function() {
+    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    },100);
+  }
+}
+
+
 // recursiveLights for replaying the sequences
 function recursiveLights(arr, i = 0) {
-  console.log(arr[i]) // log element at index i of arr
+  // console.log(arr[i]) // log element at index i of arr
   if (i === arr.length) { // if index/counter reaches length of array, end loop
   } else {
     replayColorFlash(arr[i]);
@@ -135,6 +213,18 @@ function recursiveLights(arr, i = 0) {
     setTimeout(function() {
       recursiveLights(arr, i);
     }, 1000)
+  }
+}
+
+function hardRecursiveLights(arr, i = 0) {
+  // console.log(arr[i]) // log element at index i of arr
+  if (i === arr.length) { // if index/counter reaches length of array, end loop
+  } else {
+    replayHardColorFlash(arr[i]);
+    i++;
+    setTimeout(function() {
+      hardRecursiveLights(arr, i);
+    }, 500)
   }
 }
 
@@ -163,25 +253,37 @@ var clearSequence = function() {
 *
 */
 var gameOver = function() {
+  btnContainer.removeEventListener('click', handleUserInput)
+  btnContainer.removeEventListener('click', handleHardUserInput)
   resetCounter();
   clearSequence();
   audioOne[1].play();
   praiseTag.textContent = 'DON\'T YOU WANT A REMATCH?';
-  return setTimeout(clearPraiseTag,4000);
+  return setTimeout(clearPraiseTag,5000);
 };
 
 // function to check if userInput equals sequenceArr
 // using underscore.js script
 var checkInput = function() {
   if (_.isEqual(userInput,sequenceArr)) {
-        userInput = [];
-        setTimeout(recursiveLights(sequenceArr),3500);
-        setTimeout(addColorFlash,1000*sequenceArr.length);
-      } else {
-        gameOver();
-        // return console.log("You lose!");
-      }
+    userInput = [];
+    setTimeout(recursiveLights(sequenceArr),3500);
+    setTimeout(addColorFlash,1000*sequenceArr.length);
+  } else {
+    gameOver();
+  }
 };
+
+var hardCheckInput = function() {
+  if (_.isEqual(userInput,sequenceArr)) {
+    userInput = [];
+    setTimeout(hardRecursiveLights(sequenceArr),3500);
+    setTimeout(hardAddColorFlash,500*sequenceArr.length);
+  } else {
+    gameOver();
+  }
+};
+
 
 // function to give praise for hitting certain levels
 /**
@@ -195,7 +297,7 @@ var praise = function() {
     return setTimeout(clearPraiseTag,4000);
   } else if (counterVal % 11 === 0)  {
     audioOne[7].play();
-    praiseTag.textContent = 'MARVELOUS!';
+    praiseTag.textContent = 'YOLO';
     return setTimeout(clearPraiseTag,3500);
   } else if (counterVal % 5 === 0) {
     audioOne[6].play();
@@ -231,28 +333,37 @@ var handleUserInput = function(event) {
     }
 }
 
+
+var handleHardUserInput = function(event) {
+  var userInputInt = (event.target.dataset.number);
+    if (userInputInt === greenBtn.dataset.number) {
+      return userInput.push(1);
+    } else if (userInputInt === redBtn.dataset.number) {
+      return userInput.push(2);
+    } else if (userInputInt === yellowBtn.dataset.number) {
+      return userInput.push(3);
+    } else {
+      return userInput.push(4);
+    }
+}
+
 // function to handle the game on click start button
 var handleStartGame = function() {
   addCounter();
   btnContainer.addEventListener('click', handleUserInput);
-  setTimeout(startColorFlash,2000);
+  setTimeout(startColorFlash,2500);
 };
 
-var handleHardGame = function() {
-  addCounter();
-  btnContainer.addEventListener('click', handleUserInput);
-  setTimeout(startColorFlash,2000);
-};
-
-// handle to start the Hard Mode gameplay
 var handleHardMode = function() {
   audioOne[9].play();
-  handleHardGame();
-}
+  addCounter();
+  btnContainer.addEventListener('click', handleHardUserInput);
+  return setTimeout(startHardGameFlash,2500);
+};
 
 var handleReplay = function() {
   praiseTag.textContent = 'I THINK MAYBE IT WENT LIKE THIS...';
-  setTimeout(clearPraiseTag,3000);
+  setTimeout(clearPraiseTag,4000);
   return recursiveLights(sequenceLast);
 };
 
@@ -271,7 +382,7 @@ var handleRemoveColor = function(event) {
 };
 
 var handleReturnColor = function() {
-    btnTar.style.background = '';
+  btnTar.style.background = '';
 };
 
 // add EventListener for startBtn to start game
