@@ -10,7 +10,10 @@ var $startButton = document.querySelector('[name="start"]'),
     $playerDesc = document.querySelector('.player-description'),
     $playerCards = document.querySelector('.player-cards'),
     $dealerCards = document.querySelector('.dealer-cards'),
-    $dealerBack = document.querySelector('.dealer-back');
+    $dealerBack = document.querySelector('.dealer-back'),
+    $header = document.querySelector('.header'),
+    $headerBig = document.querySelector('.header-big');
+
 var deck = [],
     shuffledDeck= [];
     // shuffledDeck= [
@@ -147,30 +150,57 @@ function dealerBackZero() {
 function displayText() {
   $dealerDesc.style.opacity = '1';
   $dealerDesc.style.left = '120px';
-  // $dealerDesc.style.position = 'relative';
   $playerDesc.style.opacity = '1';
   $playerDesc.style.left = '480px';
 }
 
+function showPlayerScore() {
+  $playerScore.style.opacity = '1';
+}
+
+function showDealerScore() {
+  $dealerScore.style.opacity = '1';
+}
+
+function hideDealerScore() {
+  $dealerScore.style.opacity = '0';
+}
+
 //ANIMATIONS
 
-function displayStuff() {
+function displayDeal() {
   $dealButton.style.opacity = '1';
+  $dealButton.classList.add('animated', 'bounceInLeft');
+}
+
+function header() {
+  $header.style.opacity = '1';
+  $headerBig.style.opacity = '0';
+  $headerBig.style.top = '-100px';
+  $headerBig.style.fontSize = '50px';
+  $headerBig.style.left = '-250px';
+  $startButton.style.opacity = '0';
+}
+
+function sButton() {
+  $startButton.style.display = 'none';
+}
+
+function displayActions() {
   $hitButton.style.opacity = '1';
   $stayButton.style.opacity = '1';
-  $dealButton.classList.add('animated', 'bounceInLeft');
   $hitButton.classList.add('animated', 'bounceInLeft');
   $stayButton.classList.add('animated', 'bounceInLeft');
 }
-
-
 
 //GAMEPLAY
 
 function startGame() {
   createDeck();
   displayText();
-  displayStuff();
+  displayDeal();
+  header();
+  setTimeout(sButton, 500);
   console.log('Game started... good luck.');
   $startButton.removeEventListener('click', startGame);
 }
@@ -181,6 +211,7 @@ function dealCards() { //try to pass in a player object??
   currentPlayer = players[0];
   removeCards();
   shuffleDeck();
+  hideDealerScore();
   for (var i = 0; i < (players.length * 2); i++) {
     currentPlayer.hand.push(shuffledDeck.shift());
     console.log(capFirstLetter(currentPlayer.name) + ' drew a ' +
@@ -194,6 +225,8 @@ function dealCards() { //try to pass in a player object??
   }
   console.log(capFirstLetter(currentPlayer.name) + '\'s' + ' turn.');
   $dealButton.removeEventListener('click', dealCards);
+  displayActions();
+  showPlayerScore();
   onDealWinner();
 }
 
@@ -234,6 +267,7 @@ function stay() {
   console.log(capFirstLetter(currentPlayer.name) + '\'s' + ' turn.');
   if (currentPlayer && currentPlayer.name === 'dealer') {
     dealerGamePlay();
+    showDealerScore();
     findWinner();
   }
 }
@@ -334,14 +368,17 @@ function findAce(ace) {
 function onDealWinner() {
   if (players[0].score === 21 && players[players.length - 1].score != 21) {
     console.log('Blackjack! Player Wins!');
+    showDealerScore();
     dealerBackZero();
     startNextRound();
   } if (players[players.length - 1].score === 21 && players[0].score != 21) {
       console.log('Sorry, dealer wins. Better luck next time...');
+      showDealerScore();
       dealerBackZero();
       startNextRound();
     } if (players[0].score === 21 && players[players.length - 1].score === 21) {
         console.log('Push... nobody wins.')
+        showDealerScore();
         dealerBackZero();
         startNextRound();
         $dealButton.addEventListener('click', dealCards);
@@ -354,10 +391,12 @@ function onDealWinner() {
 function testBust() {
     if (players[0].score > 21) {
       console.log('BUST, dealer wins. Better luck next time...');
+      showDealerScore();
       dealerBackZero();
       startNextRound();
     } if (players[1].score > 21) {
         console.log('Dealer BUST! You win!');
+        showDealerScore();
         dealerBackZero();
         startNextRound();
     } else {
@@ -368,15 +407,18 @@ function testBust() {
 function findWinner() {  //how to notate compare against "other" player
   if (players[0].score === players[players.length - 1].score) {
     console.log('Push... nobody wins.')
+    showDealerScore();
     dealerBackZero();
     startNextRound();
     return false;
   } if ((players[1].score > players[0].score) && players[1].score <= 21) {
         console.log('Dealer wins. Better luck next time...')
+        showDealerScore();
         dealerBackZero();
         startNextRound();
     } else {
       console.log('You win!!!');
+      showDealerScore();
       dealerBackZero();
       startNextRound();
     }
