@@ -3,7 +3,7 @@
   src: url('assets/Death Star.otf');
 }
 body {
-  height: 1000vm;
+  /*height: 100vh;*/
   font-family: 'Open Sans', sans-serif;
   background-image: url("assets/bg_space.jpg");
   color: white;
@@ -11,8 +11,8 @@ body {
 }
 #container {
   margin: 0 auto;
-  height: 100%;
-  width: 60%;
+  height: 100vh;
+  width: 50%;
   border-left: 1px solid silver;
   border-right: 1px solid silver;
   background-color: black;
@@ -22,10 +22,10 @@ body {
 /* Resource: http://stackoverflow.com/questions/4919076/outline-effect-to-text*/
 /*==================================*/
 svg {
-  font: bold 54px "starwars", "Arial", "sans-serif";
-  width: 117%;
-  height: 140px;
-  /*margin-left: 4px;*/
+  font: bold 60px "starwars", "Arial", "sans-serif";
+  width: 108%;
+  /*height: 110px;*/
+  margin: 4px;
 }
 text {
   fill: none;

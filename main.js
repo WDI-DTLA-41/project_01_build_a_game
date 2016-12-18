@@ -114,7 +114,7 @@ var stopReel = function() {
   for (var i=0; i < slots.length; i++) {
     // RANDOMLY SELECTS A COLOR FROM ARRAY
 
-    for (i = 0) {
+    if (i = 0) {
 
       var randomSelect = function() {
         // RETURNS THE COLOR VALUE
@@ -137,74 +137,74 @@ var stopReel = function() {
   }
 }
 
-    setTimeout(function(){
-      var img = document.createElement("IMG");
-      img.setAttribute("src", selected);
-      img.setAttribute("class", "remove-this-2");
-      slots[1].appendChild(img);
-      var imgSrc = img.src;
-      images.push(imgSrc);
-      return img.classList;
-    }, 2500);
+//     setTimeout(function(){
+//       var img = document.createElement("IMG");
+//       img.setAttribute("src", selected);
+//       img.setAttribute("class", "remove-this-2");
+//       slots[1].appendChild(img);
+//       var imgSrc = img.src;
+//       images.push(imgSrc);
+//       return img.classList;
+//     }, 2500);
 
-    setTimeout(function(){
-      var img = document.createElement("IMG");
-      img.setAttribute("src", selected);
-      img.setAttribute("class", "remove-this-3");
-      slots[2].appendChild(img);
-      var imgSrc = img.src;
-      images.push(imgSrc);
+//     setTimeout(function(){
+//       var img = document.createElement("IMG");
+//       img.setAttribute("src", selected);
+//       img.setAttribute("class", "remove-this-3");
+//       slots[2].appendChild(img);
+//       var imgSrc = img.src;
+//       images.push(imgSrc);
 
-// =============================================
-//    4. COMPARING THE SLOTS
-// =============================================
+// // =============================================
+// //    4. COMPARING THE SLOTS
+// // =============================================
 
-      for (var j = 0; j < images.length; j++) {
-        var compareSlots = function() {
-          // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
-          // compare the values for 3-way match
-          // IF ALL 3 MATCH ==> ** WIN **
-          if (images[0] === images[1] && images[0] === images[2] && images[1] === images[2]) {
-            console.log("winner!");
+//       for (var j = 0; j < images.length; j++) {
+//         var compareSlots = function() {
+//           // WHEN REELS HAVE STOPPED, COMPARE THE CLASS VALUES
+//           // compare the values for 3-way match
+//           // IF ALL 3 MATCH ==> ** WIN **
+//           if (images[0] === images[1] && images[0] === images[2] && images[1] === images[2]) {
+//             console.log("winner!");
 
-            setTimeout(function() {
-              revealQuoteWin();
-            }, 1000);
+//             setTimeout(function() {
+//               revealQuoteWin();
+//             }, 1000);
 
-            var revealQuoteWin = function() {
-              quote.textContent = '"The Force is strong with this one."';
-            }
-            // addScore();
-            setTimeout(addScore, 1000);
-            return;
+//             var revealQuoteWin = function() {
+//               quote.textContent = '"The Force is strong with this one."';
+//             }
+//             // addScore();
+//             setTimeout(addScore, 1000);
+//             return;
 
-          } else {
-          // ELSE ==> YOU LOSE
-            // APPEND H2 TO PAGE
-            // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
-            console.log("you lose :(");
-            setTimeout(function() {
-              revealQuoteLose();
-            }, 1000);
+//           } else {
+//           // ELSE ==> YOU LOSE
+//             // APPEND H2 TO PAGE
+//             // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
+//             console.log("you lose :(");
+//             setTimeout(function() {
+//               revealQuoteLose();
+//             }, 1000);
 
-            var revealQuoteLose = function() {
-              quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
-            }
-          }
-          // minusScore();
-            setTimeout(minusScore, 1000);
-          }
-          compareSlots();
-          return;
-      }
+//             var revealQuoteLose = function() {
+//               quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
+//             }
+//           }
+//           // minusScore();
+//             setTimeout(minusScore, 1000);
+//           }
+//           compareSlots();
+//           return;
+//       }
 
-      return img.classList;
+//       return img.classList;
 
-    }, 4000);
-    // compareSlots();
-    return;
-  }
-};
+//     }, 4000);
+//     // compareSlots();
+//     return;
+//   }
+// };
 
 // };
 
