@@ -59,21 +59,25 @@ var startColorFlash = function () {
 var startHardGameFlash = function () {
   sequence = randomGen();
   if (sequence === 1) {
+    audioOne[5].play();
     greenBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'rgb(193,253,51)';
     },100);
   } else if (sequence === 2) {
+    audioOne[5].play();
     redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'rgb(252,90,184)';
     },100);
   } else if (sequence === 3) {
+    audioOne[5].play();
     yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
     },100);
   } else {
+    audioOne[5].play();
     blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
@@ -123,21 +127,25 @@ var hardAddColorFlash = function () {
   addCounter();
   sequence = randomGen();
   if (sequence === 1) {
+    audioOne[5].play();
     greenBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'rgb(193,253,51)';
     },100);
   } else if (sequence === 2) {
+    audioOne[5].play();
     redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'rgb(252,90,184)';
     },100);
   } else if (sequence === 3) {
+    audioOne[5].play();
     yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
     },100);
   } else {
+    audioOne[5].play();
     blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
@@ -180,21 +188,25 @@ var replayColorFlash = function (color) {
 
 var replayHardColorFlash = function (color) {
   if (color === 1) {
+    audioOne[5].play();
     greenBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     greenBtn.style.backgroundColor = 'rgb(193,253,51)';
     },100);
   } else if (color === 2) {
+    audioOne[5].play();
     redBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     redBtn.style.backgroundColor = 'rgb(252,90,184)';
     },100);
   } else if (color === 3) {
+    audioOne[5].play();
     yellowBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
     },100);
   } else if (color === 4) {
+    audioOne[5].play();
     blueBtn.style.backgroundColor = 'black';
     setTimeout(function() {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
@@ -248,10 +260,6 @@ var clearSequence = function() {
 };
 
 // gameOver function when userInput is incorrect
-// maybe add audio file
-/**
-*
-*/
 var gameOver = function() {
   btnContainer.removeEventListener('click', handleUserInput);
   btnContainer.removeEventListener('click', handleHardUserInput);
@@ -337,12 +345,16 @@ var handleUserInput = function(event) {
 var handleHardUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
     if (userInputInt === greenBtn.dataset.number) {
+      audioOne[5].play();
       return userInput.push(1);
     } else if (userInputInt === redBtn.dataset.number) {
+      audioOne[5].play();
       return userInput.push(2);
     } else if (userInputInt === yellowBtn.dataset.number) {
+      audioOne[5].play();
       return userInput.push(3);
     } else {
+      audioOne[5].play();
       return userInput.push(4);
     }
 }
@@ -353,7 +365,7 @@ var handleStartGame = function() {
   btnContainer.addEventListener('click', handleUserInput);
   setTimeout(startColorFlash,2500);
 };
-
+// function to handle the hard mode on click of hard button
 var handleHardMode = function() {
   audioOne[9].play();
   addCounter();
