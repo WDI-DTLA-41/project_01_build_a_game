@@ -1,26 +1,4 @@
 // console.log('hi');
-// check Scores -- on deal
-  // if playerOne score === 21, Win
-  // if dealer score === 21, lose
-  // if playerOne && dealer score ===21, push
-  //  else playerOne plays
-
-  // if playerOne hits, add one more card
-  // check score...
-  // if score > 21, bust you lose
-  //  if stay, dealer plays
-
-  // check scores
-  // if dealer score <= 16 dealer hits
-  // if dealer score >=17 dealer stays
-  //  if dealer score === playerOne score, push
-  // else if score === 21, then 21
-  // if score > 21, bust!, you win
-// if dealer stays, compare scores
- //  if player score < dealer, you lose
- //  if player score > dealer, you win
- // if player score === dealer score - push
-
 
 
 // card suits
@@ -84,17 +62,8 @@ var updateDisplay = function() {
   var dealerScoreEl = document.querySelector('#dealerscore');
   dealerScoreEl.textContent = dealerScore;
 
-  if (gameOver) {
-    var ending = document.createElement('h1');
-    ending.textContent = "Game Over.";
-    // print gameOver text to an h1
-  }
 
-  //clear the card display
-  // playerOne.forEach((card) => {
-    // add the card to the display
-    // div.textContent = String(card.suite).toUpperCase()[0];
-  // });
+
   // update the score panel UI
   console.log(dealer);
   console.log(playerOne);
@@ -107,6 +76,8 @@ var deal = function(){
   // break down dealing into 2 instances of Hitting
   playerHit();
   playerHit();
+  // addCard();
+  // addCard();
   // gives dealer one card
   // var card = deck.pop()
   dealerHit();
@@ -119,17 +90,11 @@ var deal = function(){
 // gives playerOne one more card, NO DISPLAY
 var hit = function (player) {
   // take card from deck
-    var card = deck.pop()
-    // give card to playerOnes hand
-    //  flag player here
-    player.push(card);
-  //     if(playerScore > 21) {
-  //   gameOver = 'You Bust'
-  //   console.log("You Bust")
-  // } else if (dealerScore > 21) {
-  //   gameOver = "Dealer Busts.";
-  //   console.log('Dealer Busts');
-  // }
+  var card = deck.pop()
+  // give card to playerOnes hand
+  //  flag player here
+  player.push(card);
+
 }
 
 var playerHit = function() {
@@ -138,9 +103,8 @@ var playerHit = function() {
   playerScore = getValues(playerOne);   // check for bust/21 here
   //checking for Bust
   checkPlayerScore();
-  console.log('finwWinner player');
-    console.log("player score is " + playerScore)
-
+  console.log('findWinner player');
+  console.log("player score is " + playerScore);
 }
 
   // gives dealer one more card
@@ -158,7 +122,6 @@ var dealerHit = function () {
 
   }
 }
-
 
 // get dealer score
 var dealerTurn = function() {
@@ -197,7 +160,15 @@ var getValues = function(cards) {
   // displayValues(sum);
   return sum;
 }
+var checkForWin = function() {
+  if(playerScore === 21) {
+    console.log('You Got 21!');
+  } else if(dealerScore === 21) {
+    console.log('Dealer has 21.');
+  } else {
 
+  }
+}
   // conditions for the win
   var findWinner = function() {
     if(playerScore > 21) {
@@ -228,17 +199,12 @@ var checkPlayerScore = function () {
 var setupEventListeners = function() {
   var dealButton = document.querySelector('#deal');
   dealButton.addEventListener('click', function(event) {
+
     // newSpan.textContent = getValues(playerOne);
     console.log('DEAL CLICKED');
     deal();
     // checkForWinner();
     updateDisplay();
-
-// // gets score for playerOne
-//    playerScore = getValues(playerOne);
-//     if(playerScore === 21) {
-//       console.log("You Got 21!");
-//     }
 });
 
  //
@@ -247,42 +213,27 @@ hitButton.addEventListener('click', function(){
     // when hit button is clicked, PlayerOne will get 1 more card
     playerHit();
     updateDisplay();
-    // creates new div that looks like a playing card
-    // var newDiv = document.createElement('div');
-    // newDiv.classList.add('card');
-    // document.body.appendChild(newDiv);
-    // console.log('hit');
-    // update playerOnes score
-    // playerScore = getValues(playerOne);
-    // console.log(playerScore);
-    // if(playerScore > 21) {
-    //   console.log("You Busted");
-
-    // }
 });
 
 var stayButton = document.querySelector('#stay');
 stayButton.addEventListener('click', function (){
-  //  Dealer plays.
-  // if score >= 17 stay
-  // else, while score < 17 => hit
+ // Dealer Plays
   console.log('dealers turn');
   dealerTurn();
-
 })
-// hitButton.removeEventListener(dealerStay, function (){
-//   findWinner();
-
-// })
 }
-
+var addCard = function() {
+    var putCard = document.createElement('div');
+    var suitVal = document.createElement('span');
+    putCard.classList.add('card')
+}
 var startGame = function() {
   console.log('starting game!');
-  setupEventListeners(); // ALL CLICK HANDLERS GO HERE
+  setupEventListeners();
   makeDeck();
   shuffleDeck();
-  // deal(); // MANIPULATE GAME STATE
-  updateDisplay(); // ALL THE DOM UPDATES GO HERE
+  // deal();
+  updateDisplay(); //  DOM UPDATES
   // findWinner();
 }
 
@@ -294,7 +245,7 @@ deal() {
   hit(p1);
   hit(dealer);
   // dealer gets second card to check for 21?
-  checkScores(); // sets a global var if we have a winner
-  updateDisplay(); // if we have a winner, we update UI here
+  checkScores(); // sets a global var if  have a winner
+  updateDisplay(); // if we have a winner, we update here
 }
 */
