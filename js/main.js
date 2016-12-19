@@ -161,10 +161,10 @@ function gameLogic() {
 function guessWord() {
   var guess = document.querySelector('.word').value;
   guess = guess.toUpperCase();
-  if (guess.value !== playWord) {
+  if (guess !== playWord) {
     alert('Try again!');
     document.querySelector('.word').value = '';
-  } else if (guess.value = playWord) {
+  } else if (guess = playWord) {
     placeholders.textContent = playWord;
     laugh.play();
     win.style.visibility = "visible";
