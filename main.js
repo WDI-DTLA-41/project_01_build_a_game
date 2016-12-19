@@ -85,6 +85,7 @@ var handleUserSequence = function(event){
       console.log('lose');
       simonSequence = [];
       $gamePiece.classList.add("rollOut");
+      setTimeout(function(){$gamePiece.classList.remove("rollOut")}, 1500)
       streak = 0;
       $streak.textContent = streak;
     } else if(consoleSequence[clickCount] === userSequence[clickCount]
@@ -114,8 +115,8 @@ var handleRestart = function(){
   streak = 0;
   $streak.textContent = streak;
   simonSequence = [];
-  $gamePiece.classList.remove("rollOut");
   $gamePiece.classList.add("rollIn");
+  setTimeout(function(){$gamePiece.classList.remove("rollIn")}, 1500)
   generateSimonSequence();
 };
 
