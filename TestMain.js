@@ -1,21 +1,26 @@
+var playerHand = document.querySelector('.playerHand');
+var playerBoard = document.querySelector('.playerBoard');
+var dealerHand = document.querySelector('.dealerHand');
+var dealerBoard = document.querySelector('.dealerBoard');
+var playerScore = document.querySelector('.playerScore');
+var dealerScore = document.querySelector('.dealerScore');
 
+var playerBoard;
 var playerHand = [];
 var playerCard = [];
+var dealerBoard;
 var dealerHand = [];
 var dealerCard = [];
+var deck = [];
 var tempPlayCard = null;
 var tempDealCard = null
+// war variables
 var wPlayer = [];
 var wDealer = [];
+// war-on-war variables
 var wwPlayer = [];
 var wwDealer = [];
 
-var deck = [
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
-            ];
 
 
 //console.log(deck);
@@ -23,13 +28,19 @@ var deck = [
 
 /**
 * Function shuffles deck of cards by moving around 1 random card in the deck
-* @param {String} deck = 52 cards
+* @param {String} deck = 52 cards, 11='J', 12='Q', 13='k', 14='A'
 * j = a remaining element
 * temp = temporary holder
 * this function shuffles the deck parameter
 * deck is returned
 */
 var shuffle = function(deck){
+  deck = [
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+          ];
   var n = deck.length, j, temp;
   // console.log(n);
 while(--n > 0) {
@@ -38,7 +49,7 @@ while(--n > 0) {
   deck[j] = deck[n];
   deck[n] = temp;
   }
-  console.log('shuffed deck: ', deck);
+  return deck;
 }
 
 
@@ -48,6 +59,7 @@ while(--n > 0) {
 * pushes stack of 26 cards to players hand and dealers hand
 */
 var deal = function(deck){
+  deck = shuffle(deck)
   for (var i = 0; i < deck.length; i++){
     if(i % 2 === 0){
       playerHand.push(deck[i]);
@@ -63,6 +75,10 @@ var deal = function(deck){
 var battle = function(){
   playerCard = playerHand.shift();
   dealerCard = dealerHand.shift();
+  playerBoard.innerHTML = playerCard;
+  //playerScore.innerHTML = 'Win';
+  dealerBoard.innerHTML = dealerCard;
+  //dealerScore.innterHTML = 'Lose';
   console.log('playerCard: ', playerCard);
   console.log('dealerCard: ', dealerCard);
   compare();
@@ -117,6 +133,7 @@ function compareWar(){
     //console.log(wPlayer);
     // playerHand = playerHand.concat(playerCard, dealerCard);
     playerHand.push(tempPlayCard, tempDealCard);
+    //playerScore.innerHTML = 'Win'
     //console.log('Player holds: ' + playerHand);
   } else if (dealerCard[3] > playerCard[3]) {
     console.log('dealer won this war');
@@ -126,6 +143,7 @@ function compareWar(){
     //creating new var for war-on-war
     //dealerHand = dealerHand.concat(dealerCard, playerCard);
     dealerHand.push(tempDealCard, tempPlayCard);
+    //dealerScore.innerHTML = 'Win';
     //console.log('Dealer holds: ' + dealerHand);
     winner();
     }
@@ -158,8 +176,20 @@ var winner = function(){
   }
 }
 
+
+
+
+var startGameBtn = document.querySelector('.start');
+var hitBtn = document.querySelector('.hit');
+
+startGameBtn.addEventListener('click', shuffle);
+startGameBtn.addEventListener('click', deal);
+hitBtn.addEventListener('click', battle);
+
+
+
 //stacks cards
-// function stackCards(margin){
+// function stack_cards(margin){
 //   var left = 0;
 //   var step = margin;
 //   var i = 0;

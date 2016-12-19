@@ -2,41 +2,104 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <!-- mobile meta tag -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project 1: WAR</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href ="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
 </head>
 
 <body>
   <h1>WAR</h1>
+  <button class="start">Start Game</button>
+
+  <div class="scoreBoard">
+          <h3>SCORE</h3>
+          <p class="playerScore">YOU: <span class="playerScore">0</span></p>
+          <p class="playerRound">Round: <span class="playerRound"></span></p>
+          <p class="dealerScore">DEALER: <span class="dealerScore">0</span></p>
+          <p class="dealerRound>">Round: <span class="dealerRound"></span></p>
+  </div>
 
 
   <div class="board">
-    <div class="scoreBoard" data-row="0" data-col="2">
-          <p>You: <span class="playerScore"></span></p>
-          <p>Dealer: <span class="dealerScore"></span></p>
-    </div>
     <div class="row1">
-       <div class="playerHand" data-row="0" data-col="0"></div>
-       <div class="playerCard" data-row="0" data-col="1"><span class="playerScore"></span></div>
+      <div class="dealerBoard" data-row="0" data-col="0"><span class="showDealer"></span></div>
+      <div class="dealerHand" data-row="0" data-col="1"></div>
     </div>
 
       <div class="row2>">
-        <div class="dealerHand" data-row="1" data-col="0"></div>
-        <div class="dealerCard" data-row="1" data-col="2"><span class="dealerScore"></span></div>
+        <button class="hit">Hit</button>
+        <div class="playerHand" data-row="1" data-col="0"></div>
+        <div class="playerBoard" data-row="1" data-col="1"><span class="showPlayer"></span></div>
       </div>
   </div>
 
 
+ <!--  <div class="card_stack">
+  </div> -->
 
-        <!-- CARDS -->
-        <!--  <div id='complete-deck'>
+    <!-- <div class="card">
+      <div class="card ace_clubs"></div>
+      <div class="card two_clubs"></div>
+      <div class="card three_clubs"></div>
+      <div class="card four_clubs"></div>
+      <div class="card five_clubs"></div>
+      <div class="card six_clubs"></div>
+      <div class="card seven_clubs"></div>
+      <div class="card eight_clubs"></div>
+      <div class="card nine_clubs"></div>
+      <div class="card ten_clubs"></div>
+      <div class="card jack_clubs"></div>
+      <div class="card queen_clubs"></div>
+      <div class="card king_clubs"></div>
+      <br />
+      <div class="card ace_hearts"></div>
+      <div class="card two_hearts"></div>
+      <div class="card three_hearts"></div>
+      <div class="card four_hearts"></div>
+      <div class="card five_hearts"></div>
+      <div class="card six_hearts"></div>
+      <div class="card seven_hearts"></div>
+      <div class="card eight_hearts"></div>
+      <div class="card nine_hearts"></div>
+      <div class="card ten_hearts"></div>
+      <div class="card jack_hearts"></div>
+      <div class="card queen_hearts"></div>
+      <div class="card king_hearts"></div>
+      <br />
+      <div class="card ace_spades"></div>
+      <div class="card two_spades"></div>
+      <div class="card three_spades"></div>
+      <div class="card four_spades"></div>
+      <div class="card five_spades"></div>
+      <div class="card six_spades"></div>
+      <div class="card seven_spades"></div>
+      <div class="card eight_spades"></div>
+      <div class="card nine_spades"></div>
+      <div class="card ten_spades"></div>
+      <div class="card jack_spades"></div>
+      <div class="card queen_spades"></div>
+      <div class="card king_spades"></div>
+      <br />
+      <div class="card ace_diamonds"></div>
+      <div class="card two_diamonds"></div>
+      <div class="card three_diamonds"></div>
+      <div class="card four_diamonds"></div>
+      <div class="card five_diamonds"></div>
+      <div class="card six_diamonds"></div>
+      <div class="card seven_diamonds"></div>
+      <div class="card eight_diamonds"></div>
+      <div class="card nine_diamonds"></div>
+      <div class="card ten_diamonds"></div>
+      <div class="card jack_diamonds"></div>
+      <div class="card queen_diamonds"></div>
+      <div class="card king_diamonds"></div>
+    </div> -->
 
-          <div class="card d9 bottom" style="left: 257.7px; top: 252px; z-index: 1;">
-            <div class="facedown"></div>
-            <div class="faceup"></div>
-          </div>
+     <!-- CARDS -->
+      <!-- <div class="card-container">
 
           <div class='card'>
           <span data-value='2' data-title='2 ♣'></span>
@@ -70,7 +133,7 @@
           <span data-value='9' data-title='9 ♣'></span>
           </div>
 
-          <div class='card' >
+          <div class='card'>
           <span data-value='10' data-title='10 ♣'></span>
           </div>
 
@@ -86,174 +149,171 @@
           <span data-value='K' data-title='K ♣'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='A' data-title='A ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='2' data-title='2 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='3' data-title='3 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='4' data-title='4 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='5' data-title='5 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='6' data-title='6 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='7' data-title='7 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='8' data-title='8 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='9' data-title='9 ♦'></span>
           </div>
 
-          <div class='card red' >
+          <div class='card_red' >
           <span data-value='10' data-title='10 ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='J' data-title='J ♦'></span>
           </div>
 
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='Q' data-title='Q ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='K' data-title='K ♦'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='A' data-title='A ♥'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='2' data-title='2 ♥'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='3' data-title='3 ♥'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='4' data-title='4 ♥'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='5' data-title='5 ♥'></span>
           </div>
 
-          <div class='card red'>
+          <div class='card_red'>
           <span data-value='6' data-title='6 ♥'></span>
           </div>
 
-         <div class='card red'>
-         <span data-value='7' data-title='7 ♥'></span>
-         </div>
+          <div class='card_red'>
+          <span data-value='7' data-title='7 ♥'></span>
+          </div>
 
-        <div class='card red'>
-        <span data-value='8' data-title='8 ♥'></span>
-        </div>
+          <div class='card_red'>
+          <span data-value='8' data-title='8 ♥'></span>
+          </div>
 
-        <div class='card red'>
-        <span data-value='9' data-title='9 ♥'></span>
-        </div>
+          <div class='card_red'>
+          <span data-value='9' data-title='9 ♥'></span>
+          </div>
 
-        <div class='card red' >
-        <span data-value='10' data-title='10 ♥'></span>
-        </div>
+          <div class='card_red' >
+          <span data-value='10' data-title='10 ♥'></span>
+          </div>
 
-        <div class='card red'>
-        <span data-value='J' data-title='J ♥'></span>
-        </div>
+          <div class='card_red'>
+          <span data-value='J' data-title='J ♥'></span>
+          </div>
 
-        <div class='card red'>
-        <span data-value='Q' data-title='Q ♥'></span>
-        </div>
+          <div class='card_red'>
+          <span data-value='Q' data-title='Q ♥'></span>
+          </div>
 
-        <div class='card red'>
-        <span data-value='K' data-title='K ♥'></span>
-        </div>
+          <div class='card_red'>
+          <span data-value='K' data-title='K ♥'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='A' data-title='A ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='A' data-title='A ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='2' data-title='2 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='2' data-title='2 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='3' data-title='3 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='3' data-title='3 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='4' data-title='4 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='4' data-title='4 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='5' data-title='5 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='5' data-title='5 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='6' data-title='6 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='6' data-title='6 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='7' data-title='7 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='7' data-title='7 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='8' data-title='8 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='8' data-title='8 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='9' data-title='9 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='9' data-title='9 ♠'></span>
+          </div>
 
-        <div class='card' >
-        <span data-value='10' data-title='10 ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='10' data-title='10 ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='J' data-title='J ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='J' data-title='J ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='Q' data-title='Q ♠'></span>
-        </div>
+          <div class='card'>
+          <span data-value='Q' data-title='Q ♠'></span>
+          </div>
 
-        <div class='card'>
-        <span data-value='K' data-title='K ♠'></span>
-        </div> -->
-
-      </div>
-
-      </div>
-      </div>
-    </div>
-  </div>
-
+          <div class='card'>
+          <span data-value='K' data-title='K ♠'></span>
+          </div>
+      </div> -->
 
 <script src="testMain.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 </body>
+
+<<footer>
+  <p>♠ ♥ <a href="https://github.com/mimischirm">meems</a> ♣ ♦</p>
+</footer>
 </html>
 
 
