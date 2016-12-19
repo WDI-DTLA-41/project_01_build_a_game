@@ -98,7 +98,7 @@ stringDeck();
 
 
 // shuffles the deck
-var shuffle = function (deck) {
+var shuffle = function () {
   var currentIndex = deck.length, temporaryValue, randomIndex;
   // while there are still cards prsent in currentDeck
   while (0 !== currentIndex) {
