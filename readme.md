@@ -43,7 +43,7 @@
 **Next Steps**
 - Mobile Version
 - More animations/audio (explosions, etc.)
-- Scoring system
+- High score system
 - Add Player 2 Option
 
 **A working game, built by An**
