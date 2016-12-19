@@ -17,11 +17,12 @@ var audioOne = document.querySelectorAll('audio');
 var replayBtn = document.querySelector('#replay');
 var btnTar = null;
 var praiseTag = document.querySelector('p');
+var sequence = null;
 
 // random number generator (1-4)
 var randomGen = function() {
   return Math.ceil(Math.random()*4);
-}
+};
 
 // function to start flash color for randomGen number
 var startColorFlash = function () {
@@ -223,9 +224,9 @@ function recursiveLights(arr, i = 0) {
     i++;
     setTimeout(function() {
       recursiveLights(arr, i);
-    }, 1000)
+    }, 1000);
   }
-};
+}
 
 function hardRecursiveLights(arr, i = 0) {
   // console.log(arr[i]) // log element at index i of arr
@@ -235,9 +236,9 @@ function hardRecursiveLights(arr, i = 0) {
     i++;
     setTimeout(function() {
       hardRecursiveLights(arr, i);
-    }, 500)
+    }, 500);
   }
-};
+}
 
 // adds to the counter for each function loop
 var addCounter = function() {
@@ -316,11 +317,11 @@ var praise = function() {
 var playerTurn = function() {
   praiseTag.textContent = 'YOUR TURN!';
   return setTimeout(clearPraiseTag,500*sequenceArr.length);
-}
+};
 
 var clearPraiseTag = function() {
   return praiseTag.textContent = '';
-}
+};
 
 // handle to convert userInput to a number in the sequence
 var handleUserInput = function(event) {
@@ -411,13 +412,13 @@ greenBtn.addEventListener('mouseout', handleRemoveCursor);
 greenBtn.addEventListener('click', handleRemoveColor);
 redBtn.addEventListener('mouseover', handleCursor);
 redBtn.addEventListener('mouseout', handleRemoveCursor);
-redBtn.addEventListener('click', handleRemoveColor)
+redBtn.addEventListener('click', handleRemoveColor);
 yellowBtn.addEventListener('mouseover', handleCursor);
 yellowBtn.addEventListener('mouseout', handleRemoveCursor);
-yellowBtn.addEventListener('click', handleRemoveColor)
+yellowBtn.addEventListener('click', handleRemoveColor);
 blueBtn.addEventListener('mouseover', handleCursor);
 blueBtn.addEventListener('mouseout', handleRemoveCursor);
-blueBtn.addEventListener('click', handleRemoveColor)
+blueBtn.addEventListener('click', handleRemoveColor);
 replayBtn.addEventListener('mouseover', handleCursor);
 replayBtn.addEventListener('mouseout', handleRemoveCursor);
 startBtn.addEventListener('mouseover', handleCursor);
@@ -427,6 +428,8 @@ hardBtn.addEventListener('mouseout', handleRemoveCursor);
 
 
 // Hi ^_-
+
+
 
 
 
