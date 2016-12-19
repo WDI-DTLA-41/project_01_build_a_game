@@ -1,4 +1,4 @@
-console.log('aloha, dakotah!')
+console.log('aloha, dakotah!');
 // buttons
 var dealBtn = document.querySelector('.deal');
 var shuffleBtn = document.querySelector('.shuffle');
@@ -10,7 +10,7 @@ var warBtn = document.querySelector('.war');
 warBtn.classList.add('hidden');
 var resetBtn = document.querySelector('.reset');
 resetBtn.classList.add('hidden');
-h2 = document.querySelector('h2');
+var h2 = document.querySelector('h2');
 
 // possible DOM elements
 var $deck = document.querySelector('.deck');
@@ -98,8 +98,7 @@ stringDeck();
 
 
 // shuffles the deck
-var shuffle = function () {
-  deck;
+var shuffle = function (deck) {
   var currentIndex = deck.length, temporaryValue, randomIndex;
   // while there are still cards prsent in currentDeck
   while (0 !== currentIndex) {
@@ -116,8 +115,8 @@ var shuffle = function () {
   console.log("Shuffled deck: " + deck);
   shuffleBtn.classList.add('hidden');
   // shuffleBtn.removeEventListener('click', shuffle);
-}
-shuffleBtn.addEventListener('click', shuffle)
+};
+shuffleBtn.addEventListener('click', shuffle);
 
 // deck = shuffle(deck);
 // console.log("Shuffled deck: " + deck);
@@ -129,7 +128,7 @@ var inHandA = [];
 var inHandB = [];
 
 var deal = function () {
-  $deck.textContent = " "
+  $deck.textContent = " ";
   for (var i = 0; i < deck.length; i ++) {
     if (i % 2 === 0) {
       inHandA.push(deck[i]);
@@ -147,15 +146,15 @@ var deal = function () {
   pushBtn.classList.remove('hidden');
   battleBtn.classList.remove('hidden');
   resetBtn.classList.remove('hidden');
-}
+};
 dealBtn.addEventListener('click', deal);
 
 // inPlay = the card each player pushes onto the table
 var inPlayA = [];
 var inPlayB = [];
 // inWar = the fourth (or last) card pushed into play once war is initiated
-inWarA = inPlayA[inPlayA.length - 1]
-inWarB = inPlayB[inPlayB.length - 1]
+var inWarA = inPlayA[inPlayA.length - 1];
+var inWarB = inPlayB[inPlayB.length - 1];
 
 
 
@@ -174,7 +173,7 @@ var winner = function () {
     pushBtn.classList.add('hidden');
     battleBtn.classList.add('hidden');
     warBtn.classList.add('hidden');
-    console.log("player B conquers the world!")
+    console.log("player B conquers the world!");
     h2.textContent = "The Rebel Alliance saves the galaxy!";
     $inPlayB.innerHTML = "<img src='css/rebel.png'>";
     $inPlayA.innerHTML = " ";
@@ -182,12 +181,12 @@ var winner = function () {
     pushBtn.classList.add('hidden');
     battleBtn.classList.add('hidden');
     warBtn.classList.add('hidden');
-    console.log("player A conquers the world!")
+    console.log("player A conquers the world!");
     h2.textContent = "The Empire conquers the galaxy!";
     $inPlayA.innerHTML = "<img src='css/empire.png'>";
     $inPlayB.innerHTML = "";
   }
-}
+};
 
 var reset = function () {
   deck = inHandA.concat(inHandB);
@@ -195,7 +194,7 @@ var reset = function () {
   console.log("deck: " + deck);
 
   inHandA = [];
-    $inHandA.textContent = " "
+    $inHandA.textContent = " ";
     console.log("inHandA: " + inHandA);
     $inPlayA.classList.remove('faceUp');
     // $inPlayA.classList.add('faceDown');
@@ -222,9 +221,9 @@ var reset = function () {
   warBtn.classList.add('hidden');
   resetBtn.classList.add('hidden');
 
-}
+};
 
-resetBtn.addEventListener('click', reset)
+resetBtn.addEventListener('click', reset);
 
 
 // ==================================================================
@@ -233,11 +232,11 @@ resetBtn.addEventListener('click', reset)
 
 var battle = function () {
   if (inPlayA[inPlayA.length - 1] === inPlayB[inPlayB.length - 1]) {
-    pushBtn.classList.add('hidden')
+    pushBtn.classList.add('hidden');
     battleBtn.classList.add('hidden');
     warBtn.classList.remove('hidden');
     console.log("WAR!");
-    h2.textContent = "War has been waged!"
+    h2.textContent = "War has been waged!";
     // war();
   } else if (inPlayA[inPlayA.length - 1] > inPlayB[inPlayB.length - 1]){
     // a acquires b's card
@@ -245,16 +244,16 @@ var battle = function () {
     // used card and new card are pushed to
     // the back of a's card-stack array
     inHandA.push(inPlayA.shift());
-    console.log("Player A wins the battle!")
-    h2.textContent = "The Empire strikes back!"
+    console.log("Player A wins the battle!");
+    h2.textContent = "The Empire strikes back!";
   } else {
     // b acquires a's card
     inHandB.push(inPlayA.shift());
     // used card and new card are pushed to
     // the back of b's card-stack array
     inHandB.push(inPlayB.shift());
-    console.log("Player B wins the battle!")
-    h2.textContent = "Rebel Forces win the battle!"
+    console.log("Player B wins the battle!");
+    h2.textContent = "Rebel Forces win the battle!";
   }
 
   clearBattle();
@@ -277,8 +276,8 @@ var battle = function () {
 // compares the value of a specific index in the inplay array
 // rather than a single value when only one card is in play
 var compareWar = function () {
-  inWarA = inPlayA[inPlayA.length - 1]
-  inWarB = inPlayB[inPlayB.length - 1]
+  inWarA = inPlayA[inPlayA.length - 1];
+  inWarB = inPlayB[inPlayB.length - 1];
   if (inWarA === inWarB) {
     war();
    } else if (inWarA > inWarB) {
@@ -287,7 +286,7 @@ var compareWar = function () {
     collectCardsB();
    }
 
-  clearBattle ()
+  clearBattle ();
   warBtn.classList.add('hidden');
   battleBtn.classList.remove('hidden');
 
@@ -297,17 +296,17 @@ var compareWar = function () {
   console.log("inHandB: " + inHandB);
 
   winner();
-}
+};
 
 // pushes four (or all of remaining cards in hand if less than four)
 // additional cards into play once war has been declared
 var war = function () {
   inPlayA = inPlayA.concat(inHandA.splice(0,4));
-  inWarA = inPlayA[inPlayA.length - 1]
+  inWarA = inPlayA[inPlayA.length - 1];
     $inPlayA.classList.add('faceUp');
 
   inPlayB = inPlayB.concat(inHandB.splice(0,4));
-  inWarB = inPlayB[inPlayB.length - 1]
+  inWarB = inPlayB[inPlayB.length - 1];
     $inPlayB.classList.add('faceUp');
 
   stringInWar ();
@@ -323,7 +322,7 @@ var war = function () {
   console.log("inHandB: " + inHandB);
 
   compareWar();
-}
+};
 
 
 
@@ -336,24 +335,24 @@ var collectCardsA = function () {
   for ( var i = inPlayB.length - 1; i >= 0; i --){
     inHandA.push(inPlayB.shift());
   }
-  for ( var i = inPlayA.length - 1; i >= 0; i --){
+  for ( i = inPlayA.length - 1; i >= 0; i --){
     inHandA.push(inPlayA.shift());
   }
   console.log("Player A wins the war!");
   h2.textContent = "The Empire wins the war!";
 
-}
+};
 
 var collectCardsB = function () {
   for ( var i = inPlayA.length - 1; i >= 0; i --){
     inHandB.push(inPlayA.shift());
   }
-  for ( var i = inPlayB.length - 1; i >= 0; i --){
+  for ( i = inPlayB.length - 1; i >= 0; i --){
     inHandB.push(inPlayB.shift());
   }
   console.log("Player B wins the war!");
   h2.textContent = "Rebel Forces win the war!";
-}
+};
 
 
 // ==================================================================
@@ -378,14 +377,14 @@ var pushIn = function () {
   console.log("inPlayB: " + inPlayB);
   console.log("inHandB: " + inHandB);
   pushBtn.classList.add('hidden');
-}
+};
 
 // ==================================================================
 // EVENT LISTENERS FOR IN-GAME BUTTONS
 // ==================================================================
-pushBtn.addEventListener('click', pushIn)
-battleBtn.addEventListener('click', battle)
-warBtn.addEventListener('click', war)
+pushBtn.addEventListener('click', pushIn);
+battleBtn.addEventListener('click', battle);
+warBtn.addEventListener('click', war);
 
 
 // ==================================================================
@@ -416,4 +415,4 @@ var clearBattle = function () {
   $inHandB.textContent = inHandB.toString();
   $inPlayA.innerHTML = "<img src='css/empire.png'>";
   $inPlayB.innerHTML = "<img src='css/rebel.png'>";
-}
+};
