@@ -182,7 +182,8 @@ function compareCards(compareCardP1, compareCardP2) {
               // add both cards to bottom of player1 pile
               player1Deck.push(removedCard1, removedCard2);
               // console.log('P1 - pushed card ' + player1Deck);
-              // console.log('P2 cards ' + player2Deck);
+              console.log('P1 cards ' + player1Deck);
+              console.log('P2 cards ' + player2Deck);
               // isWar = false;
               return 'Winner is Player 1';
 
@@ -197,7 +198,8 @@ function compareCards(compareCardP1, compareCardP2) {
               // add both cards to bottom of player 2 pile
               player2Deck.push(removedCard1,removedCard2);
               // console.log('P2 - pushed card ' + player2Deck);
-              // console.log('P1 cards ' + player1Deck);
+              console.log('P1 cards ' + player1Deck);
+              console.log('P2 cards ' + player2Deck);
               // helper to visualize
               // isWar = false;
               return 'Winner is Player 2';
@@ -225,8 +227,7 @@ function compareCards(compareCardP1, compareCardP2) {
 
                     player1.innerHTML = tempHand1[0];
                     player2.innerHTML = tempHand2[0];
-                    //console.log('P1 wins War cards ' + tempHand1 + tempHand1[3]);
-                    //console.log('P1 wins War cards ' + tempHand2) + tempHand2[3];
+                    console.log('P1 wins War cards ' + tempHand1 + tempHand1[3]);
 
                     player1Deck = player1Deck.concat(tempHand1, tempHand2);
                     //console.log(player1Deck + ' concatanated player1 Deck');
@@ -245,7 +246,8 @@ function compareCards(compareCardP1, compareCardP2) {
                     // player2Deck.push(removedCard1, removedCard2);
                     // player 2 wins 'WAR' and gets all 8 cards
                     // console.log('tempHand1: ' + tempHand1);
-                    // conosole.log('tempHand2: ' + tempHand2);
+                    // console.log('tempHand2: ' + tempHand2);
+                    console.log('P2 wins War cards ' + tempHand2 + tempHand2[3]);
                     player2Deck = player2Deck.concat(tempHand1, tempHand2);
                     //console.log(player2Deck + ' player2 Deck');
                     player2Deck.push(removedCard1, removedCard2);
