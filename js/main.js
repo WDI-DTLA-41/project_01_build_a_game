@@ -81,13 +81,14 @@ $inPlayB.innerHTML = "<img src='css/rebel.png'>";
 // START WITH A SIMPLE DECK, SHUFFLE THE VALUES, AND DEAL OUT TO PLAYERS
 // =====================================================================
 var deck = [
-            2, 3, 4, 5, 6, 7,
-            2, 3, 4, 5, 6, 7
-            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-            // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
   ];
 console.log("Unshuffled deck: " + deck);
 
+// displays unshuffled deck to user
 function stringDeck () {
   $deck.textContent = deck.toString();
   $deck.setAttribute('contenteditable', 'true');
@@ -96,7 +97,7 @@ stringDeck();
 
 
 
-// shuffle the deck
+// shuffles the deck
 var shuffle = function () {
   deck;
   var currentIndex = deck.length, temporaryValue, randomIndex;
@@ -122,7 +123,8 @@ shuffleBtn.addEventListener('click', shuffle)
 // console.log("Shuffled deck: " + deck);
 
 
-//deal the cards out
+//deals the cards out to both players
+// inHand = the array of cards each player is dealt
 var inHandA = [];
 var inHandB = [];
 
@@ -148,8 +150,10 @@ var deal = function () {
 }
 dealBtn.addEventListener('click', deal);
 
+// inPlay = the card each player pushes onto the table
 var inPlayA = [];
 var inPlayB = [];
+// inWar = the fourth (or last) card pushed into play once war is initiated
 inWarA = inPlayA[inPlayA.length - 1]
 inWarB = inPlayB[inPlayB.length - 1]
 
@@ -269,7 +273,9 @@ var battle = function () {
 // CREATE A WAR FUNCTION
 // ==================================================================
 
-
+// creates function to compare last card pushed into play
+// compares the value of a specific index in the inplay array
+// rather than a single value when only one card is in play
 var compareWar = function () {
   inWarA = inPlayA[inPlayA.length - 1]
   inWarB = inPlayB[inPlayB.length - 1]
@@ -293,6 +299,8 @@ var compareWar = function () {
   winner();
 }
 
+// pushes four (or all of remaining cards in hand if less than four)
+// additional cards into play once war has been declared
 var war = function () {
   inPlayA = inPlayA.concat(inHandA.splice(0,4));
   inWarA = inPlayA[inPlayA.length - 1]
@@ -322,6 +330,8 @@ var war = function () {
 // ==================================================================
 // WHEN PLAYER WINS A WAR, COLLECT ALL CARDS IN PLAY
 // ==================================================================
+// once a winner is declared after war, creates a function to collect
+// all of the cards in play
 var collectCardsA = function () {
   for ( var i = inPlayB.length - 1; i >= 0; i --){
     inHandA.push(inPlayB.shift());
@@ -349,6 +359,7 @@ var collectCardsB = function () {
 // ==================================================================
 // CREATE A BATTLE FUNCTION
 // ==================================================================
+// creates function to push initial card into play for later evaluation
 var pushIn = function () {
   h2.textContent = "Episode IV.2: A Programmer's Hope";
   inPlayA.push(inHandA.shift());
@@ -380,6 +391,7 @@ warBtn.addEventListener('click', war)
 // ==================================================================
 // ADD/CLEAR CONTENT FUNCTIONS
 // ==================================================================
+// functions to display numbers as strings in DOM
 function stringInPlayA () {
   $inPlayA.textContent = inPlayA.toString();
 }
@@ -393,7 +405,8 @@ function stringInWar () {
   $inPlayB.textContent = inWarB.toString();
   }
 
-
+// creates function that resets the table/in-play area once a battle or
+// war has been won
 var clearBattle = function () {
   $inPlayA.classList.remove('faceUp');
   $inPlayB.classList.remove('faceUp');
