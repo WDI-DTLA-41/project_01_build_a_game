@@ -37,7 +37,7 @@
 - Three matching slots = WIN 
     - Win = Total Score + (100 pts * bet total)
     - Lose = Total Score - (100 pts * bet total)
-- Press "PLAY AGAIN" to reset bet and start another turn
+- Press "SPIN AGAIN" to reset bet and start another turn
 - Press "NEW GAME" to reset the game & start over
 
 **Next Steps**

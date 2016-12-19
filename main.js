@@ -94,7 +94,6 @@ var spinReel = function(event) {
   playLightsaber();
 
   spin.classList.add("hidden");
-  playAgain.classList.remove("hidden");
 
   one.removeAttribute("class", "default");
   two.removeAttribute("class", "default");
@@ -171,6 +170,10 @@ for (var i=0; i < slots.length; i++) {
     var imgSrc = img.src;
     images.push(imgSrc);
 
+    playAgain.classList.remove("hidden");
+    reset.classList.remove("hidden");
+
+
     // console.log(images);
 
 // // =============================================
@@ -215,7 +218,7 @@ for (var i=0; i < slots.length; i++) {
           }, 1000);
 
           var revealQuoteLose = function() {
-            quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
+            quote.textContent = '"The fear of loss is a path to the Dark Side."';
 
             // // PLAYS JABBA LAUGH
             // function playJabba() {
@@ -308,6 +311,7 @@ var newTurn = function(event) {
   playLightsaber();
 
   playAgain.classList.add("hidden");
+  reset.classList.add("hidden");
   spin.classList.remove("hidden");
   container.removeAttribute("class", "win");
 
