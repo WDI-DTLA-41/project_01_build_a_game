@@ -1,0 +1,268 @@
+body {
+  background-image: url(https://github.com/ritz1337/project_01_build_a_game/blob/master/images/pagebg.jpg);
+}
+
+.top {
+  margin: 0px auto 0px;
+  text-align: center;
+  z-index: 10;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  /*text-shadow: 1px 2px 10px white;*/
+  font-size: 70px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  background: black;
+  background: rgba(255, 255, 255, 0.1)
+}
+.top > .redh1 {
+  margin: 10px auto 0px;
+  text-align: center;
+  z-index: 10;
+  font-family: 'Montserrat', sans-serif;
+  color: #C53030;
+  /*text-shadow: 1px 2px 10px white;*/
+  font-size: 70px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+.top > .blackh1 {
+  margin: 10px auto 0px;
+  text-align: center;
+  z-index: 10;
+  font-family: 'Montserrat', sans-serif;
+  color: #322C2C;
+  /*text-shadow: 1px 2px 10px white;*/
+  font-size: 70px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+.board {
+  width: 60%;
+  margin: 20px auto auto auto;
+  /*background: blue;*/
+  text-align: center;
+  position: relative;
+  background-image: url(https://github.com/ritz1337/project_01_build_a_game/blob/master/images/greenfelt.jpg);
+  border-radius: 50%;
+  border: 25px solid #764D00;
+  box-shadow: inset 1px 1px 20px 6px black;
+
+  /*  top: -30px;*/
+}
+
+.dealer {
+  width: 100%;
+  height: 240px;
+  postion: relative;
+  text-align: center;
+  font-family: 'Bungee', cursive;
+  font-size: 30px;
+  text-shadow: 0px 0px 2px #41145f;
+  color: #F1F1F1;
+  text-decoration: underline;
+
+
+}
+
+.dealerscore {
+  position: absolute;
+  padding-top: 80px;
+  /*padding-left: 50px;*/
+  padding-left: 10px;
+  font-family: 'Eczar', serif;
+  font-size: 20px;
+  font-weight: 800;
+  z-index: 50;
+  color: #FF9950;
+
+
+}
+
+.dealarea {
+/*  background: red;
+*/  width: 100%;
+  /*margin: 0 auto;*/
+  position: absolute;
+  padding-top: 10px;
+}
+
+.outcome {
+  position: absolute;
+  /*height: 100px;*/
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 40px;
+  /*text-align: right;*/
+  /*width: 100%;*/
+  width: 100%;
+  z-index: 10;
+  top: 178px;
+  background: rgba(0, 0, 0, .7);
+  border-radius: 12px;
+  color: white;
+  text-shadow: 1px 1px #ff0000;
+
+
+}
+
+.user {
+  width: 100%;
+  height: 200px;
+  postion: relative;
+  text-align: center;
+  font-family: 'Bungee', cursive;
+  font-size: 30px;
+  color: #F1F1F1;
+  text-shadow: 0px 0px 2px #41145f;
+  text-decoration: underline;
+}
+
+.userarea {
+/*  background: green;
+*/  width: 100%;
+  /*margin: 0 auto;*/
+  position: absolute;
+  padding-top: 10px;
+}
+
+.userscore {
+  position: absolute;
+  padding-top: 20px;
+  /*padding-left: 50px;*/
+  padding-left: 25px;
+  font-family: 'Eczar', serif;
+  font-size: 20px;
+  font-weight: 800;
+  z-index: 50;
+  color: #FF9950;
+
+
+}
+
+.userinputs {
+  /*background: teal;*/
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  padding: 10px 10px 10px 0;
+}
+
+.newhand {
+  margin: 0 auto;
+  display: inline-block;
+  background-color: #26A69A;
+  border-radius: 28px;
+  border: 1px solid #00695C;
+  cursor:pointer;
+  text-decoration:none;
+  /*text-shadow: 0px 1px 0px #41145F;*/
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  color: #000000;
+  padding: 16px 31px;
+}
+
+.newhand:hover {
+  background-color: #00695C;
+}
+
+.newhand:active {
+    position:relative;
+    top:2px;
+}
+
+.deal {
+ margin: 0 auto;
+  display: inline-block;
+  background-color: #7E57C2;
+  border-radius: 28px;
+  border: 1px solid #4527A0;
+  cursor: pointer;
+  text-decoration: none;
+/*  text-shadow: 0px 1px 0px #2f6627;*/
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  color: #000000;
+  padding: 16px 31px;
+}
+
+.deal:hover {
+  background-color: #4527A0;
+}
+
+.deal:active {
+    position:relative;
+    top:2px;
+}
+
+.hit {
+  margin: 0 auto;
+  display: inline-block;
+  background-color: #66BB6A;
+  border-radius:28px;
+  border:1px solid #2E7D32;
+  cursor:pointer;
+  text-decoration:none;
+  /*text-shadow:0px 1px 0px #2f6627;*/
+  font-family: 'Montserrat', sans-serif;
+  font-size:17px;
+  color:#000000;
+  padding:16px 31px;
+}
+
+.hit:hover {
+  background-color: #2E7D32;
+}
+
+.hit:active {
+    position:relative;
+    top:2px;
+}
+.stay {
+  margin: 0 auto;
+  display: inline-block;
+  background-color:#EF5350;
+  border-radius:28px;
+  border:1px solid #C62828;
+  cursor:pointer;
+  text-decoration:none;
+  /*text-shadow:0px 1px 0px #2f6627;*/
+  font-family: 'Montserrat', sans-serif;
+  font-size:17px;
+  color:#000000;
+  padding:16px 31px;
+}
+
+.stay:hover {
+  background-color: #C62828;
+}
+
+.stay:active {
+    position:relative;
+    top:2px;
+}
+
+.card {
+  /*display:inline-block;
+  text-align:center;
+  margin:5px;
+  padding:15px;
+  vertical-align: center;
+  line-height: 70px;
+  width:70px;
+  height:101.7px;
+  /*font-size:22px;
+  background-color:#999999;*/
+  border: solid 1px black;
+  /*box-shadow: 10px 10px 5px #888888;*/
+}
+
+.buttondisable {
+  background: #EEEEEE;
+  border: 1px solid #37474F;
+}
+.buttondisable:hover {
+  background: #37474F;
+  border: 1px solid #37474F;
+}
+
