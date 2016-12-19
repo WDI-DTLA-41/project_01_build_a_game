@@ -1,6 +1,15 @@
 body {
   text-align: center;
-  background-color: orange;
+  background-color: #607591;
+}
+button {
+  font-size: 12px;
+}
+.score {
+  font-size: 18px;
+}
+.title {
+  margin-bottom: 15px;
 }
 .square {
   display: inline-block;
@@ -14,13 +23,32 @@ body {
   background-color: grey;
 }
 .background {
-  background-color: brown;
+  background-color: #91320A;
 }
 .highlight {
   background-color: lightgreen;
 }
-.king {
-  font-size: 30;
+.red.circle {
+  border-radius: 50%;
+  background-color: darkred;
+  color: darkred;
+}
+.black.circle {
+  border-radius: 50%;
+  background-color: #573937;
+  color: #573937;
+}
+.red.king.circle {
+  border-radius: 50%;
+  background-color: darkred;
   font-weight: bold;
   font-style: italic;
+  color: black;
+}
+.black.king.circle {
+  border-radius: 50%;
+  background-color: #573937;
+  font-weight: bold;
+  font-style: italic;
+  color: black;
 }

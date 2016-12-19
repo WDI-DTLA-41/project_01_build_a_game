@@ -7,18 +7,34 @@ var highlighted;
 var lastClickedPos;
 var removedBlack = [];
 var removedRed = [];
+var btnNewGame = document.querySelector('.newGame');
+var redWins = 0;
+var blackWins = 0;
+var btnResetScore = document.querySelector('.resetScore');
 
+btnNewGame.addEventListener('click', handleClickNewGame);
+btnResetScore.addEventListener('click', handleClickResetScore);
+updateScore();
 setBoard(boardWidth);
 setPieces();
 renderBoard();
 
-// toggles current currentPlayer between red and black
-function changePlayer(){
-  if(currentPlayer==='red'){
-    currentPlayer = 'black';
-  } else {
-    currentPlayer = 'red';
-  }
+function handleClickResetScore(evt){
+  redWins=0;
+  blackWins=0;
+  updateScore();
+}
+function updateScore(){
+  var redScore = document.querySelector('.redScore');
+  var blackScore = document.querySelector('.blackScore');
+  redScore.textContent = redWins;
+  blackScore.textContent = blackWins;
+}
+function handleClickNewGame(evt){
+  resetBoard();
+  setBoard(boardWidth);
+  setPieces();
+  renderBoard();
 }
 function handleClick(evt){
   var clickedPos = {row: parseInt(this.dataset.row), col: parseInt(this.dataset.col)};
@@ -39,19 +55,30 @@ function handleClick(evt){
     highlighted.classList.remove('highlight');
     // 2nd click, click square to set piece if legal
     if(isPositionEmpty(clickedPos)){
-      changePlayer();
-      changeBoard(clickedPos);
-      checkKing(clickedPos);
-      renderBoard();
+      if(isValidMove(clickedPos)){
+        changePlayer();
+        changeBoard(clickedPos);
+        checkKing(clickedPos);
+        renderBoard();
+      }
+      isWinner();
     } else {
       // invalid move so do nothing?
       return false;
     }
   }
 }
+// toggles current currentPlayer between red and black
+function changePlayer(){
+  if(currentPlayer==='red'){
+    currentPlayer = 'black';
+  } else {
+    currentPlayer = 'red';
+  }
+}
 function isPositionEmpty(target){
   if(typeof board[target.row][target.col].color==='undefined'){
-    return isValidMove(target);
+    return true;
   } else {
     return false;
   }
@@ -101,7 +128,9 @@ function canJumpUp(previous, target){
       return true;
     }
   }
-  return false;
+  else {
+    return false;
+  }
 }
 function canJumpDown(previous, target){
   var targetCol;
@@ -139,6 +168,19 @@ function removePiece(player, row, col){
     removedBlack.push(board[row][col]);
     board[row][col] = '';
   }
+}
+function isWinner(){
+  if(removedRed.length===3*boardWidth/2){
+    blackWins+=1;
+    alert('Congratulations, Player Black Wins!');
+    return true;
+  }
+  if(removedBlack.length===3*boardWidth/2){
+    redWins+=1;
+    alert('Congratulations, Player Red Wins!');
+    return true;
+  }
+  return false;
 }
 /**
 * Checks if position is a valid move for a King Checkers piece
@@ -211,6 +253,9 @@ function setBoard(length){
     }
   }
 }
+function resetBoard(){
+  board = [[],[], [], [], [], [], [], []];
+}
 // set player pieces in the board[]
 function setPieces(){
   for(var i=0; i<3; i++){
@@ -260,10 +305,16 @@ function renderBoard(){
           if(typeof board[i][j].color === 'undefined'){
             html += '<div class="square" data-row="' + i + '" data-col="' + j + '"></div>';
           } else {
-            if(board[i][j].isKing){
-              html += '<div class="square king" data-row="' + i + '" data-col="' + j + '">' + board[i][j].color + '</div>';
-            } else{
-              html += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + board[i][j].color + '</div>';
+            if(board[i][j].isKing && board[i][j].color==='red'){
+              html += '<div class="square king" data-row="' + i + '" data-col="' + j + '">' + '<div class="red king circle">' + "King" + '</div></div>';
+            } else if(board[i][j].isKing && board[i][j].color==='black'){
+              html += '<div class="square king" data-row="' + i + '" data-col="' + j + '">' + '<div class="black king circle">' + "King" + '</div></div>';
+            } else {
+              if(board[i][j].color==='red'){
+                html += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + '<div class="red circle">' + board[i][j].color + '</div></div>';
+              } else {
+                html += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + '<div class="black circle">' + board[i][j].color + '</div></div>';
+              }
             }
           }
         }
@@ -275,10 +326,16 @@ function renderBoard(){
           if(typeof board[i][j].color === 'undefined'){
             html += '<div class="square" data-row="' + i + '" data-col="' + j + '"></div>';
           } else {
-            if(board[i][j].isKing){
-              html += '<div class="square king" data-row="' + i + '" data-col="' + j + '">' + board[i][j].color + '</div>';
+            if(board[i][j].isKing && board[i][j].color==='red'){
+              html += '<div class="square king" data-row="' + i + '" data-col="' + j + '">' + '<div class="red king circle">' + "King" + '</div></div>';
+            } else if(board[i][j].isKing && board[i][j].color==='black'){
+              html += '<div class="square king" data-row="' + i + '" data-col="' + j + '">' + '<div class="black king circle">' + "King" + '</div></div>';
             } else {
-              html += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + board[i][j].color + '</div>';
+              if(board[i][j].color==='red'){
+                html += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + '<div class="red circle">' + board[i][j].color + '</div></div>';
+              } else {
+                html += '<div class="square" data-row="' + i + '" data-col="' + j + '">' + '<div class="black circle">' + board[i][j].color + '</div></div>';
+              }
             }
           }
         }
