@@ -21,7 +21,7 @@ __To get started:__
 10. The player who has all 52 cards wins the game.
 
 ---
-***Next Steps
+###Next Steps
 - Show cards on front page
 - Show four cards with numbers on page when WAR
 - Show WAR # before alert comes up declaring it
