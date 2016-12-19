@@ -64,6 +64,13 @@ for (x = 0; x < words.length; x++){
   placeholders = document.querySelector('.placeholders');
   placeholders.textContent = underscores.join(' ');
 button.removeEventListener('click', getWord);
+submit.addEventListener('click', getLetter);
+document.querySelector(".start").disabled = true;
+document.querySelector("input").disabled = false;
+document.querySelector(".wordGuess").disabled = false;
+document.querySelector(".word").disabled = false;
+document.querySelector(".submit").disabled = false;
+
 }
 
 /**
@@ -101,6 +108,12 @@ function getLetterEnter(evt){
   }
 }
 
+function guessWordEnter(evt) {
+  if (evt.keyCode === 13){
+  guessWord()
+  }
+}
+
 //this runs the game
 function gameLogic() {
   if ( playWord.includes(letter)) {
@@ -125,6 +138,11 @@ function gameLogic() {
         scream.play();
         underscores = playWord;
         placeholders.textContent = underscores;
+        document.querySelector("input").disabled = true;
+        document.querySelector(".submit").disabled = true;
+        submit.removeEventListener('click', getLetter);
+        document.querySelector(".wordGuess").disabled = true;
+        document.querySelector(".word").disabled = true;
       }
     }
   }
@@ -132,10 +150,32 @@ function gameLogic() {
     console.log(isMatch.length, 'won!');
     laugh.play();
     win.style.visibility = "visible";
+    document.querySelector(".submit").disabled = true;
+    document.querySelector("input").disabled = true;
+    submit.removeEventListener('click', getLetter);
+    document.querySelector(".wordGuess").disabled = true;
+  document.querySelector(".word").disabled = true;
   }
 }
 
-
+function guessWord() {
+  var guess = document.querySelector('.word').value;
+  guess = guess.toUpperCase();
+  if (guess.value !== playWord) {
+    alert('Try again!');
+    document.querySelector('.word').value = '';
+  } else if (guess.value = playWord) {
+    placeholders.textContent = playWord;
+    laugh.play();
+    win.style.visibility = "visible";
+    document.querySelector(".submit").disabled = true;
+    document.querySelector("input").disabled = true;
+    document.querySelector(".wordGuess").disabled = true;
+    document.querySelector(".word").disabled = true;
+    submit.removeEventListener('click', getLetter);
+    document.querySelector('.word').value = '';
+  }
+}
 
 function reset(evt) {
   for (k = 0; k < skeleton.length; k++){
@@ -152,11 +192,21 @@ function reset(evt) {
   win.style.visibility = "hidden";
   j = 0;
   button.addEventListener('click', getWord);
+  submit.removeEventListener('click', getLetter);
+  document.querySelector(".start").disabled = false;
+  document.querySelector(".submit").disabled = true;
+  document.querySelector("input").disabled = true;
+  document.querySelector(".wordGuess").disabled = true;
+  document.querySelector(".word").disabled = true;
 }
 
-
+document.querySelector("input").disabled = true;
+document.querySelector(".wordGuess").disabled = true;
+document.querySelector(".submit").disabled = true;
 button.addEventListener('click', getWord);
-submit.addEventListener('click', getLetter);
+document.querySelector('.wordGuess').addEventListener('click', guessWord);
+document.querySelector('.wordGuess').addEventListener('click', guessWord);
+document.querySelector('.word').addEventListener('keyup', guessWordEnter);
 document.querySelector('input').addEventListener('keyup', getLetterEnter);
 resetButton.addEventListener('click', reset)
 thunder.play()

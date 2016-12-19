@@ -9,8 +9,8 @@
 </head>
 <body>
 <h1>Hangman</h1>
-<button>Start Game</button>
-<input type="text" placeholder="Guess a letter">
+<button class="start">Start Game</button>
+<input type="text" class="letter" placeholder="Guess a letter">
 <button class="submit">Submit</button>
 <button class="reset">Reset</button>
 <br>
@@ -25,6 +25,11 @@
 <div class="spider animated slideInDown"><img src="assets/spider.jpg"></div>
 <div class="guessed">Guessed:</div>
 <div class="placeholders"></div>
+<div class="guessWord">
+<span class="guessprompt">Think you've got it?</span><br>
+<input type="text" class="word" placeholder="Guess the word">
+<button class="wordGuess">Submit</button>
+</div>
 <div class="lose">
 Sorry, you lose!
 <p>Click RESET to play again</p>
