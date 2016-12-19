@@ -4,6 +4,9 @@ var dealerHand = document.querySelector('.dealerHand');
 var dealerBoard = document.querySelector('.dealerBoard');
 var playerScore = document.querySelector('.playerScore');
 var dealerScore = document.querySelector('.dealerScore');
+var startGameBtn = document.querySelector('.start');
+var hitBtn = document.querySelector('.hit');
+var restartBtn = document.querySelector('.restart');
 
 var playerBoard;
 var playerHand = [];
@@ -20,8 +23,6 @@ var wDealer = [];
 // war-on-war variables
 var wwPlayer = [];
 var wwDealer = [];
-
-
 
 
 /**
@@ -153,26 +154,42 @@ var warOnWar = function(){
 
 
 /**
+* Function restarts game
+* sets player card and dealer card back to 0
+*/
+var restart = function () {
+  deck = playerHand.concat(dealerHand);
+  deck.textContent = deck;
+  playerHand = [];
+  playerHand.textContent = " "
+  playerCard.textContent = " ";
+  dealerHand = [];
+  dealerHand.textContent = " ";
+  dealerCard.textContent = " ";
+  playerScore.innerHTML = playerHand.length;
+  dealerScore.innerHTML = dealerHand.length;
+}
+
+
+/**
 * Function checks winner
 */
 var winner = function(){
   if (playerHand.length < 1){
+  playerScore.innerHTML = ("Try Again");
+  dealerScore.innerHTML = ("Winner!");
   } else if (dealerHand.length < 1) {
+  playerScore.innerHTML = ("Winner!");
+  dealerScore.innerHTML = ("Try Again");
   }
 }
-
 
 
 /**
 * Event Listeners
 */
-var startGameBtn = document.querySelector('.start');
-var hitBtn = document.querySelector('.hit');
-
 startGameBtn.addEventListener('click', shuffle);
 startGameBtn.addEventListener('click', deal);
 hitBtn.addEventListener('click', battle);
-resetBtn.addEventListener('click', reset)
-
-
+restartBtn.addEventListener('click', restart)
 
