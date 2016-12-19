@@ -80,6 +80,12 @@ var spin = document.querySelector(".spin");
 var spinReel = function(event) {
   event.preventDefault();
 
+  function play() {
+    var audio = document.getElementById("audio");
+    audio.play();
+  }
+  play();
+
   spin.classList.add("hidden");
   playAgain.classList.remove("hidden");
 

@@ -9,6 +9,9 @@ body {
   color: white;
   font-size: 20px;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 #container {
   margin: 0 auto;
   height: 100vh;
