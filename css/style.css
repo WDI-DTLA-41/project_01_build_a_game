@@ -1,5 +1,5 @@
 body {
-  background-image: url('/assets/pagebg.jpg');
+  background-image: url('../assets/pagebg.jpg');
 }
 
 .top {
@@ -42,7 +42,7 @@ body {
   /*background: blue;*/
   text-align: center;
   position: relative;
-  background-image: url('/assets/greenfelt.jpg');
+  background-image: url('../assets/greenfelt.jpg');
   border-radius: 50%;
   border: 25px solid #764D00;
   box-shadow: inset 1px 1px 20px 6px black;
