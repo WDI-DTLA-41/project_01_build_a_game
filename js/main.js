@@ -1,4 +1,4 @@
-console.log('ha');
+console.log('holla');
 
 var $startButton = document.querySelector('[name="start"]'),
     $dealButton = document.querySelector('.deal-button'),
@@ -333,7 +333,6 @@ function startNextRound() {
   showDeal();
   showChips();
   showDebt();
-  console.log('new round')
   $bet500.addEventListener('click', bet);
   $bet100.addEventListener('click', bet);
   $bet50.addEventListener('click', bet);
@@ -538,7 +537,6 @@ function testBust() {
 function findWinner() {
   if (players[0].score === players[players.length - 1].score) {
     showWin('Push...');
-    console.log('push');
     hideGfxWin();
     hideActions();
     hideDealerScore2();
@@ -559,7 +557,6 @@ function findWinner() {
   }
   else {
     showWin('WINNER!');
-    console.log('winner');
     hideGfxWin();
     hideActions();
     hideDealerScore2();
