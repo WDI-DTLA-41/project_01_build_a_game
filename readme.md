@@ -1,5 +1,5 @@
 GAME : CONNECT FOUR
-![alt tag](http://imgur.com/a/OtrOA)
+![](assets/assets1.png?raw=true)
 
 TECHNOLOGIES : HTML, CSS, JAVASCRIPT
 
@@ -10,7 +10,7 @@ HOW TO PLAY :
 - When there are four in a row (vertical, horizontal, right diagonal or left diagonal) player wins
 
 UNSOLVED PROBLEMS :
-- Allowing user to drop
+- Allowing user to drop token
 - Winning logic
 
 
