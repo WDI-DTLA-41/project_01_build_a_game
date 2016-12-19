@@ -322,3 +322,6 @@ filter: blur(3px);
 
 https://github.com/ritz1337/project_01_build_a_game/blob/master/images/greenfelt.jpg
 
+BUGS:
+1) Buttons display on dealt blackjacks are being changed in 2 functions - dealCards & dealScoreCompare
+
