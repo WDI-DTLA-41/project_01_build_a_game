@@ -16,7 +16,8 @@ button.addEventListener("click", addText);
 
 
 // choose random word
-var sharkNames = ["squatina squatina", "cetorhinus maximus",
+var sharkNames = [
+  "squatina squatina", "cetorhinus maximus",
   "mitsukurina owstoni", "sphyrna mokarran", "carcharodon carcharias",
   "manta birostris", "etmopterus benchleyi", "alopias vulpinus",
   "galeocerdo cuvier", "rhincodon typus", "stegostoma fasciatum"
@@ -110,11 +111,11 @@ var guessButton = function() {
     render(dashWord.join(""));
 
   } else {
-    console.log("guess again");
-    wrongGuess(letter);
-    add();
-    lose();
-    console.log(counter);
+      console.log("guess again");
+      wrongGuess(letter);
+      add();
+      lose();
+      console.log(counter);
   }
   input.value = "";
 };
@@ -142,12 +143,13 @@ var sharkParts = [
 ];
 
 var i = 0;
+
 function wrongGuess(letter) {
   wrong.push(letter);
   var wrongString = wrong.join(", ");
   wrongLetters.value = wrongString;
   sharkParts[i].style.visibility = "visible";
-      i = i + 1;
+  i = i + 1;
 }
 
 // winner
@@ -169,9 +171,5 @@ function lose() {
     alert("you lost!");
   }
 }
-
-
-
-
 
 
