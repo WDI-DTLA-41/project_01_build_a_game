@@ -2,15 +2,15 @@
 var input = document.getElementById("userName");
 var button = document.getElementById("button");
 var p = document.getElementById("text");
-addText = function() {
-  var userValue = userName.value;
-  h3 = document.createElement("h3");
-  textNode = document.createTextNode("Dive in " + userValue);
+var addText = function() {
+var userValue = input.value;
+var h3 = document.createElement("h3");
+var textNode = document.createTextNode("Dive in " + userValue);
   p.appendChild(h3);
   h3.appendChild(textNode);
-  userName.value = " ";
+  input.value = " ";
   button.removeEventListener("click", addText);
-}
+};
 button.addEventListener("click", addText);
 //greeting
 
@@ -27,7 +27,7 @@ var sharkNames = [
 function randomizeWords(words) {
   var randomIndex = Math.floor(Math.random() * sharkNames.length);
   return sharkNames[randomIndex];
-};
+}
 
 var sharks = randomizeWords(sharkNames);
 
@@ -47,7 +47,7 @@ function dashes(letters) {
   });
   // return new array
   return dash;
-};
+}
 
 var dashWord = dashes(letters);
 
@@ -98,7 +98,7 @@ start.addEventListener("click", function(){
   dashWord = dashes(letters);
   render(dashWord.join(""));
   console.log("start game");
-  wrongLetters.value;
+
   wrong.length = 0;
 });
 
@@ -158,7 +158,7 @@ function wrongGuess(letter) {
 function winAlert() {
   var alert = document.getElementById("alert");
   alert.textContent = "You Survived!";
-};
+}
 
 var counter = 0;
 
