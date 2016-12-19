@@ -17,9 +17,9 @@ var tempHand1;
 var tempHand2;
 var showImg;
 
-// test cards for WAR
-player1Deck = [2, 4, 5, 6, 2, 4, 5, 7, 8];
-player2Deck = [2, 4, 5, 6, 2, 4, 5, 9, 9];
+// // test cards for WAR
+// player1Deck = [2, 4, 5, 6, 2, 4, 5, 7, 8];
+// player2Deck = [2, 4, 5, 6, 2, 4, 5, 9, 9];
 
 var cardsDefault = [
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12
@@ -28,15 +28,15 @@ var cardsDefault = [
   2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51
 ];
 
-var cardsTest = [
-  7,5,8,9,  //index 0-12
-  6,4,7,8 //index 39-51
-];
+// var cardsTest = [
+//   7,5,8,9,  //index 0-12
+//   6,4,7,8 //index 39-51
+// ];
 var cardsPlaying = [
-  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12
-  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 13-25
-  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 26-38
-  2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51
+  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12 hearts
+  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 13-25 spades
+  2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 26-38 clubs
+  2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51 diamonds
 ];
 
 /***************=================================
@@ -49,11 +49,13 @@ var connectBoard = function() {
       // for (var i = 0; i < cardsDefault.length; i++) {
       for (var i = 0; i < cardsPlaying.length; i++) {
 
+
         realCards = document.createElement('div');
         realCards.setAttribute('class', 'cardPosition');
         gameBoard.appendChild(realCards);
       }
 }
+
 
 // start button on html page
 var $start = document.querySelector('#start');
@@ -227,7 +229,7 @@ function compareCards(compareCardP1, compareCardP2) {
 
                     player1.innerHTML = tempHand1[0];
                     player2.innerHTML = tempHand2[0];
-                    console.log('P1 wins War cards ' + tempHand1 + tempHand1[3]);
+                    console.log('P1 wins War cards ' + tempHand1[3]);
 
                     player1Deck = player1Deck.concat(tempHand1, tempHand2);
                     //console.log(player1Deck + ' concatanated player1 Deck');
@@ -247,7 +249,7 @@ function compareCards(compareCardP1, compareCardP2) {
                     // player 2 wins 'WAR' and gets all 8 cards
                     // console.log('tempHand1: ' + tempHand1);
                     // console.log('tempHand2: ' + tempHand2);
-                    console.log('P2 wins War cards ' + tempHand2 + tempHand2[3]);
+                    console.log('P2 wins War cards ' + tempHand2[3]);
                     player2Deck = player2Deck.concat(tempHand1, tempHand2);
                     //console.log(player2Deck + ' player2 Deck');
                     player2Deck.push(removedCard1, removedCard2);
@@ -278,8 +280,8 @@ function warCardsRemoved() {
       tempHand2 = player2Deck.splice(0, 4);  // this removes first 4 cards
       player1.innerHTML = tempHand1[0];
       player2.innerHTML = tempHand2[0];
-      // console.log('In warCardsRemoved func ' + tempHand1);
-      // console.log('In warCardsRemoved func ' + tempHand2);
+      console.log('In warCardsRemoved func ' + tempHand1);
+      console.log('In warCardsRemoved func ' + tempHand2);
 
 
 }

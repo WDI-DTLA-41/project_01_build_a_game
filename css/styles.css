@@ -16,7 +16,10 @@ p, span {
   margin: 0px auto;
   text-align: left;
 }
+/* for card attachment */
+.photo {
 
+}
 /* background of cards */
 #container {
   border: 2px solid black;
