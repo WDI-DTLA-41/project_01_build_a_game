@@ -12,7 +12,7 @@ remembering these tongue twisitng names.
 
 - HTML
 - CSS
-_ Javascript
+- Javascript
 
 ### Rules
 
