@@ -83,7 +83,7 @@ var handleUserSequence = function(event){
       simonSequence = [];
       $gamePiece.classList.add("rollOut");
       streak = 0;
-      $streak.textContent = 0;
+      $streak.textContent = streak;
     } else if(consoleSequence[clickCount] === userSequence[clickCount]
       && consoleSequence.length === userSequence.length){
       console.log('win');
@@ -108,8 +108,8 @@ var handleRestart = function(){
   for(var i = 0; i<simonGeneratorIndex.length; i++){
   simonGeneratorIndex[i].classList.remove('light');
   };
-  streak=0;
-  $streak = streak;
+  streak = 0;
+  $streak.textContent = streak;
   simonSequence = [];
   $gamePiece.classList.remove("rollOut");
   $gamePiece.classList.add("rollIn");

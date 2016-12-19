@@ -22,12 +22,10 @@ img {
   height: 400px;
   width: 400px;
   position: relative;
-  /*z-index: -1;*/
 }
 
 .color {
   display: inline-block;
-  /*position: relative;*/
   height: 40%;
   width: 40%;
   padding: 10px;
