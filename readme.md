@@ -35,10 +35,11 @@ Refactor code:
 - For animating ability
 - For splitting
 - For browser length
+- For dynamically changing card positions
 
 Add:
 - Vegas style 8 decks and card discarding
-- Double Down
+- Double down & corresponding dynamically rotated card visual
 - Insurance
 - 3:2 payout on natural blackjack
 - JS documentation
