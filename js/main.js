@@ -161,7 +161,9 @@ function gameLogic() {
 function guessWord() {
   var guess = document.querySelector('.word').value;
   guess = guess.toUpperCase();
-  if (guess !== playWord) {
+  if (guess === '') {
+    alert('Please enter a word');
+  } else if (guess !== playWord) {
     alert('Try again!');
     document.querySelector('.word').value = '';
   } else if (guess = playWord) {
