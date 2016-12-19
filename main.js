@@ -172,7 +172,7 @@ var playerHit = function(result) {
   console.log("Player's new score is" + player.score);
 
   if (player.score === 21) {
-    $pscore.innerHTML = player.score + ' You might wanna stay';
+    $pscore.innerHTML = player.score;
 
     return console.log('You hit 21!! You might wanna stay');
   } if (player.score > 21){
@@ -186,7 +186,7 @@ var playerHit = function(result) {
     $newHand.disabled=false;
     $newHand.classList.remove('buttondisable');
     $pscore.innerHTML = player.score;
-
+    $outcome.innerHTML = 'You Went Bust :( Try Again';
     return console.log('you went BUST');
 
   } else {

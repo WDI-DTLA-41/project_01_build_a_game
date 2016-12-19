@@ -320,17 +320,5 @@ $dealArea.innerHTML = ""
 Blur the screen
 filter: blur(3px);
 
-Disable button:
-$newHand.disabled='true';
-$newHand.classList.add('buttondisable');
-
-$deal.disabled='true';
-$deal.classList.add('buttondisable');
-
-$hit.disabled='true';
-$hit.classList.add('buttondisable');
-
-$stay.disabled='true';
-$stay.classList.add('buttondisable');
 
 
