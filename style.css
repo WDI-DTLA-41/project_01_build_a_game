@@ -183,12 +183,12 @@ ul>li>a {
   position:absolute;
 }
 
-#player1Score {
+.player1Score {
   line-height: 25px;
   display:inline-block;
 }
 
-#player2Score {
+.player2Score {
   line-height: 25px;
   display:inline-block;
 }
