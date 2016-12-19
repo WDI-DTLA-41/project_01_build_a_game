@@ -15,8 +15,8 @@ var $record = document.querySelector('#record');
 var record = 0;
 var $start = document.querySelector('#start');
 var $restart = document.querySelector('#restart');
-var $loss = document.querySelector('#loss');
-var $win = document.querySelector('#win');
+var $win = document.querySelectorAll('.win');
+var $loss = document.querySelectorAll('.loss');
 
 
 var lightIt = function(n){
@@ -87,6 +87,14 @@ var handleUserSequence = function(event){
       clickCount = 0;
       console.log('lose');
       simonSequence = [];
+      for(var i = 0; i<simonGeneratorIndex.length; i++){
+        simonGeneratorIndex[i].classList.add("loss");
+        setTimeout(function(){
+          for(var i = 0; i<simonGeneratorIndex.length; i++){
+            simonGeneratorIndex[i].classList.remove("loss");
+          }
+        }, 500);
+      }
       streak = 0;
       $streak.textContent = 0;
       generateSimonSequence();

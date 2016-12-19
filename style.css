@@ -27,7 +27,7 @@ img {
 
 .color {
   display: inline-block;
-  position: relative;
+  /*position: relative;*/
   height: 40%;
   width: 40%;
   padding: 10px;
@@ -36,6 +36,7 @@ img {
 .records {
   float:right;
 }
+
 
 /* RED DIV */
 #red {
@@ -95,18 +96,4 @@ img {
 }
 #yellow:hover {
   cursor: pointer;
-}
-
-#loss {
-  /*float: left;*/
-  position: absolute;
-  /*margin: auto;*/
-  z-index: 10;
-}
-
-
-#win {
-  position: absolute;
-  margin: auto;
-  z-index: 10;
 }
