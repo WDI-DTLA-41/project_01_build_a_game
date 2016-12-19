@@ -13,6 +13,10 @@ img {
   height: 400px;
 }
 
+span {
+  font-size: 20pt;
+}
+
 .userTurn {
   background: #232323;
 }
@@ -41,6 +45,13 @@ img {
   float:right;
 }
 
+.win {
+  background: rgba(0, 255, 0, 0.4);
+}
+
+.loss {
+  background: rgb(255, 0, 0, 0.4);
+}
 
 /* RED DIV */
 #red {

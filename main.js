@@ -84,10 +84,10 @@ var handleUserSequence = function(event){
       clickCount = 0;
       console.log('lose');
       simonSequence = [];
-      $gamePiece.classList.add("rollOut");
-      setTimeout(function(){$gamePiece.classList.remove("rollOut")}, 1500)
       streak = 0;
       $streak.textContent = streak;
+      $gamePiece.classList.add("rollOut");
+      setTimeout(function(){$gamePiece.classList.remove("rollOut")}, 1500);
     } else if(consoleSequence[clickCount] === userSequence[clickCount]
       && consoleSequence.length === userSequence.length){
       console.log('win');
@@ -99,6 +99,8 @@ var handleUserSequence = function(event){
       }
       userSequence = [];
       clickCount = 0;
+      $gamePiece.classList.add("pulse");
+      setTimeout(function(){$gamePiece.classList.remove("pulse")}, 1500);
       generateSimonSequence();
     } else if(userSequence.length !== consoleSequence.length){
       clickCount ++ ;
