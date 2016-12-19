@@ -3,11 +3,11 @@ html, body {
   margin: 0;
   background: #36454f;
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 img {
@@ -20,7 +20,6 @@ img {
 }
 
 [name="start"] {
-  /*font-family: 'Monoton', cursive;*/
   font-weight: 200;
   background-color: #36454f;
   color: white;
@@ -39,8 +38,6 @@ img {
 [name="start"]:hover {
   background: black;
   outline: 0px;
-  /*color: black;*/
-  /*text-shadow: 3px 0px 6px black;*/
 }
 
 .cash-text {
@@ -125,12 +122,6 @@ img {
   animation-delay: .33s;
 }
 
-/*.start-button {
-width: 150px;
-height: 150px;
-line-height: 150px;
-}*/
-
 .round:hover {
   background: #262626;
   cursor: pointer;
@@ -149,7 +140,6 @@ line-height: 150px;
   text-align: center;
   text-decoration: none;
   background: #464646;
-  /*box-shadow: 0 0 3px gray;*/
   font-size: 30px;
   font-weight: 800;
   z-index: 10;
@@ -170,7 +160,6 @@ line-height: 150px;
               opacity .75s ease;
   animation-delay: .2s;
   border: 7px dashed #f5f5f5;
-  /*box-shadow: 0px;*/
 }
 
 .bet-500:hover {
@@ -248,18 +237,6 @@ line-height: 150px;
   top: 120px;
 }
 
-/*.container:after {
-  content: '';
-  background: url(assets/felt.png) repeat;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  opacity: .7;
-  z-index: -1;
-}*/
-
 .header {
   margin-top: 0px;
   position: fixed;
@@ -303,7 +280,6 @@ line-height: 150px;
   border: 30px solid #663300;
   box-shadow: inset 0 -100px 200px #222222;
   position: relative;
-  /*box-shadow: 0 0 50px;*/
 }
 
 .typeDealer {
@@ -311,23 +287,10 @@ line-height: 150px;
   height: 200px;
   border-bottom: 30px solid #663300;
   position: absolute;
-  /*top: -645px;*/
   top: -115px;
   left: 205px;
-  /*margin: 0 auto;*/
   background: #36454f;
-  /*float: right;*/
-  /*display: inline-block;*/
 }
-
-/*original*/
-/*.player-score {
-  position: absolute;
-  font-size: 30px;
-  top: 300px;
-  left: 310px;
-  color: gold;
-}*/
 
 .player-score {
   position: absolute;
@@ -339,15 +302,6 @@ line-height: 150px;
   transition: 0s ease;
 }
 
-/*original*/
-/*.dealer-score {
-  position: absolute;
-  font-size: 30px;
-  color: gold;
-  top: 167px;
-  left: 460px;
-}*/
-
 .dealer-score {
   position: absolute;
   font-size: 40px;
@@ -356,7 +310,6 @@ line-height: 150px;
   left: 90px;
   opacity: 0;
   transition: 0s ease;
-  /*visibility: hidden;*/
 }
 
 .dealer-score2 {
@@ -395,7 +348,6 @@ line-height: 150px;
 .dealer-0 {
   position: relative;
   left: 352px;
-  /*visibility: hidden;*/
   opacity: 1;
   transition: all 3s ease;
   z-index: 0;
@@ -408,7 +360,6 @@ line-height: 150px;
   z-index: 1;
   opacity: 0;
 }
-
 
 .dealer-1 {
   position: relative;
@@ -459,8 +410,6 @@ line-height: 150px;
 
 .player-0 {
   position: relative;
-/*  left: -5px;*/
-/*transition: opacity 1s;*/
 }
 
 .player-1 {
