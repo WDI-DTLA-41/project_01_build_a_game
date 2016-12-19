@@ -76,8 +76,6 @@ var deal = function(){
   // break down dealing into 2 instances of Hitting
   playerHit();
   playerHit();
-  // addCard();
-  // addCard();
   // gives dealer one card
   // var card = deck.pop()
   dealerHit();
@@ -222,11 +220,7 @@ stayButton.addEventListener('click', function (){
   dealerTurn();
 })
 }
-var addCard = function() {
-    var putCard = document.createElement('div');
-    var suitVal = document.createElement('span');
-    putCard.classList.add('card')
-}
+
 var startGame = function() {
   console.log('starting game!');
   setupEventListeners();
