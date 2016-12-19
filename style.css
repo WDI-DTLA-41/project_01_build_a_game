@@ -44,7 +44,7 @@ h2 {
   text-align: center;
 }
 .scoreboard {
-  margin: 14px 0px 10px 55px;
+  margin: 20px 0px 10px 55px;
   font-size: 1.4em;
 }
 .total-score {
@@ -174,4 +174,34 @@ a {
   60%  {background-color:palegreen;}
   80%  {background-color:gold;}
   100% {background-color:pink;}
+}
+/*==================================
+/* "WIN" ANIMATION
+/* Resource: http://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_count2
+/*==================================*/
+
+.win {
+  position: relative;
+  -webkit-animation-name: winning;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 4;
+  animation-name: winning;
+  animation-duration: 1s;
+  animation-iteration-count: 4;
+}
+@-webkit-keyframes winning {
+  0%   {background-color:white;}
+  20%  {background-color:gold;}
+  40%  {background-color:black;}
+  60%  {background-color:white;}
+  80%  {background-color:gold;}
+  100% {background-color:black;}
+}
+@keyframes winning {
+  0%   {background-color:white;}
+  20%  {background-color:gold;}
+  40%  {background-color:black;}
+  60%  {background-color:white;}
+  80%  {background-color:gold;}
+  100% {background-color:black;}
 }

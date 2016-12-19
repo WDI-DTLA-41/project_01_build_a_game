@@ -27,14 +27,29 @@ var totalBet = document.querySelector(".total-bet");
 // var for score counter
 var totalScore = document.querySelector(".total-score");
 
+// vars for audio
+var cantina = document.getElementById("cantina");
+var jabba = document.getElementById("jabba");
+var lightsaber = document.getElementById("lightsaber");
+var chewy = document.getElementById("chewy");
+
 var cards = [
   "assets/images/darthvader.jpg",
-  "assets/images/yoda.jpg",
-  "assets/images/luke.jpg",
   "assets/images/bobafett.png",
+  "assets/images/darthvader.jpg",
+  "assets/images/yoda.jpg",
+  "assets/images/darthvader.jpg",
+  "assets/images/luke.jpg",
+  "assets/images/darthvader.jpg",
   "assets/images/leia.jpg",
-  "assets/images/hansolo.jpg"
+  "assets/images/darthvader.jpg",
+  "assets/images/hansolo.jpg",
+  "assets/images/darthvader.jpg"
   ]
+
+// var cards = [
+//   "assets/images/darthvader.jpg"
+// ]
 
 // =============================================
 //    1. PLACE A BET
@@ -48,10 +63,10 @@ var cards = [
 
 var currentBet;
 
+// Add 1 to the value in span.total-bet
 var addOne = function(event) {
   event.preventDefault();
-// Add 1 to the value in span.total-bet
-  console.log(totalBet.textContent);
+
   // CONVERT TEXT IN totalBet PLACEHOLDER TO NUMBER
   var betValue = parseInt(totalBet.textContent);
   // ADD 1 TO THE VALUE, STORE IN betTotal VAR
@@ -72,12 +87,11 @@ var spin = document.querySelector(".spin");
 var spinReel = function(event) {
   event.preventDefault();
 
-  // PLAYS CANTINA MUSIC
-  function play() {
-    var audio = document.getElementById("audio");
-    audio.play();
+  // PLAYS LIGHTSABER ON EFFECT
+  function playLightsaber() {
+    lightsaber.play();
   }
-  play();
+  playLightsaber();
 
   spin.classList.add("hidden");
   playAgain.classList.remove("hidden");
@@ -176,6 +190,18 @@ for (var i=0; i < slots.length; i++) {
 
           var revealQuoteWin = function() {
             quote.textContent = '"The Force is strong with this one."';
+
+            var flashBackground = function() {
+              var container = document.querySelector("#container");
+              container.setAttribute("class", "win");
+            }
+            flashBackground();
+
+            function playCantina() {
+              cantina.play();
+            }
+            playCantina();
+
           }
 
           setTimeout(addScore, 1000);
@@ -190,6 +216,18 @@ for (var i=0; i < slots.length; i++) {
 
           var revealQuoteLose = function() {
             quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
+
+            // // PLAYS JABBA LAUGH
+            // function playJabba() {
+            //   jabba.play();
+            // }
+            // playJabba();
+
+            // PLAYS CHEWY ROAR
+            function playChewy() {
+              chewy.play();
+            }
+            playChewy();
           }
         }
           setTimeout(minusScore, 1000);
@@ -263,8 +301,15 @@ var minusScore = function() {
 var newTurn = function(event) {
   event.preventDefault();
 
+  // PLAYS LIGHTSABER ON EFFECT
+  function playLightsaber() {
+    lightsaber.play();
+  }
+  playLightsaber();
+
   playAgain.classList.add("hidden");
   spin.classList.remove("hidden");
+  container.removeAttribute("class", "win");
 
   // EMPTIES THE ARRAY
   images = [];

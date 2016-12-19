@@ -36,19 +36,23 @@
     </section>
 
     <section class="play">
-      <button class="plus-one">BET +1</button>
+      <button class="plus-one" onclick="playBet()">BET +1</button>
       <p class="bet">$<span class="total-bet">1</span></p>
-      <button class="play-button spin">SPIN!</button>
+      <button class="play-button spin" onclick="playSpin()">SPIN!</button>
       <button class="play-button play-again hidden">PLAY AGAIN</button>
       <button class="reset">NEW GAME</button>
     </section>
 
     <footer>
       <p>
-        <a href="https://generalassemb.ly/education/web-development-immersive" alt="general assembly">GA WDI</a> Student Project  -  Built by <a href="https://github.com/secretagentan" alt="secretagentan">SecretAgentAn</a>  -  Art Credit:  <a href="http://filipedecarvalho.com" alt="filipe de carvalho">Filipe de Carvalho</a>  &  <a href="https://www.behance.net/kirpluk" alt="konrad kirpluk">Konrad Kirpluk</a>
+        <a href="https://generalassemb.ly/education/web-development-immersive" alt="general assembly">GA WDI</a> Student Project  -  Built by <a href="https://github.com/secretagentan" alt="secretagentan">SecretAgentAn</a>  -  Art Credit:  <a href="http://filipedecarvalho.com" alt="filipe de carvalho">Filipe de Carvalho</a> & <a href="https://www.behance.net/kirpluk" alt="konrad kirpluk">Konrad Kirpluk</a>
       </p>
 
-      <audio id="audio" src="assets/cantina3.mp3" type="audio/mpeg"></audio>
+      <audio id="r2d2" src="assets/audio/r2-talk.wav" type="audio/wav" autoplay="true" loop="infinite"></audio>
+      <audio id="cantina" src="assets/audio/cantina3.mp3" type="audio/mpeg"></audio>
+      <audio id="lightsaber" src="assets/audio/lightsaber.mp3" type="audio/mpeg"></audio>
+      <audio id="jabba" src="assets/audio/jabba-laughing.mp3" type="audio/mpeg"></audio>
+      <audio id="chewy" src="assets/audio/chewy-roar.mp3" type="audio/mpeg"></audio>
 
     </footer>
 
