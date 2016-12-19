@@ -1,6 +1,4 @@
-************
-* Checkers *
-************
+* Checkers 
 *
 * Technologies - Javascript, CSS, HTML
 *
@@ -12,9 +10,7 @@
 *
 * Unsolved problems/features - multi-jumps, forced jumps, flying kings and AI
 *
-****************
-* Deliverables *
-****************
+* Deliverables
 *
 * MVP - Basic working game with a win condition
 *
