@@ -20,12 +20,16 @@ var player = {
   hand: []
 }
 
+
+
 var $newHand = document.querySelector('.newhand');
 var $deal = document.querySelector('.deal');
 var $hit = document.querySelector('.hit');
 var $stay = document.querySelector('.stay');
 var $userArea = document.querySelector('.userarea');
 var $dealArea = document.querySelector('.dealarea');
+var $dscore = document.querySelector('.dscore');
+var $pscore = document.querySelector('.pscore');
 
 //setting only New Hand button visible initially
 $deal.style.visibility='hidden';
@@ -94,20 +98,24 @@ var dealCards = function() {
     cardPrintPlayer(player.hand[i]);
 
     dealer.hand[i] = deck.pop();
-    cardPrintDealer(dealer.hand[i]);
     calculateHandOf(dealer);
     calculateHandOf(player);
     //display 1st dealer card here
   }
 
+  cardPrintDealer(dealer.hand[0]);
+  cardBack();
 
-
-  console.log('Dealer Score Is:' + dealer.score);
+  // console.log('Dealer Score Is:' + dealer.score);
+  console.log('Dealer Score Is:' + dealer.hand[0].value);
+  $dscore.innerHTML = dealer.hand[0].value;
   console.log('Player Score Is:' + player.score);
+  $pscore.innerHTML = player.score;
+
   dealScoreCompare();
-  $deal.style.visibility='hidden';
-  $hit.style.visibility='visible';
-  $stay.style.visibility='visible';
+  // $deal.style.visibility='hidden';
+  // $hit.style.visibility='visible';
+  // $stay.style.visibility='visible';
 
 };
 
@@ -139,21 +147,32 @@ var playerHit = function(result) {
   player.hand[player.hand.length] = deck.pop();
   cardPrintPlayer(player.hand[player.hand.length-1]);
   calculateHandOf(player);
+  // $pscore.innerHTML = player.score;
+
   console.log("Player's new score is" + player.score);
-  if(player.score === 21) {
+
+  if (player.score === 21) {
+    $pscore.innerHTML = player.score + ' You might wanna stay';
+
     return console.log('You hit 21!! You might wanna stay');
-  } else if (player.score > 21){
+  } if (player.score > 21){
     $hit.style.visibility='hidden';
     $stay.style.visibility='hidden';
     $newHand.style.visibility='visible';
+    $pscore.innerHTML = player.score;
+
     return console.log('you went BUST');
+
   } else {
+    $pscore.innerHTML = player.score;
+
     return player.score;
   }
 };
 
 var playerStay = function() {
   console.log("You Stay! Dealer's Turn");
+  cardPrintDealer(dealer.hand[1]);
   dealerTurn();
 
 };
@@ -164,15 +183,20 @@ var dealerTurn = function(result) {
   $hit.style.visibility='hidden';
   $stay.style.visibility='hidden';
   $newHand.style.visibility='hidden';
+  cardBackRemove();
   if (dealer.score > 21) {
     console.log('Dealer Went BUST! You Win!');
     $newHand.style.visibility='visible';
+    $dscore.innerHTML = dealer.score;
+
     return dealer.score;
     // dealer loses automatically if user has stayed
   } else if (dealer.score === 21) {
-      console.log('Dealer Hits BlackJack, check user score...');
+      console.log('Dealer Hits 21, check user score...');
       endScoreCompare();
       $newHand.style.visibility='visible';
+      $dscore.innerHTML = dealer.score;
+
       return dealer.score;
   } else if (dealer.score < 17){
     dealer.hand[dealer.hand.length] = deck.pop();
@@ -180,14 +204,18 @@ var dealerTurn = function(result) {
     console.log(dealer.hand[dealer.hand.length-1]);
     calculateHandOf(dealer)
     console.log("Dealer Score is Currently " + dealer.score);
+    $dscore.innerHTML = dealer.score;
     dealerTurn();
     //make dealer draw another card
   } else {
     console.log('Dealer Score is: ' + dealer.score);
     endScoreCompare();
     $newHand.style.visibility='visible';
+    $dscore.innerHTML = dealer.score;
+
     return dealer.score;
   }
+  $dscore.innerHTML = dealer.score;
 
 }
 
@@ -197,6 +225,9 @@ var resetHands = function() {
   dealer.score = 0;
   player.hand = [];
   dealer.hand = [];
+  $dscore.innerHTML = "";
+  $pscore.innerHTML = "";
+
 };
 
 
@@ -207,9 +238,9 @@ var cardPrintDealer = function(user) {
   // img.setAttribute("class", "card");
   // img.src = '/playing_cards' + card.name + '/' + card.size;
   img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
-  img.style.height = "101.7px";
-  img.style.width = "70px";
-
+  img.style.height = "150px";
+  img.style.width = "103.2px";
+  // img.classList.add('card');
 
   $dealArea.appendChild(img);
 }
@@ -220,11 +251,28 @@ var cardPrintPlayer = function(user) {
   // img.setAttribute("class", "card");
   // img.src = '/playing_cards' + card.name + '/' + card.size;
   img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
-  img.style.height = "101.7px";
-  img.style.width = "70px";
+  img.style.height = "150px";
+  img.style.width = "103.2px";
 
   $userArea.appendChild(img);
 }
+
+//function to render back of card
+var cardBack = function () {
+  cardBackImg = document.createElement('img');
+  cardBackImg.src = '/playing_cards/cardback1.png',
+  cardBackImg.style.height = "150px",
+  cardBackImg.style.width = "103.2px";
+  $dealArea.appendChild(cardBackImg);
+
+};
+
+//function to remove back of card
+var cardBackRemove = function() {
+ if ($dealArea.contains(cardBackImg)) {
+ $dealArea.removeChild(cardBackImg);
+};
+};
 
 //function to remove appended cards from both dealer and player areas
 var clearPlayingArea = function() {
@@ -246,7 +294,7 @@ var endScoreCompare = function(result) {
   }
 };
 
-// function to compare dealer score with player's score
+// function to compare dealer score with player's score on deal
 var dealScoreCompare = function(result) {
   if (dealer.score === 21 && player.score === 21){
     console.log("It's a Blackjack Push. Nobody wins");
@@ -254,6 +302,10 @@ var dealScoreCompare = function(result) {
     $hit.style.visibility='hidden';
     $stay.style.visibility='hidden';
     $newHand.style.visibility='visible';
+    cardBackRemove();
+    cardPrintDealer(dealer.hand[1]);
+    $dscore.innerHTML = dealer.score;
+
     return result;
   } else if (dealer.score === 21 && player.score < 21) {
       console.log("Dealer Hits Blackjack :( Try Again!");
@@ -261,6 +313,11 @@ var dealScoreCompare = function(result) {
       $hit.style.visibility='hidden';
       $stay.style.visibility='hidden';
       $newHand.style.visibility='visible';
+      cardBackRemove();
+      cardPrintDealer(dealer.hand[1]);
+      $dscore.innerHTML = dealer.score;
+
+
       return result;
   } else if (player.score === 21 && dealer.score < 21) {
       console.log("You hit Blackjack! Moneybags!");
@@ -268,7 +325,15 @@ var dealScoreCompare = function(result) {
       $hit.style.visibility='hidden';
       $stay.style.visibility='hidden';
       $newHand.style.visibility='visible';
+      cardBackRemove();
+      cardPrintDealer(dealer.hand[1]);
+      $dscore.innerHTML = dealer.score;
+
       return result;
+    } else {
+      $deal.style.visibility='hidden';
+      $hit.style.visibility='visible';
+      $stay.style.visibility='visible';
     }
 };
 

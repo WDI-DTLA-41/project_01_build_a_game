@@ -212,6 +212,9 @@ c) After Deal Cards:
 d) After Stay:
     New Hand
      
+3) Scores Display
+
+
 
 var calculateHandOf = function(user) {
   user.score = user.score + user.hand[user.hand.length-1].value;
@@ -271,3 +274,48 @@ var card = {
 
 Image width-height ratio
 .688
+
+Dealing dealer just 1 card at beginning
+Deal player 1 card
+deal dealer 1 card
+deal player 1 card
+deal dealer 1 card (pop but dont show)
+
+calculate scores
+
+If dealer hits blackjack, show dealer second card and player loses
+If dealer hits blackjack & player hits blackjack, show dealer 2nd card
+and its a push
+If player hits blackjack and dealer doesnt, show dealer 2nd card
+else, proceed and show dealer's 2nd card after player stays
+
+// function to compare dealer score with player's score
+var dealScoreCompare = function(result) {
+  if (dealer.score === 21 && player.score === 21) {
+    console.log("It's a push!");
+    $deal.style.visibility='hidden';
+    $hit.style.visibility='hidden';
+    $stay.style.visibility='hidden';
+    $newHand.style.visibility='visible';
+    return result;
+  } else if (dealer.score === 21 && player.score < 21) {
+    console.log("Dealer Hits Blackjack. Sorry, You Lose! Try Again")
+    $deal.style.visibility='hidden';
+    $hit.style.visibility='hidden';
+    $stay.style.visibility='hidden';
+    $newHand.style.visibility='visible';
+    return result;
+  } else if (player.score === 21 && dealer.score < 21) {
+    console.log("You Hit Blackjack! You Win! Play Again")
+    return result;
+  }
+};
+
+Clear Playing Areas
+$userArea.innerHTML = ""
+$dealArea.innerHTML = ""
+
+    150 103.2
+
+Blur the screen
+filter: blur(3px);

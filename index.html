@@ -2,19 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>BlackJack!</title>
   <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 </head>
 <body>
+<h1><span class="redh1">Play </span><span class="blackh1">BlackJack! </span><span class="blackh1">♠ </span><span class="redh1">♦ </span><span class="blackh1">♣ </span><span class="redh1">♥</span></h1>
   <div class="board">
-    <div class="dealarea">
-      <!-- <div class="card">A ♥</div>
-      <div class="card">10 ♣</div> -->
+    <div class="dealer">Dealer
+      <div class="dealerscore">Dealer's Current Score Is: <span class="dscore"></span></div>
+      <div class="dealarea">
+        <!-- <div class="card">A ♥</div>
+        <div class="card">10 ♣</div> -->
+      </div>
     </div>
-    <br>
-    <div class="userarea">
-      <!-- <div class="card">Q ♣</div>
-      <div class="card">5 ♣</div> -->
+    <div class="outcome">POKEMON GOTTA CATCHEM ALL</div>
+    <div class="user">Your Cards
+      <div class="userscore">Your Current Score Is: <span class="pscore"></span></div>
+      <div class="userarea">
+        <!-- <div class="card">Q ♣</div>
+        <div class="card">5 ♣</div> -->
+      </div>
     </div>
   </div>
   <div class="userinputs">
@@ -23,8 +31,6 @@
     <div><button class="hit">Hit</button></div>
     <div><button class="stay">Stay</button></div>
   </div>
-  <div class="cardprint"></div>
-
   <script src="main.js"></script>
 </body>
 </html>
