@@ -127,4 +127,4 @@ for(var i = 0; i<simonGeneratorIndex.length; i++){
   simonGeneratorIndex[i].addEventListener('click', handleUserSequence);
 };
 
-
+// $body.addEventListener('keyup', )
