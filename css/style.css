@@ -15,12 +15,12 @@ button {
 }
 .square {
   display: inline-block;
-  width: 110px;
-  height: 110px;
+  width: 95px;
+  height: 95px;
   border: 1px solid black;
   vertical-align: middle;
   text-align: center;
-  line-height: 110px;
+  line-height: 95px;
   border-collapse: collapse;
   background-color: grey;
 }
