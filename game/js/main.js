@@ -13,6 +13,8 @@ var $startButton = document.querySelector('[name="start"]'),
     $bet50 = document.querySelector('.bet-50'),
     $betText = document.querySelector('.bet'),
     $cashText = document.querySelector('.cash'),
+    $betArea = document.querySelector('.bet-text'),
+    $cashArea = document.querySelector('.cash-text'),
     $debt = document.querySelector('.debt'),
     $dealerDesc = document.querySelector('.dealer-description'),
     $playerDesc = document.querySelector('.player-description'),
@@ -218,9 +220,9 @@ function hideWin() {
 
 function hideGfxWin() {
   hideWinId = setTimeout(hideWin, 2000);
-  removeCardsId = setTimeout(removeCards, 2000);
-  hidePlayerScoreId = setTimeout(hidePlayerScore, 2000);
-  hideDealerScoreId = setTimeout(hideDealerScore, 2000);
+  removeCardsId = setTimeout(removeCards, 1000);
+  hidePlayerScoreId = setTimeout(hidePlayerScore, 1000);
+  hideDealerScoreId = setTimeout(hideDealerScore, 1000);
 }
 
 function clearTime() {
@@ -290,7 +292,9 @@ function removeClass() {
 function startGame() {
   createDeck();
   startingCash(players[0]);
+  showCashText();
   displayText();
+  showCashArea();
   displayDeal();
   header();
   chipsEntrance();
@@ -459,7 +463,15 @@ function hideChips() {
 
 function showCashText() {
   $betText.style.opacity = '1';
+  // $betText.classList.add('animated', 'bounceInRight');
   $cashText.style.opacity = '1';
+}
+
+function showCashArea() {
+  $betArea.style.opacity = '1';
+  $betArea.classList.add('animated', 'bounceInRight');
+  $cashArea.style.opacity = '1';
+  $cashArea.classList.add('animated', 'bounceInRight');
 }
 
 function showDebt() {
