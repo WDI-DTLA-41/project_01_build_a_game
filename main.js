@@ -1,3 +1,4 @@
+var $body = document.querySelector('body');
 var $gamePiece = document.querySelector('.gamePiece');
 var $red = document.querySelector('#red');
 var $yellow = document.querySelector('#yellow');
@@ -30,11 +31,13 @@ var dimIt = function(n){
 
 
 var lightEmAndDimEm = function(arr, i=0){
-  // colorUnClickable();
   setTimeout(function(){
   if(i===arr.length){
     console.log("simonSequence flashing complete");
-    // colorClickable();
+    $body.classList.add('userTurn');
+    setTimeout(function(){
+      $body.classList.remove('userTurn');
+    }, 200)
   } else {
     lightIt(i);
     dimIt(i);
@@ -43,7 +46,7 @@ var lightEmAndDimEm = function(arr, i=0){
       lightEmAndDimEm(arr, i);
     }, 700)
   };
-}, 400);
+}, 200);
 };
 
 
