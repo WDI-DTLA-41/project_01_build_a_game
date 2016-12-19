@@ -1,3 +1,4 @@
+
 var playerHand = document.querySelector('.playerHand');
 var playerBoard = document.querySelector('.playerBoard');
 var dealerHand = document.querySelector('.dealerHand');
@@ -16,7 +17,7 @@ var dealerHand = [];
 var dealerCard = [];
 var deck = [];
 var tempPlayCard = null;
-var tempDealCard = null
+var tempDealCard = null;
 // war variables
 var wPlayer = [];
 var wDealer = [];
@@ -48,7 +49,7 @@ while(--n > 0) {
   deck[n] = temp;
   }
   return deck;
-}
+};
 
 /**
 * Function deals deck into two stacks, 26 cards for each
@@ -56,7 +57,7 @@ while(--n > 0) {
 * pushes stack of 26 cards to players hand and dealers hand
 */
 var deal = function(deck){
-  deck = shuffle(deck)
+  deck = shuffle(deck);
   for (var i = 0; i < deck.length; i++){
     if(i % 2 === 0){
       playerHand.push(deck[i]);
@@ -66,7 +67,7 @@ var deal = function(deck){
   }
   playerScore.innerHTML = playerHand.length;
   dealerScore.innerHTML = dealerHand.length;
-}
+};
 
 /**
 * Function initializes 'battle' mode
@@ -82,7 +83,7 @@ var battle = function(){
   //dealerScore.innterHTML = 'Lose';
   compare();
   winner();
-}
+};
 
 
 
@@ -100,7 +101,7 @@ var compare = function(){
   }
   playerScore.innerHTML = playerHand.length;
   dealerScore.innerHTML = dealerHand.length;
-}
+};
 
 
 /**
@@ -150,7 +151,7 @@ var warOnWar = function(){
     dealerHand = dealerHand.concat(wDealer, wwDealer);
     winner();
     }
-   }
+   };
 
 
 /**
@@ -161,14 +162,14 @@ var restart = function () {
   deck = playerHand.concat(dealerHand);
   deck.textContent = deck;
   playerHand = [];
-  playerHand.textContent = " "
+  playerHand.textContent = " ";
   playerCard.textContent = " ";
   dealerHand = [];
   dealerHand.textContent = " ";
   dealerCard.textContent = " ";
   playerScore.innerHTML = playerHand.length;
   dealerScore.innerHTML = dealerHand.length;
-}
+};
 
 
 /**
@@ -181,8 +182,9 @@ var winner = function(){
   } else if (dealerHand.length < 1) {
   playerScore.innerHTML = ("Winner!");
   dealerScore.innerHTML = ("Try Again");
+  restart();
   }
-}
+};
 
 
 /**
@@ -191,5 +193,5 @@ var winner = function(){
 startGameBtn.addEventListener('click', shuffle);
 startGameBtn.addEventListener('click', deal);
 hitBtn.addEventListener('click', battle);
-restartBtn.addEventListener('click', restart)
+restartBtn.addEventListener('click', restart);
 
