@@ -84,16 +84,24 @@ var handleUserSequence = function(event){
   userSequence.push(event.target.getAttribute('id'));
   console.log('userSequence: ', userSequence);
     if(consoleSequence[clickCount] !== userSequence[clickCount]){
-    clickCount = 0;
-    console.log('lose');
-    simonSequence = [];
-    generateSimonSequence();
+      clickCount = 0;
+      console.log('lose');
+      simonSequence = [];
+      streak = 0;
+      $streak.textContent = 0;
+      generateSimonSequence();
     } else if(consoleSequence[clickCount] === userSequence[clickCount]
       && consoleSequence.length === userSequence.length){
-    console.log('win');
-    userSequence = [];
-    clickCount = 0;
-    generateSimonSequence();
+      console.log('win');
+      userSequence = [];
+      clickCount = 0;
+      streak++;
+      $streak.textContent = streak;
+      if(record<streak){
+        record = streak;
+        $record.textContent = record;
+      }
+      generateSimonSequence();
     } else if(userSequence.length !== consoleSequence.length){
       clickCount ++ ;
     };
