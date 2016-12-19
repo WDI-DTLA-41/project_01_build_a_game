@@ -281,7 +281,7 @@ var cardPrintDealer = function(user) {
   var img = document.createElement('img');
   // img.setAttribute("class", "card");
   // img.src = '/playing_cards' + card.name + '/' + card.size;
-  img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
+  img.src = 'https://github.com/ritz1337/project_01_build_a_game/tree/master/playing_cards/' + user.name + '_of_' + user.suit + '.png';
   img.style.height = "110px";
   img.style.width = "75.68px";
   // img.classList.add('card');
@@ -304,7 +304,7 @@ var cardPrintPlayer = function(user) {
 //function to render back of card
 var cardBack = function () {
   cardBackImg = document.createElement('img');
-  cardBackImg.src = '/playing_cards/cardback1.png',
+  cardBackImg.src = 'https://github.com/ritz1337/project_01_build_a_game/tree/master/playing_cards/cardback1.png',
   cardBackImg.style.height = "110px",
   cardBackImg.style.width = "75.68px";
   $dealArea.appendChild(cardBackImg);
