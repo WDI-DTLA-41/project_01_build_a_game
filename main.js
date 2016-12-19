@@ -30,13 +30,24 @@ var $userArea = document.querySelector('.userarea');
 var $dealArea = document.querySelector('.dealarea');
 var $dscore = document.querySelector('.dscore');
 var $pscore = document.querySelector('.pscore');
+var $outcome = document.querySelector('.outcome');
 
 //setting only New Hand button visible initially
-$deal.style.visibility='hidden';
-$hit.style.visibility='hidden';
-$stay.style.visibility='hidden';
+// $deal.style.visibility='hidden';
+// $hit.style.visibility='hidden';
+// $stay.style.visibility='hidden';
 
+$deal.disabled=true;
+$deal.classList.add('buttondisable');
 
+$hit.disabled=true;
+$hit.classList.add('buttondisable');
+
+$stay.disabled=true;
+$stay.classList.add('buttondisable');
+
+// to test
+// $newHand.classList.add('buttondisable');
 
 // function to make a deck of cards
 var makeDeck = function() {
@@ -53,8 +64,12 @@ var makeDeck = function() {
     };
   };
   console.log(deck); //logs created deck
-  $deal.style.visibility='visible';
-  $newHand.style.visibility='hidden';
+
+  $newHand.disabled='true';
+  $newHand.classList.add('buttondisable');
+
+  $deal.disabled=false;
+  $deal.classList.remove('buttondisable');
 
 };
 
@@ -116,7 +131,12 @@ var dealCards = function() {
   // $deal.style.visibility='hidden';
   // $hit.style.visibility='visible';
   // $stay.style.visibility='visible';
-
+  $deal.disabled=true;
+  $deal.classList.add('buttondisable');
+  $hit.disabled=false;
+  $hit.classList.remove('buttondisable');
+  $stay.disabled=false;
+  $stay.classList.remove('buttondisable');
 };
 
 
@@ -156,9 +176,15 @@ var playerHit = function(result) {
 
     return console.log('You hit 21!! You might wanna stay');
   } if (player.score > 21){
-    $hit.style.visibility='hidden';
-    $stay.style.visibility='hidden';
-    $newHand.style.visibility='visible';
+    // $hit.style.visibility='hidden';
+    // $stay.style.visibility='hidden';
+    // $newHand.style.visibility='visible';
+    $hit.disabled=true;
+    $hit.classList.add('buttondisable');
+    $stay.disabled=true;
+    $stay.classList.add('buttondisable');
+    $newHand.disabled=false;
+    $newHand.classList.remove('buttondisable');
     $pscore.innerHTML = player.score;
 
     return console.log('you went BUST');
@@ -179,14 +205,27 @@ var playerStay = function() {
 
 
 var dealerTurn = function(result) {
-  $deal.style.visibility='hidden';
-  $hit.style.visibility='hidden';
-  $stay.style.visibility='hidden';
-  $newHand.style.visibility='hidden';
+  // $deal.style.visibility='hidden';
+  // $hit.style.visibility='hidden';
+  // $stay.style.visibility='hidden';
+  // $newHand.style.visibility='hidden';
+  $newHand.disabled=true;
+  $newHand.classList.add('buttondisable');
+  $deal.disabled=true;
+  $deal.classList.add('buttondisable');
+  $hit.disabled=true;
+  $hit.classList.add('buttondisable');
+  $stay.disabled=true;
+  $stay.classList.add('buttondisable');
+
   cardBackRemove();
   if (dealer.score > 21) {
     console.log('Dealer Went BUST! You Win!');
-    $newHand.style.visibility='visible';
+    $outcome.innerHTML = 'Dealer BUSTED! You WIN!!';
+
+    // $newHand.style.visibility='visible';
+    $newHand.disabled=false;
+    $newHand.classList.remove('buttondisable');
     $dscore.innerHTML = dealer.score;
 
     return dealer.score;
@@ -194,7 +233,9 @@ var dealerTurn = function(result) {
   } else if (dealer.score === 21) {
       console.log('Dealer Hits 21, check user score...');
       endScoreCompare();
-      $newHand.style.visibility='visible';
+      // $newHand.style.visibility='visible';
+      $newHand.disabled=false;
+      $newHand.classList.remove('buttondisable');
       $dscore.innerHTML = dealer.score;
 
       return dealer.score;
@@ -206,11 +247,14 @@ var dealerTurn = function(result) {
     console.log("Dealer Score is Currently " + dealer.score);
     $dscore.innerHTML = dealer.score;
     dealerTurn();
+    return dealer.score;
     //make dealer draw another card
   } else {
     console.log('Dealer Score is: ' + dealer.score);
     endScoreCompare();
-    $newHand.style.visibility='visible';
+    // $newHand.style.visibility='visible';
+    $newHand.disabled=false;
+    $newHand.classList.remove('buttondisable');
     $dscore.innerHTML = dealer.score;
 
     return dealer.score;
@@ -238,8 +282,8 @@ var cardPrintDealer = function(user) {
   // img.setAttribute("class", "card");
   // img.src = '/playing_cards' + card.name + '/' + card.size;
   img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
-  img.style.height = "150px";
-  img.style.width = "103.2px";
+  img.style.height = "110px";
+  img.style.width = "75.68px";
   // img.classList.add('card');
 
   $dealArea.appendChild(img);
@@ -251,8 +295,8 @@ var cardPrintPlayer = function(user) {
   // img.setAttribute("class", "card");
   // img.src = '/playing_cards' + card.name + '/' + card.size;
   img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
-  img.style.height = "150px";
-  img.style.width = "103.2px";
+  img.style.height = "110px";
+  img.style.width = "75.68px";
 
   $userArea.appendChild(img);
 }
@@ -261,8 +305,8 @@ var cardPrintPlayer = function(user) {
 var cardBack = function () {
   cardBackImg = document.createElement('img');
   cardBackImg.src = '/playing_cards/cardback1.png',
-  cardBackImg.style.height = "150px",
-  cardBackImg.style.width = "103.2px";
+  cardBackImg.style.height = "110px",
+  cardBackImg.style.width = "75.68px";
   $dealArea.appendChild(cardBackImg);
 
 };
@@ -270,7 +314,7 @@ var cardBack = function () {
 //function to remove back of card
 var cardBackRemove = function() {
  if ($dealArea.contains(cardBackImg)) {
- $dealArea.removeChild(cardBackImg);
+  $dealArea.removeChild(cardBackImg);
 };
 };
 
@@ -278,18 +322,26 @@ var cardBackRemove = function() {
 var clearPlayingArea = function() {
   $userArea.innerHTML = "";
   $dealArea.innerHTML = "";
+  $outcome.innerHTML = "";
+
 }
 
 var endScoreCompare = function(result) {
   if (dealer.score === player.score)
   {
     console.log("It's a push!");
+    $outcome.innerHTML = "It's a Push.. Unlucky!";
+
     return result;
   } else if (dealer.score > player.score) {
     console.log("Dealer Wins :( Try Again!");
+    $outcome.innerHTML = "Dealer Wins :( Try Again!";
+
     return result;
   } else if (dealer.score < player.score) {
     console.log("You Beat The Dealer! Moneybags!");
+    $outcome.innerHTML = "You Beat The Dealer! Moneybags!";
+
     return result;
   }
 };
@@ -298,10 +350,20 @@ var endScoreCompare = function(result) {
 var dealScoreCompare = function(result) {
   if (dealer.score === 21 && player.score === 21){
     console.log("It's a Blackjack Push. Nobody wins");
-    $deal.style.visibility='hidden';
-    $hit.style.visibility='hidden';
-    $stay.style.visibility='hidden';
-    $newHand.style.visibility='visible';
+    $outcome.innerHTML = "It's a Push.. Unlucky!";
+
+    // $deal.style.visibility='hidden';
+    // $hit.style.visibility='hidden';
+    // $stay.style.visibility='hidden';
+    // $newHand.style.visibility='visible';
+    $deal.disabled='true';
+    $deal.classList.add('buttondisable');
+    $hit.disabled='true';
+    $hit.classList.add('buttondisable');
+    $stay.disabled=true;
+    $stay.classList.add('buttondisable');
+    $newHand.disabled=false;
+    $newHand.classList.remove('buttondisable');
     cardBackRemove();
     cardPrintDealer(dealer.hand[1]);
     $dscore.innerHTML = dealer.score;
@@ -309,10 +371,20 @@ var dealScoreCompare = function(result) {
     return result;
   } else if (dealer.score === 21 && player.score < 21) {
       console.log("Dealer Hits Blackjack :( Try Again!");
-      $deal.style.visibility='hidden';
-      $hit.style.visibility='hidden';
-      $stay.style.visibility='hidden';
-      $newHand.style.visibility='visible';
+      $outcome.innerHTML = "Dealer Hits Blackjack :( Try Again!";
+
+      // $deal.style.visibility='hidden';
+      // $hit.style.visibility='hidden';
+      // $stay.style.visibility='hidden';
+      // $newHand.style.visibility='visible';
+      $deal.disabled=true;
+      $deal.classList.add('buttondisable');
+      $hit.disabled=true;
+      $hit.classList.add('buttondisable');
+      $stay.disabled=true;
+      $stay.classList.add('buttondisable');
+      $newHand.disabled=false;
+      $newHand.classList.remove('buttondisable');
       cardBackRemove();
       cardPrintDealer(dealer.hand[1]);
       $dscore.innerHTML = dealer.score;
@@ -321,19 +393,35 @@ var dealScoreCompare = function(result) {
       return result;
   } else if (player.score === 21 && dealer.score < 21) {
       console.log("You hit Blackjack! Moneybags!");
-      $deal.style.visibility='hidden';
-      $hit.style.visibility='hidden';
-      $stay.style.visibility='hidden';
-      $newHand.style.visibility='visible';
+      $outcome.innerHTML = "You hit Blackjack! Moneybags!";
+
+      // $deal.style.visibility='hidden';
+      // $hit.style.visibility='hidden';
+      // $stay.style.visibility='hidden';
+      // $newHand.style.visibility='visible';
+      $deal.disabled=true;
+      $deal.classList.add('buttondisable');
+      $hit.disabled=true;
+      $hit.classList.add('buttondisable');
+      $stay.disabled=true;
+      $stay.classList.add('buttondisable');
+      $newHand.disabled=false;
+      $newHand.classList.remove('buttondisable');
       cardBackRemove();
       cardPrintDealer(dealer.hand[1]);
       $dscore.innerHTML = dealer.score;
 
       return result;
     } else {
-      $deal.style.visibility='hidden';
-      $hit.style.visibility='visible';
-      $stay.style.visibility='visible';
+      // $deal.style.visibility='hidden';
+      // $hit.style.visibility='visible';
+      // $stay.style.visibility='visible';
+      $newHand.disabled=true;
+      $newHand.classList.add('buttondisable');
+      $hit.disabled=false;
+      $hit.classList.remove('buttondisable');
+      $stay.disabled=false;
+      $stay.classList.remove('buttondisable');
     }
 };
 

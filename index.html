@@ -5,9 +5,12 @@
   <title>BlackJack!</title>
   <link href="style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Montserrat:400,700" rel="stylesheet">
 </head>
 <body>
-<h1><span class="redh1">Play </span><span class="blackh1">BlackJack! </span><span class="blackh1">♠ </span><span class="redh1">♦ </span><span class="blackh1">♣ </span><span class="redh1">♥</span></h1>
+<div class="top"><span class="redh1">Play </span><span class="blackh1">BlackJack! </span><span class="blackh1">♠ </span><span class="redh1">♦ </span><span class="blackh1">♣ </span><span class="redh1">♥</span></div>
+
+</div>
   <div class="board">
     <div class="dealer">Dealer
       <div class="dealerscore">Dealer's Current Score Is: <span class="dscore"></span></div>
@@ -16,7 +19,7 @@
         <div class="card">10 ♣</div> -->
       </div>
     </div>
-    <div class="outcome">POKEMON GOTTA CATCHEM ALL</div>
+    <div class="outcome"></div>
     <div class="user">Your Cards
       <div class="userscore">Your Current Score Is: <span class="pscore"></span></div>
       <div class="userarea">
@@ -26,11 +29,13 @@
     </div>
   </div>
   <div class="userinputs">
-    <div><button class="newhand">New Hand</button></div>
-    <div><button class="deal">Deal Cards</button></div>
-    <div><button class="hit">Hit</button></div>
-    <div><button class="stay">Stay</button></div>
+    <button class="newhand">New Hand</button>
+    <button class="deal">Deal Cards</button>
+    <button class="hit">Hit</button>
+    <button class="stay">Stay</button>
   </div>
   <script src="main.js"></script>
 </body>
 </html>
+
+
