@@ -42,7 +42,8 @@ var shuffleandSetup = function(deck) {
     } else {
         deckB.push(deck[i]);
       };
-    };
+    } scoreA.innerHTML = deckA.length;
+      scoreB.innerHTML = deckB.length;
   } {once: true} shuffleandSetup.removeEventListener
 }
 
