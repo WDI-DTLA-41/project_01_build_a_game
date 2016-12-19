@@ -77,10 +77,10 @@ var compareCards = function() {
     deckB = deckB.concat(arena2, arena1);
   } else if (arena1 === arena2 || arena2 === arena1) {
       war();
-  } else if (deckA > 51 || deckB < 1) {
+  } else if (deckB < 1) {
       handA.innerHTML = 'Win!';
       handB.innerHTML = 'Lose!';
-  } else if (deckB > 51 || deckA < 1) {
+  } else if (deckA < 1) {
       handB.innerHTML = 'Win!';
       handA.innerHTML = 'Lose!';
   } else {
