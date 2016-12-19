@@ -32,38 +32,6 @@ var hideWinId,
     playerCardLeft = 0,
     deck = [],
     shuffledDeck= [];
-    // shuffledDeck= [
-    // {
-    //   value: 11,
-    //   suits: 'hearts',
-    //   name: 'ace',
-    //   isFaceUp: true
-    // },
-    // {
-    //   value: 3,
-    //   suits: 'hearts',
-    //   name: 'three',
-    //   isFaceUp: true
-    // },
-    // {
-    //   value: 11,
-    //   suits: 'hearts',
-    //   name: 'ace',
-    //   isFaceUp: true
-    // },
-    // {
-    //   value: 2,
-    //   suits: 'hearts',
-    //   name: 'two',
-    //   isFaceUp: true
-    // },
-    // {
-    //   value: 11,
-    //   suits: 'hearts',
-    //   name: 'ace',
-    //   isFaceUp: true
-    // },
-    // ];
 
 var players = [
   {
@@ -86,13 +54,6 @@ var value = [2,3,4,5,6,7,8,9,10,10,10,10,11],
     names = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'],
     isFaceUp = [true];
 
-// var value = [5,7,11, 11, 11],
-//     suits = ['diamonds', 'clubs', 'hearts', 'spades'],
-//     names = ['five', 'seven', 'ace', 'ace', 'ace'],
-//     isFaceUp = [true];
-
-
-// commented for testing
 function createDeck() {
   for (var i = 0; i < value.length; i++) {
     for (var j = 0; j < suits.length; j++) {
@@ -108,21 +69,16 @@ function createDeck() {
 
 function shuffleDeck() {
   return shuffledDeck = _.shuffle(deck);
-  // return shuffledDeck = shuffledDeck;
 }
 
 var currentPlayer; //= players[0];
 
 function nextTurn() {
-  // var lastCardHand = currentPlayer.hand.length - 1;
-  // displayCards(lastCardHand);
-  // console.log(currentPlayer);
   if (currentPlayer && currentPlayer.name === 'player') {
     currentPlayer = players[1];
   } else {
     currentPlayer = players[0];
   }
-  // debugger;
 }
 
 //IMAGES
@@ -198,18 +154,17 @@ function showWin(message) {
     $winMsg.style.left = '-100px';
     $winMsg.textContent = message;
   } else if (message === 'BLACKJACK') {
-    $winMsg.style.color = 'gold';
-    $winMsg.style.top = '150px';
-    $winMsg.style.fontSize = '130px';
-    $winMsg.style.left = '-100px';
-    $winMsg.textContent = message;
-  }
-  else {
-    $winMsg.textContent = message;
-    $winMsg.style.color = 'red';
-    $winMsg.style.fontSize = '180px';
-    $winMsg.style.top = '100px';
-    $winMsg.style.left = '0px';
+      $winMsg.style.color = 'gold';
+      $winMsg.style.top = '150px';
+      $winMsg.style.fontSize = '130px';
+      $winMsg.style.left = '-100px';
+      $winMsg.textContent = message;
+  } else {
+      $winMsg.textContent = message;
+      $winMsg.style.color = 'red';
+      $winMsg.style.fontSize = '180px';
+      $winMsg.style.top = '100px';
+      $winMsg.style.left = '0px';
   }
   $dealButton.classList.add('animated', 'tada', 'infinite');
 }
@@ -219,10 +174,10 @@ function hideWin() {
 }
 
 function hideGfxWin() {
-  hideWinId = setTimeout(hideWin, 2000);
-  removeCardsId = setTimeout(removeCards, 1000);
-  hidePlayerScoreId = setTimeout(hidePlayerScore, 1000);
-  hideDealerScoreId = setTimeout(hideDealerScore, 1000);
+  hideWinId = setTimeout(hideWin, 3000);
+  removeCardsId = setTimeout(removeCards, 2000);
+  hidePlayerScoreId = setTimeout(hidePlayerScore, 2000);
+  hideDealerScoreId = setTimeout(hideDealerScore, 2000);
 }
 
 function clearTime() {
@@ -307,7 +262,7 @@ function startGame() {
 
 $startButton.addEventListener('click', startGame);
 
-function dealCards() { //try to pass in a player object??
+function dealCards() {
   currentPlayer = players[0];
   removeCards();
   shuffleDeck();
@@ -344,7 +299,6 @@ function hit() {
   var card = shuffledDeck.shift();
   currentPlayer.hand.push(card);
   displayCards(currentPlayer.hand.length-1);
-  // debugger;
   console.log(capFirstLetter(currentPlayer.name) + ' drew a ' +
     currentPlayer.hand[currentPlayer.hand.length-1].name + ' of ' + capFirstLetter(currentPlayer.hand[currentPlayer.hand.length-1].suits));
   findScore(currentPlayer);
@@ -368,7 +322,6 @@ $hitButton.addEventListener('click', hit);
   * Ends current player turn and begins next action
   */
 function stay() {
-  //end player turn
   $stayButton.removeEventListener('click', stay);
   nextTurn();
   dealerBackZero();
