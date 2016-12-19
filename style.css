@@ -5,7 +5,7 @@
 body {
   /*height: 100vh;*/
   font-family: 'Open Sans', sans-serif;
-  background-image: url("assets/bg_space.jpg");
+  background-image: url("assets/images/bg_space.jpg");
   color: white;
   font-size: 20px;
 }
@@ -62,7 +62,7 @@ div {
   color: black;
 }
 .default {
-  background-image: url("assets/stormtrooper.jpg");
+  background-image: url("assets/images/stormtrooper.jpg");
 }
 img {
   height: 300px;
@@ -81,7 +81,7 @@ img {
   padding: 20px;
 }
 button {
-  background-image: url("assets/bg_space.jpg");
+  background-image: url("assets/images/bg_space.jpg");
   display: inline;
   margin: 16px;
   width: 140px;

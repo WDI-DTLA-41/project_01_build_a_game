@@ -35,9 +35,12 @@ var totalScore = document.querySelector(".total-score");
 // var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
 // var cards = ["darthvader"];
 var cards = [
-  "assets/darthvader2.jpg",
-  "assets/yoda.jpg",
-  "assets/luke.jpg"
+  "assets/images/darthvader.jpg",
+  "assets/images/yoda.jpg",
+  "assets/images/luke.jpg",
+  "assets/images/bobafett.png",
+  "assets/images/leia.jpg",
+  "assets/images/hansolo.jpg"
   ]
 
 
