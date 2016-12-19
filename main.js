@@ -1,13 +1,6 @@
 
 // # Project Sprint 1 Checklist
 
-// - [ ] Game is deployed via Github Pages
-// - [ ] Game repo is up to date on Github
-// - [ ] Game repo contains readme.md
-// - [ ] Readme.md contains game rules
-// - [ ] Game displays to user when they've won
-// - [ ] HTML, CSS and JavScript are indented properly!
-
 /**
  * Variables used
  */
@@ -35,6 +28,10 @@ var cardsDefault = [
   2,3,4,5,6,7,8,9,10,11,12,13,14   //index 39-51
 ];
 
+var cardsTest = [
+  7,5,8,9,  //index 0-12
+  6,4,7,8 //index 39-51
+];
 var cardsPlaying = [
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 0-12
   2,3,4,5,6,7,8,9,10,11,12,13,14,  //index 13-25
@@ -76,12 +73,15 @@ var startGame = function(){
   alert('The game is starting, press Play');
   //cards
   connectBoard();
-   showImg = document.querySelectorAll('.gameBoard>div');
-   showImg[0].appendChild.innerHTML = '<img src="images/2clubs.jpg">';
+   // showImg = document.querySelectorAll('.gameBoard>div');
+   // showImg[0].appendChild.innerHTML = '<img src="images/2clubs.jpg">';
   // cut deck in half
   shuffleArray(cardsPlaying);
   player1Deck = cardsPlaying.splice(0, 26);
   player2Deck = cardsPlaying;
+  // player1Deck = cardsPlaying.splice(0, 1);
+  // player2Deck = cardsTest;
+  //shuffleArray(cardsTest);
   // turnCards();
   $play.addEventListener('click', turnCards);
 
@@ -115,11 +115,30 @@ var turnCards = function() {
     // num = num + 1;
 
     compareCards(topCardP1, topCardP2);
-    if (topCardP1 === topCardP2) {
+    //if (topCardP1 === topCardP2) {
         player1.innerHTML = topCardP1;
         player2.innerHTML = topCardP2;
+        gameOver();
+    //}
+}
+
+
+gameOver = function () {
+    if (player1Deck.length < 1){
+
+          //.querySelector('#message').innerHTML = "Player 1 has no cards left, ' Player 2 WINS GAME";
+          $play.removeEventListener('click', turnCards);
+          alert('Player 2 wins! GAME OVER');
+          resetGame();
+          //connectBoard();
+       } else if (player2Deck.length < 1) {
+          //document.querySelector('#message').innerHTML = "Player 2 has no cards left Player 1 WINS GAME";
+          $play.removeEventListener('click', turnCards);
+          alert('Player 1 wins! GAME OVER');
+          resetGame();
     }
 }
+
 
 
 /**
@@ -146,9 +165,9 @@ function shuffleArray(array) {
  * @return {winner of card} Winner of card played in regular play or who wins War cards (10 total)
  */
 function compareCards(compareCardP1, compareCardP2) {
-  // console.log('Player1 cards: ' + player1Deck);
+   //console.log('Player1 cards: ' + player1Deck);
   // console.log('Player1 deck length: ' + player1Deck.length);
-  // console.log('Player2 cards: ' + player2Deck);
+   //console.log('Player2 cards: ' + player2Deck);
   // console.log('Player2 deck length: ' + player2Deck.length);
   // console.log('total cards in play: ' + (player2Deck.length + player1Deck.length));
 
@@ -159,11 +178,11 @@ function compareCards(compareCardP1, compareCardP2) {
               var removedCard1 = player1Deck.shift();
               var removedCard2 = player2Deck.shift();
               //alert('Player 1 wins cards');
-              console.log('P1 WON - Moved 2 cards to beginning of deck ' + player1Deck);
+              //console.log('P1 WON - Moved 2 cards to beginning of deck ' + player1Deck);
               // add both cards to bottom of player1 pile
               player1Deck.push(removedCard1, removedCard2);
-              console.log('P1 - pushed card ' + player1Deck);
-              console.log('P2 cards ' + player2Deck);
+              // console.log('P1 - pushed card ' + player1Deck);
+              // console.log('P2 cards ' + player2Deck);
               // isWar = false;
               return 'Winner is Player 1';
 
@@ -173,12 +192,12 @@ function compareCards(compareCardP1, compareCardP2) {
               // remove cards from players' hands
               var removedCard1 = player1Deck.shift();
               var removedCard2 = player2Deck.shift();
-              console.log('P2 WON - Moved 2 cards to beginning of deck ' + player2Deck);
+              //console.log('P2 WON - Moved 2 cards to beginning of deck ' + player2Deck);
               //alert('Player 2 wins cards');
               // add both cards to bottom of player 2 pile
               player2Deck.push(removedCard1,removedCard2);
-              console.log('P2 - pushed card ' + player2Deck);
-              console.log('P1 cards ' + player1Deck);
+              // console.log('P2 - pushed card ' + player2Deck);
+              // console.log('P1 cards ' + player1Deck);
               // helper to visualize
               // isWar = false;
               return 'Winner is Player 2';
@@ -196,8 +215,8 @@ function compareCards(compareCardP1, compareCardP2) {
                 // cards match - War is played
                 alert('Declare War! ' + compareCardP1 + " vs. " + compareCardP2);
 
-                console.log(player1Deck);
-                console.log(player2Deck);
+                // console.log(player1Deck);
+                // console.log(player2Deck);
 
                 if (tempHand1[3] > tempHand2[3]) {
                     var removedCard1 = player1Deck.shift();
@@ -210,10 +229,10 @@ function compareCards(compareCardP1, compareCardP2) {
                     //console.log('P1 wins War cards ' + tempHand2) + tempHand2[3];
 
                     player1Deck = player1Deck.concat(tempHand1, tempHand2);
-                    console.log(player1Deck + ' concatanated player1 Deck');
+                    //console.log(player1Deck + ' concatanated player1 Deck');
                     player1Deck.push(removedCard1, removedCard2);
-                    console.log(player1Deck + ' player1Decked pushed')
-                    console.log('player1 deck: ' + player2Deck)
+                    //console.log(player1Deck + ' player1Decked pushed')
+                    //console.log('player1 deck: ' + player2Deck)
                     // console.log('Player 2 ')
                     alert('Player 1 is WINNER of WAR! ' + tempHand1[3] + ' vs. ' + tempHand2[3]);
 
@@ -225,16 +244,15 @@ function compareCards(compareCardP1, compareCardP2) {
                     // add both cards to bottom of player 2 pile
                     // player2Deck.push(removedCard1, removedCard2);
                     // player 2 wins 'WAR' and gets all 8 cards
-                    console.log('tempHand1: ' + tempHand1);
-                    console.log('tempHand2: ' + tempHand2);
+                    // console.log('tempHand1: ' + tempHand1);
+                    // conosole.log('tempHand2: ' + tempHand2);
                     player2Deck = player2Deck.concat(tempHand1, tempHand2);
-                    console.log(player2Deck + ' player2 Deck');
+                    //console.log(player2Deck + ' player2 Deck');
                     player2Deck.push(removedCard1, removedCard2);
                     alert('Player 2 is WINNER of WAR! ' + tempHand2[3] + ' vs. ' + tempHand1[3]);
+
                 }
           }
-
-
 
 }
 
@@ -258,22 +276,12 @@ function warCardsRemoved() {
       tempHand2 = player2Deck.splice(0, 4);  // this removes first 4 cards
       player1.innerHTML = tempHand1[0];
       player2.innerHTML = tempHand2[0];
-      console.log('In warCardsRemoved func ' + tempHand1);
-      console.log('In warCardsRemoved func ' + tempHand2);
+      // console.log('In warCardsRemoved func ' + tempHand1);
+      // console.log('In warCardsRemoved func ' + tempHand2);
+
+
 }
 
-var gameOver = function () {
-    if (topCardP1 === undefined){
-              //.querySelector('#message').innerHTML = "Player 1 has no cards left, ' Player 2 WINS GAME";
-              alert('Player 2 wins!' + topCardP2 + ' vs.  ' + topCardP1 + 'GAME OVER');
-              resetGame();
-              //connectBoard();
-          } else {
-              //document.querySelector('#message').innerHTML = "Player 2 has no cards left Player 1 WINS GAME";
-              alert('Player 1 wins!' + topCardP1 + ' vs.  ' + topCardP2 +  'GAME OVER');
-              resetGame();
 
-    }
-}
 
 
