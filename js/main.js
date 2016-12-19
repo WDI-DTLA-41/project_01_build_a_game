@@ -54,7 +54,7 @@ var startColorFlash = function () {
   sequenceArr.push(sequence);
   setTimeout(playerTurn, 500);
   setTimeout(checkInput, 3000);
-  };
+};
 
 var startHardGameFlash = function () {
   sequence = randomGen();
@@ -121,7 +121,7 @@ var addColorFlash = function () {
   setTimeout(playerTurn, 500);
   setTimeout(checkInput, 1375*sequenceArr.length);
   setTimeout(praise, 500);
-  };
+};
 
 var hardAddColorFlash = function () {
   addCounter();
@@ -154,7 +154,7 @@ var hardAddColorFlash = function () {
   sequenceArr.push(sequence);
   setTimeout(playerTurn, 250);
   setTimeout(hardCheckInput, 1000*sequenceArr.length);
-  };
+};
 
 // function to flash the color of the sequenceArr
 // to be called back in the recursiveLights function
@@ -184,7 +184,7 @@ var replayColorFlash = function (color) {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
     },250);
   }
-}
+};
 
 var replayHardColorFlash = function (color) {
   if (color === 1) {
@@ -212,8 +212,7 @@ var replayHardColorFlash = function (color) {
     blueBtn.style.backgroundColor = 'rgb(13,213,252)';
     },100);
   }
-}
-
+};
 
 // recursiveLights for replaying the sequences
 function recursiveLights(arr, i = 0) {
@@ -226,7 +225,7 @@ function recursiveLights(arr, i = 0) {
       recursiveLights(arr, i);
     }, 1000)
   }
-}
+};
 
 function hardRecursiveLights(arr, i = 0) {
   // console.log(arr[i]) // log element at index i of arr
@@ -238,7 +237,7 @@ function hardRecursiveLights(arr, i = 0) {
       hardRecursiveLights(arr, i);
     }, 500)
   }
-}
+};
 
 // adds to the counter for each function loop
 var addCounter = function() {
@@ -292,7 +291,6 @@ var hardCheckInput = function() {
   }
 };
 
-
 // function to give praise for hitting certain levels
 /**
 * Plays audio files for reaching levels
@@ -302,10 +300,10 @@ var praise = function() {
   if (counterVal === 35) {
     audioOne[8].play();
     praiseTag.textContent = 'THANK YOU! BUT OUR PRINCESS IS IN ANOTHER CASTLE!';
-    return setTimeout(clearPraiseTag,4000);
+    return setTimeout(clearPraiseTag,6000);
   } else if (counterVal % 11 === 0)  {
     audioOne[7].play();
-    praiseTag.textContent = 'YOLO';
+    praiseTag.textContent = '1UP';
     return setTimeout(clearPraiseTag,3500);
   } else if (counterVal % 5 === 0) {
     audioOne[6].play();
@@ -314,6 +312,7 @@ var praise = function() {
   }
 };
 
+// Show the player it is their turn to act
 var playerTurn = function() {
   praiseTag.textContent = 'YOUR TURN!';
   return setTimeout(clearPraiseTag,500*sequenceArr.length);
@@ -339,8 +338,7 @@ var handleUserInput = function(event) {
       audioOne[3].play();
       return userInput.push(4);
     }
-}
-
+};
 
 var handleHardUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
@@ -357,7 +355,7 @@ var handleHardUserInput = function(event) {
       audioOne[5].play();
       return userInput.push(4);
     }
-}
+};
 
 // function to handle the game on click start button
 var handleStartGame = function() {
@@ -365,6 +363,7 @@ var handleStartGame = function() {
   btnContainer.addEventListener('click', handleUserInput);
   setTimeout(startColorFlash,2500);
 };
+
 // function to handle the hard mode on click of hard button
 var handleHardMode = function() {
   audioOne[9].play();
