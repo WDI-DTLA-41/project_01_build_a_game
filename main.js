@@ -18,22 +18,15 @@ var reset = document.querySelector(".reset");
 // var for h2 header quote
 var quote = document.querySelector("h2");
 
+// var for slot divs
 var slots = document.getElementsByTagName("div");
-// var slots = document.querySelectorAll("div");
 
 // var for bet counter
 var totalBet = document.querySelector(".total-bet");
 
 // var for score counter
 var totalScore = document.querySelector(".total-score");
-// var totalScoreVal = parseInt(totalScore.textContent);
 
-// =============================================
-// ARRAY: Store classes of cards here
-// =============================================
-
-// var cards = ["darthvader", "hansolo", "luke", "leia", "yoda", "bobafett"];
-// var cards = ["darthvader"];
 var cards = [
   "assets/images/darthvader.jpg",
   "assets/images/yoda.jpg",
@@ -42,7 +35,6 @@ var cards = [
   "assets/images/leia.jpg",
   "assets/images/hansolo.jpg"
   ]
-
 
 // =============================================
 //    1. PLACE A BET
@@ -80,6 +72,7 @@ var spin = document.querySelector(".spin");
 var spinReel = function(event) {
   event.preventDefault();
 
+  // PLAYS CANTINA MUSIC
   function play() {
     var audio = document.getElementById("audio");
     audio.play();
@@ -89,16 +82,14 @@ var spinReel = function(event) {
   spin.classList.add("hidden");
   playAgain.classList.remove("hidden");
 
-  // spin.removeEventListener("click", spinReel);
   one.removeAttribute("class", "default");
   two.removeAttribute("class", "default");
   three.removeAttribute("class", "default");
+
   // ADDS CSS ANIMATION ID TO EACH SLOT
   one.setAttribute("id", "spin-one");
   two.setAttribute("id", "spin-two");
   three.setAttribute("id", "spin-three");
-  // setTimeout(stopReel, 3500);
-  // setTimeout(stopReel, 3000);
 
   setTimeout(stopReelOne, 1500);
   setTimeout(stopReelTwo, 2500);
@@ -112,21 +103,17 @@ spin.addEventListener("click", spinReel);
 //    3. RANDOMLY SELECTS CLASSES FOR SLOTS
 // =============================================
 
-// var oneVal;
-// var twoVal;
-// var threeVal;
-
 var images = [];
 var removeImg;
 var img;
 
-// FOR EACH SLOT, LOOP THROUGH ARRAY OF "cards"
+// LOOP THROUGH ARRAY OF DIVS
 for (var i=0; i < slots.length; i++) {
 
   var stopReelOne = function() {
-    // RANDOMLY SELECTS A COLOR FROM ARRAY
+
+    // RANDOMLY SELECTS A CHARACTER FROM ARRAY
     var randomSelect = function() {
-      // RETURNS THE COLOR VALUE
       return cards[Math.floor(Math.random() * cards.length)];
     }
     var selected = randomSelect();
@@ -141,9 +128,8 @@ for (var i=0; i < slots.length; i++) {
   }
 
   var stopReelTwo = function() {
-    // RANDOMLY SELECTS A COLOR FROM ARRAY
+
     var randomSelect = function() {
-      // RETURNS THE COLOR VALUE
       return cards[Math.floor(Math.random() * cards.length)];
     }
     var selected = randomSelect();
@@ -158,9 +144,8 @@ for (var i=0; i < slots.length; i++) {
   }
 
   var stopReelThree = function() {
-    // RANDOMLY SELECTS A COLOR FROM ARRAY
+
     var randomSelect = function() {
-      // RETURNS THE COLOR VALUE
       return cards[Math.floor(Math.random() * cards.length)];
     }
     var selected = randomSelect();
@@ -172,13 +157,14 @@ for (var i=0; i < slots.length; i++) {
     var imgSrc = img.src;
     images.push(imgSrc);
 
-    console.log(images);
+    // console.log(images);
 
 // // =============================================
 // //    4. COMPARING THE SLOTS
 // // =============================================
 
     for (var j = 0; j < images.length; j++) {
+
       var compareSlots = function() {
         // IF ALL 3 MATCH ==> ** WIN **
         if (images[0]===images[1] && images[0]===images[2] && images[1]===images[2]) {
@@ -191,14 +177,12 @@ for (var i=0; i < slots.length; i++) {
           var revealQuoteWin = function() {
             quote.textContent = '"The Force is strong with this one."';
           }
-          // addScore();
+
           setTimeout(addScore, 1000);
           return;
 
         } else {
         // ELSE ==> YOU LOSE
-          // APPEND H2 TO PAGE
-          // H2 TEXTCONTENT = QUOTE FROM MOVIE (ABOUT LOSING)
           console.log("you lose :(");
           setTimeout(function() {
             revealQuoteLose();
@@ -208,7 +192,6 @@ for (var i=0; i < slots.length; i++) {
             quote.textContent = '"If no mistake have you made, yet losing you are ... a different game you should play."';
           }
         }
-        // minusScore();
           setTimeout(minusScore, 1000);
         }
         compareSlots();
@@ -217,10 +200,7 @@ for (var i=0; i < slots.length; i++) {
   compareSlots();
   return img.classList;
   }
-    // return;
 };
-
-// }
 
 
 // =============================================
@@ -252,8 +232,7 @@ var addScore = function() {
 
   // ADD THAT TO THE CURRENT TOTAL SCORE
   scoreSpan.textContent = scoreInt + totalRoundScoreInt;
-}
-// };
+};
 
 var minusScore = function() {
 
@@ -276,12 +255,11 @@ var minusScore = function() {
   scoreSpan.textContent = scoreInt + totalRoundScoreInt;
 };
 
-
 // =============================================
 //    6. NEW TURN
 // =============================================
 
-// Click PLAY AGAIN to:
+// CLICK PLAY AGAIN to:
 var newTurn = function(event) {
   event.preventDefault();
 
@@ -346,7 +324,3 @@ reset.addEventListener("click", resetGame);
 //   buttons.removeChild("tryBtn");
 // }
 // tryBtn.addEventListener("click", removeTry);
-
-
-
-

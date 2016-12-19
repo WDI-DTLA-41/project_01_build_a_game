@@ -1,10 +1,9 @@
 @font-face {
   font-family: 'starwars';
-  src: url('assets/Death Star.otf');
+  src: url('assets/DeathStar.otf');
 }
 body {
-  /*height: 100vh;*/
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Jura', Arial, sans-serif;
   background-image: url("assets/images/bg_space.jpg");
   color: white;
   font-size: 20px;
@@ -41,28 +40,30 @@ h2 {
   font-weight: 300;
   font-size: 1.5em;
   font-style: italic;
-  height: 30px;
-/*  padding: 10px;
-*/  text-align: center;
+  height: 24px;
+  text-align: center;
 }
 .scoreboard {
-  /*float: right;*/
-  margin-left: 50px;
+  margin: 14px 0px 10px 55px;
+  font-size: 1.4em;
 }
 .total-score {
   color: gold;
 }
-p {
+.total-bet {
   font-size: 1.2em;
+  text-align: center;
+}
+.slots {
+  width: 100%;
 }
 div {
   background-color: white;
   display: inline-block;
   height: 300px;
-  width: 200px;
+  width: 10em;
   border-radius: 10px;
-  margin: 5px;
-  color: black;
+  margin-left: 1.5%;
 }
 .default {
   background-image: url("assets/images/stormtrooper.jpg");
@@ -81,43 +82,34 @@ img {
   width: 80%;
   display: block;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 button {
   background-image: url("assets/images/bg_space.jpg");
   display: inline;
-  margin: 16px;
-  width: 140px;
-  height: 60px;
-  /*padding: 10px;*/
-  border-radius: 10px;
-  color: white;
+  font-family: "Jura";
   font-size: .9em;
+  color: white;
+  width: 140px;
+  height: 50px;
+  margin: 16px;
+  border-radius: 10px;
 }
-.bet, .plus-one {
+.bet, .plus-one .play-button .reset {
   display: inline;
 }
 .hidden {
   display: none;
 }
-/*.darthvader {
-  background-color: red;
+footer {
+  font-size: .6em;
+  text-align: center;
+  margin: 10px;
 }
-.hansolo {
-  background: blue;
+a {
+  text-decoration: none;
+  color: gold;
 }
-.luke {
-  background: skyblue;
-}
-.leia {
-  background: silver;
-}
-.yoda {
-  background: palegreen;
-}
-.bobafett {
-  background: cadetblue;
-}*/
 
 /*==================================
 /* "REEL SPIN" ANIMATION
