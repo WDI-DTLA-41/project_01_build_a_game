@@ -10,12 +10,12 @@ var player1Deck;
 var player2Deck;
 var realCards;
 var num = 0;
-var cards;
+//var cards;
 var gameBoard = document.querySelector('.gameBoard');
 var gameOver;
 var tempHand1;
 var tempHand2;
-var showImg;
+//var showImg;
 
 // // test cards for WAR
 // player1Deck = [2, 4, 5, 6, 2, 4, 5, 7, 8];
@@ -54,7 +54,7 @@ var connectBoard = function() {
         realCards.setAttribute('class', 'cardPosition');
         gameBoard.appendChild(realCards);
       }
-}
+};
 
 
 // start button on html page
@@ -87,7 +87,7 @@ var startGame = function(){
   // turnCards();
   $play.addEventListener('click', turnCards);
 
-}
+};
 
 
 /**
@@ -100,7 +100,7 @@ var resetGame = function() {
       player1.innerHTML = "";
       player2.innerHTML = "";
       startGame();
-}
+};
 
 
 
@@ -122,7 +122,7 @@ var turnCards = function() {
         player2.innerHTML = topCardP2;
         gameOver();
     //}
-}
+};
 
 
 gameOver = function () {
@@ -139,7 +139,7 @@ gameOver = function () {
           alert('Player 1 wins! GAME OVER');
           resetGame();
     }
-}
+};
 
 
 
@@ -172,13 +172,14 @@ function compareCards(compareCardP1, compareCardP2) {
    //console.log('Player2 cards: ' + player2Deck);
   // console.log('Player2 deck length: ' + player2Deck.length);
   // console.log('total cards in play: ' + (player2Deck.length + player1Deck.length));
-
+      var removedCard1;
+      var removedCard2;
       if (compareCardP1 > compareCardP2) {
 
               //logic here to add card back
               // remove cards from players' hands
-              var removedCard1 = player1Deck.shift();
-              var removedCard2 = player2Deck.shift();
+              removedCard1 = player1Deck.shift();
+              removedCard2 = player2Deck.shift();
               //alert('Player 1 wins cards');
               //console.log('P1 WON - Moved 2 cards to beginning of deck ' + player1Deck);
               // add both cards to bottom of player1 pile
@@ -193,8 +194,8 @@ function compareCards(compareCardP1, compareCardP2) {
 
               //logic here to add card back
               // remove cards from players' hands
-              var removedCard1 = player1Deck.shift();
-              var removedCard2 = player2Deck.shift();
+              removedCard1 = player1Deck.shift();
+              removedCard2 = player2Deck.shift();
               //console.log('P2 WON - Moved 2 cards to beginning of deck ' + player2Deck);
               //alert('Player 2 wins cards');
               // add both cards to bottom of player 2 pile
@@ -223,8 +224,8 @@ function compareCards(compareCardP1, compareCardP2) {
                 // console.log(player2Deck);
 
                 if (tempHand1[3] > tempHand2[3]) {
-                    var removedCard1 = player1Deck.shift();
-                    var removedCard2 = player2Deck.shift();
+                    removedCard1 = player1Deck.shift();
+                    removedCard2 = player2Deck.shift();
                     // player 1 wins 'WAR' and gets all 8 cards
 
                     player1.innerHTML = tempHand1[0];
@@ -242,8 +243,8 @@ function compareCards(compareCardP1, compareCardP2) {
 
                 } else {
 
-                    var removedCard1 = player1Deck.shift();
-                    var removedCard2 = player2Deck.shift();
+                    removedCard1 = player1Deck.shift();
+                    removedCard2 = player2Deck.shift();
                     // add both cards to bottom of player 2 pile
                     // player2Deck.push(removedCard1, removedCard2);
                     // player 2 wins 'WAR' and gets all 8 cards

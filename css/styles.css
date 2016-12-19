@@ -25,7 +25,7 @@ p, span {
   border: 2px solid black;
   background: #001947;
   border-radius: 5px;
-  position: block;
+  display: block;
   width: 400px;
   height: 350px;
   padding: 10px;
@@ -83,7 +83,6 @@ img {
   margin: 20px 15px 15px 5px;
   border: 1px solid black;
   border-radius: 5px;
-  position: block;
   display: inline-block;
 
 }
@@ -100,7 +99,7 @@ img {
   border: 2px solid black;
   background: #001947;
   border-radius: 5px;
-  position: block;
+  display: block;
   width: 100%;
   height: inherit;
   padding: 2px;
@@ -206,7 +205,7 @@ button {
   border-radius: 7px;
 
 } /* end media query Medium screen */
-
+}
 
 
 
