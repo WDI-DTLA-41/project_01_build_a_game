@@ -147,9 +147,9 @@ function war(wararenaA, wararenaB) {
     } else if (wararenaA[3] === wararenaB[3]) {
       deckA = deckA.concat(wararenaA);
       deckB = deckB.concat(wararenaB);
-      // wararenaC = wararenaC.concat(wararenaA); // this is the problem
-      // wararenaD = wararenaD.concat(wararenaB); // this is the problem
-      // war();
+      wararenaC = wararenaC.concat(wararenaA); // this is the problem
+      wararenaD = wararenaD.concat(wararenaB); // this is the problem
+      war();
       // console.log('War Again Mateys!!!');
   }
 }

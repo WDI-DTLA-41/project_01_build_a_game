@@ -7,6 +7,8 @@ var arena1 = [];
 var arena2 = [];
 var deckA = [];
 var deckB = [];
+var wararenaC = [];
+var wararenaD = [];
 
 /** this function creates and shuffles the deck parameter
   * var deck is created as an array containing 52 numbers
@@ -14,18 +16,18 @@ var deckB = [];
   * deck is returned
 */
 var shuffle = function(deck) {
-var deck = [2, 2, 2, 2, 3, 3, 3, 3, 4 , 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11]
+ deck = [2, 2, 2, 2, 3, 3, 3, 3, 4 , 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11];
   var currentIndex = deck.length, tempCard, randomIndex;
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex); //2
-    currentIndex -= 1 // 3
+    currentIndex -= 1;
 
     tempCard = deck[currentIndex];
     deck[currentIndex] = deck[randomIndex];
     deck[randomIndex] = tempCard;
   }
   return deck;
-}
+};
 
 /** this function shuffles the deck and splits into two
  * parameter is a deck
@@ -41,11 +43,11 @@ var shuffleandSetup = function(deck) {
         deckA.push(deck[i]);
     } else {
         deckB.push(deck[i]);
-      };
+      }
     } scoreA.innerHTML = deckA.length;
       scoreB.innerHTML = deckB.length;
-  } {once: true} shuffleandSetup.removeEventListener
-}
+  }
+};
 
 /** this function takes a card from each deck and places them on the board
   * this function has no parameter
@@ -61,7 +63,7 @@ var addCardsToArena = function() {
   console.log('CM card => ', arena1);
   console.log('JD card => ', arena2);
   compareCards();
-}
+};
 /**
   * this function compares two cards on the board and does according action based on values
   * this function has no parameter
@@ -85,10 +87,10 @@ var compareCards = function() {
       handA.innerHTML = 'Lose!';
   } else {
     console.log('Gewd Luck..');
-  };
+  }
     scoreA.innerHTML = deckA.length;
     scoreB.innerHTML = deckB.length;
-}
+};
 /** this function expression is for war
   * sets up 2 empty Arrays as Holders for Repeat-Wars
   * sets up while statement to set up round
@@ -98,11 +100,9 @@ var compareCards = function() {
   * else if statement to repeat if conditions are the same=same
 */
 function war(wararenaA, wararenaB) {
-    var wararenaA = [];
-    var wararenaB = [];
+     wararenaA = [];
+     wararenaB = [];
     while (wararenaA.length < 2 || wararenaB.length < 2) {
-      var wararenaC = [];
-      var wararenaD = [];
       wararenaA = deckA.splice(0, 3);
       wararenaB = deckB.splice(0, 3);
       wararenaA.unshift(arena1);
@@ -119,13 +119,13 @@ function war(wararenaA, wararenaB) {
     } else if (wararenaA[3] === wararenaB[3]) {
       deckA = deckA.concat(wararenaA);
       deckB = deckB.concat(wararenaB);
-  };
+  }
 }
 
 var buttonHit = document.querySelector('.hit');
-var buttonStart = document.querySelector('.start')
+var buttonStart = document.querySelector('.start');
 
-buttonStart.addEventListener('click', shuffle)
-buttonStart.addEventListener('click', shuffleandSetup)
-
-buttonHit.addEventListener('click', addCardsToArena)
+buttonStart.addEventListener('click', shuffle);
+buttonStart.addEventListener('click', shuffleandSetup);
+buttonStart.removeEventListener('click', shuffleandSetup);
+buttonHit.addEventListener('click', addCardsToArena);
