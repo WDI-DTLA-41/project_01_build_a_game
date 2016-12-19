@@ -176,8 +176,8 @@ function hideWin() {
 function hideGfxWin() {
   hideWinId = setTimeout(hideWin, 1000 * 2.5);
   removeCardsId = setTimeout(removeCards, 1000 * 1.5);
-  hidePlayerScoreId = setTimeout(hidePlayerScore, 1000 * 1.5);
-  hideDealerScoreId = setTimeout(hideDealerScore, 1000 * 1.5);
+  hidePlayerScoreId = setTimeout(hidePlayerScore, 1000 * 2.5);
+  hideDealerScoreId = setTimeout(hideDealerScore, 1000 * 2.5);
 }
 
 function clearTime() {
@@ -263,12 +263,12 @@ $startButton.addEventListener('click', startGame);
 
 function dealCards() {
   currentPlayer = players[0];
-  removeCards();
-  shuffleDeck();
-  hideChips();
   $bet500.removeEventListener('click', bet);
   $bet100.removeEventListener('click', bet);
   $bet50.removeEventListener('click', bet);
+  removeCards();
+  shuffleDeck();
+  hideChips();
   hideDealerScore();
   clearTime();
   hideWin();
