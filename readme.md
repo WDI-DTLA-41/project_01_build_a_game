@@ -49,3 +49,11 @@ _ Javascript
 - make it so user does not have to also enter the space
   between the words to win
 
+---
+
+https://ronyarmas.github.io/project_01_build_a_game/
+---
+https://trello.com/b/QY3mYLGQ/hangman
+
+
+
