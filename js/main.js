@@ -9,16 +9,17 @@ var names = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'kin
 // var playerHand = []; // not req after using player & dealer
 // var dealerScore = null; //
 // var playerScore = null; //
+var cardBackImg = null;
 
 var dealer = {
   score: 0,
   hand: []
-}
+};
 
 var player = {
   score: 0,
   hand: []
-}
+};
 
 
 
@@ -61,8 +62,8 @@ var makeDeck = function() {
       card.name = names[j];
       card.value = cardValues[j];
       deck.push(card);
-    };
-  };
+    }
+  }
   console.log(deck); //logs created deck
 
   $newHand.disabled='true';
@@ -243,7 +244,7 @@ var dealerTurn = function(result) {
     dealer.hand[dealer.hand.length] = deck.pop();
     cardPrintDealer(dealer.hand[dealer.hand.length-1]);
     console.log(dealer.hand[dealer.hand.length-1]);
-    calculateHandOf(dealer)
+    calculateHandOf(dealer);
     console.log("Dealer Score is Currently " + dealer.score);
     $dscore.innerHTML = dealer.score;
     dealerTurn();
@@ -261,7 +262,7 @@ var dealerTurn = function(result) {
   }
   $dscore.innerHTML = dealer.score;
 
-}
+};
 
 //function to reset score (called: at the beginning of a new hand)
 var resetHands = function() {
@@ -287,7 +288,7 @@ var cardPrintDealer = function(user) {
   // img.classList.add('card');
 
   $dealArea.appendChild(img);
-}
+};
 
 // function to render PLAYER cards to html
 var cardPrintPlayer = function(user) {
@@ -299,13 +300,13 @@ var cardPrintPlayer = function(user) {
   img.style.width = "75.68px";
 
   $userArea.appendChild(img);
-}
+};
 
 //function to render back of card
 var cardBack = function () {
   cardBackImg = document.createElement('img');
-  cardBackImg.src = 'assets/playing_cards/cardback1.png',
-  cardBackImg.style.height = "110px",
+  cardBackImg.src = 'assets/playing_cards/cardback1.png';
+  cardBackImg.style.height = "110px";
   cardBackImg.style.width = "75.68px";
   $dealArea.appendChild(cardBackImg);
 
@@ -315,7 +316,7 @@ var cardBack = function () {
 var cardBackRemove = function() {
  if ($dealArea.contains(cardBackImg)) {
   $dealArea.removeChild(cardBackImg);
-};
+}
 };
 
 //function to remove appended cards from both dealer and player areas
@@ -324,7 +325,7 @@ var clearPlayingArea = function() {
   $dealArea.innerHTML = "";
   $outcome.innerHTML = "";
 
-}
+};
 
 var endScoreCompare = function(result) {
   if (dealer.score === player.score)

@@ -53,8 +53,8 @@ body {
 .dealer {
   width: 100%;
   height: 240px;
-  postion: relative;
-  text-align: center;
+/*  postion: relative;
+*/  text-align: center;
   font-family: 'Bungee', cursive;
   font-size: 30px;
   text-shadow: 0px 0px 2px #41145f;
@@ -107,8 +107,8 @@ body {
 .user {
   width: 100%;
   height: 200px;
-  postion: relative;
-  text-align: center;
+/*  postion: relative;
+*/  text-align: center;
   font-family: 'Bungee', cursive;
   font-size: 30px;
   color: #F1F1F1;
@@ -263,6 +263,5 @@ body {
 }
 .buttondisable:hover {
   background: #37474F;
-  border: 1px solid #37474F;
 }
 
