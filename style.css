@@ -18,7 +18,6 @@ button {
   height:35px;
   border-radius:15px;
   display:inline-block;
-
 }
 
 button:hover {
@@ -48,23 +47,15 @@ li {
   border:1px purple solid;
 }
 
-a {
-  color:orange;
+ul>li>a {
   text-decoration: none;
   line-height:40px;
-}
-
-.mainGame {
-
+  color:orange;
 }
 
 .gameButton {
   margin-left: 135px;
   margin-bottom:40px;
-}
-
-.stats{
-
 }
 
 .pieceSelector {
@@ -108,6 +99,7 @@ a {
   border-collapse: collapse;
   margin:0 auto;
 }
+
 .gameBoard>tr>td {
   background:rgba(255,255,0,.2);
   border:1px gold solid;
@@ -123,13 +115,16 @@ a {
   margin:0 auto;
 }
 
+.navBox {
+  float:right;
+  margin-right:202px;
+}
+
 .navBar {
   min-width:175px;
   min-height:180px;
   display:inline-block;
-  float:right;
-  position:fixed;
-  margin-left:980px;
+  position: fixed;
 }
 
 #wholePage {
@@ -287,6 +282,28 @@ div[color='red'] {
 div[color='green'] {
   background:lightgreen;
 }
+
+section {
+  font-size:25px;
+  margin-left:215px;
+  margin-right:215px;
+  border:1px orange solid;
+}
+
+section>h4 {
+  text-decoration: underline;
+  text-align:center;
+  color:red;
+}
+
+section>p {
+  text-indent: 50px;
+  color:orange;
+  margin-left:10px;
+  margin-right:10px;
+
+}
+
 @media only screen and (max-width: 500px) {
     .gridmenu {
         width:100%;
