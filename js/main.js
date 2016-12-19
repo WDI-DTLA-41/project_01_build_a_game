@@ -11,12 +11,16 @@ warBtn.classList.add('hidden');
 var resetBtn = document.querySelector('.reset');
 resetBtn.classList.add('hidden');
 h2 = document.querySelector('h2');
+
 // possible DOM elements
 var $deck = document.querySelector('.deck');
 var $inHandA = document.querySelector('#inHandA');
 var $inHandB = document.querySelector('#inHandB');
 var $inPlayA = document.querySelector('#inPlayA');
+$inPlayA.innerHTML = "<img src='css/empire.png'>";
 var $inPlayB = document.querySelector('#inPlayB');
+$inPlayB.innerHTML = "<img src='css/rebel.png'>";
+
 
 // ====================================================================
 // ====================================================================
@@ -165,12 +169,16 @@ var winner = function () {
     warBtn.classList.add('hidden');
     console.log("player B conquers the world!")
     h2.textContent = "The Rebel Alliance saves the galaxy!";
+    $inPlayB.innerHTML = "<img src='css/rebel.png'>";
+    $inPlayA.innerHTML = " ";
   } else if (inHandB.length < 1) {
     pushBtn.classList.add('hidden');
     battleBtn.classList.add('hidden');
     warBtn.classList.add('hidden');
     console.log("player A conquers the world!")
     h2.textContent = "The Empire conquers the galaxy!";
+    $inPlayA.innerHTML = "<img src='css/empire.png'>";
+    $inPlayB.innerHTML = "";
   }
 }
 
@@ -182,18 +190,20 @@ var reset = function () {
   inHandA = [];
     $inHandA.textContent = " "
     console.log("inHandA: " + inHandA);
-
     $inPlayA.classList.remove('faceUp');
-    $inPlayA.classList.add('faceDown');
+    // $inPlayA.classList.add('faceDown');
     $inPlayA.textContent = " ";
 
   inHandB = [];
     $inHandB.textContent = " ";
     console.log("inHandB: " + inHandB);
-
     $inPlayB.classList.remove('faceUp');
-    $inPlayB.classList.add('faceDown');
+    // $inPlayB.classList.add('faceDown');
     $inPlayB.textContent = " ";
+
+  //restores card deck images
+  $inPlayA.innerHTML = "<img src='css/empire.png'>";
+  $inPlayB.innerHTML = "<img src='css/rebel.png'>";
 
   // displays pre-game event buttons
   shuffleBtn.classList.remove('hidden');
@@ -240,6 +250,8 @@ var battle = function () {
   }
 
   clearBattle();
+  $inPlayA.innerHTML = "<img src='css/empire.png'>";
+  $inPlayB.innerHTML = "<img src='css/rebel.png'>";
   pushBtn.classList.remove('hidden');
 
   console.log("NEW inHandA: " + inHandA);
@@ -313,11 +325,9 @@ var collectCardsA = function () {
   for ( var i = inPlayA.length - 1; i >= 0; i --){
     inHandA.push(inPlayA.shift());
   }
-
   console.log("Player A wins the war!");
   h2.textContent = "The Empire wins the war!";
-  // console.log("NEW inHandA: " + inHandA);
-  // console.log("NEW inHandB: " + inHandB);
+
 }
 
 var collectCardsB = function () {
@@ -329,8 +339,6 @@ var collectCardsB = function () {
   }
   console.log("Player B wins the war!");
   h2.textContent = "Rebel Forces win the war!";
-  // console.log("NEW inHandA: " + inHandA);
-  // console.log("NEW inHandB: " + inHandB);
 }
 
 
@@ -338,7 +346,7 @@ var collectCardsB = function () {
 // CREATE A BATTLE FUNCTION
 // ==================================================================
 var pushIn = function () {
-  h2.textContent = " ";
+  h2.textContent = "Episode IV.2: A Programmer's Hope";
   inPlayA.push(inHandA.shift());
     stringInPlayA();
     // $inPlayA.classList.remove('faceDown');
@@ -381,20 +389,14 @@ function stringInWar () {
   $inPlayB.textContent = inWarB.toString();
   }
 
-// function stringInWarA () {
-//   $inPlayA.textContent = inWarA.toString();
-// }
-// function stringInWarB () {
-//   $inPlayB.textContent = inWarB.toString();
-// }
 
-function clearBattle () {
-  $inPlayA.classList.remove('faceUp');
-  $inPlayB.classList.remove('faceUp');
+var clearBattle = function () {
+  // $inPlayA.classList.remove('faceUp');
+  // $inPlayB.classList.remove('faceUp');
   $inPlayA.textContent = " ";
   $inPlayB.textContent = " ";
-  // $inPlayA.classList.add('faceDown');
-  // $inPlayB.classList.add('faceDown');
   $inHandA.textContent = inHandA.toString();
   $inHandB.textContent = inHandB.toString();
+  // $inPlayA.innerHTML = "<img src='css/empire.png'>";
+  // $inPlayB.innerHTML = "<img src='css/rebel.png'>";
 }
