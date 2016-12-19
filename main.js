@@ -38,38 +38,21 @@ var checkTheOneBelow = function(position){
 }
 
 
+// var winColor1 = [ ];
+// var winColor2= [ ];
 
-
-
-
-var winColor1 = [ ];
-var winColor2= [ ];
-
-var win = function (position) {
-  console.log(position.className);
-  console.log("the other here i am 2");
-  var row = parseInt(position.row);
-  var col = parseInt(position.col);
-  // BOTTOM
-if(board[position.col][position.row].className('color1') === board[position.col][position.row + 1].className('color1')){
-    winColor1.push(position);
-    console.log(winColor1);
-    console.log('position: ', position);
-    console.log('class: ', position.className);
-    console.log(winColor1);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
+// var win = function (position) {
+//   console.log(position.className);
+//   console.log("the other here i am 2");
+//   var row = parseInt(position.row);
+//   var col = parseInt(position.col);
+//   // BOTTOM
+// if(board[position.col][position.row].contains('color1') === board[position.col][position.row - 1].getAttribute('color1') &&
+//   (board[position.col][position.row].contains('color1') === board[position.col][position.row - 2].getAttribute('color1') &&
+//     (board[position.col][position.row].contains('color1') === board[position.col][position.row - 3].getAttribute('color1')) {
+//         console.log('win');
+//       }
+// }
 
 
 // add class on click
@@ -113,10 +96,12 @@ square.forEach(function(element){
   element.addEventListener('click', onClick);
 });
 
+
 // refreshes game
 function clear() {
   console.log('click');
     location.reload();
 }
+
 
 button.addEventListener('click', clear);

@@ -46,9 +46,9 @@ if(board[position.col][position.row].getAttribute('color1') === board[position.c
 
 
 TOP WIN
-if(board[position.col][position.row].getAttribute('color1') === board[position.col][position.row - 1].getAttribute('color1') &&
-  (board[position.col][position.row].getAttribute('color1') === board[position.col][position.row - 2].getAttribute('color1') &&
-    (board[position.col][position.row].getAttribute('color1') === board[position.col][position.row - 3].getAttribute('color1')) {
+if(board[position.col][position.row].contains('color1') === board[position.col][position.row - 1].getAttribute('color1') &&
+  (board[position.col][position.row].contains('color1') === board[position.col][position.row - 2].getAttribute('color1') &&
+    (board[position.col][position.row].contains('color1') === board[position.col][position.row - 3].getAttribute('color1')) {
         console.log('win');
       }
 
