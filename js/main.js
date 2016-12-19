@@ -1,3 +1,5 @@
+
+
 console.log('hello');
 var playWord;
 var button = document.querySelector('button');
@@ -7,11 +9,11 @@ var j = 0;
 var underscores = [];
 var placeholders;
 var guessed = [];
-var guessedBox = document.querySelector('.guessed')
+var guessedBox = document.querySelector('.guessed');
 var resetButton = document.querySelector('.reset');
 var noMatch = [];
 var isMatch = [];
-var array = []
+var array = [];
 var number;
 var win = document.querySelector('.win');
 var lose = document.querySelector('.lose');
@@ -30,7 +32,7 @@ var words = [
 'VAMPIRE',
 'WITCH',
 'ZOMBIE'
-]
+];
 //parts of the skeleton
 var skeleton = [
 document.querySelector('.head'),
@@ -39,15 +41,15 @@ document.querySelector('.leftarm'),
 document.querySelector('.rightarm'),
 document.querySelector('.leftleg'),
 document.querySelector('.rightleg')
-]
+];
 
 var randomNumber = function() {
-  number = Math.floor(Math.random()*10)
-}
+  number = Math.floor(Math.random()*10);
+};
 
 var scream = new Audio("assets/scream.wav");
 var laugh = new Audio("assets/laugh.wav");
-var thunder = new Audio("assets/thunder.wav")
+var thunder = new Audio("assets/thunder.wav");
 
 //this chooses a random word
 function getWord(){
@@ -104,13 +106,13 @@ function getLetter(){
 //this is so that user can use enter key as well
 function getLetterEnter(evt){
   if (evt.keyCode === 13){
-  getLetter()
+  getLetter();
   }
 }
 
 function guessWordEnter(evt) {
   if (evt.keyCode === 13){
-  guessWord()
+  guessWord();
   }
 }
 
@@ -166,7 +168,7 @@ function guessWord() {
   } else if (guess !== playWord) {
     alert('Try again!');
     document.querySelector('.word').value = '';
-  } else if (guess = playWord) {
+  } else if (guess === playWord) {
     placeholders.textContent = playWord;
     laugh.play();
     win.style.visibility = "visible";
@@ -210,5 +212,5 @@ document.querySelector('.wordGuess').addEventListener('click', guessWord);
 document.querySelector('.wordGuess').addEventListener('click', guessWord);
 document.querySelector('.word').addEventListener('keyup', guessWordEnter);
 document.querySelector('input').addEventListener('keyup', getLetterEnter);
-resetButton.addEventListener('click', reset)
-thunder.play()
+resetButton.addEventListener('click', reset);
+thunder.play();
