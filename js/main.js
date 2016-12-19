@@ -160,7 +160,10 @@ inWarB = inPlayB[inPlayB.length - 1]
 // CREATE WINNING CONIDITION / FUNCTION TO RESET THE DECK
 // ==================================================================
 
-//
+// after each round, the length of cards in each player's hand is evaluated.
+// if one player's card length is less than one, they are loser by default and
+// their opponent is declared the winner.
+// if neither player has a card length less than one, the game continues onward.
 var winner = function () {
 
   if (inHandA.length < 1) {
@@ -223,6 +226,7 @@ resetBtn.addEventListener('click', reset)
 // ==================================================================
 // COMPARE VALUES OF CARDS IN PLAY
 // ==================================================================
+
 var battle = function () {
   if (inPlayA[inPlayA.length - 1] === inPlayB[inPlayB.length - 1]) {
     pushBtn.classList.add('hidden')
@@ -391,12 +395,12 @@ function stringInWar () {
 
 
 var clearBattle = function () {
-  // $inPlayA.classList.remove('faceUp');
-  // $inPlayB.classList.remove('faceUp');
+  $inPlayA.classList.remove('faceUp');
+  $inPlayB.classList.remove('faceUp');
   $inPlayA.textContent = " ";
   $inPlayB.textContent = " ";
   $inHandA.textContent = inHandA.toString();
   $inHandB.textContent = inHandB.toString();
-  // $inPlayA.innerHTML = "<img src='css/empire.png'>";
-  // $inPlayB.innerHTML = "<img src='css/rebel.png'>";
+  $inPlayA.innerHTML = "<img src='css/empire.png'>";
+  $inPlayB.innerHTML = "<img src='css/rebel.png'>";
 }
