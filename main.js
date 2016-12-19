@@ -15,8 +15,6 @@ var $record = document.querySelector('#record');
 var record = 0;
 var $start = document.querySelector('#start');
 var $restart = document.querySelector('#restart');
-var $win = document.querySelectorAll('.win');
-var $loss = document.querySelectorAll('.loss');
 
 
 var lightIt = function(n){
@@ -71,10 +69,6 @@ var consoleSimonSequence = function(){
 }
 
 
-var loss = function(){
-
-}
-
 /**
   * builds and analyzes user's inputted array versus the computer-built array
   * @param {Object} event - represents element that is clicked on
@@ -87,28 +81,20 @@ var handleUserSequence = function(event){
       clickCount = 0;
       console.log('lose');
       simonSequence = [];
-      for(var i = 0; i<simonGeneratorIndex.length; i++){
-        simonGeneratorIndex[i].classList.add("loss");
-        setTimeout(function(){
-          for(var i = 0; i<simonGeneratorIndex.length; i++){
-            simonGeneratorIndex[i].classList.remove("loss");
-          }
-        }, 500);
-      }
+      $gamePiece.classList.add("rollOut");
       streak = 0;
       $streak.textContent = 0;
-      generateSimonSequence();
     } else if(consoleSequence[clickCount] === userSequence[clickCount]
       && consoleSequence.length === userSequence.length){
       console.log('win');
-      userSequence = [];
-      clickCount = 0;
       streak++;
       $streak.textContent = streak;
       if(record<streak){
         record = streak;
         $record.textContent = record;
       }
+      userSequence = [];
+      clickCount = 0;
       generateSimonSequence();
     } else if(userSequence.length !== consoleSequence.length){
       clickCount ++ ;
@@ -125,14 +111,17 @@ var handleRestart = function(){
   streak=0;
   $streak = streak;
   simonSequence = [];
+  $gamePiece.classList.remove("rollOut");
+  $gamePiece.classList.add("rollIn");
   generateSimonSequence();
 };
 
 $start.addEventListener('click', generateSimonSequence);
 
+$restart.addEventListener('click', handleRestart);
+
 for(var i = 0; i<simonGeneratorIndex.length; i++){
   simonGeneratorIndex[i].addEventListener('click', handleUserSequence);
 };
 
-$restart.addEventListener('click', handleRestart);
 
