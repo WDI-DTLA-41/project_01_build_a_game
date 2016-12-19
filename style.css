@@ -27,9 +27,11 @@ span {
 
 .gamePiece {
   float:left;
-  height: 400px;
-  width: 400px;
+  height: 380px;
+  width: 380px;
   position: relative;
+  background: black;
+  border-radius: 500px;
 /*  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);*/
 }
@@ -39,6 +41,7 @@ span {
   height: 40%;
   width: 40%;
   padding: 10px;
+
 }
 
 .records {

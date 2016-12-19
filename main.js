@@ -9,7 +9,6 @@ var simonGeneratorIndex = [$red, $green, $yellow, $blue];
 var consoleSequence = [];
 var userSequence = [];
 var clickCount = 0; //checks simonSequence at currentcolor idx
-var sequenceLength = 1;
 var $streak = document.querySelector('#streak');
 var streak = 0;
 var $record = document.querySelector('#record');
@@ -32,20 +31,20 @@ var dimIt = function(n){
 
 var lightEmAndDimEm = function(arr, i=0){
   setTimeout(function(){
-  if(i===arr.length){
-    console.log("simonSequence flashing complete");
-    $body.classList.add('userTurn');
-    setTimeout(function(){
-      $body.classList.remove('userTurn');
-    }, 200)
-  } else {
-    lightIt(i);
-    dimIt(i);
-    i++;
-    setTimeout(function() {
-      lightEmAndDimEm(arr, i);
-    }, 700)
-  };
+    if(i===arr.length){
+      console.log("simonSequence flashing complete");
+      $body.classList.add('userTurn');
+      setTimeout(function(){
+        $body.classList.remove('userTurn');
+      }, 200);
+    } else {
+      lightIt(i);
+      dimIt(i);
+      i++;
+      setTimeout(function() {
+        lightEmAndDimEm(arr, i);
+      }, 700);
+    }
 }, 200);
 };
 
@@ -69,7 +68,7 @@ var consoleSimonSequence = function(){
     consoleSequence.push(e.getAttribute('id'));
   });
   return consoleSequence;
-}
+};
 
 
 /**
@@ -87,11 +86,11 @@ var handleUserSequence = function(event){
       streak = 0;
       $streak.textContent = streak;
       $gamePiece.classList.add("shake");
-      setTimeout(function(){$gamePiece.classList.remove("shake")}, 1500)
-      setTimeout(function(){$gamePiece.classList.add("rollOut")}, 1500);
-      setTimeout(function(){$gamePiece.classList.remove("rollOut")}, 2500);
-    } else if(consoleSequence[clickCount] === userSequence[clickCount]
-      && consoleSequence.length === userSequence.length){
+      setTimeout(function(){$gamePiece.classList.remove("shake");}, 1500);
+      setTimeout(function(){$gamePiece.classList.add("rollOut");}, 1500);
+      setTimeout(function(){$gamePiece.classList.remove("rollOut");}, 2500);
+    } else if(consoleSequence[clickCount] === userSequence[clickCount] &&
+              consoleSequence.length === userSequence.length){
       console.log('win');
       streak++;
       $streak.textContent = streak;
@@ -102,11 +101,11 @@ var handleUserSequence = function(event){
       userSequence = [];
       clickCount = 0;
       $gamePiece.classList.add("pulse");
-      setTimeout(function(){$gamePiece.classList.remove("pulse")}, 1500);
+      setTimeout(function(){$gamePiece.classList.remove("pulse");}, 1500);
       generateSimonSequence();
     } else if(userSequence.length !== consoleSequence.length){
       clickCount ++ ;
-    };
+    }
 
 };
 
@@ -115,12 +114,12 @@ var handleUserSequence = function(event){
 var handleRestart = function(){
   for(var i = 0; i<simonGeneratorIndex.length; i++){
   simonGeneratorIndex[i].classList.remove('light');
-  };
+  }
   streak = 0;
   $streak.textContent = streak;
   simonSequence = [];
   $gamePiece.classList.add("rollIn");
-  setTimeout(function(){$gamePiece.classList.remove("rollIn")}, 1500)
+  setTimeout(function(){$gamePiece.classList.remove("rollIn");}, 1500);
   generateSimonSequence();
 };
 
@@ -130,6 +129,6 @@ $restart.addEventListener('click', handleRestart);
 
 for(var i = 0; i<simonGeneratorIndex.length; i++){
   simonGeneratorIndex[i].addEventListener('click', handleUserSequence);
-};
+}
 
 // $body.addEventListener('keyup', )
