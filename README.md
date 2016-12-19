@@ -7,6 +7,7 @@ __To get started:__
 - Push 'Play' until cards match triggering 'WAR'
 - Game is over once one player has all cards.
 - The 'Reset' button can be pushed to start the game over.
+- This game is MOBILE! View on laptops, tablets, and phones
 
 ####Rules of the Game###
 1. Deck of cards is shuffled and divided in two piles (26 cards for two players).
@@ -22,6 +23,9 @@ __To get started:__
 
 ---
 ###Next Steps
+- BE MORE CREATIVE!
+- Have hidden buttons on screen that are triggered at certain points
+- Show War cards (4 per player) face down, then event (War button) to trigger
 - Show cards on front page
 - Show four cards with numbers on page when WAR
 - Show WAR # before alert comes up declaring it
