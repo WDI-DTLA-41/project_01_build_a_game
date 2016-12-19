@@ -294,7 +294,7 @@ var cardPrintPlayer = function(user) {
   var img = document.createElement('img');
   // img.setAttribute("class", "card");
   // img.src = '/playing_cards' + card.name + '/' + card.size;
-  img.src = '/playing_cards/' + user.name + '_of_' + user.suit + '.png';
+  img.src = 'https://github.com/ritz1337/project_01_build_a_game/tree/master/playing_cards/' + user.name + '_of_' + user.suit + '.png';
   img.style.height = "110px";
   img.style.width = "75.68px";
 
