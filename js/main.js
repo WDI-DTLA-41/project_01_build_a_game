@@ -174,10 +174,10 @@ function hideWin() {
 }
 
 function hideGfxWin() {
-  hideWinId = setTimeout(hideWin, 1000 * 2.5);
-  removeCardsId = setTimeout(removeCards, 1000 * 1.5);
-  hidePlayerScoreId = setTimeout(hidePlayerScore, 1000 * 2.5);
-  hideDealerScoreId = setTimeout(hideDealerScore, 1000 * 2.5);
+  hideWinId = setTimeout(hideWin, 1000 * 3);
+  removeCardsId = setTimeout(removeCards, 1000 * 2);
+  hidePlayerScoreId = setTimeout(hidePlayerScore, 1000 * 3);
+  hideDealerScoreId = setTimeout(hideDealerScore, 1000 * 3);
 }
 
 function clearTime() {
