@@ -86,8 +86,10 @@ var handleUserSequence = function(event){
       simonSequence = [];
       streak = 0;
       $streak.textContent = streak;
-      $gamePiece.classList.add("rollOut");
-      setTimeout(function(){$gamePiece.classList.remove("rollOut")}, 1500);
+      $gamePiece.classList.add("shake");
+      setTimeout(function(){$gamePiece.classList.remove("shake")}, 1500)
+      setTimeout(function(){$gamePiece.classList.add("rollOut")}, 1500);
+      setTimeout(function(){$gamePiece.classList.remove("rollOut")}, 2500);
     } else if(consoleSequence[clickCount] === userSequence[clickCount]
       && consoleSequence.length === userSequence.length){
       console.log('win');
