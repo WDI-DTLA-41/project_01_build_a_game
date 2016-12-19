@@ -2,6 +2,12 @@ html, body {
   height: 100%;
   margin: 0;
   background: #36454f;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 img {
@@ -14,14 +20,61 @@ img {
 }
 
 [name="start"] {
-  /*background-color: green;*/
+  /*font-family: 'Monoton', cursive;*/
+  font-weight: 200;
+  background-color: #36454f;
+  color: white;
   position: relative;
   top: 340px;
   left: 300px;
   width: 25%;
   height: 50px;
   z-index: 150;
-  transition: 1s ease;
+  cursor: pointer;
+  transition: .5s ease;
+  border: 3px solid black;
+  outline: 0px;
+}
+
+[name="start"]:hover {
+  background: black;
+  outline: 0px;
+  /*color: black;*/
+  /*text-shadow: 3px 0px 6px black;*/
+}
+
+.cash-text {
+  font-family: 'Bungee Shade', cursive;
+  position: absolute;
+  font-size: 40px;
+  left: 600px;
+  width: 400px;
+  top: 10px;
+  color: white;
+}
+
+.bet-text {
+  font-family: 'Bungee Shade', cursive;
+  position: absolute;
+  font-size: 40px;
+  left: 632px;
+  width: 400px;
+  top: 60px;
+  color: white;
+}
+
+.debt {
+  font-family: 'Bungee Shade', cursive;
+  position: absolute;
+  font-size: 30px;
+  left: 552px;
+  width: 400px;
+  top: -90px;
+  color: red;
+  text-align: center;
+  opacity: 0;
+  transition: .5s ease;
+  animation-duration: 5s;
 }
 
 .round{
@@ -46,7 +99,8 @@ img {
   z-index: 5;
   left: -50px;
   opacity: 0;
-  transition: .5s ease;
+  transition: .3s ease,
+              opacity .75s ease;
   animation-delay: 0s;
 }
 
@@ -55,7 +109,8 @@ img {
   left: -140px;
   top: 200px;
   opacity: 0;
-  transition: .5s ease;
+  transition: .3s ease,
+              opacity .75s ease;
   animation-delay: 0s;
 }
 
@@ -63,7 +118,8 @@ img {
   top: 395px;
   left: -50px;
   opacity: 0;
-  transition: .5s ease;
+  transition: .3s ease,
+              opacity .75s ease;
   animation-delay: .33s;
 }
 
@@ -79,6 +135,85 @@ line-height: 150px;
   color: red;
 }
 
+.round2 {
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border: 2px solid #f5f5f5;
+  border-radius: 50%;
+  color: #f5f5f5;
+  text-align: center;
+  text-decoration: none;
+  background: #464646;
+  /*box-shadow: 0 0 3px gray;*/
+  font-size: 30px;
+  font-weight: 800;
+  z-index: 10;
+}
+
+.round2:hover {
+  background: #262626;
+  cursor: pointer;
+  color: red;
+}
+
+.bet-500 {
+  top: 142px;
+  left: 830px;
+  background: #222222;
+  opacity: 0;
+  transition: all .3s ease,
+              opacity .75s ease;
+  animation-delay: 0s;
+  border: 7px dashed #f5f5f5;
+  /*box-shadow: 0px;*/
+}
+
+.bet-500:hover {
+  background: black;
+  color: white;
+}
+
+.bet-100 {
+  top: 284px;
+  left: 822px;
+  height: 90px;
+  width: 90px;
+  line-height: 90px;
+  background: #190f9a;
+  opacity: 0;
+  transition: .3s ease,
+              opacity .75s ease;
+  animation-delay: .33s;
+  border: 7px dashed #f5f5f5;
+}
+
+.bet-100:hover {
+  background: #130e6b;
+  color: white;
+}
+
+.bet-50 {
+  top: 395px;
+  left: 750px;
+  height: 80px;
+  width: 80px;
+  line-height: 80px;
+  background: #CC1116;
+  opacity: 0;
+  transition: .3s ease,
+              opacity .75s ease;
+  animation-delay: .66s;
+  border: 7px dashed #f5f5f5;
+}
+
+.bet-50:hover {
+  background: #880003;
+  color: white;
+}
+
 .dealer-description {
   font-family: 'Bungee Shade', cursive;
   font-size: 50px;
@@ -88,7 +223,7 @@ line-height: 150px;
   transform: rotate(-25deg);
   left: 1120px; /*real position 120px*/
   opacity: 0;
-  transition: 1.5s ease;
+  transition: 1.1s ease;
 }
 
 .player-description {
@@ -101,14 +236,14 @@ line-height: 150px;
   left: -520px; /*real position 480px*/
   top: 400px;
   opacity: 0;
-  transition: 1.5s ease;
+  transition: 1.1s ease;
 }
 
 .wrapper {
   min-height: 100%;
   position: relative;
   display: block;
-  top: 50px;
+  top: 120px;
 }
 
 /*.container:after {
@@ -132,6 +267,7 @@ line-height: 150px;
   z-index: 100;
   opacity: 0;
   transition: 1.3s ease-in;
+  cursor: default;
 }
 
 .header-big {
@@ -143,6 +279,7 @@ line-height: 150px;
   z-index: 100;
   top: 200px;
   left: 70px;
+  cursor: default;
   transition: .6s ease-in;
 }
 
@@ -164,6 +301,7 @@ line-height: 150px;
   border: 30px solid #663300;
   box-shadow: inset 0 -100px 200px #222222;
   position: relative;
+  /*box-shadow: 0 0 50px;*/
 }
 
 .typeDealer {
@@ -192,7 +330,7 @@ line-height: 150px;
 .player-score {
   position: absolute;
   font-size: 40px;
-  top: -75px;
+  top: -45px;
   left: 80px;
   color: gold;
   opacity: 0;
@@ -212,11 +350,39 @@ line-height: 150px;
   position: absolute;
   font-size: 40px;
   color: gold;
-  top: 87px;
+  top: 57px;
   left: 90px;
   opacity: 0;
   transition: 0s ease;
   /*visibility: hidden;*/
+}
+
+.dealer-score2 {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 50px;
+  position: absolute;
+  font-size: 40px;
+  color: gold;
+  top: 56px;
+  left: 246px;
+  opacity: 0;
+  transition: 0s ease;
+  z-index: 4;
+  transform: rotate(-25deg);
+}
+
+.win-message {
+  transform: rotate(-25deg);
+  font-family: 'Bungee Shade', cursive;
+  font-size: 180px;
+  color: red;
+  font-weight: 800;
+  position: absolute;
+  top: 100px;
+  z-index: 20;
+  transition: 0s ease;
+  text-shadow: 10px 10px 20px #000000;
+  cursor: default;
 }
 
 .dealer-cards {
@@ -263,6 +429,27 @@ line-height: 150px;
   z-index: 2;
 }
 
+.dealer-4 {
+  position: relative;
+  left: 272px;
+  top: -420px;
+  z-index: 2;
+}
+
+.dealer-5 {
+  position: relative;
+  left: 252px;
+  top: -525px;
+  z-index: 2;
+}
+
+.dealer-6 {
+  position: relative;
+  left: 232px;
+  top: -630px;
+  z-index: 2;
+}
+
 .player-cards {
   position: relative;
   top: 340px;
@@ -296,4 +483,22 @@ line-height: 150px;
   position: relative;
   left: 80px;
   top: -700px;
+}
+
+.player-5 {
+  position: relative;
+  left: 100px;
+  top: -875px;
+}
+
+.player-6 {
+  position: relative;
+  left: 120px;
+  top: -1050px;
+}
+
+.player-7 {
+  position: relative;
+  left: 140px;
+  top: -1225px;
 }
