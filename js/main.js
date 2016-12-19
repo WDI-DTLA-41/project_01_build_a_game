@@ -9,13 +9,13 @@ addText = function() {
   p.appendChild(h3);
   h3.appendChild(textNode);
   userName.value = " ";
+  button.removeEventListener("click", addText);
 }
 button.addEventListener("click", addText);
 //greeting
 
 
 // choose random word
-
 var sharkNames = ["squatina squatina", "cetorhinus maximus",
   "mitsukurina owstoni", "sphyrna mokarran", "carcharodon carcharias",
   "manta birostris", "etmopterus benchleyi", "alopias vulpinus",
@@ -50,7 +50,6 @@ function dashes(letters) {
 
 var dashWord = dashes(letters);
 
-
 // check letter
 function checkLetter(letter) {
   if (letters.indexOf(letter) > -1) {
@@ -59,7 +58,6 @@ function checkLetter(letter) {
     return false;
   }
 }
-
 
 // fill in dashes
 function replaceDash(letter) {
@@ -110,6 +108,7 @@ var guessButton = function() {
     console.log("correct!");
     replaceDash(letter);
     render(dashWord.join(""));
+
   } else {
     console.log("guess again");
     wrongGuess(letter);
@@ -131,12 +130,24 @@ input.addEventListener("keyup",function() {
 // displays wrong guesses
 var wrong = [];
 var wrongLetters = document.getElementById("wrongLetters");
+var sharkParts = [
+  document.querySelector('#lTail'),
+  document.querySelector('#rTail'),
+  document.querySelector('#lPelvic'),
+  document.querySelector('#rPelvic'),
+  document.querySelector('#lBody'),
+  document.querySelector('#rBody'),
+  document.querySelector('#lHead'),
+  document.querySelector('#rHead')
+];
 
-
+var i = 0;
 function wrongGuess(letter) {
   wrong.push(letter);
   var wrongString = wrong.join(", ");
   wrongLetters.value = wrongString;
+  sharkParts[i].style.visibility = "visible";
+      i = i + 1;
 }
 
 // winner
@@ -154,7 +165,7 @@ function add() {
 }
 
 function lose() {
-  if (counter === 10) {
+  if (counter === 8) {
     alert("you lost!");
   }
 }

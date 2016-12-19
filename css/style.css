@@ -98,59 +98,106 @@ h3 {
 .deadShark {
   position: absolute;
   width: 175px;
-  margin-left: 145px;
-  margin-top: 90px;
-}
+  margin-left: 156px;
+  margin-top: 98px;}
 
 #lTail {
   display: inline-block;
-    width: 70px;
-    margin-right: -4px;
+  width: 60px;
+  margin-right: -4px;
+  visibility: hidden;
+}
+
+#leftT {
+  width: 80px;
 }
 
 #rTail {
-display: inline-block;
-    width: 70px;
-    margin-Left: 20px;
+  display: inline-block;
+  width: 70px;
+  margin-left: 20px;
+  visibility: hidden;
+}
 
+#rightT {
+  width: 80px;
 }
 
 #lPelvic {
-display: inline-block;
-    width: 70px;
-    margin-top: -1px;
+  display: inline-block;
+  height: 108px;
+  visibility: hidden;
+}
+
+#leftP {
+  width: 80px;
 }
 
 #rPelvic {
-display: inline-block;
-    width: 70px;
-    margin-top: -3px;
-    margin-left: 16px;
+  display: inline-block;
+  width: 69px;
+  margin-left: -4px;
+  height: 115px;
+  visibility: hidden;
+}
+
+#rightP {
+  width: 85px;
+  margin-top: 2px;
 }
 
 #lBody {
-display: inline-block;
-    width: 70px;
-    margin-top: -3px;
+  display: inline-block;
+  margin-top: -4px;
+  height: 109px;
+  visibility: hidden;
+}
+
+#leftB {
+  width: 80px;
+  height: 111px;
 }
 
 #rBody {
-display: inline-block;
-    width: 70px;
-    margin-top: -4px;
-    margin-left: 16px;
+  display: inline-block;
+  width: 90px;
+  margin-top: -10px;
+  margin-left: -4px;
+  height: 109px;
+  visibility: hidden;
+}
+
+#rightB {
+  width: 85px;
+  height: 111px;
 }
 
 #lHead {
-display: inline-block;
-    width: 70px;
+ display: inline-block;
+  width: 74px;
+  margin-top: -4px;
+  visibility: hidden;
+}
 
+#leftH {
+  width: 82px;
+  margin-left: -1px;
 }
 
 #rHead {
-display: inline-block;
-    width: 70px;
-    margin-left: 16px;
+  display: inline-block;
+  width: 76px;
+  margin-left: 3px;
+  height: 92px;
+  visibility: hidden;
+}
+
+#rightH {
+  width: 80px;
+  height: 110px;
+  margin-top: -4px;
+  padding-top: 0px;
+  visibility: hidden;
 }
 
 #sharkCage {
