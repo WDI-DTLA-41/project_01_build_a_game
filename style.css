@@ -190,18 +190,18 @@ a {
   animation-iteration-count: 4;
 }
 @-webkit-keyframes winning {
-  0%   {background-color:white;}
+  0%   {background-color:lightseagreen;}
   20%  {background-color:gold;}
   40%  {background-color:black;}
-  60%  {background-color:white;}
+  60%  {background-color:lightseagreen;}
   80%  {background-color:gold;}
   100% {background-color:black;}
 }
 @keyframes winning {
-  0%   {background-color:white;}
+  0%   {background-color:lightseagreen;}
   20%  {background-color:gold;}
   40%  {background-color:black;}
-  60%  {background-color:white;}
+  60%  {background-color:lightseagreen;}
   80%  {background-color:gold;}
   100% {background-color:black;}
 }
