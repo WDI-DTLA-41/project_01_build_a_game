@@ -1,4 +1,4 @@
-var $color = document.querySelectorAll('.color');
+var $gamePiece = document.querySelector('.gamePiece');
 var $red = document.querySelector('#red');
 var $yellow = document.querySelector('#yellow');
 var $blue = document.querySelector('#blue');
@@ -7,7 +7,7 @@ var simonSequence = [];
 var simonGeneratorIndex = [$red, $green, $yellow, $blue];
 var consoleSequence = [];
 var userSequence = [];
-var colorClickCount = 0; //checks simonSequence at currentcolor idx
+var clickCount = 0; //checks simonSequence at currentcolor idx
 var sequenceLength = 1;
 var $streak = document.querySelector('#streak');
 var streak = 0;
@@ -15,31 +15,9 @@ var $record = document.querySelector('#record');
 var record = 0;
 var $start = document.querySelector('#start');
 var $restart = document.querySelector('#restart');
-// var colorToLight;
-// = [{}];
+var $loss = document.querySelector('#loss');
+var $win = document.querySelector('#win');
 
-// find a way to make Simon play his sequence
-var generateSimonSequence = function(){
-  // colorUnClickable();
-  userSequence = [];
-  var randomColor = Math.floor(Math.random() * 4);
-  simonSequence.push(simonGeneratorIndex[randomColor]);
-  console.log('simonSequence: ', consoleSimonSequence());
-  lightEmAndDimEm(simonSequence);
-  $start.classList.add("hide");
-  $restart.classList.remove("hide");
-  colorClickable();
-};
-
-
-// generates a more readable simonSequence for developer reading console.log
-var consoleSimonSequence = function(){
-  simonSequence.map(function(e){
-    debugger
-    consoleSequence.push(e.getAttribute('id'));
-  });
-  return consoleSequence;
-}
 
 var lightIt = function(n){
   simonSequence[n].classList.add('light');
@@ -54,56 +32,48 @@ var dimIt = function(n){
 
 
 var lightEmAndDimEm = function(arr, i=0){
-  colorUnClickable();
+  // colorUnClickable();
   setTimeout(function(){
   if(i===arr.length){
     console.log("simonSequence flashing complete");
-    colorClickable();
+    // colorClickable();
   } else {
     lightIt(i);
     dimIt(i);
     i++;
     setTimeout(function() {
       lightEmAndDimEm(arr, i);
-    }, 900)
+    }, 700)
   };
-}, 1000);
+}, 400);
 };
 
-// check if user == simon
-// need live feed on user sequence
-// -- user needs to be notified on first wrong input, not after whole sequence is attempted
-// var sequenceMatch = function(){ // <-- this version can only be used when suquence lengths are equal!
-  // for(var i = 0; i<simonSequence.length; i++){
-  //   if (simonSequence[i].getAttribute('id') !== userSequence[i]) {
-  //     streak = 0;
-  //     $streak.textContent = streak;
-  //     sequenceLength = 1;
-  //     userSequence = [];
-  //     simonSequence = [];
-  //     consoleSequence = [];
-  //     generateSimonSequence();
-  //     return false;
-  //   };
-  // };
-  // streak++;
-  // $streak.textContent = streak;
-  // if(record < streak){
-  //   record = streak;
-  //   $record.textContent = record;
-  // }
-  // if (sequenceLength===31){
-    // sequenceLength++;
-  // }else {
-  //   alert("You win!");
 
-  // };
-//   return true;
-// }
+// find a way to make Simon play his sequence
+var generateSimonSequence = function(){
+  userSequence = [];
+  var randomColor = Math.floor(Math.random() * 4);
+  simonSequence.push(simonGeneratorIndex[randomColor]);
+  console.log('simonSequence: ', consoleSimonSequence());
+  lightEmAndDimEm(simonSequence);
+  $start.classList.add("hide");
+  $restart.classList.remove("hide");
+};
 
-// then find a way to make Simon's play initiate after user hits start button
-$start.addEventListener('click', generateSimonSequence);
 
+// generates a more readable simonSequence for developer reading console.log
+var consoleSimonSequence = function(){
+  consoleSequence = [];
+  simonSequence.map(function(e){
+    consoleSequence.push(e.getAttribute('id'));
+  });
+  return consoleSequence;
+}
+
+
+var loss = function(){
+
+}
 
 /**
   * builds and analyzes user's inputted array versus the computer-built array
@@ -112,35 +82,41 @@ $start.addEventListener('click', generateSimonSequence);
 */
 var handleUserSequence = function(event){
   userSequence.push(event.target.getAttribute('id'));
-  if(simonSequence.length === userSequence.length){
-    if(sequenceMatch()){
-      generateSimonSequence();
-    } else {
-      alert("Wah wah. Wrong move! Let's play again!")
+  console.log('userSequence: ', userSequence);
+    if(consoleSequence[clickCount] !== userSequence[clickCount]){
+    clickCount = 0;
+    console.log('lose');
+    simonSequence = [];
+    generateSimonSequence();
+    } else if(consoleSequence[clickCount] === userSequence[clickCount]
+      && consoleSequence.length === userSequence.length){
+    console.log('win');
+    userSequence = [];
+    clickCount = 0;
+    generateSimonSequence();
+    } else if(userSequence.length !== consoleSequence.length){
+      clickCount ++ ;
     };
-  };
-};
 
-// colorClickable and colorUnClickable is SUPPOSED to disable pushing to
-// userSequence array during simonSequence flashing BUT
-// for some reason doesn't stop clicks from setting off flashing and throwing off LightEmAndDimEm
-var colorClickable = function() {
-  for (var i = 0; i<$color.length; i++){
-  $color[i].addEventListener('click', handleUserSequence);
-  };
-};
-
-var colorUnClickable = function(){
-  for (var i = 0; i<$color.length; i++){
-    $color[i].removeEventListener('click', handleUserSequence);
-  };
 };
 
 
-$restart.addEventListener('click', function(){
+
+var handleRestart = function(){
+  for(var i = 0; i<simonGeneratorIndex.length; i++){
+  simonGeneratorIndex[i].classList.remove('light');
+  };
   streak=0;
+  $streak = streak;
   simonSequence = [];
-  // userSequence = [];
   generateSimonSequence();
-})
+};
+
+$start.addEventListener('click', generateSimonSequence);
+
+for(var i = 0; i<simonGeneratorIndex.length; i++){
+  simonGeneratorIndex[i].addEventListener('click', handleUserSequence);
+};
+
+$restart.addEventListener('click', handleRestart);
 
