@@ -83,7 +83,6 @@ function barClassAdder(e){
   if ( e.target.classList.contains('h') || e.target.classList.contains('v') ) {
     e.target.classList.add('clicked-bar');
     nextTurn();
-    // updateScore();
   }
 }
 
@@ -100,7 +99,6 @@ function boxChecker(e){
           playerOne.first = 'playerOne';
           $boxes[0].style.background = 'lightblue';
           nextTurn()
-          // updateScore();
         }
     }
     if ( bars[1].classList.contains('clicked-bar') &&
@@ -112,7 +110,6 @@ function boxChecker(e){
           playerOne.second = 'playerOne';
           $boxes[1].style.background = 'lightblue';
           nextTurn()
-          // updateScore();
         }
     };
     if ( bars[5].classList.contains('clicked-bar') &&
@@ -124,7 +121,6 @@ function boxChecker(e){
           playerOne.third = 'playerOne';
           $boxes[2].style.background = 'lightblue';
           nextTurn()
-          // updateScore();
         }
     };
     if ( bars[6].classList.contains('clicked-bar') &&
@@ -136,10 +132,8 @@ function boxChecker(e){
           playerOne.fourth = 'playerOne';
           $boxes[3].style.background = 'lightblue';
           nextTurn()
-          // updateScore();
         }
     };
-    // updateScore();
   }
 
 
@@ -153,7 +147,6 @@ function boxChecker(e){
           playerTwo.first = 'playerTwo';
           $boxes[0].style.background = 'pink';
           nextTurn();
-          // updateScore();
         }
     }
     if ( bars[1].classList.contains('clicked-bar') &&
@@ -165,7 +158,6 @@ function boxChecker(e){
           playerTwo.second = 'playerTwo';
           $boxes[1].style.background = 'pink';
           nextTurn();
-          // updateScore();
         }
     };
     if ( bars[5].classList.contains('clicked-bar') &&
@@ -177,7 +169,6 @@ function boxChecker(e){
           playerTwo.third = 'playerTwo';
           $boxes[2].style.background = 'pink';
           nextTurn();
-          // updateScore();
         }
     };
     if ( bars[6].classList.contains('clicked-bar') &&
@@ -189,7 +180,6 @@ function boxChecker(e){
           playerTwo.fourth = 'playerTwo';
           $boxes[3].style.background = 'pink';
           nextTurn();
-          // updateScore();
         }
     };
   }
