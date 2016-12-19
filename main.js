@@ -6,7 +6,7 @@ var gameTie = function() {
     alert('This Game is a Draw!!!');
     setTimeout(function(){resetGame();},2500);
   }
-}
+};
 
 var gameTournamentTie = function() {
   if ((openBoard[0][0].getAttribute('color') !== '') && (openBoard[0][1].getAttribute('color') !== '') &&
@@ -16,7 +16,7 @@ var gameTournamentTie = function() {
     alert('This Game is a Draw!!!');
     setTimeout(function(){resetTournamentGame();},2500);
   }
-}
+};
 
 var gameWinner = function() {
     testTurn = playerTurn();
@@ -35,7 +35,7 @@ var gameWinner = function() {
     player2LossTally.textContent = pTwoLoss;
     setTimeout(function(){resetGame();},2500);
 
-}
+};
 
 var gameTournamentWinner = function() {
     testTurn = playerTurn();
@@ -72,7 +72,7 @@ var gameTournamentWinner = function() {
               setTimeout(function(){resetTournamentGame();},2500);
             }
         }
-}
+};
 
 var diagonalUpRight1DownLeft2 = function(target,rowNum,colNum){
     if((rowNum <= 3 && rowNum >= 1) && (colNum >=2 && colNum <= 5)){
@@ -84,7 +84,7 @@ var diagonalUpRight1DownLeft2 = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalUpRight2DownLeft1 = function(target,rowNum,colNum){
     if((rowNum >= 2 && rowNum <= 4) && (colNum >= 1 && colNum <= 4)){
@@ -96,7 +96,7 @@ var diagonalUpRight2DownLeft1 = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownRight1UpLeft2 = function(target,rowNum,colNum){
     if((rowNum >= 2 && rowNum <= 4) && (colNum >= 2 && colNum <= 5)){
@@ -108,7 +108,7 @@ var diagonalDownRight1UpLeft2 = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownRight2UpLeft1 = function(target,rowNum,colNum){
     if((rowNum >= 1 && rowNum <= 3) && (colNum >= 1 && colNum <= 4)){
@@ -120,7 +120,7 @@ var diagonalDownRight2UpLeft1 = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownLeft = function(target,rowNum,colNum){
     if (rowNum <= 2  && colNum >= 3){
@@ -132,7 +132,7 @@ var diagonalDownLeft = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalUpRight = function(target,rowNum,colNum){
     if(rowNum >= 3 && colNum <= 3){
@@ -144,7 +144,7 @@ var diagonalUpRight = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownRight = function(target,rowNum,colNum){
     if(rowNum <= 2 && colNum <= 3){
@@ -156,7 +156,7 @@ var diagonalDownRight = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalUpLeft = function(target,rowNum,colNum){
     if(rowNum >= 3 && colNum >= 3){
@@ -168,7 +168,7 @@ var diagonalUpLeft = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var verticalUp = function(target,rowNum,colNum){
     if(rowNum >= 3){
@@ -180,7 +180,7 @@ var verticalUp = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var verticalDown = function(target,rowNum,colNum){
       if (rowNum <= 2) {
@@ -192,7 +192,7 @@ var verticalDown = function(target,rowNum,colNum){
           }
         }
       }
-}
+};
 
 var horizontalRight = function(target,rowNum,colNum){
     if(colNum <= 3){
@@ -204,7 +204,7 @@ var horizontalRight = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var horizontalLeft = function(target,rowNum,colNum){
       if (colNum >= 3) {
@@ -216,7 +216,7 @@ var horizontalLeft = function(target,rowNum,colNum){
           }
         }
       }
-}
+};
 
 var horizontalRight1Left2 = function(target,rowNum,colNum){
     if(colNum <= 5 && colNum >= 2){
@@ -228,7 +228,7 @@ var horizontalRight1Left2 = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var horizontalRight2Left1 = function(target,rowNum,colNum){
     if(colNum >= 1 && colNum <= 4){
@@ -240,7 +240,7 @@ var horizontalRight2Left1 = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var checkWin = function(target,rowNum,columnNum){
   var colNum = parseInt(columnNum);
@@ -259,7 +259,7 @@ var checkWin = function(target,rowNum,columnNum){
   diagonalUpRight1DownLeft2(target,rowNum,colNum);
   diagonalUpRight2DownLeft1(target,rowNum,colNum);
   gameTie();
-}
+};
 
 var diagonalUpRight1DownLeft2Tournament = function(target,rowNum,colNum){
     if((rowNum <= 3 && rowNum >= 1) && (colNum >=2 && colNum <= 5)){
@@ -271,7 +271,7 @@ var diagonalUpRight1DownLeft2Tournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalUpRight2DownLeft1Tournament = function(target,rowNum,colNum){
     if((rowNum >= 2 && rowNum <= 4) && (colNum >= 1 && colNum <= 4)){
@@ -283,7 +283,7 @@ var diagonalUpRight2DownLeft1Tournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownRight1UpLeft2Tournament = function(target,rowNum,colNum){
     if((rowNum >= 2 && rowNum <= 4) && (colNum >= 2 && colNum <= 5)){
@@ -295,7 +295,7 @@ var diagonalDownRight1UpLeft2Tournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownRight2UpLeft1Tournament = function(target,rowNum,colNum){
     if((rowNum >= 1 && rowNum <= 3) && (colNum >= 1 && colNum <= 4)){
@@ -307,7 +307,7 @@ var diagonalDownRight2UpLeft1Tournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownLeftTournament = function(target,rowNum,colNum){
     if (rowNum <= 2  && colNum >= 3){
@@ -319,7 +319,7 @@ var diagonalDownLeftTournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalUpRightTournament = function(target,rowNum,colNum){
     if(rowNum >= 3 && colNum <= 3){
@@ -331,7 +331,7 @@ var diagonalUpRightTournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalDownRightTournament = function(target,rowNum,colNum){
     if(rowNum <= 2 && colNum <= 3){
@@ -343,7 +343,7 @@ var diagonalDownRightTournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var diagonalUpLeftTournament = function(target,rowNum,colNum){
     if(rowNum >= 3 && colNum >= 3){
@@ -355,7 +355,7 @@ var diagonalUpLeftTournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var verticalUpTournament = function(target,rowNum,colNum){
     if(rowNum >= 3){
@@ -367,7 +367,7 @@ var verticalUpTournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var verticalDownTournament = function(target,rowNum,colNum){
       if (rowNum <= 2) {
@@ -379,7 +379,7 @@ var verticalDownTournament = function(target,rowNum,colNum){
           }
         }
       }
-}
+};
 
 var horizontalRightTournament = function(target,rowNum,colNum){
     if(colNum <= 3){
@@ -391,7 +391,7 @@ var horizontalRightTournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var horizontalLeftTournament = function(target,rowNum,colNum){
       if (colNum >= 3) {
@@ -403,7 +403,7 @@ var horizontalLeftTournament = function(target,rowNum,colNum){
           }
         }
       }
-}
+};
 
 var horizontalRight1Left2Tournament = function(target,rowNum,colNum){
     if(colNum <= 5 && colNum >= 2){
@@ -415,7 +415,7 @@ var horizontalRight1Left2Tournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var horizontalRight2Left1Tournament = function(target,rowNum,colNum){
     if(colNum >= 1 && colNum <= 4){
@@ -427,7 +427,7 @@ var horizontalRight2Left1Tournament = function(target,rowNum,colNum){
         }
       }
     }
-}
+};
 
 var checkWinTournament = function(target,rowNum,columnNum){
   var colNum = parseInt(columnNum);
@@ -446,7 +446,7 @@ var checkWinTournament = function(target,rowNum,columnNum){
   diagonalUpRight1DownLeft2Tournament(target,rowNum,colNum);
   diagonalUpRight2DownLeft1Tournament(target,rowNum,colNum);
   gameTournamentTie();
-}
+};
 
 var inputPiece = function(evtTarget){
   var columnNum = evtTarget.dataset.column;
@@ -469,7 +469,7 @@ var inputPiece = function(evtTarget){
       }
 
     }
-}
+};
 
 var inputPieceTournament = function(evtTarget){
   var columnNum = evtTarget.dataset.column;
@@ -492,7 +492,7 @@ var inputPieceTournament = function(evtTarget){
       }
 
     }
-}
+};
 
 var playerTurn = function(){
   if (num % 2 === 0){
@@ -502,7 +502,7 @@ var playerTurn = function(){
         num++;
       return player2;
   }
-}
+};
 
 var gameFunc = function(){
       if (event.target.getAttribute('class') === 'standardPieceOne'){
@@ -515,8 +515,8 @@ var gameFunc = function(){
           }
         } else if (testTurn === 'Player 2'){
             //I am the result of player 2's click.
-            for(var i = 0; i < 7; i++){
-              standardPieceOne[i].setAttribute('id','player2Hov');
+            for(var j = 0; j < 7; j++){
+              standardPieceOne[j].setAttribute('id','player2Hov');
             }
           }
         if(event.target === standardPieceOne[0]){
@@ -536,7 +536,7 @@ var gameFunc = function(){
                     }
 
       }
-}
+};
 
 var gameFuncTournament = function(){
       if (event.target.getAttribute('class') === 'standardPieceOne'){
@@ -549,8 +549,8 @@ var gameFuncTournament = function(){
           }
         } else if (testTurn === 'Player 2'){
             //I am the result of player 2's click.
-            for(var i = 0; i < 7; i++){
-              standardPieceOne[i].setAttribute('id','player2Hov');
+            for(var j = 0; j < 7; j++){
+              standardPieceOne[j].setAttribute('id','player2Hov');
             }
           }
         if(event.target === standardPieceOne[0]){
@@ -570,7 +570,7 @@ var gameFuncTournament = function(){
                     }
 
       }
-}
+};
 
 var resetScore = function(){
   pOneWin = 0;
@@ -581,7 +581,7 @@ var resetScore = function(){
   player1LossTally.textContent = pOneLoss;
   player2WinTally.textContent = pTwoWin;
   player2LossTally.textContent = pTwoLoss;
-}
+};
 
 var resetTournamentScore = function(){
   ptOneWin = 0;
@@ -592,46 +592,46 @@ var resetTournamentScore = function(){
   player1TournamentLossTally.textContent = ptOneLoss;
   player2TournamentWinTally.textContent = ptTwoWin;
   player2TournamentLossTally.textContent = ptTwoLoss;
-}
+};
 
 var resetTournamentGame = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
         tablePiece[i].setAttribute('color','');
       }
-      for(var i = 0; i < 7; i++){
+      for(var j = 0; j < 7; j++){
         standardPieceOne[i].setAttribute('id','player1Hov');
       }
-      turnResult.textContent = playerTurn();;
+      turnResult.textContent = playerTurn();
       pieceTitle.textContent = 'Move Select Below';
-}
+};
 
 var resetTournament = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
         tablePiece[i].setAttribute('color','');
       }
-      for(var i = 0; i < 7; i++){
+      for(i = 0; i < 7; i++){
         standardPieceOne[i].setAttribute('id','');
       }
       moveSelectTable.removeEventListener('click', gameFuncTournament);
       resetTournamentScore();
       turnResult.textContent = 'Game not active';
       pieceTitle.textContent = '';
-}
+};
 
 var resetGame = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
         tablePiece[i].setAttribute('color','');
       }
-      for(var i = 0; i < 7; i++){
+      for(i = 0; i < 7; i++){
         standardPieceOne[i].setAttribute('id','');
       }
       moveSelectTable.removeEventListener('click', gameFunc);
       turnResult.textContent = 'Game not active';
       pieceTitle.textContent = '';
-}
+};
 
 var startTournament = function(){
       for(var i = 0; i < 7; i++){
@@ -644,7 +644,7 @@ var startTournament = function(){
       player1TournamentLossTally.textContent = ptOneLoss;
       player2TournamentWinTally.textContent = ptTwoWin;
       player2TournamentLossTally.textContent = ptTwoLoss;
-}
+};
 
 var startGame = function(){
       for(var i = 0; i < 7; i++){
@@ -657,7 +657,7 @@ var startGame = function(){
       player1LossTally.textContent = pOneLoss;
       player2WinTally.textContent = pTwoWin;
       player2LossTally.textContent = pTwoLoss;
-}
+};
 
 var buttonLogic = function(){
   if(event.target.getAttribute('id') === 'startGameButton'){
@@ -676,7 +676,7 @@ var buttonLogic = function(){
   if(event.target.getAttribute('id') === 'clearScore'){
     resetScore();
   }
-}
+};
 
 var createBoard = function(){
   for(var i = 0; i < 6; i++){
@@ -692,17 +692,14 @@ var createBoard = function(){
       openBoard[i].push(standardPiece);
     }
   }
-}
+};
 
-var body = document.querySelector('body');
 var testTurn;
 var openBoard = [[],[],[],[],[],[]];
 var standardPieceOne = document.querySelectorAll('.standardPieceOne');
 var moveSelectTable = document.querySelector('table');
 var pieceTitle = document.querySelector('#pieceTitle');
-var pieceSelector = document.querySelector('.pieceSelector');
 var gameButton = document.querySelector('.gameButton');
-var startBtn = document.querySelector('#startGameButton');
 var turnResult = document.querySelector('#turnResult');
 var gameBoard = document.querySelector('.gameBoard');
 var num = 0;
