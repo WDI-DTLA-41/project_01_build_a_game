@@ -37,6 +37,9 @@ var checkTheOneBelow = function(position){
   }
 }
 
+// ===========================================
+// ATTEMPT TO CHECK IF THERE IS A VERTICAL WIN
+// ===========================================
 
 // var winColor1 = [ ];
 // var winColor2= [ ];
@@ -51,6 +54,7 @@ var checkTheOneBelow = function(position){
 //   (board[position.col][position.row].contains('color1') === board[position.col][position.row - 2].getAttribute('color1') &&
 //     (board[position.col][position.row].contains('color1') === board[position.col][position.row - 3].getAttribute('color1')) {
 //         console.log('win');
+//         winColor1.push(board[position.col][position.row]);
 //       }
 // }
 
