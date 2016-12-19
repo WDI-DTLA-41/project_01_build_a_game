@@ -172,11 +172,13 @@ function removePiece(player, row, col){
 function isWinner(){
   if(removedRed.length===3*boardWidth/2){
     blackWins+=1;
+    updateScore();
     alert('Congratulations, Player Black Wins!');
     return true;
   }
   if(removedBlack.length===3*boardWidth/2){
     redWins+=1;
+    updateScore();
     alert('Congratulations, Player Red Wins!');
     return true;
   }
