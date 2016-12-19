@@ -10,10 +10,12 @@ Your app must:
 - **Deploy your game online**, using GitHub Pages, where the rest of the world can access it
 - Use **semantic markup** for HTML and CSS (adhere to best practices)
 
-### Game Elements
+### Game Elements(Getting Started)
 
 - 2 Players (Captain Morgan, Jack Daniels)
+- Start button creates->shuffles=->distributes to both players
 - 52 Deck of Cards (Split into Two[26/player])
+- Hit button draws a card for each
 - Values are from 2-11
 - Value > Value returns to Array
 
@@ -27,10 +29,9 @@ Your app must:
 - Winner receives both sets of cards used
 
 ### Win Condition
-- if player has reached 52 Cards, they have won
-- if player has 0 cards left, they have lost
+- if player cannot play a card, they have lost
 
-### Icebox
+### Icebox/Unsolved
 - War on War repeated
 - Sound Effects
 - Animated

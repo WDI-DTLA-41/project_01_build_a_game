@@ -1,6 +1,3 @@
-
-var playerA = document.querySelector('.playerA');
-var playerB = document.querySelector('.playerB');
 var handA = document.querySelector('.handA');
 var handB = document.querySelector('.handB');
 var scoreA = document.querySelector('.scoreA');
@@ -17,7 +14,7 @@ var deckB = [];
   * deck is returned
 */
 var shuffle = function(deck) {
-var deck = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11]
+var deck = [2, 2, 2, 2, 3, 3, 3, 3, 4 , 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11]
   var currentIndex = deck.length, tempCard, randomIndex;
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex); //2
@@ -75,12 +72,8 @@ var addCardsToArena = function() {
 var compareCards = function() {
   if (arena1 > arena2) {
     deckA = deckA.concat(arena1, arena2);
-    console.log('CM deck => ', deckA.length);
-    console.log('JD deck => ', deckB.length);
   } else if (arena2 > arena1) {
     deckB = deckB.concat(arena2, arena1);
-    console.log('CM deck => ', deckA.length);
-    console.log('JD deck => ', deckB.length);
   } else if (arena1 === arena2 || arena2 === arena1) {
       war();
   } else if (deckA > 51 || deckB < 1) {
