@@ -283,6 +283,30 @@ div[color='green'] {
   background:lightgreen;
 }
 
+#picBox {
+  width:700px;
+  height:600px;
+  display:inline-block;
+  text-align:center;
+  margin-left:18%;
+}
+
+#myPic1 {
+  width:300px;
+  height:400px;
+  background:url("myPic1.jpg");
+  background-size: cover;
+  display: inline-block;
+}
+
+#myPic2  {
+  width:300px;
+  height:400px;
+  background:url("myPic2.jpg");
+  background-size: cover;
+  display: inline-block;
+}
+
 section {
   font-size:25px;
   margin-left:215px;
