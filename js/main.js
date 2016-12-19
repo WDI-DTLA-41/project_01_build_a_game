@@ -10,6 +10,7 @@ var warBtn = document.querySelector('.war');
 warBtn.classList.add('hidden');
 var resetBtn = document.querySelector('.reset');
 resetBtn.classList.add('hidden');
+h2 = document.querySelector('h2');
 // possible DOM elements
 var $deck = document.querySelector('.deck');
 var $inHandA = document.querySelector('#inHandA');
@@ -163,14 +164,13 @@ var winner = function () {
     battleBtn.classList.add('hidden');
     warBtn.classList.add('hidden');
     console.log("player B conquers the world!")
-    alert("player B conquers the world!")
+    h2.textContent = "The Rebel Alliance saves the galaxy!";
   } else if (inHandB.length < 1) {
     pushBtn.classList.add('hidden');
     battleBtn.classList.add('hidden');
     warBtn.classList.add('hidden');
     console.log("player A conquers the world!")
-    document.createElement
-    alert("player A conquers the world!")
+    h2.textContent = "The Empire conquers the galaxy!";
   }
 }
 
@@ -215,11 +215,11 @@ resetBtn.addEventListener('click', reset)
 // ==================================================================
 var battle = function () {
   if (inPlayA[inPlayA.length - 1] === inPlayB[inPlayB.length - 1]) {
-    console.log("WAR!");
-    alert("WAR!")
     pushBtn.classList.add('hidden')
     battleBtn.classList.add('hidden');
     warBtn.classList.remove('hidden');
+    console.log("WAR!");
+    h2.textContent = "War has been waged!"
     // war();
   } else if (inPlayA[inPlayA.length - 1] > inPlayB[inPlayB.length - 1]){
     // a acquires b's card
@@ -228,6 +228,7 @@ var battle = function () {
     // the back of a's card-stack array
     inHandA.push(inPlayA.shift());
     console.log("Player A wins the battle!")
+    h2.textContent = "The Empire strikes back!"
   } else {
     // b acquires a's card
     inHandB.push(inPlayA.shift());
@@ -235,6 +236,7 @@ var battle = function () {
     // the back of b's card-stack array
     inHandB.push(inPlayB.shift());
     console.log("Player B wins the battle!")
+    h2.textContent = "Rebel Forces win the battle!"
   }
 
   clearBattle();
@@ -313,6 +315,7 @@ var collectCardsA = function () {
   }
 
   console.log("Player A wins the war!");
+  h2.textContent = "The Empire wins the war!";
   // console.log("NEW inHandA: " + inHandA);
   // console.log("NEW inHandB: " + inHandB);
 }
@@ -325,6 +328,7 @@ var collectCardsB = function () {
     inHandB.push(inPlayB.shift());
   }
   console.log("Player B wins the war!");
+  h2.textContent = "Rebel Forces win the war!";
   // console.log("NEW inHandA: " + inHandA);
   // console.log("NEW inHandB: " + inHandB);
 }
@@ -334,13 +338,15 @@ var collectCardsB = function () {
 // CREATE A BATTLE FUNCTION
 // ==================================================================
 var pushIn = function () {
-
+  h2.textContent = " ";
   inPlayA.push(inHandA.shift());
     stringInPlayA();
     // $inPlayA.classList.remove('faceDown');
     $inPlayA.classList.add('faceUp');
   console.log("inHandA: " + inHandA);
   console.log("inPlayA: " + inPlayA);
+  pushBtn.classList.add('hidden');
+
 
   inPlayB.push(inHandB.shift());
     stringInPlayB();
