@@ -1,0 +1,56 @@
+body {
+  text-align: center;
+  background-color: #607591;
+}
+button {
+  font-size: 18px;
+}
+.score {
+  font-size: 26px;
+  margin-bottom: 50px;
+}
+.game {
+  font-size: 50px;
+  margin: 100px 50px 35px 50px;
+}
+.square {
+  display: inline-block;
+  width: 95px;
+  height: 95px;
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 95px;
+  border-collapse: collapse;
+  background-color: grey;
+}
+.background {
+  background-color: #91320A;
+}
+.highlight {
+  background-color: lightgreen;
+}
+.red.circle {
+  border-radius: 50%;
+  background-color: darkred;
+  color: darkred;
+}
+.black.circle {
+  border-radius: 50%;
+  background-color: #573937;
+  color: #573937;
+}
+.red.king.circle {
+  border-radius: 50%;
+  background-color: darkred;
+  font-weight: bold;
+  font-style: italic;
+  color: black;
+}
+.black.king.circle {
+  border-radius: 50%;
+  background-color: #573937;
+  font-weight: bold;
+  font-style: italic;
+  color: black;
+}
