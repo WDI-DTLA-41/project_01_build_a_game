@@ -1,0 +1,283 @@
+body {
+  height: 100%;
+  /*background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.1));*/
+  background: url(../assets/ocean.png);
+  margin: 100px;
+}
+
+.container {
+  float: left;
+  display: block;
+  margin: 50px 375px;
+  position: absolute;
+  width: 450px;
+  height: 300px;
+}
+
+#userName {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#input {
+  display: block;
+  margin: 100px auto 0;
+  text-align: center;
+}
+
+#button {
+  display: block;
+  margin: 25px auto 0;
+  font-family: 'Julius Sans One', sans-serif;
+
+}
+
+h3 {
+  color: white;
+  font-family: 'Julius Sans One', sans-serif;
+  margin-bottom: auto;
+}
+
+#text {
+  display: table;
+  margin: 0 auto;
+}
+
+
+#start {
+  display: block;
+  margin: 25px auto 0;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+#guess {
+  font-family: 'Julius Sans One', sans-serif;
+  display: block;
+  margin: 25px auto 0;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+#display {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Julius Sans One', sans-serif;
+  color: white;
+}
+
+#usedLtr {
+  display: block;
+  margin: 10px auto 0;
+  text-align: center;
+  font-family: 'Julius Sans One', sans-serif;
+  color: white;
+
+}
+
+#alert {
+  font-size: 50px;
+  text-align: center;
+  margin: 24px auto -71px;
+  color: red;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.gallowBox {
+  float: left;
+  width: 400px;
+  height: 300px;
+  margin-left: 50px;
+}
+
+.gallows {
+  height: 580px;
+}
+
+.deadShark {
+  position: absolute;
+  width: 175px;
+  margin-left: 156px;
+  margin-top: 98px;}
+
+#lTail {
+  display: inline-block;
+  width: 60px;
+  margin-right: -4px;
+  visibility: hidden;
+}
+
+#leftT {
+  width: 80px;
+}
+
+#rTail {
+  display: inline-block;
+  width: 70px;
+  margin-left: 20px;
+  visibility: hidden;
+}
+
+#rightT {
+  width: 80px;
+}
+
+#lPelvic {
+  display: inline-block;
+  height: 108px;
+  visibility: hidden;
+}
+
+#leftP {
+  width: 80px;
+}
+
+#rPelvic {
+  display: inline-block;
+  width: 69px;
+  margin-left: -4px;
+  height: 115px;
+  visibility: hidden;
+}
+
+#rightP {
+  width: 85px;
+  margin-top: 2px;
+}
+
+#lBody {
+  display: inline-block;
+  margin-top: -4px;
+  height: 109px;
+  visibility: hidden;
+}
+
+#leftB {
+  width: 80px;
+  height: 111px;
+}
+
+#rBody {
+  display: inline-block;
+  width: 90px;
+  margin-top: -10px;
+  margin-left: -4px;
+  height: 109px;
+  visibility: hidden;
+}
+
+#rightB {
+  width: 85px;
+  height: 111px;
+}
+
+#lHead {
+ display: inline-block;
+  width: 74px;
+  margin-top: -4px;
+  visibility: hidden;
+}
+
+#leftH {
+  width: 82px;
+  margin-left: -1px;
+}
+
+#rHead {
+  display: inline-block;
+  width: 76px;
+  margin-left: 3px;
+  height: 92px;
+  visibility: hidden;
+}
+
+#rightH {
+  width: 80px;
+  height: 110px;
+  margin-top: -4px;
+  padding-top: 0px;
+}
+
+#sharkCage {
+  float: right;
+  width: 400px;
+  height: 300px;
+}
+
+.squatina-squatina {
+  width: inherit;
+  display: none;
+  position: absolute;
+  margin-top: 90px;
+  color: white;
+}
+
+.cetorhinus-maximus {
+  width: inherit;
+  display: none;
+  color: white;
+}
+
+.mitsukurina-owstoni {
+  width: inherit;
+  display: none;
+  margin-top: 100px;
+  color: white;
+}
+
+.sphyrna-mokarran {
+  width: inherit;
+  display: none;
+  margin-top: 50px;
+  color: white;
+}
+
+.carcharodon-carcharias {
+  width: inherit;
+  display: none;
+  margin-top: 55px;
+  color: white;
+}
+
+.manta-birostris {
+  width: inherit;
+  display: none;
+  margin-top: 90px;
+  color: white;
+}
+
+.etmopterus-benchleyi {
+  width: 350px;
+  display: none;
+  margin-top: 60px;
+  color: white;
+}
+
+.alopias-vulpinus {
+  width: inherit;
+  display: none;
+  margin-top: 140px;
+  color: white;
+}
+
+.galeocerdo-cuvier {
+  width: inherit;
+  display: none;
+  margin-top: 100px;
+  color: white;
+}
+
+.rhincodon-typus {
+  width: inherit;
+  display: none;
+  margin-top: 150px;
+  color: white;
+}
+
+.stegostoma-fasciatum {
+  width: inherit;
+  display: none;
+  margin-top: 130px;
+  color: white;
+}
