@@ -1,14 +1,23 @@
+@font-face {
+  font-family: 'starwars';
+  src: url('Death Star.otf');
+}
+
 body {
   background: url('background.jpg');
   text-align: center;
 }
 
-h1, h2 {
+h1 {
+  font-family: starwars;
+  font-size: 3.5em;
   color: gold;
 }
 
 h2 {
+  color: gold;
   font-style: italic;
+  font-size: 2em;
 }
 
 img {
