@@ -1,0 +1,93 @@
+body {
+  background-color: lightblue;
+  text-align: center;
+  padding: 2em 0;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+header {
+  margin: 0 auto;
+}
+h1 {
+  font-size: 3em;
+}
+
+table {
+  background-color: yellow;
+  border: 10px solid #ccc;
+  margin: 0 auto;
+}
+td {
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: .3em;
+  display: block;
+ }
+tr {
+  display: inline-block;
+}
+
+
+.players {
+  display: inline-block;
+  margin: 3em 2em;
+}
+
+.active.black {
+  border: 4px dashed red;
+  background-color: black;
+}
+/*if something has class="red active" */
+.active.red {
+  border: 4px dashed black;
+  background-color: red;
+}
+.trNumbers {
+  background-color: white;
+  height: 1.5em;
+}
+.tdBoard {
+  border-radius: 1px solid black;
+  width: 4.5em;
+  height: 4.5em;
+}
+.empty {
+  background-color: #ccc;
+}
+.red {
+  background-color: red;
+}
+.black {
+  background-color: black;
+}
+
+.peace {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin: 0 5em;
+  display: inline-block;
+}
+
+#reset {
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+#playerOne {
+  font-size: 1.5em;
+  text-align: center;
+}
+#playerTwo {
+  font-size:  1.5em;
+}
+#playerOneInput {
+  font-size: 1.3em;
+  text-align: center;
+}
+#playerTwoInput {
+  font-size: 1.3em;
+  text-align: center;
+}
+

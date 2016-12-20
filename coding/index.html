@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+  <body>
+  <div id="wrapper">
+    <header id="playerPeace">
+        <h1>Connect Four</h1>
+        <input type="text" placeholder="Player 1" id="playerOneInput">
+        <input type="text" placeholder="Player 2" id="playerTwoInput">
+
+
+        <div>
+          <h3 class="players"><span id=playerOne>Player 1: </span></h3>
+          <h3 class="players">VS</h3>
+          <h3 class="players"><span id=playerTwo>Player 2: </span></h3>
+        </div>
+
+        <div>
+          <div id="redPeace" class="red peace" style="background-color: red"></div>
+          <button id="reset">Reset</button>
+          <div id="blackPeace" class="black peace" style="background-color: black"></div>
+        </div>
+
+      </header>
+      <table>
+          <tr>
+              <td id="trRow1" class="trNumbers">1</td>
+              <td class="tdColumnOne tdBoard empty" data-row"0" data-rol"0"></td>
+              <td class="tdColumnOne tdBoard empty" data-row"0" data-rol"1"></td>
+              <td class="tdColumnOne tdBoard empty" data-row"0" data-rol"2"></td>
+              <td class="tdColumnOne tdBoard empty" data-row"0" data-rol"3"></td>
+              <td class="tdColumnOne tdBoard empty" data-row"0" data-rol"4"></td>
+              <td class="tdColumnOne tdBoard empty" data-row"0" data-rol"5"></td>
+              <td class="tdColumnOne tdBoard empty" data-row"0" data-rol"6"></td>
+          </tr>
+          <tr>
+              <td id="trRow2" class="trNumbers">2</td>
+              <td class="tdColumnTwo tdBoard empty" data-row"1" data-rol"0"></td>
+              <td class="tdColumnTwo tdBoard empty" data-row"1" data-rol"1"></td>
+              <td class="tdColumnTwo tdBoard empty" data-row"1" data-rol"2"></td>
+              <td class="tdColumnTwo tdBoard empty" data-row"1" data-rol"3"></td>
+              <td class="tdColumnTwo tdBoard empty" data-row"1" data-rol"4"></td>
+              <td class="tdColumnTwo tdBoard empty" data-row"1" data-rol"5"></td>
+              <td class="tdColumnTwo tdBoard empty" data-row"1" data-rol"6"></td>
+          </tr>
+          <tr>
+              <td id="trRow3" class="trNumbers">3</td>
+              <td class="tdColumnThree tdBoard empty" data-row"2" data-rol"0"></td>
+              <td class="tdColumnThree tdBoard empty" data-row"2" data-rol"1"></td>
+              <td class="tdColumnThree tdBoard empty" data-row"2" data-rol"2"></td>
+              <td class="tdColumnThree tdBoard empty" data-row"2" data-rol"3"></td>
+              <td class="tdColumnThree tdBoard empty" data-row"2" data-rol"4"></td>
+              <td class="tdColumnThree tdBoard empty" data-row"2" data-rol"5"></td>
+              <td class="tdColumnThree tdBoard empty" data-row"2" data-rol"6"></td>
+          </tr>
+          <tr>
+              <td id="trRow4" class="trNumbers">4</td>
+              <td class="tdColumnFourFive tdBoard empty" data-row"3" data-rol"0"></td>
+              <td class="tdColumnFourFive tdBoard empty" data-row"3" data-rol"1"></td>
+              <td class="tdColumnFourFive tdBoard empty" data-row"3" data-rol"2"></td>
+              <td class="tdColumnFourFive tdBoard empty" data-row"3" data-rol"3"></td>
+              <td class="tdColumnFourFive tdBoard empty" data-row"3" data-rol"4"></td>
+              <td class="tdColumnFourFive tdBoard empty" data-row"3" data-rol"5"></td>
+              <td class="tdColumnFourFive tdBoard empty" data-row"3" data-rol"6"></td>
+          </tr>
+          <tr>
+              <td id="trRow5" class="trNumbers">5</td>
+              <td class="tdColumnFive tdBoard empty" data-row"4" data-rol"0"></td>
+              <td class="tdColumnFive tdBoard empty" data-row"4" data-rol"1"></td>
+              <td class="tdColumnFive tdBoard empty" data-row"4" data-rol"2"></td>
+              <td class="tdColumnFive tdBoard empty" data-row"4" data-rol"3"></td>
+              <td class="tdColumnFive tdBoard empty" data-row"4" data-rol"4"></td>
+              <td class="tdColumnFive tdBoard empty" data-row"4" data-rol"5"></td>
+              <td class="tdColumnFive tdBoard empty" data-row"4" data-rol"6"></td>
+          </tr>
+          <tr>
+              <td id="trRow6" class="trNumbers">6</td>
+              <td class="tdColumnSix tdBoard empty" data-row"5" data-rol"0"></td>
+              <td class="tdColumnSix tdBoard empty" data-row"5" data-rol"1"></td>
+              <td class="tdColumnSix tdBoard empty" data-row"5" data-rol"2"></td>
+              <td class="tdColumnSix tdBoard empty" data-row"5" data-rol"3"></td>
+              <td class="tdColumnSix tdBoard empty" data-row"5" data-rol"4"></td>
+              <td class="tdColumnSix tdBoard empty" data-row"5" data-rol"5"></td>
+              <td class="tdColumnSix tdBoard empty" data-row"5" data-rol"6"></td>
+          </tr>
+          <tr>
+              <td id="trRow7" class="trNumbers">7</td>
+              <td class="tdColumnSeven tdBoard empty" data-row"6" data-rol"0"></td>
+              <td class="tdColumnSeven tdBoard empty" data-row"6" data-rol"1"></td>
+              <td class="tdColumnSeven tdBoard empty" data-row"6" data-rol"2"></td>
+              <td class="tdColumnSeven tdBoard empty" data-row"6" data-rol"3"></td>
+              <td class="tdColumnSeven tdBoard empty" data-row"6" data-rol"4"></td>
+              <td class="tdColumnSeven tdBoard empty" data-row"6" data-rol"5"></td>
+              <td class="tdColumnSeven tdBoard empty" data-row"6" data-rol"6"></td>
+          </tr>
+      </table>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
