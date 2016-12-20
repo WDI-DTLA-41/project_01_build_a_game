@@ -28,9 +28,10 @@ var hideWinId,
     removeCardsId,
     hideDealerScoreId,
     hidePlayerScoreId,
-    playerCardTop = 0,
-    playerCardLeft = 0,
+    playerCardTop = 0, //dynamic card display func
+    playerCardLeft = 0, //dynamic card display func
     deck = [],
+    newObj,
     shuffledDeck= [];
 
 var players = [
@@ -47,7 +48,7 @@ var players = [
     hand: [],
     score: null
   }
-]
+];
 
 var value = [2,3,4,5,6,7,8,9,10,10,10,10,11],
     suits = ['diamonds', 'clubs', 'hearts', 'spades'],
@@ -135,11 +136,11 @@ function showDealerScore() {
 }
 
 function showDealerScore2() {
-  $dealerScore2.style.opacity = '1'
+  $dealerScore2.style.opacity = '1';
 }
 
 function hideDealerScore2() {
-  $dealerScore2.style.opacity = '0'
+  $dealerScore2.style.opacity = '0';
 }
 
 function hideDealerScore() {
@@ -224,13 +225,13 @@ function hideActions() {
 }
 
 function hideDeal() {
-  $dealButton.style.opacity = '0'
-  $dealButton.style.cursor = 'default'
+  $dealButton.style.opacity = '0';
+  $dealButton.style.cursor = 'default';
 }
 
 function showDeal() {
-  $dealButton.style.opacity = '1'
-  $dealButton.style.cursor = 'pointer'
+  $dealButton.style.opacity = '1';
+  $dealButton.style.cursor = 'pointer';
 }
 
 function removeClass() {
@@ -352,7 +353,7 @@ function startingCash(user) {
 function bet(event) {
   players[0].cash = players[0].cash - +event.target.text;
   $cashText.textContent = '$' + players[0].cash;
-  players[0].bet = players[0].bet + +event.target.text
+  players[0].bet = players[0].bet + +event.target.text;
   $betText.textContent = '$' + players[0].bet;
 }
 
@@ -446,8 +447,8 @@ function findScore(user) {
       var changedAce = user.hand.find(findAce);
       changedAce.value = 1;
       user.score = null;
-      for (var x = 0; x < user.hand.length; x++) {
-        user.score = user.score + user.hand[x].value;
+      for (var i = 0; i < user.hand.length; i++) {
+        user.score = user.score + user.hand[i].value;
       }
     }
   }
@@ -569,6 +570,6 @@ function findWinner() {
 
 //Visual Funcs
 
-function capFirstLetter(string) {
+function capFirstLetter(string) { //for prettying user input later
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
