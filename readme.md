@@ -10,7 +10,7 @@
 
 ## Getting Started
 
-Contrary to popular belief, the object of blackjack is NOT: gettting as close to a score of 21 without going over.
+Contrary to popular belief, the object of blackjack is NOT: getting as close to a score of 21 without going over.
 
 The __OBJECT__ of blackjack is to beat the dealer. 
 
@@ -18,6 +18,8 @@ The very first step is that the player must not bust (have a score over 21).
 Secondly and finally, the player must either outscore the dealer or have the dealer bust.
 
 TO play, place a bet and deal the cards. Use strategic hit/stay to beat the dealer.
+
+'Hit' draws another card while 'stay' ends your turn.
 
 Be careful entering into debt as being unable to pay back your casino marker is a felony!
 
