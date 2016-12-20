@@ -28,7 +28,8 @@ var dimIt = function(n){
 };
 
 
-
+// var lightEmAndDimEm = function(arr){
+  // var i = i || 0;
 var lightEmAndDimEm = function(arr, i=0){
   setTimeout(function(){
     if(i===arr.length){
