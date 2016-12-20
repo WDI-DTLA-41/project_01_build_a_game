@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>Blackjack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- <button class="deal">Deal</button> -->
+  <!-- <div class="card">
+    <span id="suit"></span>
+    <span id="value"></span>
+  </div> -->
+
+  <button id="deal">Deal</button>
+
+  <button class="hit">Hit</button>
+  <button id="stay">Stay</button>
+  <div id="scorebox">SCORE
+  <span id="playerscore"></span>
+  <span id="dealerscore"></span>
+  </div>
+
+
+  <script type ="text/javascript">
+      var dealButton = document.getElementById('deal')
+      dealButton.addEventListener('click', hideshow, false);
+            function hideshow () {
+              document.getElementById('deal').style.display = 'inline';
+                this.style.display = 'none'
+            }
+            </script>
+
+  <script src="https://cdn.jsdelivr.net/lodash/4.16.3/lodash.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

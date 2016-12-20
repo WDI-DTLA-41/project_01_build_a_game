@@ -1,0 +1,46 @@
+1.When Deal Button is clicked
+  create deck
+    shuffle deck
+  2 cards each are dealt to dealer and player.
+
+  Check if any player has 21
+    take each card
+      sum values
+
+
+  While there are still players in the game and the dealer has not lost:
+    check totals.  - if dealer wins or loses, end game.
+    for each active player:
+        player accepts or rejects card
+          If player rejects card, go to next player.
+          if they accept, evaluate their score, determine if still in play or lost.
+            IF THEY win or lose THEY BECOME inactive and next player has a turn
+              if nothing happens still their turn
+
+   Dealer Adds cards
+
+
+
+
+
+// check Scores -- on deal
+  // if playerOne score === 21, Win
+  // if dealer score === 21, lose
+  // if playerOne && dealer score ===21, push
+  //  else playerOne plays
+
+  // if playerOne hits, add one more card
+  // check score...
+  // if score > 21, bust you lose
+  //  if stay, dealer plays
+
+  // check scores
+  // if dealer score <= 16 dealer hits
+  // if dealer score >=17 dealer stays
+  //  if dealer score === playerOne score, push
+  // else if score === 21, then 21
+  // if score > 21, bust!, you win
+// if dealer stays, compare scores
+ //  if player score < dealer, you lose
+ //  if player score > dealer, you win
+ // if player score === dealer score - push
