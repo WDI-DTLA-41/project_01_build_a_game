@@ -4,6 +4,9 @@ console.log("meow");
 //    VARIABLES NEEDED
 // =============================================
 
+// var for container
+var container = document.querySelector("#container");
+
 // vars for each card slot
 var one = document.querySelector("#one");
 var two = document.querySelector("#two");
@@ -11,7 +14,6 @@ var three = document.querySelector("#three");
 
 // var for buttons
 var plusOne = document.querySelector(".plus-one");
-var placeBet = document.querySelector(".place-bet");
 var playAgain = document.querySelector(".play-again");
 var reset = document.querySelector(".reset");
 
@@ -24,12 +26,9 @@ var slots = document.getElementsByTagName("div");
 // var for bet counter
 var totalBet = document.querySelector(".total-bet");
 
-// var for score counter
-var totalScore = document.querySelector(".total-score");
-
 // vars for audio
 var cantina = document.getElementById("cantina");
-var jabba = document.getElementById("jabba");
+// var jabba = document.getElementById("jabba");
 var lightsaber = document.getElementById("lightsaber");
 var chewy = document.getElementById("chewy");
 
@@ -45,7 +44,7 @@ var cards = [
   "assets/images/darthvader.jpg",
   "assets/images/hansolo.jpg",
   "assets/images/darthvader.jpg"
-  ]
+  ];
 
 // var cards = [
 //   "assets/images/darthvader.jpg"
@@ -74,7 +73,7 @@ var addOne = function(event) {
   // UPDATE totalBet
   var currentBet = parseInt(totalBet.textContent);
   return currentBet;
-}
+};
 // RUN WHEN BET +1 BUTTON IS PRESSED
 plusOne.addEventListener("click", addOne);
 
@@ -117,7 +116,6 @@ spin.addEventListener("click", spinReel);
 // =============================================
 
 var images = [];
-var removeImg;
 var img;
 
 // LOOP THROUGH ARRAY OF DIVS
@@ -128,7 +126,7 @@ for (var i=0; i < slots.length; i++) {
     // RANDOMLY SELECTS A CHARACTER FROM ARRAY
     var randomSelect = function() {
       return cards[Math.floor(Math.random() * cards.length)];
-    }
+    };
     var selected = randomSelect();
 
     var img = document.createElement("IMG");
@@ -138,13 +136,13 @@ for (var i=0; i < slots.length; i++) {
     var imgSrc = img.src;
     images.push(imgSrc);
     return img.classList;
-  }
+  };
 
   var stopReelTwo = function() {
 
     var randomSelect = function() {
       return cards[Math.floor(Math.random() * cards.length)];
-    }
+    };
     var selected = randomSelect();
 
     var img = document.createElement("IMG");
@@ -154,13 +152,13 @@ for (var i=0; i < slots.length; i++) {
     var imgSrc = img.src;
     images.push(imgSrc);
     return img.classList;
-  }
+  };
 
   var stopReelThree = function() {
 
     var randomSelect = function() {
       return cards[Math.floor(Math.random() * cards.length)];
-    }
+    };
     var selected = randomSelect();
 
     var img = document.createElement("IMG");
@@ -195,9 +193,8 @@ for (var i=0; i < slots.length; i++) {
             quote.textContent = '"The Force is strong with this one."';
 
             var flashBackground = function() {
-              var container = document.querySelector("#container");
               container.setAttribute("class", "win");
-            }
+            };
             flashBackground();
 
             function playCantina() {
@@ -205,7 +202,7 @@ for (var i=0; i < slots.length; i++) {
             }
             playCantina();
 
-          }
+          };
 
           setTimeout(addScore, 1000);
           return;
@@ -231,17 +228,17 @@ for (var i=0; i < slots.length; i++) {
               chewy.play();
             }
             playChewy();
-          }
+          };
         }
           setTimeout(minusScore, 1000);
-        }
+        };
         compareSlots();
         return;
     }
-  compareSlots();
+  // compareSlots();
   return img.classList;
-  }
-};
+  };
+}
 
 
 // =============================================
@@ -338,7 +335,7 @@ var newTurn = function(event) {
 
   // REMOVES DYNAMICALLY CREATED IMG'S IN SLOT DIVS
   function removeImgs() {
-    var div = document.querySelector(".default");
+    // var div = document.querySelector(".default");
     var img1 = document.querySelector(".remove-this-1");
     var img2 = document.querySelector(".remove-this-2");
     var img3 = document.querySelector(".remove-this-3");
@@ -350,7 +347,7 @@ var newTurn = function(event) {
 
   // RESETS BET COUNTER TO 1
   totalBet.textContent = 1;
-}
+};
 playAgain.addEventListener("click", newTurn);
 
 // =============================================
@@ -359,7 +356,7 @@ playAgain.addEventListener("click", newTurn);
 
 var resetGame = function(event) {
   location.reload();
-}
+};
 reset.addEventListener("click", resetGame);
 
 // =============================================
