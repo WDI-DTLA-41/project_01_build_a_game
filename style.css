@@ -1,0 +1,87 @@
+body {
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+}
+h1 {
+  font-weight: 400;
+  color: #666666;
+}
+button {
+  font-family: 'Space Mono', monospace;
+  background: lightgrey;
+  color: #666666;
+}
+.main {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.board {
+  display: inline-block;
+  width: 225px;
+  height: 225px;
+  margin: 0 auto;
+  text-align: center;
+}
+.scores {
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+}
+span {
+  color: #666666;
+}
+.p1-score {
+  float: left;
+}
+.p2-score {
+  float: right;
+}
+.divs {
+  display: inline-block;
+  border: 1px white solid;
+  float: left;
+}
+.dot {
+  width: 5px;
+  height: 5px;
+  background: #666666;
+}
+.h {
+  width: 100px;
+  height: 5px;
+}
+.v {
+  width: 5px;
+  height: 100px;
+}
+.h:hover {
+  background: grey;
+}
+.v:hover {
+  background: grey;
+}
+.box {
+  width: 100px;
+  height: 100px;
+}
+.clicked-bar {
+  background: grey;
+}
+.player-one {
+  background: pink;
+}
+.player-two {
+  background: lightblue;
+}
+input {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  width: 90px;
+  color: #666666;
+}
+.new-game {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
