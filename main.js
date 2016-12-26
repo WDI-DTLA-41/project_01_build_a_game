@@ -19,7 +19,7 @@ var gameTournamentTie = function() {
 };
 
 var gameWinner = function() {
-    testTurn = playerTurn();
+    testTurn.text(playerTurn());
     if(testTurn === 'Player 1'){
       setTimeout(function(){alert('Congratulations Player 1 You Won!!!');},500);
       pOneWin = pOneWin + 1;
@@ -29,10 +29,10 @@ var gameWinner = function() {
         pTwoWin = pTwoWin + 1;
         pOneLoss = pOneLoss + 1;
       }
-    player1WinTally.textContent = pOneWin;
-    player1LossTally.textContent = pOneLoss;
-    player2WinTally.textContent = pTwoWin;
-    player2LossTally.textContent = pTwoLoss;
+    player1WinTally.text(pOneWin);
+    player1LossTally.text(pOneLoss);
+    player2WinTally.text(pTwoWin);
+    player2LossTally.text(pTwoLoss);
     setTimeout(function(){resetGame();},2500);
 
 };
@@ -42,10 +42,10 @@ var gameTournamentWinner = function() {
       if(testTurn === 'Player 1'){
         ptOneWin = ptOneWin + 1;
         ptTwoLoss = ptTwoLoss + 1;
-        player1TournamentWinTally.textContent = ptOneWin;
-        player1TournamentLossTally.textContent = ptOneLoss;
-        player2TournamentWinTally.textContent = ptTwoWin;
-        player2TournamentLossTally.textContent = ptTwoLoss;
+        player1TournamentWinTally.text(ptOneWin);
+        player1TournamentLossTally.text(ptOneLoss);
+        player2TournamentWinTally.text(ptTwoWin);
+        player2TournamentLossTally.text(ptTwoLoss);
         if(ptOneWin === 3){
           setTimeout(function(){
             alert("Congratulations Player 1, You're the Tournament Champion!!!");
@@ -58,10 +58,10 @@ var gameTournamentWinner = function() {
       } else if(testTurn === 'Player 2'){
           ptTwoWin = ptTwoWin + 1;
           ptOneLoss = ptOneLoss + 1;
-          player1TournamentWinTally.textContent = ptOneWin;
-          player1TournamentLossTally.textContent = ptOneLoss;
-          player2TournamentWinTally.textContent = ptTwoWin;
-          player2TournamentLossTally.textContent = ptTwoLoss;
+          player1TournamentWinTally.text(ptOneWin);
+          player1TournamentLossTally.text(ptOneLoss);
+          player2TournamentWinTally.text(ptTwoWin);
+          player2TournamentLossTally.text(ptTwoLoss);
           if (ptTwoWin === 3) {
             setTimeout(function(){
               alert("Congratulations Player 2, You're the Tournament Champion!!!");
@@ -449,8 +449,10 @@ var checkWinTournament = function(target,rowNum,columnNum){
 };
 
 var inputPiece = function(evtTarget){
+    //Try and input a set timeout to corret the playerTurn Toggle
+
   var columnNum = evtTarget.dataset.column;
-  turnResult.textContent = playerTurn();
+  turnResult.text(playerTurn());
   if (testTurn === player2){  //inversion of the testTurn toggle equality value
     for (var i = 5; i >= 0; i--){
       if (openBoard[i][columnNum].getAttribute('color') === ''){
@@ -472,8 +474,9 @@ var inputPiece = function(evtTarget){
 };
 
 var inputPieceTournament = function(evtTarget){
+  //Try and input a set timeout to corret the playerTurn Toggle
   var columnNum = evtTarget.dataset.column;
-  turnResult.textContent = playerTurn();
+  turnResult.text(playerTurn());
   if (testTurn === player2){  //inversion of the testTurn toggle equality value
     for (var i = 5; i >= 0; i--){
       if (openBoard[i][columnNum].getAttribute('color') === ''){
@@ -507,31 +510,31 @@ var playerTurn = function(){
 var gameFunc = function(){
       if (event.target.getAttribute('class') === 'standardPieceOne'){
         testTurn = playerTurn();
-        turnResult.textContent = playerTurn();
+        turnResult.text(playerTurn());
         if(testTurn === 'Player 1'){
           //I am the result of player 1's click.
           for(var i = 0; i < 7; i++){
-            standardPieceOne[i].setAttribute('id','player1Hov');
+            standardPieceOne.eq(i).attr('id','player1Hov');
           }
         } else if (testTurn === 'Player 2'){
             //I am the result of player 2's click.
             for(var j = 0; j < 7; j++){
-              standardPieceOne[j].setAttribute('id','player2Hov');
+              standardPieceOne.eq(j).attr('id','player2Hov');
             }
           }
-        if(event.target === standardPieceOne[0]){
+        if(event.target === standardPieceOne.eq(0)){
           inputPiece(event.target);
-        } else if (event.target === standardPieceOne[1]){
+        } else if (event.target === standardPieceOne.eq(1)){
             inputPiece(event.target);
-          } else if (event.target === standardPieceOne[2]){
+          } else if (event.target === standardPieceOne.eq(2)){
               inputPiece(event.target);
-            } else if (event.target === standardPieceOne[3]){
+            } else if (event.target === standardPieceOne.eq(3)){
                 inputPiece(event.target);
-              } else if (event.target === standardPieceOne[4]){
+              } else if (event.target === standardPieceOne.eq(4)){
                   inputPiece(event.target);
-                } else if (event.target === standardPieceOne[5]){
+                } else if (event.target === standardPieceOne.eq(5)){
                     inputPiece(event.target);
-                  } else if (event.target === standardPieceOne[6]){
+                  } else if (event.target === standardPieceOne.eq(6)){
                       inputPiece(event.target);
                     }
 
@@ -545,27 +548,27 @@ var gameFuncTournament = function(){
         if(testTurn === 'Player 1'){
           //I am the result of player 1's click.
           for(var i = 0; i < 7; i++){
-            standardPieceOne[i].setAttribute('id','player1Hov');
+            standardPieceOne.eq(i).attr('id','player1Hov');
           }
         } else if (testTurn === 'Player 2'){
             //I am the result of player 2's click.
             for(var j = 0; j < 7; j++){
-              standardPieceOne[j].setAttribute('id','player2Hov');
+              standardPieceOne.eq(j).attr('id','player2Hov');
             }
           }
-        if(event.target === standardPieceOne[0]){
+        if(event.target === standardPieceOne.eq(0)){
           inputPieceTournament(event.target);
-        } else if (event.target === standardPieceOne[1]){
+        } else if (event.target === standardPieceOne.eq(1)){
             inputPieceTournament(event.target);
-          } else if (event.target === standardPieceOne[2]){
+          } else if (event.target === standardPieceOne.eq(2)){
               inputPieceTournament(event.target);
-            } else if (event.target === standardPieceOne[3]){
+            } else if (event.target === standardPieceOne.eq(3)){
                 inputPieceTournament(event.target);
-              } else if (event.target === standardPieceOne[4]){
+              } else if (event.target === standardPieceOne.eq(4)){
                   inputPieceTournament(event.target);
-                } else if (event.target === standardPieceOne[5]){
+                } else if (event.target === standardPieceOne.eq(5)){
                     inputPieceTournament(event.target);
-                  } else if (event.target === standardPieceOne[6]){
+                  } else if (event.target === standardPieceOne.eq(6)){
                       inputPieceTournament(event.target);
                     }
 
@@ -577,10 +580,10 @@ var resetScore = function(){
   pOneLoss = 0;
   pTwoWin = 0;
   pTwoLoss = 0;
-  player1WinTally.textContent = pOneWin;
-  player1LossTally.textContent = pOneLoss;
-  player2WinTally.textContent = pTwoWin;
-  player2LossTally.textContent = pTwoLoss;
+  player1WinTally.text(pOneWin);
+  player1LossTally.text(pOneLoss);
+  player2WinTally.text(pTwoWin);
+  player2LossTally.text(pTwoLoss);
 };
 
 var resetTournamentScore = function(){
@@ -588,75 +591,75 @@ var resetTournamentScore = function(){
   ptOneLoss = 0;
   ptTwoWin = 0;
   ptTwoLoss = 0;
-  player1TournamentWinTally.textContent = ptOneWin;
-  player1TournamentLossTally.textContent = ptOneLoss;
-  player2TournamentWinTally.textContent = ptTwoWin;
-  player2TournamentLossTally.textContent = ptTwoLoss;
+  player1TournamentWinTally.text(ptOneWin);
+  player1TournamentLossTally.text(ptOneLoss);
+  player2TournamentWinTally.text(ptTwoWin);
+  player2TournamentLossTally.text(ptTwoLoss);
 };
 
 var resetTournamentGame = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
-        tablePiece[i].setAttribute('color','');
+        tablePiece.eq(i).attr('color','');
       }
       for(var j = 0; j < 7; j++){
-        standardPieceOne[i].setAttribute('id','player1Hov');
+        standardPieceOne.eq(i).attr('id','player1Hov');
       }
-      turnResult.textContent = playerTurn();
-      pieceTitle.textContent = 'Move Select Below';
+      turnResult.text(playerTurn());
+      pieceTitle.text('Move Select Below');
 };
 
 var resetTournament = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
-        tablePiece[i].setAttribute('color','');
+        tablePiece.eq(i).attr('color','');
       }
       for(i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','');
+        standardPieceOne.eq(i).attr('id','');
       }
-      moveSelectTable.removeEventListener('click', gameFuncTournament);
+      moveSelectTable.off('click', gameFuncTournament);
       resetTournamentScore();
-      turnResult.textContent = 'Game not active';
-      pieceTitle.textContent = '';
+      turnResult.text('Game not active');
+      pieceTitle.text('');
 };
 
 var resetGame = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
-        tablePiece[i].setAttribute('color','');
+        tablePiece.eq(i).attr('color','');
       }
       for(i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','');
+        standardPieceOne.eq(i).attr('id','');
       }
-      moveSelectTable.removeEventListener('click', gameFunc);
-      turnResult.textContent = 'Game not active';
-      pieceTitle.textContent = '';
+      moveSelectTable.off('click', gameFunc);
+      turnResult.text('Game not active');
+      pieceTitle.text('');
 };
 
 var startTournament = function(){
       for(var i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','player1Hov');
+        standardPieceOne.eq(i).attr('id','player1Hov');
       }
-      turnResult.textContent = playerTurn();
-      pieceTitle.textContent = 'Move Select Below';
-      moveSelectTable.addEventListener('click', gameFuncTournament);
-      player1TournamentWinTally.textContent = ptOneWin;
-      player1TournamentLossTally.textContent = ptOneLoss;
-      player2TournamentWinTally.textContent = ptTwoWin;
-      player2TournamentLossTally.textContent = ptTwoLoss;
+      turnResult.text(playerTurn());
+      pieceTitle.text('Move Select Below');
+      moveSelectTable.on('click', gameFuncTournament);
+      player1TournamentWinTally.text(ptOneWin);
+      player1TournamentLossTally.text(ptOneLoss);
+      player2TournamentWinTally.text(ptTwoWin);
+      player2TournamentLossTally.text(ptTwoLoss);
 };
 
 var startGame = function(){
       for(var i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','player1Hov');
+        standardPieceOne.eq(i).attr('id','player1Hov');
       }
-      turnResult.textContent = playerTurn();
-      pieceTitle.textContent = 'Move Select Below';
-      moveSelectTable.addEventListener('click', gameFunc);
-      player1WinTally.textContent = pOneWin;
-      player1LossTally.textContent = pOneLoss;
-      player2WinTally.textContent = pTwoWin;
-      player2LossTally.textContent = pTwoLoss;
+      turnResult.text(playerTurn());
+      pieceTitle.text('Move Select Below');
+      moveSelectTable.on('click', gameFunc);
+      player1WinTally.text(pOneWin);
+      player1LossTally.text(pOneLoss);
+      player2WinTally.text(pTwoWin);
+      player2LossTally.text(pTwoLoss);
 };
 
 var buttonLogic = function(){
@@ -680,15 +683,15 @@ var buttonLogic = function(){
 
 var createBoard = function(){
   for(var i = 0; i < 6; i++){
-    var tr = document.createElement('tr');
-    gameBoard.appendChild(tr);
+    var tr = $('<tr>');
+    gameBoard.append(tr);
     for (var j = 0; j < 7; j++){
-      var td = document.createElement('td');
-      tr.appendChild(td);
-      var standardPiece = document.createElement('div');
-      standardPiece.setAttribute('class','standardPiece');
-      standardPiece.setAttribute('color', '');
-      td.appendChild(standardPiece);
+      var td = $('<td>');
+      tr.append(td);
+      var standardPiece = $('<div>');
+      standardPiece.addClass('standardPiece');
+      standardPiece.attr('color', '');
+      td.append(standardPiece);
       openBoard[i].push(standardPiece);
     }
   }
@@ -696,23 +699,23 @@ var createBoard = function(){
 
 var testTurn;
 var openBoard = [[],[],[],[],[],[]];
-var standardPieceOne = document.querySelectorAll('.standardPieceOne');
-var moveSelectTable = document.querySelector('table');
-var pieceTitle = document.querySelector('#pieceTitle');
-var gameButton = document.querySelector('.gameButton');
-var turnResult = document.querySelector('#turnResult');
-var gameBoard = document.querySelector('.gameBoard');
+var standardPieceOne = $('.standardPieceOne');
+var moveSelectTable = $('table').first();
+var pieceTitle = $('#pieceTitle');
+var gameButton = $('.gameButton');
+var turnResult = $('#turnResult');
+var gameBoard = $('.gameBoard');
 var num = 0;
 var player1 = 'Player 1';
 var player2 = 'Player 2';
-var player1WinTally = document.querySelector('#player1WinTally');
-var player1LossTally = document.querySelector('#player1LossTally');
-var player2WinTally = document.querySelector('#player2WinTally');
-var player2LossTally = document.querySelector('#player2LossTally');
-var player1TournamentWinTally = document.querySelector('#player1TournamentWinTally');
-var player1TournamentLossTally = document.querySelector('#player1TournamentLossTally');
-var player2TournamentWinTally = document.querySelector('#player2TournamentWinTally');
-var player2TournamentLossTally = document.querySelector('#player2TournamentLossTally');
+var player1WinTally = $('#player1WinTally');
+var player1LossTally = $('#player1LossTally');
+var player2WinTally = $('#player2WinTally');
+var player2LossTally = $('#player2LossTally');
+var player1TournamentWinTally = $('#player1TournamentWinTally');
+var player1TournamentLossTally = $('#player1TournamentLossTally');
+var player2TournamentWinTally = $('#player2TournamentWinTally');
+var player2TournamentLossTally = $('#player2TournamentLossTally');
 var pOneWin = 0;
 var pOneLoss = 0;
 var pTwoWin = 0;
@@ -723,6 +726,6 @@ var ptTwoWin = 0;
 var ptTwoLoss = 0;
 
 createBoard();
-var tablePiece = document.querySelectorAll('table>tr>td>div');
-gameButton.addEventListener('click', buttonLogic);
+var tablePiece = $('table>tr>td>div');
+gameButton.on('click', buttonLogic);
 
