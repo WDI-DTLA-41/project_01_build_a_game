@@ -507,31 +507,31 @@ var playerTurn = function(){
 var gameFunc = function(){
       if (event.target.getAttribute('class') === 'standardPieceOne'){
         testTurn = playerTurn();
-        turnResult.textContent = playerTurn();
+        turnResult.text(playerTurn());
         if(testTurn === 'Player 1'){
           //I am the result of player 1's click.
           for(var i = 0; i < 7; i++){
-            standardPieceOne[i].setAttribute('id','player1Hov');
+            standardPieceOne[i].attr('id','player1Hov');
           }
         } else if (testTurn === 'Player 2'){
             //I am the result of player 2's click.
             for(var j = 0; j < 7; j++){
-              standardPieceOne[j].setAttribute('id','player2Hov');
+              standardPieceOne[j].attr('id','player2Hov');
             }
           }
-        if(event.target === standardPieceOne[0]){
+        if(event.target === standardPieceOne.first()){
           inputPiece(event.target);
-        } else if (event.target === standardPieceOne[1]){
+        } else if (event.target === standardPieceOne.eq(1)){
             inputPiece(event.target);
-          } else if (event.target === standardPieceOne[2]){
+          } else if (event.target === standardPieceOne.eq(2)){
               inputPiece(event.target);
-            } else if (event.target === standardPieceOne[3]){
+            } else if (event.target === standardPieceOne.eq(3)){
                 inputPiece(event.target);
-              } else if (event.target === standardPieceOne[4]){
+              } else if (event.target === standardPieceOne.eq(4)){
                   inputPiece(event.target);
-                } else if (event.target === standardPieceOne[5]){
+                } else if (event.target === standardPieceOne.eq(5)){
                     inputPiece(event.target);
-                  } else if (event.target === standardPieceOne[6]){
+                  } else if (event.target === standardPieceOne.last()){
                       inputPiece(event.target);
                     }
 
@@ -553,7 +553,7 @@ var gameFuncTournament = function(){
               standardPieceOne[j].attr('id','player2Hov');
             }
           }
-        if(event.target === standardPieceOne.first(0)){
+        if(event.target === standardPieceOne.first()){
           inputPieceTournament(event.target);
         } else if (event.target === standardPieceOne.eq(1)){
             inputPieceTournament(event.target);
@@ -565,7 +565,7 @@ var gameFuncTournament = function(){
                   inputPieceTournament(event.target);
                 } else if (event.target === standardPieceOne.eq(5)){
                     inputPieceTournament(event.target);
-                  } else if (event.target === standardPieceOne.last(6)){
+                  } else if (event.target === standardPieceOne.last()){
                       inputPieceTournament(event.target);
                     }
 
