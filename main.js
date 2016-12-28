@@ -473,7 +473,7 @@ var inputPiece = function(evtTarget){
 
 var inputPieceTournament = function(evtTarget){
   var columnNum = evtTarget.dataset.column;
-  turnResult.textContent = playerTurn();
+  turnResult.text(playerTurn());
   if (testTurn === player2){  //inversion of the testTurn toggle equality value
     for (var i = 5; i >= 0; i--){
       if (openBoard[i][columnNum].getAttribute('color') === ''){
