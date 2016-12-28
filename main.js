@@ -648,15 +648,15 @@ var startTournament = function(){
 
 var startGame = function(){
       for(var i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','player1Hov');
+        standardPieceOne[i].attr('id','player1Hov');
       }
-      turnResult.textContent = playerTurn();
-      pieceTitle.textContent = 'Move Select Below';
-      moveSelectTable.addEventListener('click', gameFunc);
-      player1WinTally.textContent = pOneWin;
-      player1LossTally.textContent = pOneLoss;
-      player2WinTally.textContent = pTwoWin;
-      player2LossTally.textContent = pTwoLoss;
+      turnResult.text(playerTurn());
+      pieceTitle.text('Move Select Below');
+      moveSelectTable.on('click', gameFunc);
+      player1WinTally.text(pOneWin);
+      player1LossTally.text(pOneLoss);
+      player2WinTally.text(pTwoWin);
+      player2LossTally.text(pTwoLoss);
 };
 
 var buttonLogic = function(){
