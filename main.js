@@ -577,10 +577,10 @@ var resetScore = function(){
   pOneLoss = 0;
   pTwoWin = 0;
   pTwoLoss = 0;
-  player1WinTally.textContent = pOneWin;
-  player1LossTally.textContent = pOneLoss;
-  player2WinTally.textContent = pTwoWin;
-  player2LossTally.textContent = pTwoLoss;
+  player1WinTally.text(pOneWin);
+  player1LossTally.text(pOneLoss);
+  player2WinTally.text(pTwoWin);
+  player2LossTally.text(pTwoLoss);
 };
 
 var resetTournamentScore = function(){
@@ -588,10 +588,10 @@ var resetTournamentScore = function(){
   ptOneLoss = 0;
   ptTwoWin = 0;
   ptTwoLoss = 0;
-  player1TournamentWinTally.textContent = ptOneWin;
-  player1TournamentLossTally.textContent = ptOneLoss;
-  player2TournamentWinTally.textContent = ptTwoWin;
-  player2TournamentLossTally.textContent = ptTwoLoss;
+  player1TournamentWinTally.text(ptOneWin);
+  player1TournamentLossTally.text(ptOneLoss);
+  player2TournamentWinTally.text(ptTwoWin);
+  player2TournamentLossTally.text(ptTwoLoss);
 };
 
 var resetTournamentGame = function(){
