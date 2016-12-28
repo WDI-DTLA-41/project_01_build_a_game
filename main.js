@@ -29,10 +29,10 @@ var gameWinner = function() {
         pTwoWin = pTwoWin + 1;
         pOneLoss = pOneLoss + 1;
       }
-    player1WinTally.textContent = pOneWin;
-    player1LossTally.textContent = pOneLoss;
-    player2WinTally.textContent = pTwoWin;
-    player2LossTally.textContent = pTwoLoss;
+    player1WinTally.text(pOneWin);
+    player1LossTally.text(pOneLoss);
+    player2WinTally.text(pTwoWin);
+    player2LossTally.text(pTwoLoss);
     setTimeout(function(){resetGame();},2500);
 
 };
