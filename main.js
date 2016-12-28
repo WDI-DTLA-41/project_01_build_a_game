@@ -597,13 +597,13 @@ var resetTournamentScore = function(){
 var resetTournamentGame = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
-        tablePiece[i].setAttribute('color','');
+        tablePiece[i].attr('color','');
       }
       for(var j = 0; j < 7; j++){
-        standardPieceOne[i].setAttribute('id','player1Hov');
+        standardPieceOne[i].attr('id','player1Hov');
       }
-      turnResult.textContent = playerTurn();
-      pieceTitle.textContent = 'Move Select Below';
+      turnResult.text(playerTurn());
+      pieceTitle.text('Move Select Below');
 };
 
 var resetTournament = function(){
