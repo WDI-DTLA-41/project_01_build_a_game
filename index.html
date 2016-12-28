@@ -6,32 +6,60 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="/images">
+  <link href ="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <title>War Game</title>
 </head>
 <body>
 
    <div class="center" id='container'>
           <h1>Game of War</h1>
-          <p><span>Player 1</span><span>Player 2</span></p>
+
+          <div>
+              <p><span class="middle winMessage animatedFlash">WINNER</span>
+                 <span class="middle winMessage animatedFlash">WINNER</span>
+              </p><br/><br/>
+          </div>
+          <p><span class="middle">Player 1</span><span class="middle">Player 2</span></p>
 
               <div id="players">
 
-                    <div class="player photo" id="player1"></div>
+                  <div class="player" id="player1">
+                      <!-- <img src="images/facedown.jpg" alt="back of playing card"> -->
+                  </div>
 
-                    <div class="player photo" id="player2"></div>
+                  <div class="player" id="player2">
+                      <!-- <img src="images/10hearts.jpg" alt="back of playing card"> -->
+                  </div>
               </div>
 
-              <div class="gameBoard"></div>
+              <div class="warBoard">
+                  <p>
+                    <span class="p1War middle">
+                        <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                        <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                        <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                        <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                     </span>
+                     <span class="p2War middle">
+                         <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                         <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                         <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                         <img class="tinyCard" src="images/facedown.jpg" alt="cards">
+                     </span>
+                  </p>
+              </div>
 
 
    </div>
-   <div id="wrapper">
+   <div id="btnWrapper">
          <button id="start">Start</button>
          <button id="play">Play</button>
          <button id="reset">Reset Game</button>
    </div>
 
 
-<script src="main.js"></script>
+   <script src="main.js"></script>
+   <!-- <script src="https://cdn.jsdelivr.net/lodash/4.16.3/lodash.min.js"></script> -->
 </body>
 </html>
