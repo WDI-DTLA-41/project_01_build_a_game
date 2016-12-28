@@ -42,10 +42,10 @@ var gameTournamentWinner = function() {
       if(testTurn === 'Player 1'){
         ptOneWin = ptOneWin + 1;
         ptTwoLoss = ptTwoLoss + 1;
-        player1TournamentWinTally.textContent = ptOneWin;
-        player1TournamentLossTally.textContent = ptOneLoss;
-        player2TournamentWinTally.textContent = ptTwoWin;
-        player2TournamentLossTally.textContent = ptTwoLoss;
+        player1TournamentWinTally.text(ptOneWin);
+        player1TournamentLossTally.text(ptOneLoss);
+        player2TournamentWinTally.text(ptTwoWin);
+        player2TournamentLossTally.text(ptTwoLoss);
         if(ptOneWin === 3){
           setTimeout(function(){
             alert("Congratulations Player 1, You're the Tournament Champion!!!");
@@ -58,10 +58,10 @@ var gameTournamentWinner = function() {
       } else if(testTurn === 'Player 2'){
           ptTwoWin = ptTwoWin + 1;
           ptOneLoss = ptOneLoss + 1;
-          player1TournamentWinTally.textContent = ptOneWin;
-          player1TournamentLossTally.textContent = ptOneLoss;
-          player2TournamentWinTally.textContent = ptTwoWin;
-          player2TournamentLossTally.textContent = ptTwoLoss;
+          player1TournamentWinTally.text(ptOneWin);
+          player1TournamentLossTally.text(ptOneLoss);
+          player2TournamentWinTally.text(ptTwoWin);
+          player2TournamentLossTally.text(ptTwoLoss);
           if (ptTwoWin === 3) {
             setTimeout(function(){
               alert("Congratulations Player 2, You're the Tournament Champion!!!");
