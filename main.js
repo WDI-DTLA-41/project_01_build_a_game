@@ -609,15 +609,15 @@ var resetTournamentGame = function(){
 var resetTournament = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
-        tablePiece[i].setAttribute('color','');
+        tablePiece[i].attr('color','');
       }
       for(i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','');
+        standardPieceOne[i].attr('id','');
       }
-      moveSelectTable.removeEventListener('click', gameFuncTournament);
+      moveSelectTable.off('click', gameFuncTournament);
       resetTournamentScore();
-      turnResult.textContent = 'Game not active';
-      pieceTitle.textContent = '';
+      turnResult.text('Game not active');
+      pieceTitle.text('');
 };
 
 var resetGame = function(){
