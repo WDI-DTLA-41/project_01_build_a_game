@@ -680,15 +680,15 @@ var buttonLogic = function(){
 
 var createBoard = function(){
   for(var i = 0; i < 6; i++){
-    var tr = document.createElement('tr');
-    gameBoard.appendChild(tr);
+    var tr = $('tr');
+    gameBoard.append(tr);
     for (var j = 0; j < 7; j++){
-      var td = document.createElement('td');
-      tr.appendChild(td);
-      var standardPiece = document.createElement('div');
-      standardPiece.setAttribute('class','standardPiece');
-      standardPiece.setAttribute('color', '');
-      td.appendChild(standardPiece);
+      var td = $('<td>');
+      tr.append(td);
+      var standardPiece = $('<div>');
+      standardPiece.attr('class','standardPiece');
+      standardPiece.attr('color', '');
+      td.append(standardPiece);
       openBoard[i].push(standardPiece);
     }
   }
