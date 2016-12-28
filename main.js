@@ -696,23 +696,23 @@ var createBoard = function(){
 
 var testTurn;
 var openBoard = [[],[],[],[],[],[]];
-var standardPieceOne = document.querySelectorAll('.standardPieceOne');
-var moveSelectTable = document.querySelector('table');
-var pieceTitle = document.querySelector('#pieceTitle');
-var gameButton = document.querySelector('.gameButton');
-var turnResult = document.querySelector('#turnResult');
-var gameBoard = document.querySelector('.gameBoard');
+var standardPieceOne = $('.standardPieceOne');
+var moveSelectTable = $('table');
+var pieceTitle = $('#pieceTitle');
+var gameButton = $('.gameButton');
+var turnResult = $('#turnResult');
+var gameBoard = $('.gameBoard');
 var num = 0;
 var player1 = 'Player 1';
 var player2 = 'Player 2';
-var player1WinTally = document.querySelector('#player1WinTally');
-var player1LossTally = document.querySelector('#player1LossTally');
-var player2WinTally = document.querySelector('#player2WinTally');
-var player2LossTally = document.querySelector('#player2LossTally');
-var player1TournamentWinTally = document.querySelector('#player1TournamentWinTally');
-var player1TournamentLossTally = document.querySelector('#player1TournamentLossTally');
-var player2TournamentWinTally = document.querySelector('#player2TournamentWinTally');
-var player2TournamentLossTally = document.querySelector('#player2TournamentLossTally');
+var player1WinTally = $('#player1WinTally');
+var player1LossTally = $('#player1LossTally');
+var player2WinTally = $('#player2WinTally');
+var player2LossTally = $('#player2LossTally');
+var player1TournamentWinTally = $('#player1TournamentWinTally');
+var player1TournamentLossTally = $('#player1TournamentLossTally');
+var player2TournamentWinTally = $('#player2TournamentWinTally');
+var player2TournamentLossTally = $('#player2TournamentLossTally');
 var pOneWin = 0;
 var pOneLoss = 0;
 var pTwoWin = 0;
@@ -723,6 +723,6 @@ var ptTwoWin = 0;
 var ptTwoLoss = 0;
 
 createBoard();
-var tablePiece = document.querySelectorAll('table>tr>td>div');
-gameButton.addEventListener('click', buttonLogic);
+var tablePiece = $('table>tr>td>div');
+gameButton.on('click', buttonLogic);
 
