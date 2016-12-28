@@ -623,14 +623,14 @@ var resetTournament = function(){
 var resetGame = function(){
       num = 0;
       for (var i = 0; i < tablePiece.length; i++){
-        tablePiece[i].setAttribute('color','');
+        tablePiece[i].attr('color','');
       }
       for(i = 0; i < 7; i++){
-        standardPieceOne[i].setAttribute('id','');
+        standardPieceOne[i].attr('id','');
       }
-      moveSelectTable.removeEventListener('click', gameFunc);
-      turnResult.textContent = 'Game not active';
-      pieceTitle.textContent = '';
+      moveSelectTable.off('click', gameFunc);
+      turnResult.text('Game not active');
+      pieceTitle.text('');
 };
 
 var startTournament = function(){
