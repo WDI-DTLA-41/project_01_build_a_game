@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- mobile meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project 1: WAR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
+   <link rel="stylesheet" href="css/animate.css">
+</head>
+
+<body>
+  <h1>WAR</h1>
+  <button class="start">Start Game</button>
+  <button class="restart">Restart</button>
+
+  <div class="scoreBoard">
+          <h3>SCORE</h3>
+          <p class="dScore">Dealer Cards: <span class="dealerScore">0</span></p>
+          <p class="pScore">Your Cards: <span class="playerScore">0</span></p>
+          <img src="http://rs1212.pbsrc.com/albums/cc447/Nessaarr/Pixels/cat2.gif~c200" alt="bit_kitty">
+  </div>
+  <div class="board">
+    <div class="row1">
+      <div class="dealerBoard" data-row="0" data-col="0"><span class="showDealer"></span></div>
+      <div class="dealerHand" data-row="0" data-col="1"></div>
+    </div>
+
+      <div class="row2>">
+        <button class="hit">Hit</button>
+        <div class="playerHand" data-row="1" data-col="0"></div>
+        <div class="playerBoard" data-row="1" data-col="1"><span class="showPlayer"></span></div>
+      </div>
+  </div>
+
+
+<script src="main.js"></script>
+</body>
+</html>
+
+
