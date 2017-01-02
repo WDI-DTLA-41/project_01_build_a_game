@@ -201,3 +201,14 @@ img {
   color: white;
   font-family: 'Knewave', cursive;
 }
+
+.warAlert{
+  color: red;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  font-size: 8em;
+  text-shadow: 4px 4px black;
+  display: none;
+  position: absolute;
+}

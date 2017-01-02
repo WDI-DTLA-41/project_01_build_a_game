@@ -11,6 +11,7 @@ var restartBtn = document.querySelector('.restart');
 var playerWarCard = document.querySelector('.playerWarCard');
 var dealerWarCard = document.querySelector('.dealerWarCard');
 
+
 var playerBoard;
 var playerHand = [];
 var playerCard = [];
@@ -156,8 +157,7 @@ var compare = function(user){
     tempDealCard = dealerCard;
     playerCard = playerHand.splice(0,4);
     dealerCard = dealerHand.splice(0,4);
-  }
-
+  };
 
 /**
 * Function compares card values during War
