@@ -52,8 +52,13 @@ var createDeck = function(){
       deck.push(card);
     }
   }
-}
-createDeck();
+  shuffle(deck);
+  split(deck);
+  deal(deck);
+  startGameBtn.disabled = true;
+};
+
+// createDeck();
 
 /**
 * Function shuffles deck of cards by moving around 1 random card in the deck
@@ -160,7 +165,7 @@ var compare = function(user){
 function compareWar(){
     if (playerCard[3].value === dealerCard[3].value) {
     war();
-    warOnWar();
+    // warOnWar();
   } else if (playerCard[3].value > dealerCard[3].value){
     wPlayer = playerCard.concat(dealerCard);
     playerHand = playerHand.concat(wPlayer);
@@ -209,6 +214,7 @@ var restart = function () {
   dealerScore.innerHTML = dealerHand.length;
   playerBoard.innerHTML = "";
   dealerBoard.innerHTML = "";
+  startGameBtn.disabled = false;
 };
 
 
@@ -230,11 +236,10 @@ var winner = function(){
 
 
 startGameBtn.addEventListener('click', createDeck);
-startGameBtn.addEventListener('click', shuffle);
-startGameBtn.addEventListener('click', split);
+// startGameBtn.addEventListener('click', shuffle(deck));
+// startGameBtn.addEventListener('click', split(deck));
 hitBtn.addEventListener('click', deal);
 restartBtn.addEventListener('click', restart);
-
 
 
 
