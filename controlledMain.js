@@ -1,10 +1,10 @@
 
-var $playerA = jQuery('.playerA')
-var $playerB = jQuery('.playerB')
-var $handA = jQuery('.handA')
-var $handB = jQuery('.handB')
-var $scoreA = jQuery('.scoreA')
-var $scoreB = jQuery('.scoreB')
+var playerA = document.querySelector('.playerA')
+var playerB = document.querySelector('.playerB')
+var handA = document.querySelector('.handA')
+var handB = document.querySelector('.handB')
+var scoreA = document.querySelector('.scoreA')
+var scoreB = document.querySelector('.scoreB')
 
 var arena1 = [];
 var arena2 = [];
@@ -62,8 +62,8 @@ var shuffleandSetup = function(deck) {
 var addCardsToArena = function() {
   arena1 = deckA.shift();
   arena2 = deckB.shift();
-  $handA.innerHTML = arena1;
-  $handB.innerHTML = arena2;
+  handA.innerHTML = arena1;
+  handB.innerHTML = arena2;
   console.log('CM card => ', arena1);
   console.log('JD card => ', arena2);
   compareCards();
@@ -99,17 +99,17 @@ var compareCards = function() {
       console.log('War is declared!!!');
   } else if (deckA > 51 || deckB < 1) {
       console.log('Winner is one and only Captain Morgan of the Sea!!');
-      $handA.innerHTML = 'Winner!'
-      $handB.innerHTML = 'Loser!'
+      handA.innerHTML = 'Winner!'
+      handB.innerHTML = 'Loser!'
   } else if (deckB > 51 || deckA < 1) {
       console.log('Winner is Jack Daniels the bootlicker!!')
-      $handB.innerHTML = 'Win!'
-      $handA.innerHTML = 'Lose!'
+      handB.innerHTML = 'Win!'
+      handA.innerHTML = 'Lose!'
   } else {
     console.log('Gewd Luck..')
   }
-    $scoreA.innerHTML = deckA.length;
-    $scoreB.innerHTML = deckB.length;
+    scoreA.innerHTML = deckA.length;
+    scoreB.innerHTML = deckB.length;
 }
 /** this function expression is for war
   * sets up 2 empty Arrays as Holders for Repeat-Wars
