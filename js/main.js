@@ -1,13 +1,22 @@
-// console.log('beep boop beep');
-
 // querySelectors for the Buttons
-var greenBtn = document.querySelector('#green');
-var redBtn = document.querySelector('#red');
-var yellowBtn = document.querySelector('#yellow');
-var blueBtn = document.querySelector('#blue');
-var startBtn = document.querySelector('#start');
-var counter = document.querySelector('#counter');
-var btnContainer = document.querySelector('#btn-container');
+const $greenBtn = $('#green');
+const $redBtn = $('#red');
+const $yellowBtn = $('#yellow');
+const $blueBtn = $('#blue');
+const $startBtn = $('#start');
+const $counter = $('#counter');
+const $btnContainer = $('#btn-container');
+const $hardBtn = $('#hardmode');
+const $audioOne = $('audio');
+const $replayBtn = $('#replay');
+const $praiseTag = $('p');
+// var greenBtn = document.querySelector('#green');
+// var redBtn = document.querySelector('#red');
+// var yellowBtn = document.querySelector('#yellow');
+// var blueBtn = document.querySelector('#blue');
+// var startBtn = document.querySelector('#start');
+// var counter = document.querySelector('#counter');
+// var btnContainer = document.querySelector('#btn-container');
 var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
 var sequenceLast = null;
@@ -20,7 +29,7 @@ var praiseTag = document.querySelector('p');
 var sequence = null;
 
 // random number generator (1-4)
-var randomGen = function() {
+const randomGen = function() {
   return Math.ceil(Math.random()*4);
 };
 
@@ -28,28 +37,28 @@ var randomGen = function() {
 var startColorFlash = function () {
   sequence = randomGen();
   if (sequence === 1) {
-    audioOne[0].play();
-    greenBtn.style.backgroundColor = 'black';
+    $audioOne[0].play();
+    $greenBtn.css('backgroundColor','black');
     setTimeout(function() {
-    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    $greenBtn.css('backgroundColor','rgb(193,253,51)');
     },250);
   } else if (sequence === 2) {
-    audioOne[4].play();
-    redBtn.style.backgroundColor = 'black';
+    $audioOne[4].play();
+    $redBtn.css('backgroundColor','black');
     setTimeout(function() {
-    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    $redBtn.css('backgroundColor','rgb(252,90,184)');
     },250);
   } else if (sequence === 3) {
-    audioOne[2].play();
-    yellowBtn.style.backgroundColor = 'black';
+    $audioOne[2].play();
+    $yellowBtn.css('backgroundColor','black');
     setTimeout(function() {
-    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    $yellowBtn.css('backgroundColor','rgb(243,243,21)');
     },250);
   } else {
-    audioOne[3].play();
-    blueBtn.style.backgroundColor = 'black';
+    $audioOne[3].play();
+    $blueBtn.css('backgroundColor','black');
     setTimeout(function() {
-    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    $blueBtn.css('backgroundColor','rgb(13,213,252)');
     },250);
   }
   sequenceArr.push(sequence);
@@ -60,28 +69,28 @@ var startColorFlash = function () {
 var startHardGameFlash = function () {
   sequence = randomGen();
   if (sequence === 1) {
-    audioOne[5].play();
-    greenBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $greenBtn.css('backgroundColor','black');
     setTimeout(function() {
-    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    $greenBtn.css('backgroundColor','rgb(193,253,51)');
     },100);
   } else if (sequence === 2) {
-    audioOne[5].play();
-    redBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $redBtn.css('backgroundColor','black');
     setTimeout(function() {
-    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    $redBtn.css('backgroundColor','rgb(252,90,184)');
     },100);
   } else if (sequence === 3) {
-    audioOne[5].play();
-    yellowBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $yellowBtn.css('backgroundColor','black');
     setTimeout(function() {
-    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    $yellowBtn.css('backgroundColor','rgb(243,243,21)');
     },100);
   } else {
-    audioOne[5].play();
-    blueBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $blueBtn.css('backgroundColor','black');
     setTimeout(function() {
-    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    $blueBtn.css('backgroundColor','rgb(13,213,252)');
     },100);
   }
   sequenceArr.push(sequence);
@@ -94,28 +103,28 @@ var addColorFlash = function () {
   addCounter();
   sequence = randomGen();
   if (sequence === 1) {
-    audioOne[0].play();
-    greenBtn.style.backgroundColor = 'black';
+    $audioOne[0].play();
+    $greenBtn.css('backgroundColor','black');
     setTimeout(function() {
-    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    $greenBtn.css('backgroundColor','rgb(193,253,51)');
     },250);
   } else if (sequence === 2) {
-    audioOne[4].play();
-    redBtn.style.backgroundColor = 'black';
+    $audioOne[4].play();
+    $redBtn.css('backgroundColor','black');
     setTimeout(function() {
-    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    $redBtn.css('backgroundColor','rgb(252,90,184)');
     },250);
   } else if (sequence === 3) {
-    audioOne[2].play();
-    yellowBtn.style.backgroundColor = 'black';
+    $audioOne[2].play();
+    $yellowBtn.css('backgroundColor','black');
     setTimeout(function() {
-    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    $yellowBtn.css('backgroundColor','rgb(243,243,21)');
     },250);
   } else {
-    audioOne[3].play();
-    blueBtn.style.backgroundColor = 'black';
+    $audioOne[3].play();
+    $blueBtn.css('backgroundColor','black');
     setTimeout(function() {
-    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    $blueBtn.css('backgroundColor','rgb(13,213,252)');
     },250);
   }
   sequenceArr.push(sequence);
@@ -128,28 +137,28 @@ var hardAddColorFlash = function () {
   addCounter();
   sequence = randomGen();
   if (sequence === 1) {
-    audioOne[5].play();
-    greenBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $greenBtn.css('backgroundColor','black');
     setTimeout(function() {
-    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    $greenBtn.css('backgroundColor','rgb(193,253,51)');
     },100);
   } else if (sequence === 2) {
-    audioOne[5].play();
-    redBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $redBtn.css('backgroundColor','black');
     setTimeout(function() {
-    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    $redBtn.css('backgroundColor','rgb(252,90,184)');
     },100);
   } else if (sequence === 3) {
-    audioOne[5].play();
-    yellowBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $yellowBtn.css('backgroundColor','black');
     setTimeout(function() {
-    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    $yellowBtn.css('backgroundColor','rgb(243,243,21)');
     },100);
   } else {
-    audioOne[5].play();
-    blueBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $blueBtn.css('backgroundColor','black');
     setTimeout(function() {
-    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    $blueBtn.css('backgroundColor','rgb(13,213,252)');
     },100);
   }
   sequenceArr.push(sequence);
@@ -161,56 +170,56 @@ var hardAddColorFlash = function () {
 // to be called back in the recursiveLights function
 var replayColorFlash = function (color) {
   if (color === 1) {
-    audioOne[0].play();
-    greenBtn.style.backgroundColor = 'black';
+    $audioOne[0].play();
+    $greenBtn.css('backgroundColor','black');
     setTimeout(function() {
-    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    $greenBtn.css('backgroundColor','rgb(193,253,51)');
     },250);
   } else if (color === 2) {
-    audioOne[4].play();
-    redBtn.style.backgroundColor = 'black';
+    $audioOne[4].play();
+    $redBtn.css('backgroundColor','black');
     setTimeout(function() {
-    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    $redBtn.css('backgroundColor','rgb(252,90,184)');
     },250);
   } else if (color === 3) {
-    audioOne[2].play();
-    yellowBtn.style.backgroundColor = 'black';
+    $audioOne[2].play();
+    $yellowBtn.css('backgroundColor','black');
     setTimeout(function() {
-    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    $yellowBtn.css('backgroundColor','rgb(243,243,21)');
     },250);
   } else if (color === 4) {
-    audioOne[3].play();
-    blueBtn.style.backgroundColor = 'black';
+    $audioOne[3].play();
+    $blueBtn.css('backgroundColor','black');
     setTimeout(function() {
-    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    $blueBtn.css('backgroundColor','rgb(13,213,252)');
     },250);
   }
 };
 
 var replayHardColorFlash = function (color) {
   if (color === 1) {
-    audioOne[5].play();
-    greenBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $greenBtn.css('backgroundColor','black');
     setTimeout(function() {
-    greenBtn.style.backgroundColor = 'rgb(193,253,51)';
+    $greenBtn.css('backgroundColor','rgb(193,253,51)');
     },100);
   } else if (color === 2) {
-    audioOne[5].play();
-    redBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $redBtn.css('backgroundColor','black');
     setTimeout(function() {
-    redBtn.style.backgroundColor = 'rgb(252,90,184)';
+    $redBtn.css('backgroundColor','rgb(252,90,184)');
     },100);
   } else if (color === 3) {
-    audioOne[5].play();
-    yellowBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $yellowBtn.css('backgroundColor','black');
     setTimeout(function() {
-    yellowBtn.style.backgroundColor = 'rgb(243,243,21)';
+    $yellowBtn.css('backgroundColor','rgb(243,243,21)');
     },100);
   } else if (color === 4) {
-    audioOne[5].play();
-    blueBtn.style.backgroundColor = 'black';
+    $audioOne[5].play();
+    $blueBtn.css('backgroundColor','black');
     setTimeout(function() {
-    blueBtn.style.backgroundColor = 'rgb(13,213,252)';
+    $blueBtn.css('backgroundColor','rgb(13,213,252)');
     },100);
   }
 };
@@ -242,14 +251,14 @@ function hardRecursiveLights(arr, i = 0) {
 
 // adds to the counter for each function loop
 var addCounter = function() {
-  counterVal += 1;
-  counter.textContent = counterVal;
+  counterVal ++;
+  $counter.text(counterVal);
 };
 
 // resets the Counter back to 0
 var resetCounter = function() {
   counterVal = 0;
-  counter.textContent = 0;
+  $counter.text(counterVal);
 };
 
 // clears the sequenceArr and userInput
@@ -261,12 +270,13 @@ var clearSequence = function() {
 
 // gameOver function when userInput is incorrect
 var gameOver = function() {
-  btnContainer.removeEventListener('click', handleUserInput);
-  btnContainer.removeEventListener('click', handleHardUserInput);
+  $btnContainer.off('click', handleUserInput);
+  $btnContainer.off('click', handleHardUserInput);
+  enableButtons();
   resetCounter();
   clearSequence();
-  audioOne[1].play();
-  praiseTag.textContent = 'DON\'T YOU WANT A REMATCH?';
+  $audioOne[1].play();
+  $praiseTag.text('DON\'T YOU WANT A REMATCH?');
   return setTimeout(clearPraiseTag,5000);
 };
 
@@ -299,57 +309,58 @@ var hardCheckInput = function() {
 */
 var praise = function() {
   if (counterVal === 35) {
-    audioOne[8].play();
-    praiseTag.textContent = 'THANK YOU! BUT OUR PRINCESS IS IN ANOTHER CASTLE!';
+    $audioOne[8].play();
+    $praiseTag.text('THANK YOU! BUT OUR PRINCESS IS IN ANOTHER CASTLE!');
     return setTimeout(clearPraiseTag,6000);
   } else if (counterVal % 11 === 0)  {
-    audioOne[7].play();
-    praiseTag.textContent = '1UP';
+    $audioOne[7].play();
+    $praiseTag.text('1UP');
     return setTimeout(clearPraiseTag,3500);
   } else if (counterVal % 5 === 0) {
-    audioOne[6].play();
-    praiseTag.textContent = '!@#$ YEA!';
+    $audioOne[6].play();
+    $praiseTag.text('!@#$ YEA!');
     return setTimeout(clearPraiseTag,3500);
   }
 };
 
 // Show the player it is their turn to act
 var playerTurn = function() {
-  praiseTag.textContent = 'YOUR TURN!';
+  $praiseTag.text('YOUR TURN!');
   return setTimeout(clearPraiseTag,500*sequenceArr.length);
 };
 
 var clearPraiseTag = function() {
-  return praiseTag.textContent = '';
+  return $praiseTag.text('');
 };
 
 // handle to convert userInput to a number in the sequence
 var handleUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
-    if (userInputInt === greenBtn.dataset.number) {
-      audioOne[0].play();
+    console.log('userInputInt', userInputInt)
+    if (userInputInt == $greenBtn.data('number') ) {
+      $audioOne[0].play();
       return userInput.push(1);
-    } else if (userInputInt === redBtn.dataset.number) {
-      audioOne[4].play();
+    } else if (userInputInt == $redBtn.data('number') ) {
+      $audioOne[4].play();
       return userInput.push(2);
-    } else if (userInputInt === yellowBtn.dataset.number) {
-      audioOne[2].play();
+    } else if (userInputInt == $yellowBtn.data('number') ) {
+      $audioOne[2].play();
       return userInput.push(3);
     } else {
-      audioOne[3].play();
+      $audioOne[3].play();
       return userInput.push(4);
     }
 };
 
 var handleHardUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
-    if (userInputInt === greenBtn.dataset.number) {
+    if (userInputInt == $greenBtn.data('number') ) {
       audioOne[5].play();
       return userInput.push(1);
-    } else if (userInputInt === redBtn.dataset.number) {
+    } else if (userInputInt == $redBtn.data('number') ) {
       audioOne[5].play();
       return userInput.push(2);
-    } else if (userInputInt === yellowBtn.dataset.number) {
+    } else if (userInputInt == $yellowBtn.data('number') ) {
       audioOne[5].play();
       return userInput.push(3);
     } else {
@@ -358,23 +369,36 @@ var handleHardUserInput = function(event) {
     }
 };
 
+var disableButtons = function() {
+  $startBtn.off('click', handleStartGame);
+  $hardBtn.off('click', handleHardMode);
+  $replayBtn.off('click', handleReplay);
+}
+
+var enableButtons = function() {
+  $startBtn.on('click', handleStartGame);
+  $hardBtn.on('click', handleHardMode);
+  $replayBtn.on('click', handleReplay);
+}
 // function to handle the game on click start button
 var handleStartGame = function() {
   addCounter();
-  btnContainer.addEventListener('click', handleUserInput);
+  disableButtons();
+  $btnContainer.on('click', handleUserInput);
   setTimeout(startColorFlash,2500);
 };
 
 // function to handle the hard mode on click of hard button
 var handleHardMode = function() {
-  audioOne[9].play();
+  $audioOne[9].play();
+  disableButtons();
   addCounter();
-  btnContainer.addEventListener('click', handleHardUserInput);
+  $btnContainer.on('click', handleHardUserInput);
   return setTimeout(startHardGameFlash,2500);
 };
 
 var handleReplay = function() {
-  praiseTag.textContent = 'I THINK MAYBE IT WENT LIKE THIS...';
+  $praiseTag.text('I THINK MAYBE IT WENT LIKE THIS...');
   setTimeout(clearPraiseTag,4000);
   return recursiveLights(sequenceLast);
 };
@@ -398,36 +422,60 @@ var handleReturnColor = function() {
 };
 
 // add EventListener for startBtn to start game
-startBtn.addEventListener('click',handleStartGame);
+// $startBtn.addEventListener('click',handleStartGame);
+$startBtn.on('click', handleStartGame)
 
 // add EventListener for Hard Mode button
-hardBtn.addEventListener('click', handleHardMode);
+// $hardBtn.addEventListener('click', handleHardMode);
+$hardBtn.on('click', handleHardMode)
 
 // add EventListener for Replay button
-replayBtn.addEventListener('click', handleReplay);
+// $replayBtn.addEventListener('click', handleReplay);
+$replayBtn.on('click', handleReplay);
+
+
 
 //add EventListeners for mouseover effects
-greenBtn.addEventListener('mouseover', handleCursor);
-greenBtn.addEventListener('mouseout', handleRemoveCursor);
-greenBtn.addEventListener('click', handleRemoveColor);
-redBtn.addEventListener('mouseover', handleCursor);
-redBtn.addEventListener('mouseout', handleRemoveCursor);
-redBtn.addEventListener('click', handleRemoveColor);
-yellowBtn.addEventListener('mouseover', handleCursor);
-yellowBtn.addEventListener('mouseout', handleRemoveCursor);
-yellowBtn.addEventListener('click', handleRemoveColor);
-blueBtn.addEventListener('mouseover', handleCursor);
-blueBtn.addEventListener('mouseout', handleRemoveCursor);
-blueBtn.addEventListener('click', handleRemoveColor);
-replayBtn.addEventListener('mouseover', handleCursor);
-replayBtn.addEventListener('mouseout', handleRemoveCursor);
-startBtn.addEventListener('mouseover', handleCursor);
-startBtn.addEventListener('mouseout', handleRemoveCursor);
-hardBtn.addEventListener('mouseover', handleCursor);
-hardBtn.addEventListener('mouseout', handleRemoveCursor);
+// greenBtn.addEventListener('mouseover', handleCursor);
+// greenBtn.addEventListener('mouseout', handleRemoveCursor);
+// greenBtn.addEventListener('click', handleRemoveColor);
+$greenBtn.on('click', handleRemoveColor)
+$greenBtn.on('mouseover', handleCursor)
 
 
-// Hi ^_-
+// redBtn.addEventListener('mouseover', handleCursor);
+// redBtn.addEventListener('mouseout', handleRemoveCursor);
+// redBtn.addEventListener('click', handleRemoveColor);
+$redBtn.on('click', handleRemoveColor);
+$redBtn.on('mouseover', handleCursor);
+
+// yellowBtn.addEventListener('mouseover', handleCursor);
+// yellowBtn.addEventListener('mouseout', handleRemoveCursor);
+$yellowBtn.on('mouseover', handleCursor);
+$yellowBtn.on('click', handleRemoveColor);
+// yellowBtn.addEventListener('click', handleRemoveColor);
+
+// blueBtn.addEventListener('mouseover', handleCursor);
+// blueBtn.addEventListener('mouseout', handleRemoveCursor);
+$blueBtn.on('mouseover', handleCursor);
+$blueBtn.on('click', handleRemoveColor)
+// blueBtn.addEventListener('click', handleRemoveColor);
+
+
+// replayBtn.addEventListener('mouseover', handleCursor);
+// replayBtn.addEventListener('mouseout', handleRemoveCursor);
+$replayBtn.on('mouseover', handleCursor);
+
+// startBtn.addEventListener('mouseover', handleCursor);
+// startBtn.addEventListener('mouseout', handleRemoveCursor);
+$startBtn.on('mouseover', handleCursor);
+
+// hardBtn.addEventListener('mouseover', handleCursor);
+// hardBtn.addEventListener('mouseout', handleRemoveCursor);
+$hardBtn.on('mouseover', handleCursor)
+
+
+
 
 
 
