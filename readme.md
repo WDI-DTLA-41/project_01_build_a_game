@@ -1,17 +1,17 @@
-1. A description of the game.
+###Neon Simon
 
-This game is called Simon and is a visual memory game.
+This game is called Neon Simon and is a visual memory game.
 It is designed to test how well the user can memorize the sequence 
 of flashing colors. As the user selects the correct color pattern the 
 game will continue to progress and add an additional color to the 
 color pattern sequence.
 
-2. What technologies are being used?
+###Technologies
 
-This game was created using HTML5, CSS, and Javascript. There is a third
-party method being used from underscore.js. 
+This game was created using HTML5, CSS3, and Javascript along with 
+JQuery and underscore.js libraries. 
 
-3. Instructions of the game.
+###Instructions
 
 The user will press the Start button and the game will start.
 Once the game starts one of the colored buttons will flash along with a 
@@ -30,8 +30,7 @@ sequence. The color flashes will have an uniform audio clip and the
 there will be no praise for any level achievement. When the user presses
 the Replay button the sequence from the last played game will replay. 
 
-
-4. What are the unsoloved problems or planned features(Next Steps)?
+###Unsolved Problems and Planned Features
 
 One issue that was unsolved was the ability to check the user's sequence
 immediately after the user clicks a color button. Other planned features
