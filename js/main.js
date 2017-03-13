@@ -416,25 +416,17 @@ $hardBtn.on('click', handleHardMode);
 // add EventListener for Replay button
 $replayBtn.on('click', handleReplay);
 
-
-
 //add EventListeners for mouseover effects
 $greenBtn.on('click', handleRemoveColor);
 $greenBtn.on('mouseover', handleCursor);
-
 $redBtn.on('click', handleRemoveColor);
 $redBtn.on('mouseover', handleCursor);
-
 $yellowBtn.on('mouseover', handleCursor);
 $yellowBtn.on('click', handleRemoveColor);
-
 $blueBtn.on('mouseover', handleCursor);
 $blueBtn.on('click', handleRemoveColor);
-
 $replayBtn.on('mouseover', handleCursor);
-
 $startBtn.on('mouseover', handleCursor);
-
 $hardBtn.on('mouseover', handleCursor);
 
 
