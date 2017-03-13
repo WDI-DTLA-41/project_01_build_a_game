@@ -302,12 +302,12 @@ var praise = function() {
     $praiseTag.text('THANK YOU! BUT OUR PRINCESS IS IN ANOTHER CASTLE!');
     return setTimeout(clearPraiseTag,6000);
   } else if (counterVal % 11 === 0)  {
-    $audioOne[7].play();
-    $praiseTag.text('1UP');
-    return setTimeout(clearPraiseTag,3500);
-  } else if (counterVal % 5 === 0) {
     $audioOne[6].play();
     $praiseTag.text('!@#$ YEA!');
+    return setTimeout(clearPraiseTag,3500);
+  } else if (counterVal % 5 === 0) {
+    $audioOne[7].play();
+    $praiseTag.html('<img src="http://i.imgur.com/PXDT2nls.png" title="source: imgur.com" />');
     return setTimeout(clearPraiseTag,3500);
   }
 };
