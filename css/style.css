@@ -6,13 +6,16 @@
 body {
   background: black;
   color: white;
+  font-family: 'IM Fell DW Pica SC', serif;
 }
 
 
 h1 {
   display: inline-block;
-  font-family: 'Trade Winds', cursive;
+  position: relative;
   font-size: 40px;
+  top: 10px;
+  left: 60px;
 }
 
 button {
@@ -20,7 +23,6 @@ button {
   position: absolute;
   left: 260px;
   top: 50px;
-  font-family: 'Trade Winds', cursive;
   font-size: 14px;
   height: 50px;
   width: 125px;
@@ -55,37 +57,37 @@ div {
 }
 
 .head {
-  left: 190px;
+  left: 180px;
   top: 137px;
   visibility: hidden;
 }
 
 .body {
-  left: 190px;
+  left: 180px;
   top: 170px;
   visibility: hidden;
 }
 
 .leftarm {
-  left: 175px;
+  left: 165px;
   top: 180px;
   visibility: hidden;
 }
 
 .rightarm {
-  left: 222px;
+  left: 212px;
   top: 176px;
   visibility: hidden;
 }
 
 .leftleg {
-  left: 190px;
+  left: 180px;
   top: 225px;
   visibility: hidden;
 }
 
 .rightleg {
-  left: 212px;
+  left: 202px;
   top:225px;
   visibility: hidden;
 }
@@ -104,12 +106,10 @@ div {
   border: 2px solid white;
   left: 550px;
   top: 50px;
-  font-family: 'Trade Winds', cursive;
   text-align: center;
 }
 
 .lose {
-  font-family: 'Trade Winds', cursive;
   font-size: 30px;
   color: red;
   left: 260px;
@@ -120,7 +120,6 @@ div {
 }
 
 .win {
-  font-family: 'Trade Winds', cursive;
   font-size: 30px;
   color: green;
   left: 260px;
@@ -153,7 +152,7 @@ p {
 
 .wordGuess {
   position: absolute;
-  top: 18px;
+  top: 20px;
   left: 126px;
   height: 25px;
   width: 125px;
@@ -164,5 +163,4 @@ p {
   left: 50px;
   top: -10px;
   width: 150px;
-  font-family: 'Trade Winds', cursive;
 }
