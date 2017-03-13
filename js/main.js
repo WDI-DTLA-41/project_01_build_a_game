@@ -10,7 +10,7 @@ var $hardBtn = $('#hardmode');
 var $audioOne = $('audio');
 var $replayBtn = $('#replay');
 var $praiseTag = $('p');
-var counterVal = parseInt(counter.textContent);
+var counterVal = parseInt($counter.text());
 var sequenceArr = [];
 var sequenceLast = [];
 var userInput = [];
@@ -18,7 +18,7 @@ var btnTar = null;
 var sequence = [];
 
 // random number generator (1-4)
-const randomGen = function() {
+var randomGen = function() {
   return Math.ceil(Math.random()*4);
 };
 
@@ -325,7 +325,6 @@ var clearPraiseTag = function() {
 // handle to convert userInput to a number in the sequence
 var handleUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
-    console.log('userInputInt', userInputInt)
     if (userInputInt == $greenBtn.data('number') ) {
       $audioOne[0].play();
       return userInput.push(1);
@@ -362,13 +361,14 @@ var disableButtons = function() {
   $startBtn.off('click', handleStartGame);
   $hardBtn.off('click', handleHardMode);
   $replayBtn.off('click', handleReplay);
-}
+};
 
 var enableButtons = function() {
   $startBtn.on('click', handleStartGame);
   $hardBtn.on('click', handleHardMode);
   $replayBtn.on('click', handleReplay);
-}
+};
+
 // function to handle the game on click start button
 var handleStartGame = function() {
   addCounter();
@@ -396,9 +396,6 @@ var handleCursor = function (event) {
   event.target.style.cursor = 'pointer';
 };
 
-var handleRemoveCursor = function (event) {
-  event.target.style.cursor = '';
-};
 
 var handleRemoveColor = function(event) {
   btnTar = event.target;
@@ -411,10 +408,10 @@ var handleReturnColor = function() {
 };
 
 // add EventListener for startBtn to start game
-$startBtn.on('click', handleStartGame)
+$startBtn.on('click', handleStartGame);
 
 // add EventListener for Hard Mode button
-$hardBtn.on('click', handleHardMode)
+$hardBtn.on('click', handleHardMode);
 
 // add EventListener for Replay button
 $replayBtn.on('click', handleReplay);
@@ -422,8 +419,8 @@ $replayBtn.on('click', handleReplay);
 
 
 //add EventListeners for mouseover effects
-$greenBtn.on('click', handleRemoveColor)
-$greenBtn.on('mouseover', handleCursor)
+$greenBtn.on('click', handleRemoveColor);
+$greenBtn.on('mouseover', handleCursor);
 
 $redBtn.on('click', handleRemoveColor);
 $redBtn.on('mouseover', handleCursor);
@@ -432,13 +429,13 @@ $yellowBtn.on('mouseover', handleCursor);
 $yellowBtn.on('click', handleRemoveColor);
 
 $blueBtn.on('mouseover', handleCursor);
-$blueBtn.on('click', handleRemoveColor)
+$blueBtn.on('click', handleRemoveColor);
 
 $replayBtn.on('mouseover', handleCursor);
 
 $startBtn.on('mouseover', handleCursor);
 
-$hardBtn.on('mouseover', handleCursor)
+$hardBtn.on('mouseover', handleCursor);
 
 
 
