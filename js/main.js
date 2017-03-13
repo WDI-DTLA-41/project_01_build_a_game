@@ -1,32 +1,21 @@
-// querySelectors for the Buttons
-const $greenBtn = $('#green');
-const $redBtn = $('#red');
-const $yellowBtn = $('#yellow');
-const $blueBtn = $('#blue');
-const $startBtn = $('#start');
-const $counter = $('#counter');
-const $btnContainer = $('#btn-container');
-const $hardBtn = $('#hardmode');
-const $audioOne = $('audio');
-const $replayBtn = $('#replay');
-const $praiseTag = $('p');
-// var greenBtn = document.querySelector('#green');
-// var redBtn = document.querySelector('#red');
-// var yellowBtn = document.querySelector('#yellow');
-// var blueBtn = document.querySelector('#blue');
-// var startBtn = document.querySelector('#start');
-// var counter = document.querySelector('#counter');
-// var btnContainer = document.querySelector('#btn-container');
+// JQuery for the Buttons
+var $greenBtn = $('#green');
+var $redBtn = $('#red');
+var $yellowBtn = $('#yellow');
+var $blueBtn = $('#blue');
+var $startBtn = $('#start');
+var $counter = $('#counter');
+var $btnContainer = $('#btn-container');
+var $hardBtn = $('#hardmode');
+var $audioOne = $('audio');
+var $replayBtn = $('#replay');
+var $praiseTag = $('p');
 var counterVal = parseInt(counter.textContent);
 var sequenceArr = [];
-var sequenceLast = null;
+var sequenceLast = [];
 var userInput = [];
-var hardBtn = document.querySelector('#hardmode');
-var audioOne = document.querySelectorAll('audio');
-var replayBtn = document.querySelector('#replay');
 var btnTar = null;
-var praiseTag = document.querySelector('p');
-var sequence = null;
+var sequence = [];
 
 // random number generator (1-4)
 const randomGen = function() {
@@ -355,16 +344,16 @@ var handleUserInput = function(event) {
 var handleHardUserInput = function(event) {
   var userInputInt = (event.target.dataset.number);
     if (userInputInt == $greenBtn.data('number') ) {
-      audioOne[5].play();
+      $audioOne[5].play();
       return userInput.push(1);
     } else if (userInputInt == $redBtn.data('number') ) {
-      audioOne[5].play();
+      $audioOne[5].play();
       return userInput.push(2);
     } else if (userInputInt == $yellowBtn.data('number') ) {
-      audioOne[5].play();
+      $audioOne[5].play();
       return userInput.push(3);
     } else {
-      audioOne[5].play();
+      $audioOne[5].play();
       return userInput.push(4);
     }
 };
@@ -422,56 +411,33 @@ var handleReturnColor = function() {
 };
 
 // add EventListener for startBtn to start game
-// $startBtn.addEventListener('click',handleStartGame);
 $startBtn.on('click', handleStartGame)
 
 // add EventListener for Hard Mode button
-// $hardBtn.addEventListener('click', handleHardMode);
 $hardBtn.on('click', handleHardMode)
 
 // add EventListener for Replay button
-// $replayBtn.addEventListener('click', handleReplay);
 $replayBtn.on('click', handleReplay);
 
 
 
 //add EventListeners for mouseover effects
-// greenBtn.addEventListener('mouseover', handleCursor);
-// greenBtn.addEventListener('mouseout', handleRemoveCursor);
-// greenBtn.addEventListener('click', handleRemoveColor);
 $greenBtn.on('click', handleRemoveColor)
 $greenBtn.on('mouseover', handleCursor)
 
-
-// redBtn.addEventListener('mouseover', handleCursor);
-// redBtn.addEventListener('mouseout', handleRemoveCursor);
-// redBtn.addEventListener('click', handleRemoveColor);
 $redBtn.on('click', handleRemoveColor);
 $redBtn.on('mouseover', handleCursor);
 
-// yellowBtn.addEventListener('mouseover', handleCursor);
-// yellowBtn.addEventListener('mouseout', handleRemoveCursor);
 $yellowBtn.on('mouseover', handleCursor);
 $yellowBtn.on('click', handleRemoveColor);
-// yellowBtn.addEventListener('click', handleRemoveColor);
 
-// blueBtn.addEventListener('mouseover', handleCursor);
-// blueBtn.addEventListener('mouseout', handleRemoveCursor);
 $blueBtn.on('mouseover', handleCursor);
 $blueBtn.on('click', handleRemoveColor)
-// blueBtn.addEventListener('click', handleRemoveColor);
 
-
-// replayBtn.addEventListener('mouseover', handleCursor);
-// replayBtn.addEventListener('mouseout', handleRemoveCursor);
 $replayBtn.on('mouseover', handleCursor);
 
-// startBtn.addEventListener('mouseover', handleCursor);
-// startBtn.addEventListener('mouseout', handleRemoveCursor);
 $startBtn.on('mouseover', handleCursor);
 
-// hardBtn.addEventListener('mouseover', handleCursor);
-// hardBtn.addEventListener('mouseout', handleRemoveCursor);
 $hardBtn.on('mouseover', handleCursor)
 
 
