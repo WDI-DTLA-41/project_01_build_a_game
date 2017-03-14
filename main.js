@@ -450,7 +450,7 @@ var checkWinTournament = function(target,rowNum,columnNum){
 
 var inputPiece = function(evtTarget){
     //Try and input a set timeout to corret the playerTurn Toggle
-
+console.log('I am inputPiece')
   var columnNum = evtTarget.dataset.column;
   turnResult.text(playerTurn());
   if (testTurn === player2){  //inversion of the testTurn toggle equality value
@@ -522,6 +522,8 @@ var gameFunc = function(){
               standardPieceOne.eq(j).attr('id','player2Hov');
             }
           }
+          console.log(event.target)
+          console.log(standardPieceOne.eq(0))
         if(event.target === standardPieceOne.eq(0)){
           inputPiece(event.target);
         } else if (event.target === standardPieceOne.eq(1)){
