@@ -4,7 +4,7 @@ body {
 }
 
 
-div {
+#scorebox {
   outline: 4px solid black;
   height: 80px;
   width: 55px;

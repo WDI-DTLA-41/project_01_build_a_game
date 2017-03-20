@@ -1,3 +1,4 @@
+
 // card suits
 var suits = ["Club", "Heart", "Diamond", "Spade"];
 // card values
@@ -16,17 +17,13 @@ var dealerScore = 0;
 var gameOver = null;
 
 
-// make deck
-/**
-* makes a deck of cards
-*/
 // makes the deck - first for loop iterates through the suit array
 // the second for loop iterates through the values array
 var makeDeck = function() {
   for(var i = 0; i < suits.length; i++) {
    var suit = suits[i];
     for(var j = 0; j < values.length; j++) {
-      var val = values[j];
+      var val = values[j]
       // var suit and var val are taken from each each for loop to crete each card object
       var card = {
             suit: suit,
@@ -36,19 +33,15 @@ var makeDeck = function() {
       deck.push(card);
     }
   }
-};
-
-
+}
 
 // shuffle deck
 // this function randomizes the order of my deck of cards
 var shuffleDeck = function() {
   // deck array = a loDash shuffled deck
-  var deck = _.shuffle(deck);
+  deck = _.shuffle(deck);
   return deck;
-};
-
-
+}
 
 var updateDisplay = function() {
   console.log('UPDATE DISPLAY');
@@ -59,13 +52,10 @@ var updateDisplay = function() {
   var dealerScoreEl = document.querySelector('#dealerscore');
   dealerScoreEl.textContent = dealerScore;
 
-
-
   // update the score panel UI
-  console.log(dealer);
-  console.log(playerOne);
-};
-
+  console.log('dealer = ', dealer);
+  console.log('player one = ', playerOne);
+}
 
 // DEAL CARDS, NO DISPLAY
 var deal = function(){
@@ -78,19 +68,18 @@ var deal = function(){
   dealerHit();
   // get playerOne score total
 
-   };
+   }
    // updateDisplay();
-
 
 // gives playerOne one more card, NO DISPLAY
 var hit = function (player) {
   // take card from deck
-  var card = deck.pop();
+  var card = deck.pop()
   // give card to playerOnes hand
   //  flag player here
   player.push(card);
 
-};
+}
 
 var playerHit = function() {
   console.log('playerHit');
@@ -100,7 +89,7 @@ var playerHit = function() {
   checkPlayerScore();
   console.log('findWinner player');
   console.log("player score is " + playerScore);
-};
+}
 
   // gives dealer one more card
 var dealerHit = function () {
@@ -108,7 +97,7 @@ var dealerHit = function () {
   hit(dealer);
   dealerScore = getValues(dealer);
   // check for bust/21 here
-  console.log("dealer score is " + dealerScore);
+  console.log("dealer score is " + dealerScore)
 
   //  dealer array gets another card but score doesnt update total
   if(dealerScore <= 16) {
@@ -116,7 +105,7 @@ var dealerHit = function () {
   } else if(dealerScore >= 17) {
 
   }
-};
+}
 
 // get dealer score
 var dealerTurn = function() {
@@ -126,7 +115,7 @@ var dealerTurn = function() {
     }
     // checkForWinner()
     findWinner();
-};
+}
 // add score totals
 var getValues = function(cards) {
   var sum = 0;
@@ -149,40 +138,72 @@ var getValues = function(cards) {
     if(val === "Ace") {
       val = 11;
     }
-    sum += val;
+    sum += val
   }
   // show scores
   // displayValues(sum);
   return sum;
-};
+}
+var checkForWin = function() {
+  if(playerScore === 21) {
+    console.log('You Got 21!');
+  } else if(dealerScore === 21) {
+    console.log('Dealer has 21.');
+  } else {
 
+  }
+}
   // conditions for the win
   var findWinner = function() {
     if(playerScore > 21) {
-    gameOver = 'You Bust';
-    console.log("You Bust");
+    gameOver = 'You Bust'
+    console.log("You Bust")
+    var h1 = document.createElement('h1');
+    var results = document.querySelector('#results');
+    h1.textContent = gameOver;
+    results.appendChild(h1);
   } else if (dealerScore > 21) {
     gameOver = "Dealer Busts.";
     console.log('Dealer Busts');
+    var h1 = document.createElement('h1');
+    var results = document.querySelector('#results');
+    h1.textContent = gameOver;
+    results.appendChild(h1);
   } else if(playerScore > dealerScore) {
    gameOver = 'You win!';
     console.log("You Win!");
+    var h1 = document.createElement('h1');
+    var results = document.querySelector('#results');
+    h1.textContent = gameOver;
+    results.appendChild(h1);
   } else if(playerScore < dealerScore) {
-    gameOver = 'You lose.';
+    gameOver = 'You lose.'
     console.log("You Lose");
+    var h1 = document.createElement('h1');
+    var results = document.querySelector('#results');
+    h1.textContent = gameOver;
+    results.appendChild(h1);
   } else if(playerScore === dealerScore) {
-    gameOver = 'You push.';
+    gameOver = 'You push.'
     console.log("Push");
+    var h1 = document.createElement('h1');
+    var results = document.querySelector('#results');
+    h1.textContent = gameOver;
+    results.appendChild(h1);
 
   }
-};
+}
 
 var checkPlayerScore = function () {
+  var h1 = document.createElement('h1');
+  var results = document.querySelector('#results');
+  h1.textContent = gameOver;
+  results.appendChild(h1);
   if(playerScore > 21) {
-    gameOver = 'You Bust';
-    console.log("You Bust");
+    gameOver = 'You Bust'
+    console.log("You Bust")
   }
-};
+}
 var setupEventListeners = function() {
   var dealButton = document.querySelector('#deal');
   dealButton.addEventListener('click', function(event) {
@@ -193,10 +214,15 @@ var setupEventListeners = function() {
     // checkForWinner();
     updateDisplay();
 });
-
+var dealButton = document.getElementById('deal')
+dealButton.addEventListener('click', hideshow, false);
+      function hideshow () {
+        document.getElementById('deal').style.display = 'inline';
+          this.style.display = 'none'
+      }
  //
-var hitButton = document.querySelector('.hit');
-hitButton.addEventListener('click', function(){
+var hitButton = document.querySelector('#hit');
+  hitButton.addEventListener('click', function(){
     // when hit button is clicked, PlayerOne will get 1 more card
     playerHit();
     updateDisplay();
@@ -205,10 +231,13 @@ hitButton.addEventListener('click', function(){
 var stayButton = document.querySelector('#stay');
 stayButton.addEventListener('click', function (){
  // Dealer Plays
+ var h3 = document.createElement('h3');
+ h3.textContent = "Dealers Turn";
+
   console.log('dealers turn');
   dealerTurn();
-});
-};
+})
+}
 
 var startGame = function() {
   console.log('starting game!');
@@ -218,7 +247,7 @@ var startGame = function() {
   // deal();
   updateDisplay(); //  DOM UPDATES
   // findWinner();
-};
+}
 
 // everything above this line should be a variable/function
 startGame();
@@ -232,9 +261,3 @@ deal() {
   updateDisplay(); // if we have a winner, we update here
 }
 */
-
-function main() {
-  return 'Hello, World!';
-}
-
-main();
