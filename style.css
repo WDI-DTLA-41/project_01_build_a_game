@@ -16,6 +16,7 @@ td {
 button {
   width:180px;
   height:35px;
+  background-color: green;
   border-radius:15px;
   display:inline-block;
 }
@@ -348,7 +349,6 @@ section>p {
     width:180px;
     height:35px;
     border-radius:15px;
-    background-color: grey;
     display:inline-block;
   }
 
