@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Connect Four</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+</head>
+<body>
+
+  <div id="wholePage">
+
+    <header>
+      <h1>Justin's Connect Four</h1>
+    </header>
+
+    <div id="mainGame">
+      <div class="gameButton">
+        <button id="startGameButton">Start Game</button>
+        <button id="startTournamentButton">Start Tournament</button>
+        <button id="resetGameButton">Reset Game</button>
+        <button id="resetTournamentButton">Reset Tournament</button>
+        <button id="clearScore">Clear Score</button>
+      </div>
+      <div class="navBox">
+        <div class="navBar">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="instructions.html">Instructions</a></li>
+            <li><a href="contactMe.html">Contact Me</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="stats">
+        <div id="turnBox">
+          <div id="playerTurn">Player's Turn:<br></div><div id="turnResult">Game not active</div>
+        </div>
+        <div id="scores">
+          <h3 class="h3">Scores</h3>
+          <p style="margin-top:0;">W</p><p style="margin-top:0;margin-left:90%;">L</p><br>
+          <span id="player1WinTally">0</span><div class="player1Score">Player 1: </div><span id="player1LossTally">0</span><br>
+          <span id="player2WinTally">0</span><div class="player2Score">Player 2: </div><span id="player2LossTally">0</span>
+        </div>
+        <div id="tournamentScores">
+          <h3 class="h3">Tournament Scores</h3>
+          <p style="margin-top:0;">W</p><p style="margin-top:0;margin-left:90%;">L</p><br>
+          <span id="player1TournamentWinTally">0</span><div class="player1Score">Player 1: </div><span id="player1TournamentLossTally">0</span><br>
+          <span id="player2TournamentWinTally">0</span><div class="player2Score">Player 2: </div><span id="player2TournamentLossTally">0</span>
+        </div>
+      </div>
+
+                                  <p id="pieceTitle"></p>
+      <table class="pieceSelector">
+                                  <tr>
+                                    <td><div class="standardPieceOne" data-column='0'></div></td>
+                                    <td><div class="standardPieceOne" data-column='1'></div></td>
+                                    <td><div class="standardPieceOne" data-column='2'></div></td>
+                                    <td><div class="standardPieceOne" data-column='3'></div></td>
+                                    <td><div class="standardPieceOne" data-column='4'></div></td>
+                                    <td><div class="standardPieceOne" data-column='5'></div></td>
+                                    <td><div class="standardPieceOne" data-column='6'></div></td>
+                                  </tr></table>
+
+      <table class="gameBoard"></table>
+
+    </div>
+    <p>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+      </a>
+    </p>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+</html>

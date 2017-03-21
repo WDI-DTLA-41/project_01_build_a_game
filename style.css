@@ -1,0 +1,330 @@
+body {
+  background-image:url('portfolioBackground2.gif');
+  background-size:cover;
+}
+
+header {
+  color:orange;
+  text-align:center;
+  font-size:25px;
+}
+
+td {
+  width:10%;
+}
+
+button {
+  width:180px;
+  height:35px;
+  border-radius:15px;
+  background-color: red;
+  display:inline-block;
+}
+
+button:hover {
+  background-color:orange;
+  color:black;
+  border:1px orange solid;
+  cursor:pointer;
+}
+
+button:active {
+  background-color: limegreen;
+  color:red;
+  border:1px limegreen solid;
+  margin:0 auto;
+}
+
+ul {
+  font-size:20px;
+  vertical-align: middle;
+  list-style-type: none;
+  text-align:center;
+  margin:0;
+}
+
+li {
+  width:100%;
+  border:1px purple solid;
+}
+
+ul>li>a {
+  text-decoration: none;
+  line-height:40px;
+  color:orange;
+}
+
+.gameButton {
+  margin-left: 135px;
+  margin-bottom:40px;
+}
+
+.pieceSelector {
+  width:50em;
+  height:100px;
+  border-left:10px;
+  border-left-color:rgba(0,0,0,0);
+  border-left-style:solid;
+  border-right:10px;
+  border-right-color:rgba(0,0,0,0);
+  border-right-style:solid;
+  border-top:0;
+  border-bottom:0;
+  border-collapse: collapse;
+  margin:0 auto;
+}
+
+.standardPieceOne {
+  width:65%;
+  height:65%;
+  background-image:url('portfolioBackground2.gif');
+  background-size:cover;
+  border:1px red solid;
+  border-radius:50%;
+  margin:0 auto;
+}
+
+#pieceTitle {
+  text-align:center;
+  color:orange;
+  position:absolute;
+  margin-left:488px;
+  margin-top:-10px;
+  font-size:24px;
+}
+
+.gameBoard {
+  width: 50em;
+  height:35em;
+  border:10px gold solid;
+  border-collapse: collapse;
+  margin:0 auto;
+}
+
+.gameBoard>tr>td {
+  background:rgba(255,255,0,.2);
+  border:1px gold solid;
+}
+
+.standardPiece {
+  width:65%;
+  height:65%;
+  background-image:url('portfolioBackground2.gif');
+  background-size:cover;
+  border:1px red solid;
+  border-radius:50%;
+  margin:0 auto;
+}
+
+.navBox {
+  float:right;
+  margin-right:202px;
+}
+
+.navBar {
+  min-width:175px;
+  min-height:180px;
+  display:inline-block;
+  position: fixed;
+}
+
+#wholePage {
+  min-height:900px;
+  margin:0 125px 0 125px;
+  border-left:1px limegreen solid;
+  border-right:1px limegreen solid;
+}
+
+#mainGame {
+  margin:0 auto;
+}
+
+#turnBox {
+  float:left;
+  width:160px;
+  display:inline-block;
+  min-height:30px;
+  margin-left:15px;
+  font-size:25px;
+  border:1px purple solid;
+  color:orange;
+  text-align:center;
+  position:fixed;
+}
+
+#playerTurn {
+  text-decoration: underline;
+}
+
+#turnResult {
+  list-style: circle;
+}
+
+#scores {
+  width:160px;
+  max-width:160px;
+  border:1px purple solid;
+  float:left;
+  color:orange;
+  margin-top:100px;
+  margin-left:15px;
+  font-size:25px;
+  text-align:center;
+  position:fixed;
+  display:inline-block;
+}
+
+#scores>.h3 {
+  text-decoration: underline;
+}
+
+#scores>p {
+  text-decoration: underline;
+  line-height: 0;
+  position:absolute;
+}
+
+.player1Score {
+  line-height: 25px;
+  display:inline-block;
+}
+
+.player2Score {
+  line-height: 25px;
+  display:inline-block;
+}
+
+#player1WinTally {
+  display:inline-block;
+  float:left;
+}
+
+#player2WinTally {
+  display:inline-block;
+  float:left;
+}
+
+#player1LossTally {
+  display:inline-block;
+  float:right;
+}
+
+#player2LossTally {
+  display:inline-block;
+  float:right;
+}
+
+#tournamentScores {
+  width:160px;
+  max-width:160px;
+  border:1px purple solid;
+  color:orange;
+  margin-left:15px;
+  margin-top:300px;
+  text-align:center;
+  font-size:24px;
+  position:fixed;
+  display:inline-block;
+}
+
+#tournamentScores>p {
+  text-decoration: underline;
+  line-height: 0;
+  position:absolute;
+}
+
+#tournamentScores>h3 {
+  text-decoration: underline;
+}
+
+#player1TournamentWinTally {
+  display:inline-block;
+  float:left;
+}
+
+#player2TournamentWinTally {
+  display:inline-block;
+  float:left;
+}
+
+#player1TournamentLossTally {
+  display:inline-block;
+  float:right;
+}
+
+#player2TournamentLossTally {
+  display:inline-block;
+  float:right;
+}
+
+#player1 {
+  color:red;
+}
+
+#player2 {
+  color:lightgreen;
+}
+
+#player1Hov:hover {
+  background:red;
+  cursor:pointer;
+}
+
+#player2Hov:hover {
+  background:lightgreen;
+  cursor:pointer;
+  border-color:lightgreen;
+}
+
+div[color='red'] {
+  background:red;
+}
+
+div[color='green'] {
+  background:lightgreen;
+}
+
+#picBox {
+  width:700px;
+  height:600px;
+  display:inline-block;
+  text-align:center;
+  margin-left:18%;
+}
+
+#myPic1 {
+  width:300px;
+  height:400px;
+  background:url("myPic1.jpg");
+  background-size: cover;
+  display: inline-block;
+}
+
+#myPic2  {
+  width:300px;
+  height:400px;
+  background:url("myPic2.jpg");
+  background-size: cover;
+  display: inline-block;
+}
+
+section {
+  font-size:25px;
+  margin-left:215px;
+  margin-right:215px;
+  border:1px orange solid;
+}
+
+section>h4 {
+  text-decoration: underline;
+  text-align:center;
+  color:red;
+}
+
+section>p {
+  text-indent: 50px;
+  color:orange;
+  margin-left:10px;
+  margin-right:10px;
+
+}
