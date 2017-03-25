@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hangman</title>
+  <meta charset="utf-8">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+SC|Bahiana|Cabin+Sketch|Creepster|Freckle+Face|Frijole|IM+Fell+DW+Pica+SC|Julius+Sans+One|Mate+SC|Sigmar+One|UnifrakturMaguntia" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+<body>
+<div class="all">
+<h1>Hangman</h1>
+<button class="start">Start Game</button>
+<input type="text" class="letter" placeholder="Guess a letter">
+<button class="submit">Submit</button>
+<button class="reset">Reset</button>
+<br>
+<div class="pole"><img src="assets/p.png" alt="pole"></div>
+<div class="bodyparts head"><img src="assets/skeleton-head.png" alt="head"></div>
+<div class="bodyparts body"><img src="assets/skeleton-body.png" alt="body"></div>
+<div class="bodyparts leftarm"><img src="assets/skeleton-left-arm.png" alt="left arm"></div>
+<div class="bodyparts rightarm"><img src="assets/skeleton-right-arm.png" alt="right arm"></div>
+<div class="bodyparts leftleg"><img src="assets/skeleton-left-leg.png" alt="left leg"></div>
+<div class="bodyparts rightleg"><img src="assets/skeleton-right-leg.png" alt="right leg"></div>
+<div class="spider animated slideInDown"><img src="assets/spider.jpg" alt="spider"></div>
+<div class="guessed">Guessed:</div>
+<div class="placeholders"></div>
+<div class="guessWord">
+<span class="guessprompt">Think you've got it?</span><br>
+<input type="text" class="word" placeholder="Guess the word">
+<button class="wordGuess">Submit</button>
+</div>
+<div class="lose">
+Sorry, you lose!
+<p>Click RESET to play again</p>
+</div>
+<div class="win">
+You win!
+<p>Click RESET to play again</p>
+</div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

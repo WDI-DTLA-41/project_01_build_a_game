@@ -1,0 +1,166 @@
+.all {
+  position: relative;
+  left: 20%;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+
+
+h1 {
+  display: inline-block;
+  position: relative;
+  font-size: 40px;
+  top: 10px;
+  left: 60px;
+}
+
+button {
+  display: inline-block;
+  position: absolute;
+  left: 260px;
+  top: 50px;
+  font-size: 14px;
+  height: 50px;
+  width: 125px;
+}
+
+button:hover {
+  background: red;
+}
+
+.submit {
+  top: 115px;
+  width: 125px;
+  height: 25px;
+  left: 385px;
+}
+
+.reset {
+  left: 385px;
+  width: 125px;
+}
+
+.letter {
+  position: absolute;
+  top: 115px;
+  left: 260px;
+  width: 120px;
+  height: 19px;
+}
+
+div {
+  position: absolute;
+}
+
+.head {
+  left: 180px;
+  top: 137px;
+  visibility: hidden;
+}
+
+.body {
+  left: 180px;
+  top: 170px;
+  visibility: hidden;
+}
+
+.leftarm {
+  left: 165px;
+  top: 180px;
+  visibility: hidden;
+}
+
+.rightarm {
+  left: 212px;
+  top: 176px;
+  visibility: hidden;
+}
+
+.leftleg {
+  left: 180px;
+  top: 225px;
+  visibility: hidden;
+}
+
+.rightleg {
+  left: 202px;
+  top:225px;
+  visibility: hidden;
+}
+
+.placeholders {
+  font-size: 40px;
+  font-family: sans-serif;
+  left: 260px;
+  top: 270px;
+}
+
+.guessed {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  border: 2px solid white;
+  left: 550px;
+  top: 50px;
+  text-align: center;
+}
+
+.lose {
+  font-size: 30px;
+  color: red;
+  left: 260px;
+  top: 150px;
+  visibility: hidden;
+  text-align: center;
+  padding: 5px;
+}
+
+.win {
+  font-size: 30px;
+  color: green;
+  left: 260px;
+  top: 150px;
+  visibility: hidden;
+  text-align: center;
+  padding: 5px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.spider {
+  left: 700px;
+  top: 0px;
+}
+
+.guessWord {
+  color: white;
+  position: absolute;
+  top: 350px;
+  left: 260px;
+}
+
+.word {
+  height: 19px;
+  width: 120px;
+}
+
+.wordGuess {
+  position: absolute;
+  top: 20px;
+  left: 126px;
+  height: 25px;
+  width: 125px;
+}
+
+.guessprompt {
+  position: absolute;
+  left: 50px;
+  top: -10px;
+  width: 150px;
+}
