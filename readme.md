@@ -23,7 +23,7 @@
 - [ ] Mobile
 - [ ] Player 2
 
-**Getting Started** 
+## Getting Started
 - Press "BET +1" to set your bet total 
 - Press the "SPIN!" button to spin the reels
 - Three matching slots = WIN 
@@ -32,7 +32,7 @@
 - Press "SPIN AGAIN" to reset bet and start another turn
 - Press "NEW GAME" to reset the game & start over
 
-**Next Steps**
+## Next Steps
 - Mobile version/responsive
 - More animations/audio (explosions, etc.)
 - High score system/database
