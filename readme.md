@@ -1,35 +1,26 @@
-# :slot_machine: WDI PROJECT #1 - SLOT MACHINE GAME :slot_machine:
-
-## MVP 
-- When SPIN button is clicked, reels to animate/"spin"
-- Each slot to return a random image
-- Basic game rules: All three match === win 
-
-## Niceties
-- Apply a theme (Star Wars)
-- Betting & Point Tracker
-- Mobile
-- Player 2
-
-## Completed
-- [x] When SPIN button is clicked, reels to animate/"spin"
-- [x] Each slot to return a random image
-- [x] Basic game rules: All three match == win 
-- [x] Apply a theme (Star Wars)
-- [x] Betting & Point Tracker
-- [ ] Mobile
-- [ ] Player 2
-
-## Icebox
-- Waffle io [optional]
+# :slot_machine: WDI PROJECT #01 - SLOT MACHINE GAME :slot_machine:
 
 ## Overview
 
 **SLOT WARS**
-- A Star Wars themed slot machine game
+- A Slot Machine Game From A Galaxy Far, Far Away
 
 **Technologies Used**
 - Built with HTML, CSS, and JavaScript
+
+**MVP**
+- [x] When SPIN button is clicked, reels to animate/"spin"
+- [x] Each slot to return a random image
+- [x] Basic game rules: All three match == win 
+
+**Features**
+- [x] Betting & Point Tracker
+- [x] Apply a theme (Star Wars)
+
+**Icebox**
+- [ ] Waffle.io [optional]
+- [ ] Mobile
+- [ ] Player 2
 
 **Getting Started** 
 - Press "BET +1" to set your bet total 
@@ -43,16 +34,11 @@
 **Next Steps**
 - Mobile Version
 - More animations/audio (explosions, etc.)
-- High score system
-- Add Player 2 Option
+- High score system/database
+- More elaborate scoring system
 
 **A working game, built by An**
 - :octocat: [GitHub: secretagentan](http://github.com/SecretAgentAn)
 
 **Hosted on the internet**
 - [Slot Wars](https://secretagentan.github.io/project_01_build_a_game/)
-
-
-
-
-
