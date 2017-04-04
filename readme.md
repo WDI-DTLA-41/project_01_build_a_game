@@ -12,6 +12,7 @@
 - [x] When SPIN button is clicked, reels to animate/"spin"
 - [x] Each slot to return a random image
 - [x] Basic game rules: All three match == win 
+- [Hosted on the Internet](https://secretagentan.github.io/project_01_build_a_game/)
 
 **Features**
 - [x] Betting & Point Tracker
@@ -32,13 +33,7 @@
 - Press "NEW GAME" to reset the game & start over
 
 **Next Steps**
-- Mobile Version
+- Mobile version/responsive
 - More animations/audio (explosions, etc.)
 - High score system/database
 - More elaborate scoring system
-
-**A working game, built by An**
-- :octocat: [GitHub: secretagentan](http://github.com/SecretAgentAn)
-
-**Hosted on the internet**
-- [Slot Wars](https://secretagentan.github.io/project_01_build_a_game/)
