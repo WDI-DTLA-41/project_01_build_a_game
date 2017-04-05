@@ -1,8 +1,8 @@
 
-var $handA = jQuery('.handA');
-var $handB = jQuery('.handB');
-var $scoreA = jQuery('.scoreA');
-var $scoreB = jQuery('.scoreB');
+var $handA = document.querySelector('.handA');
+var $handB = document.querySelector('.handB');
+var $scoreA = document.querySelector('.scoreA')
+var $scoreB = document.querySelector('.scoreB')
 
 var arena1 = [];
 var arena2 = [];
@@ -36,16 +36,17 @@ var deck = [2, 2, 2, 2, 3, 3, 3, 3, 4 , 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7
 */
 var shuffleandSetup = function(deck) {
   deck = shuffle(deck);
-  while(deckA.length === 0 || deckB.length === 0) {
-    for (var i = 0; i < deck.length; i++) {
-      if ( i % 2 === 0){
-        deckA.push(deck[i]);
-    } else {
-        deckB.push(deck[i]);
-      };
-    } $scoreA.innerHTML = deckA.length;
-      $scoreB.innerHTML = deckB.length;
-  } {once: true} shuffleandSetup.removeEventListener
+  deckA = [];
+  deckB = [];
+  for (var i = 0; i < deck.length; i++) {
+    if ( i % 2 === 0){
+      deckA.push(deck[i]);
+  } else {
+      deckB.push(deck[i]);
+    };
+  } $scoreA.textContent = deckA.length;
+    $scoreB.textContent = deckB.length;
+    {once: true} shuffleandSetup.removeEventListener
 }
 
 /** this function takes a card from each deck and places them on the board
@@ -98,6 +99,15 @@ var compareCards = function() {
   * if statement to return for Jack Daniels if he wins
   * else if statement to repeat if conditions are the same=same
 */
+function reWarSetup () {
+  for (var i=0; i=4; i++) {
+    var card1 = deckA.pop()
+    var card2 = deckB.pop()
+    wararenaA.push(card1)
+    wararenaB.push(card2)
+  }
+}
+
 function war(wararenaA, wararenaB) {
     var wararenaA = [];
     var wararenaB = [];
@@ -112,6 +122,30 @@ function war(wararenaA, wararenaB) {
     while (wararenaA.length === 0 || wararenaB.length === 0) {
       wararenaA = deckA.splice(0, 4);
       wararenaB = deckB.splice(0, 4);
+      if (wararenaA[4] > wararenaB[4]) {
+        deckA = deckA.concat(wararenaA, wararenaB)
+      }
+      else if (wararenaA[4] < wararenaB[4]) {
+        deckB = deckB.concat(wararenaA, wararenaB)
+      }
+      else if (wararenaA[4] === wararenaB[4]) {
+        reWarSetup()
+        }
+        if (wararenaA[wararenaA.length+3] > wararenaB[wararenaB.length+3] ) {
+          deckA = deckA.concat(wararenaA, wararenaB)
+        }
+        else if (wararenaA[wararenaA.length+3] < wararenaB[wararenaB.length+3]) {
+          deckB = deckB.concat(wararenaA, wararenaB)
+        }
+        else if (wararenaA[wararenaA.length+3] == wararenaB[wararenaB.length+3]) {
+          for (var i=0; i=4; i++) {
+          var card1 = deckA.pop()
+          var card2 = deckB.pop()
+          wararenaA.push(card1)
+          wararenaB.push(card2)
+          war()
+        }
+      }
     }
     if (wararenaA[3] > wararenaB[3]) {
       deckA = deckA.concat(wararenaA, wararenaB, wararenaC, wararenaD);
