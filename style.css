@@ -8,10 +8,10 @@ h1 {
   text-align: center;
 }
 
-img {
+/*img {
   width: 400px;
   height: 400px;
-}
+}*/
 
 span {
   font-size: 20pt;
@@ -27,11 +27,11 @@ span {
 
 .gamePiece {
   float:left;
-  height: 380px;
-  width: 380px;
+  height: 40em;
+  width: 40em;
   position: relative;
   background: black;
-  border-radius: 500px;
+  /*border-radius: 500px;*/
 /*  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);*/
 }

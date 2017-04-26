@@ -28,8 +28,7 @@ var dimIt = function(n){
 };
 
 
-// var lightEmAndDimEm = function(arr){
-  // var i = i || 0;
+
 var lightEmAndDimEm = function(arr, i=0){
   setTimeout(function(){
     if(i===arr.length){
@@ -131,5 +130,3 @@ $restart.addEventListener('click', handleRestart);
 for(var i = 0; i<simonGeneratorIndex.length; i++){
   simonGeneratorIndex[i].addEventListener('click', handleUserSequence);
 }
-
-// $body.addEventListener('keyup', )
