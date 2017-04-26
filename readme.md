@@ -22,4 +22,5 @@
 
 
 *Current Bugs*
-* Let's not go there.
+* Game Piece resizing not working out with browser width
+* Start/Restart button gets covered when game piece enlarges (indicating round win)
