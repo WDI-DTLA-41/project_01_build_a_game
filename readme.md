@@ -31,10 +31,6 @@ Your app must:
 ### Win Condition
 - if player cannot play a card, they have lost
 
-### Icebox/Unsolved
-- War on War repeated
-- Sound Effects
-- Animated
-- Image displayed for values
-- Starting/Game/Result Page transitioning through links
-- Change contenteditable for players without moving elements
+### Reset/Start
+- Pressing start will push 26 random cards to each player
+- Before/During/After .. Pressing Start will remove and deal new sets to each player
