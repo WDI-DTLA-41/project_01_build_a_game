@@ -1,6 +1,8 @@
 
 body {
   background-image: url('https://static1.squarespace.com/static/578bc0fa20099e823fde42d3/5797f4836a4963e7ed20a49e/5797f483be6594e06f6d70c4/1469576326921/table2.jpg?format=1500w');
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
 .buttonHolder {
