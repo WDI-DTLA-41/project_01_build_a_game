@@ -5,30 +5,39 @@
   <link rel='stylesheet' href='style.css'>
   <link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet" type='text/css'>
   <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div class='playerA'>Captain Morgan</div>
-
-<div class='board'>
-  <div class='row-one'>
-    <div class='deckA' data-row='0' data-col='0'></div>
-    <div class='handA' data-row='0' data-col='1'><span class='valueA'></span></div>
-    <div class='deckAamount' data-row='0' data-col='2'><p>Captain Morgan:   <span class='scoreA'>0</span></p><p>Jack Daniels:   <span class ='scoreB'>0</span></p></div>
+<div class="container">
+<div class="row">
+  <div class='playerA'>Captain Morgan</div>
+</div>
+<div class="row">
+  <div class='board'>
+    <div class='row-one'>
+      <div class='deckA' data-row='0' data-col='0'></div>
+      <div class='handA' data-row='0' data-col='1'><span class='valueA'></span></div>
+      <div class='deckAamount' data-row='0' data-col='2'><p>Captain Morgan:   <span class='scoreA'>0</span></p><p>Jack Daniels:   <span class ='scoreB'>0</span></p></div>
+    </div>
+  </div>
+  <div class='buttonHolder'>
+    <button class='start'>Start</button>
+    <!-- <button class='reset'>Reset</button> -->
+    <button class='hit'>Hit</button>
+  </div>
+    <div class='row-two'>
+      <div class='handB' data-row='1' data-col='1'><span class='valueB'></span></div>
+      <div class='deckB' data-row='1' data-col='2'></div>
   </div>
 </div>
-<div class='buttonHolder'>
-  <button class='start'>Start</button>
-  <!-- <button class='reset'>Reset</button> -->
-  <button class='hit'>Hit</button>
-</div>
-  <div class='row-two'>
-    <div class='handB' data-row='1' data-col='1'><span class='valueB'></span></div>
-    <div class='deckB' data-row='1' data-col='2'></div>
+<div class="row">
+  <div class='playerB'>Jack Daniels</div>
 </div>
 
-<div class='playerB'>Jack Daniels</div>
 <script src='main.js'></script>
+</div>  
 </body>
+
 </html>
 
 <!-- Page 1  -->
