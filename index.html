@@ -1,0 +1,61 @@
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Pirate King's War</title>
+  <link rel='stylesheet' href='style.css'>
+  <link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet" type='text/css'>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<div class="row a">
+  <div class='playerA'>Captain Morgan</div>
+</div>
+<div class="row b">
+  <div class='board'>
+    <div class='row-one'>
+      <div class='deckA' data-row='0' data-col='0'></div>
+      <div class='handA' data-row='0' data-col='1'><span class='valueA'></span></div>
+      <div class='deckAamount' data-row='0' data-col='2'><p>Captain Morgan:   <span class='scoreA'>0</span></p><p>Jack Daniels:   <span class ='scoreB'>0</span></p></div>
+    </div>
+  </div>
+  <div class='buttonHolder'>
+    <button class='start'>Start</button>
+    <!-- <button class='reset'>Reset</button> -->
+    <button class='hit'>Hit</button>
+  </div>
+    <div class='row-two'>
+      <div class='handB' data-row='1' data-col='1'><span class='valueB'></span></div>
+      <div class='deckB' data-row='1' data-col='2'></div>
+  </div>
+</div>
+<div class="row c">
+  <p class='playerB'>Jack Daniels</p>
+</div>
+
+<script src='main.js'></script>
+</div>  
+</body>
+
+</html>
+
+<!-- Page 1  -->
+  <!-- Name of the Game -->
+  <!-- Start button -->
+
+<!-- Page 2 -->
+  <!-- Player A: 0(score) && Player B: 0(score) -->
+  <!-- 2 Deck of Cards consisting of 26 -->
+  <!-- Push button to initialize card draw -->
+  <!-- 2 Cards are dealt to each player -->
+  <!-- If statement comparing value of each card and -->
+  <!-- If Player A is greater number raises else Player B -->
+  <!-- Push Button to repeat till all 26 turns are dealt with -->
+  <!-- Push Button at end of deck returns to a new Button -->
+  <!-- New Button displays:none all element and transitions to Page 3 -->
+
+<!-- Page 3 -->
+  <!-- Visual text displays Winner! -->
+  <!-- Under display displays innerHTML filled by Player with -->
+  <!-- score number > 26 -->

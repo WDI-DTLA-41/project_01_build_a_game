@@ -1,0 +1,143 @@
+
+body {
+  background-image: url('https://static1.squarespace.com/static/578bc0fa20099e823fde42d3/5797f4836a4963e7ed20a49e/5797f483be6594e06f6d70c4/1469576326921/table2.jpg?format=1500w');
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+.buttonHolder {
+  text-align: center;
+}
+
+.playerA {
+  float: left;
+  font-size: 30px;
+  color: #BCB696;
+  text-shadow: 2px 2px 8px black;
+  font-size: 60px;
+  font-family: Pirata One;
+
+}
+
+.playerB {
+ float: right;
+ font-size: 30px;
+ color: #C0B989;
+ text-shadow: 2px 2px 8px black;
+ font-size: 60px;
+ /*font-family: Pirata One;*/
+
+}
+
+.handA {
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 210px;
+  margin: 100px 20px 20px 20px;
+  border: 1px solid black;
+  background-color: rgba(187, 182, 149, 0.45);
+  font-size: 60px;
+}
+
+.deckA {
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 100px;
+  margin: 100px 20px 20px 35px;
+  border: 1px solid black;
+  background-color: green;
+  background-image: url('https://s-media-cache-ak0.pinimg.com/564x/75/69/61/7569619b471a336cf8c9767ba3e7bf89.jpg');
+  background-size: 100% 100%;
+}
+
+.handB {
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 210px;
+  margin: 0px 20px 90px 20px;
+  border: 1px solid black;
+  background-color: rgba(187, 182, 149, 0.45);
+  font-size: 60px;
+}
+
+.deckB {
+  display: inline-block;
+  width: 150px;
+  height: 200px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 100px;
+  margin: 0px 20px 90px 30px;
+  border: 1px solid black;
+  background-color: green;
+  background-image: url('https://s-media-cache-ak0.pinimg.com/564x/75/69/61/7569619b471a336cf8c9767ba3e7bf89.jpg');
+  background-size: 100% 100%;
+}
+
+.start {
+  float: left;
+  margin: 0 0 0 140px;
+  background-color: #B6B1A7;
+  border: 2px solid #797672;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px 20px;
+  width: 120px;
+  height: 40px;
+  background-image: url('')
+}
+
+.hit {
+  float: right;
+  margin: 0 140px 0 0;
+  background-color: #B6B1A7;
+  border: 2px solid #797672;
+  font-weight: bold;
+  font-size: 15px;
+  width: 120px;
+  height: 40px;
+  /*color: white;*/
+  padding: 10px 20px;
+  /*text-transform: uppercase;*/
+  /*background-image: url('http://datacouch.pw/wp-content/uploads/2016/07/wood-floor-small-bedroom-ideas-lphelp-dark-wood-floors-background-770x512.jpeg')*/
+  /*background-size: 100% 100%;*/
+}
+
+.deckAamount {
+  display: inline-block;
+  width: 250px;
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 25px;
+  margin: 0px 20px 20px 145px;
+  border: 1px solid black;
+  background-color: rgba(187, 182, 149, 0.75);
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+  /*text-shadow: 2px 2px 8px #4f5336;*/
+}
+
+.row.c {
+  float: right;
+}
+
+.buttonHolder {
+  position: relative;
+  top: 50px;
+}
+
+.container {
+  position: relative;
+  top: 15%;
+}
